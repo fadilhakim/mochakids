@@ -1,6 +1,7 @@
 <?php
-
-	function check_image_sparepart($sparepart_id)
+	
+	
+	/* function check_image_sparepart($sparepart_id)
 	{
 		
 		$CI =& get_instance();
@@ -67,4 +68,4 @@
 		
 		return $full_url_image;
 		
-	}
+	}*/

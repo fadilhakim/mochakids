@@ -85,8 +85,9 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 // DATA BESHA ANALITIKA
-define("TITLE","BESHA ANALITIKA");
-define("BASE_URL","http://localhost/besha");
+define("TITLE","MOCHAKIDS");
+define("BASE_URL","http://localhost/mochakids/");
+define("ASSET_URL",BASE_URL."assets/");
 define("NO_TELP","+62-21-4585-6666");
 define("PHONE","(+62-21) 4585-6666");
 define("FAX","(+62 21) 4585 7600");

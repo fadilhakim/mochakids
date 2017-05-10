@@ -73,10 +73,22 @@
                             </div>
                             </a>
                         </div>
+                        
+                        <div class="col-lg-4">
+                            <a href="<?php echo base_url('bank'); ?>">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h5>
+                                        Bank
+                                    </h5>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
                     
 
                     
-                        <div class="col-lg-4">
+                        <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/news'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
@@ -86,11 +98,11 @@
                                 </div>
                             </div>
                             </a>
-                        </div>
+                        </div>-->
                     
 
                     
-                        <div class="col-lg-4">
+                        <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/client'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
@@ -128,7 +140,7 @@
                                 </div>
                             </div>
                             </a>
-                        </div>
+                        </div> -->
 
                        
                         <?php } ?>
@@ -149,7 +161,7 @@
 
                         <?php } ?>
 
-                        <div class="col-lg-4">
+                        <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/sparepart'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
@@ -159,7 +171,7 @@
                                 </div>
                             </div>
                             </a>
-                        </div>
+                        </div> -->
 
 
 
