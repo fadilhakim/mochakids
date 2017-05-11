@@ -24,7 +24,7 @@
 		
 		function cetak()
 		{
-			echo "cetak";	
+			echo " I cant believe its worrrkk ....";	
 		}
 		
 		function ci_process()
