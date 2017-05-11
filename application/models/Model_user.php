@@ -157,7 +157,16 @@ class model_user extends CI_Model
 	}
 
 	
-
+	
+	function list_user_member()
+	{
+		$str = "SELECT * FROM user_tbl ";
+		$q = $this->db->query($str);
+		$f = $q->result_array();
+		
+		return $f;	
+	}
+	
 	function get_user_detail($user_id)
 
 	{

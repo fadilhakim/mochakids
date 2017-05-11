@@ -55,12 +55,7 @@
                 </div>
             </div>
             <!-- end row -->
-            <footer class="footer">
-                2017 © Mocha Kids | Go To : <a href="<?php echo base_url('home'); ?>" target="_blank" class="text-muted">mochakidshop.com</a>
-            </footer>
+            <?php $this->load->view("admin/footer");?>
         </div> <!-- container -->
     </div> <!-- content -->
-
-
-
 </div>

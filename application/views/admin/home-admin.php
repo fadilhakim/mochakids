@@ -62,7 +62,7 @@
                         </div>
 
                 
-                        <div class="col-lg-4">
+                        <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/event'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             </a>
-                        </div>
+                        </div> -->
                         
                         <div class="col-lg-4">
                             <a href="<?php echo base_url('bank'); ?>">
@@ -147,7 +147,7 @@
 
                         <?php
                             if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==3 ){ ?>
-                         <div class="col-lg-4">
+                         <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/discount'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
                             </a>
-                        </div>
+                        </div> -->
 
                         <?php } ?>
 

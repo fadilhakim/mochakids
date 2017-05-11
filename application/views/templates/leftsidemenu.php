@@ -40,9 +40,9 @@
                  <li class="">
                     <a href="<?php echo base_url('admin/news'); ?>" class="waves-effect"><i class="zmdi zmdi-calendar-check"></i> <span>News</span> </a>
                 </li> -->
-                <li class="has_sub">
+                <!-- <li class="has_sub">
                     <a href="<?php echo base_url('admin/client'); ?>" class="waves-effect"><i class="zmdi zmdi-pin-account"></i> <span>Client</span> </a>
-                </li>
+                </li>-->
                 <!-- <li class="has_sub">
                     <a href="<?php echo base_url('admin/susbscriber'); ?>" class="waves-effect"><i class="zmdi zmdi-pin-account"></i> <span>Subscriber</span> </a>
                 </li>
@@ -66,9 +66,9 @@
                 </li>
                 <?php
                 if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==3 ){ ?>
-                <li class="">
+                <!-- <li class="">
                     <a href="<?php echo base_url('admin/discount'); ?>" class="waves-effect"><i class="fa fa-ticket"></i> <span>Voucher</span> </a>
-                </li>
+                </li>-->
                 <?php } ?>
 
                 <li class="has_sub">

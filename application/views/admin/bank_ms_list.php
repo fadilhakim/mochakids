@@ -1,6 +1,6 @@
 <h4 class="header-title m-t-0 m-b-30">List Bank A</h4>
 
-    <table class="table table-bordered table-striped" id="bank-table">
+    <table class="table table-bordered table-striped" id="datatable-keytable">
           <thead>
               <tr>
                   <th width="80px">No</th>
@@ -41,12 +41,12 @@
               </tbody>
       </table>
 
-<script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
+<!-- <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
 <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		alert(" test ");
 		$("#bank-table").dataTable();
 	});
-</script>
+</script>-->
     
