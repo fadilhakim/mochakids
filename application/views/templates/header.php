@@ -40,18 +40,31 @@
     <header class="header-row">
       <div class="container">
         <div class="table-container">
+          <div class="col-table-cell col-lg-12 col-md-12 col-sm-12 col-xs-12 inner">
+             <div id="logo"><a href="<?php echo base_url('home'); ?>">
+             <img class="img-responsive center-block" src="<?php echo base_url('assets/image/logo_mocha.png') ?>" title="Mocha Kids Logo" alt="Mocha Kids Logo" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
           <!-- Logo Start -->
-          <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-            <div id="logo"><a href="<?php echo base_url('home'); ?>"><img class="img-responsive" src="<?php echo base_url('assets/image/logo_mocha.png') ?>" title="Mocha Kids Logo" alt="Mocha Kids Logo" /></a></div>
+          
+          <div class="col-table-cell col-lg-4 col-md-6 col-sm-12 col-xs-12 inner">
+              <div id="search" class="input-group" style="margin-top: 2px;">
+                <form class="" action="<?php echo base_url('product/search'); ?>"  method="post">
+                  <input id="filter_name" type="text" name="keyword" value="" placeholder="Search for product" class="form-control input-lg" />
+                  <button type="submit" class="button-search" ><i class="fa fa-search"></i></button>
+                </form>
+              </div>
           </div>
           <!-- Logo End -->
           <!-- Mini Cart Start-->
-          <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="col-table-cell col-lg-4 col-md-3 col-sm-6 col-xs-12">
             
           </div>
           <!-- Mini Cart End-->
           <!-- Search Start-->
-          <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner light">
+          <div class="col-table-cell col-lg-4 col-md-3 col-sm-6 col-xs-12 inner light">
             <div class="right-wrapper">
                 <div class="cart"><!--Start Cart-->
                   <a href="#">
@@ -198,12 +211,6 @@
             </li>
             <li class="contact-link"><a href="<?php echo base_url('contact'); ?>">Contact Us</a></li>
             <li class="custom-link-right">
-              <div id="search" class="input-group" style="margin-top: 2px;">
-              <form class="" action="<?php echo base_url('product/search'); ?>"  method="post">
-                <input id="filter_name" type="text" name="keyword" value="" placeholder="Search for product" class="form-control input-lg" />
-                <button type="submit" class="button-search" ><i class="fa fa-search"></i></button>
-              </form>
-              </div>
             </li>
           </ul>
         </div>

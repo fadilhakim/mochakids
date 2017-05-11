@@ -1,3 +1,34 @@
+<div class="container hubungi">
+      <div class="row">
+          <div class="col-lg-6">
+            <h3 class="code-f" style="text-align: right">Hubungi Kami :</h3>
+          </div>
+          <div class="col-lg-6">
+            <div class="phone">
+              <a title="No. Phone :" data-toggle="popover" data-content="0813 8008 8927" data-placement="bottom" >
+                <img width="80%" style="float:left" src="<?php echo base_url('assets/image/phone-icon-clip-art--royalty--7.png'); ?>" class="img-responsive">
+              </a>
+            </div>
+
+            <div class="phone">
+              <a title="Whatsapp :" data-toggle="popover"  data-content="0813 8008 8927" data-placement="bottom">
+              <img width="80%" style="float:left" src="<?php echo base_url('assets/image/whatsapp-black-logo-icon--24.png'); ?>" class="img-responsive">
+              </a>
+            </div>
+
+            <div class="phone">
+              <a title="PIN BBM :" data-toggle="popover" data-content="5d4tsd" data-placement="bottom">
+                <img width="80%" style="float:left" src="<?php echo base_url('assets/image/bbm-icon-24.png'); ?>" class="img-responsive">
+              </a>
+            </div>
+          </div>
+          <script>
+          $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();
+          });
+          </script>
+      </div>
+</div>
 <footer id="footer">
     <div class="fpart-first" style="background:#222222; color:#fff;">
       <div class="container">
@@ -83,7 +114,7 @@
       </div>
     </div>
     <div id="back-top"><a data-toggle="tooltip" title="Back to Top" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
-  </footer>
+</footer>
   <!--Footer End-->
 </div>
 <!-- JS Part Start-->

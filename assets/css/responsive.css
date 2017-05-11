@@ -8,12 +8,16 @@
 
 @media (max-width: 1199px) {
 /**===== Layout =====**/
+
 .main-wrapper {
 padding:0 20px;
 }
 #column-right .side-item .product-thumb .caption, #column-left .side-item .product-thumb .caption {
 width:152px;
 }
+
+	
+
 }
  @media only screen and (min-width:992px) {
 /**===== footer =====**/

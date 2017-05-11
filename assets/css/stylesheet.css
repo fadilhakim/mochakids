@@ -164,7 +164,7 @@ a:focus { outline:none; }
 	padding:50px 0px 10px 0;
 }
 #header .header-row .inner { padding:0; }
-#header #logo img { display:inline-block!important; }
+#header #logo img { display:block; }
 #header ul, #header ol {
 	list-style:none;
 	padding:0;

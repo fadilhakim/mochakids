@@ -10,7 +10,7 @@
 
 <!-- meta tag for seo -->
 <meta name="robots" content="index , follow">
-<meta name="description" content="Besha Analitika Website">
+<meta name="description" content="Mocha kids Website">
 <meta name="keywords" content="" />
 <meta name="language" content="Indonesia">
 
@@ -24,6 +24,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/owl.transitions.css'); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/responsive.css'); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom.css'); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/stylesheets/all.css'); ?>" />
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-2.1.1.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap/js/bootstrap.min.js'); ?>"></script>
 </head>

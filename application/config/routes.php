@@ -77,41 +77,16 @@ $route['404_override'] = 'home/besha404';
 $route['translate_uri_dashes'] = FALSE;
 
 
-//sparepart side
-$route['sparepart'] = 'sparepart';
-$route['sparepart/contact'] = 'sparepart/contact';
-$route['sparepart/contact_post'] = 'sparepart/contact_post';
 
-$route['sparepart/signup'] = 'sparepart/signup';
-$route['sparepart/login'] = 'sparepart/login';
-$route['login-action'] = 'sparepart/login_action';
-$route['login-action-2'] = 'sparepart/login_action_2';
-$route['verify'] = 'sparepart/verify';
-$route['success'] = 'sparepart/success';
 
-$route['spareparts/detail/(:any)/(:num)'] = 'sparepart/detail/$1/$2';
+// cart
+// $route['cart/add_cart_item'] = 'cart/add_cart_item';
+// $route['cart/remove_item/(:any)'] = 'cart/removeCartItem/$1';
+// $route['cart/empty'] = 'cart/empty_cart';
+// $route['cart/update_cart'] = 'cart/update_cart';
 
-//Sparepart All Manufacturer & Category
-$route['spareparts/all/(:num)'] = 'sparepart/list_view';
-$route['sparepart/all/(:num)'] = 'sparepart/grid_view';
-//Sparepart By Manufacturer
-$route['spareparts/manufacturer/(:num)'] = 'sparepart/list_view_manufacturer/$1';
-$route['sparepart/manufacturer/(:num)'] = 'sparepart/list_grid_manufacturer/$1';
-//Sparepart By Manufacturer Pagination
-$route['spareparts/manufacturer/(:num)/(:num)'] = 'sparepart/list_view_manufacturer/$1/$2';
-$route['sparepart/manufacturer/(:num)/(:num)'] = 'sparepart/list_grid_manufacturer/$1/$2';
-//Sparepart By Search
-$route['sparepart/search/(:any)']= 'sparepart/search/$1';
-$route['sparepart/search_grid/(:any)']= 'sparepart/search_grid/$1';
-//Sparepart By Subcategory (like PUMP)
-$route['spareparts/category/(:num)/(:any)/(:num)'] = 'sparepart/list_view/$1/$2';
-$route['sparepart/category/(:num)/(:any)/(:num)'] = 'sparepart/grid_view/$1/$2';
-
-//Sparepart Cart
-$route['cart/add_cart_item'] = 'cart/add_cart_item';
-$route['cart/remove_item/(:any)'] = 'cart/removeCartItem/$1';
-$route['cart/empty'] = 'cart/empty_cart';
-$route['cart/update_cart'] = 'cart/update_cart';
+// payment user confirmation
+$route['payment/confirmation/page/(:any)'] = 'payment/page/$1';
 
 
 //admin route
