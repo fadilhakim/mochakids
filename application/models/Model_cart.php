@@ -16,17 +16,14 @@ class model_cart extends CI_Model {
     function validate_add_cart_item(){
  
 	    $id = $this->input->post('product_id'); // Assign posted product_id to $id
-	    $cty = $this->input->post('quantity');
-     	$image = $this->input->post('product_image_1');
-     	$title = $this->input->post('product_title');
-     	$code = $this->input->post('product_code');
+		
 	    $this->db->from('product_tbl');
 	    $this->db->where('product_id = '.$id.''); // Select where id matches the posted id
 	    $this->db->limit(1);
 		$query = $this->db->get(); // Select the products where a match is found and limit
 
 		// Check if a row has matched our product id
-		return $query->result();
+		return $query->row_array();
 	     
 	}
 

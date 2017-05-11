@@ -12,52 +12,46 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
   	}
 
 	function add_cart_item(){
-
-	    $getrow['getcart'] = $this->model_cart->validate_add_cart_item();
-
-	    if(count($getrow['getcart']) > 0){
+		
+		//print_r($_POST); exit;
+		
+	    $validate_cart = $this->model_cart->validate_add_cart_item();
+		
+	    if(!empty($validate_cart)){
 
 	     	$id = $this->input->post('product_id');
-			
 	     	$cty = $this->input->post('quantity');
-
 	     	$image = $this->input->post('product_image_1');
-
 	     	$title = $this->input->post('product_title');
-			
 	     	$code = $this->input->post('product_code');
 			
 	     	// $id_ajak = $this->input->post('ajax');
+			// Create an array with product information
 
-	    	foreach ($getrow['getcart'] as $row)
-	        {
+			$data = array(
 
-	            // Create an array with product information
-
-	            $data = array(
-
-			        'id'      => $id,
-			        'qty'     => $cty,
-			        'name'    => $title,
-			        'image'   => $image,
-			        'code' => $code,
-
-			        /*'options' => array('image' => $image , 'code' => $product_code , 'manu' => $manu)*/
-				);
+				'id'      => $id,
+				'qty'     => $cty,
+				'name'    => $title,
+				'price'   => $validate_cart["price"],
+				'image'	  => $image,
+				'code'	  => $code
+				/*'options' => array('image' => $image , 'code' => $product_code , 'manu' => $manu)*/
+			);
 
 
-	            // Add the data to the cart using the insert function that is available because we loaded the cart library
+			// Add the data to the cart using the insert function that is available because we loaded the cart library
 
-	            // echo $id;
-	            // echo $cty ;
-	            // echo $title ;
-	            // echo $image;
-	            // die();
-	            $this->cart->insert($data);
-	            redirect($this->agent->referrer());
-
-	        }
-
+			// echo $id;
+			// echo $cty ;
+			// echo $title ;
+			// echo $image;
+			// die();
+			$this->cart->insert($data);
+			
+			print_r($this->cart->contents()); 
+			redirect($this->agent->referrer());
+			
 	        /* $i = 1;
 	         foreach($this->cart->contents() as $items);
 	        echo  $items['product_name'];
