@@ -34,6 +34,86 @@ a:hover {
     left: -55px !important;
 }
 
+.product-info .row{
+	padding:17px 0px;
+}
+.product-info .qty_wrap{
+	padding-left:30px;
+	position:relative;
+}
+.qty_wrap .input-group {
+  width: 86px;
+}
+.product-info .qty_wrap .btn{
+	border-radius:0px;
+}
+.product-info .qty_wrap label {
+    bottom: 0;
+    left: 0;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+}
+.cart-btn {
+    margin-left: 10px !important;
+    margin-right: -10px !important;
+    text-align: center;
+}
+.product-info .actions {
+    font-size: 0;
+    white-space: nowrap;
+}
+.product-info .actions li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+.product-info .actions .fa {
+    height: 32px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+    width: 32px;
+	font-size:14px;
+	padding: 9px 10px;
+	border:solid 1px;
+}
+.product-info .cart-btn .btn{
+	border-radius:0px;
+}
+.product-info .social-links{
+	padding:15px 0px;
+	border-top:solid 1px;
+	border-bottom:solid 1px;
+}
+
+.spinc.form-control {
+    min-width: 35px;
+}
+.main-contant .tab-panel {
+  	border: 1px solid;
+  	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  	padding: 15px;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.product-info {
+	input[type=number] {
+	border: 1px solid #dddddd;
+	  border-radius: 0;
+	  box-shadow: none;
+	  font-size: 13px;
+	  line-height: 20px;
+	  padding: 5px 7px;
+
+ 	}
+}
+
 @media (max-width: 1199px) { 
 
 	.hubungi { 

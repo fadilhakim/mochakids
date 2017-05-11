@@ -79,11 +79,12 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 
-// cart
-// $route['cart/add_cart_item'] = 'cart/add_cart_item';
-// $route['cart/remove_item/(:any)'] = 'cart/removeCartItem/$1';
-// $route['cart/empty'] = 'cart/empty_cart';
-// $route['cart/update_cart'] = 'cart/update_cart';
+//cart
+$route['cart/showt_cart'] = 'cart/show_cart';
+$route['cart/add_cart_item'] = 'cart/add_cart_item';
+$route['cart/remove_item/(:any)'] = 'cart/removeCartItem/$1';
+$route['cart/empty'] = 'cart/empty_cart';
+$route['cart/update_cart'] = 'cart/update_cart';
 
 // payment user confirmation
 $route['payment/confirmation/page/(:any)'] = 'payment/page/$1';

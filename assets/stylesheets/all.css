@@ -9581,8 +9581,115 @@ a:hover {
   left: -55px !important;
 }
 
+/* line 37, ../sass/all.scss */
+.product-info .row {
+  padding: 17px 0px;
+}
+
+/* line 40, ../sass/all.scss */
+.product-info .qty_wrap {
+  padding-left: 30px;
+  position: relative;
+}
+
+/* line 44, ../sass/all.scss */
+.qty_wrap .input-group {
+  width: 86px;
+}
+
+/* line 47, ../sass/all.scss */
+.product-info .qty_wrap .btn {
+  border-radius: 0px;
+}
+
+/* line 50, ../sass/all.scss */
+.product-info .qty_wrap label {
+  bottom: 0;
+  left: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+}
+
+/* line 57, ../sass/all.scss */
+.cart-btn {
+  margin-left: 10px !important;
+  margin-right: -10px !important;
+  text-align: center;
+}
+
+/* line 62, ../sass/all.scss */
+.product-info .actions {
+  font-size: 0;
+  white-space: nowrap;
+}
+
+/* line 66, ../sass/all.scss */
+.product-info .actions li {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+
+/* line 70, ../sass/all.scss */
+.product-info .actions .fa {
+  height: 32px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: center;
+  width: 32px;
+  font-size: 14px;
+  padding: 9px 10px;
+  border: solid 1px;
+}
+
+/* line 80, ../sass/all.scss */
+.product-info .cart-btn .btn {
+  border-radius: 0px;
+}
+
+/* line 83, ../sass/all.scss */
+.product-info .social-links {
+  padding: 15px 0px;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+}
+
+/* line 89, ../sass/all.scss */
+.spinc.form-control {
+  min-width: 35px;
+}
+
+/* line 92, ../sass/all.scss */
+.main-contant .tab-panel {
+  border: 1px solid;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 15px;
+}
+
+/* line 97, ../sass/all.scss */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* line 100, ../sass/all.scss */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* line 106, ../sass/all.scss */
+.product-info input[type=number] {
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 5px 7px;
+}
+
 @media (max-width: 1199px) {
-  /* line 41, ../sass/all.scss */
+  /* line 121, ../sass/all.scss */
   .hubungi h3 {
     text-align: left !important;
   }

@@ -2,6 +2,7 @@
 foreach($product_cat->result() as $row){
   
   $product_title=$row->product_title;
+  $product_id=$row->product_id;
   $product_descrption=$row->product_descrption;
   $product_specification=$row->product_specification;
 
@@ -79,7 +80,20 @@ foreach ($manufacturer as $manu) {
                   <li><b>Availability:</b> <span class="instock"><?php echo $product_availability; ?></span></li>
                 </ul>
                 <ul class="price-box">
-                  <input type="submit" value="add to cart" class="btn btn-primary" name="">
+                   <?php echo form_open('cart/add_cart_item'); ?>
+                    <div class="col-sm-4 xs-spacer20">
+                        <div class="qty_wrap">
+                            <label for="prod_qty">Qty:</label><input type="number" min="1" name="quantity" id="prod_qty" class="spinc" value="1" />
+                        </div>
+                    </div>
+                    <div class="cart-btn col-sm-4 col-xs-6">
+                            <input type="hidden" name="product_id" value="<?php echo $row->product_id ?>">
+                            <input type="hidden" name="product_code" value="<?php echo $row->product_code ?>">
+                            <input type="hidden" name="product_title" value="<?php echo $row->product_title ?>">
+                            <input type="hidden" name="product_image_1" value="<?php echo $row->product_image_1 ?>">
+                            <input type="submit" class="btn" value="Add to Cart">
+                        <?php echo form_close(); ?>
+                    </div>
                 </ul>
                 <hr>
                 <!-- AddThis Button BEGIN -->

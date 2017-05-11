@@ -9,22 +9,19 @@ class model_cart extends CI_Model {
 
     // Function to retrieve an array with all product information
     function retrieve_products(){
-        $query = $this->db->get('sparepart_tbl'); // Select the table products
+        $query = $this->db->get('product_tbl'); // Select the table products
         return $query->result_array(); // Return the results in a array.
     }
 
     function validate_add_cart_item(){
  
-	    $id = $this->input->post('sparepart_id'); // Assign posted product_id to $id
-	    $cty = $this->input->post('quantity'); // Assign posted quantity to $cty
-     	$price = $this->input->post('sparepart_price');
-     	$cty = $this->input->post('quantity');
-     	$image = $this->input->post('sparepart_image');
-     	$name = $this->input->post('sparepart_name');
-     	$manu = $this->input->post('sparepart_manufacturer');
-	    $this->db->select('*');
-	    $this->db->from('sparepart_tbl');
-	    $this->db->where('sparepart_id = '.$id.''); // Select where id matches the posted id
+	    $id = $this->input->post('product_id'); // Assign posted product_id to $id
+	    $cty = $this->input->post('quantity');
+     	$image = $this->input->post('product_image_1');
+     	$title = $this->input->post('product_title');
+     	$code = $this->input->post('product_code');
+	    $this->db->from('product_tbl');
+	    $this->db->where('product_id = '.$id.''); // Select where id matches the posted id
 	    $this->db->limit(1);
 		$query = $this->db->get(); // Select the products where a match is found and limit
 

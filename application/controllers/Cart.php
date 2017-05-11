@@ -13,25 +13,21 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 	function add_cart_item(){
 
-	   $getrow['getcart'] = $this->model_cart->validate_add_cart_item();
-	   
+	    $getrow['getcart'] = $this->model_cart->validate_add_cart_item();
+
 	    if(count($getrow['getcart']) > 0){
 
-	     	$id = $this->input->post('sparepart_id');
-
-	     	$price = $this->input->post('sparepart_price');
+	     	$id = $this->input->post('product_id');
 			
 	     	$cty = $this->input->post('quantity');
 
-	     	$image = $this->input->post('sparepart_image');
+	     	$image = $this->input->post('product_image_1');
 
-	     	$name = $this->input->post('sparepart_name');
+	     	$title = $this->input->post('product_title');
 			
-	     	$manu = $this->input->post('sparepart_manufacturer');
+	     	$code = $this->input->post('product_code');
 			
-	     	$code = $this->input->post('sparepart_code');
-			
-	     	$id_ajak = $this->input->post('ajax');
+	     	// $id_ajak = $this->input->post('ajax');
 
 	    	foreach ($getrow['getcart'] as $row)
 	        {
@@ -42,34 +38,34 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 			        'id'      => $id,
 			        'qty'     => $cty,
-			        'price'   => $price,
-			        'name'    => $name,
+			        'name'    => $title,
 			        'image'   => $image,
 			        'code' => $code,
-			        'manu' => $manu
 
-			        /*'options' => array('image' => $image , 'code' => $sparepart_code , 'manu' => $manu)*/
-			);
+			        /*'options' => array('image' => $image , 'code' => $product_code , 'manu' => $manu)*/
+				);
 
 
 	            // Add the data to the cart using the insert function that is available because we loaded the cart library
 
-
+	            // echo $id;
+	            // echo $cty ;
+	            // echo $title ;
+	            // echo $image;
+	            // die();
 	            $this->cart->insert($data);
-
 	            redirect($this->agent->referrer());
 
 	        }
 
 	        /* $i = 1;
 	         foreach($this->cart->contents() as $items);
-	        echo  $items['sparepart_name'];
+	        echo  $items['product_name'];
 	        die();*/
 
 	    } else{
 
 	        // Nothing found! Return FALSE! 
-
 	        return FALSE;
 
 	    }
@@ -79,15 +75,10 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	function show_cart(){
 
 
-		$this->load->model('model_sparepart');
-
-		$this->load->view('templates/meta_sparepart');
-
-		$this->load->view('templates/header_sparepart');
-
-    	$this->load->view('sparepart/v_cart');
-
-    	$this->load->view('templates/footer_sparepart');
+		$this->load->view('templates/meta');
+		$this->load->view('templates/header');
+    	$this->load->view('v_cart');
+    	$this->load->view('templates/footer-2');
 
 	}
 
@@ -153,7 +144,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
     	$this->cart->destroy(); // Destroy all cart data
 
-    	redirect('spareparts/all'); // Refresh te page
+    	redirect('products/all'); // Refresh te page
 
 	}
 
@@ -170,7 +161,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 		$this->load->model("model_user");
 
-		$this->load->model("model_sparepart");
+		$this->load->model("model_product");
 
 		$this->load->library("M_Pdf");
 
@@ -227,7 +218,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 		$this->load->model("model_user");
 
-		$this->load->model("model_sparepart");
+		$this->load->model("model_product");
 
 		$user_session = $this->session->all_userdata();
 
@@ -335,7 +326,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$this->email->send();
 
 			//echo $this->email->print_debugger();
-			redirect("sparepart/invoice_success_page");
+			redirect("product/invoice_success_page");
 			//redirect("cart/show_cart");
 
 		}
