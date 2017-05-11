@@ -22,6 +22,11 @@
 			
 		}
 		
+		function cetak()
+		{
+			echo "cetak";	
+		}
+		
 		function ci_process()
 		{
 			error_reporting(E_ALL);
