@@ -86,12 +86,12 @@ foreach ($manufacturer as $manu) {
                             <label for="prod_qty">Qty:</label><input type="number" min="1" name="quantity" id="prod_qty" class="spinc" value="1" />
                         </div>
                     </div>
-                    <div class="cart-btn col-sm-4 col-xs-6">
+                    <div class="cart-btn col-sm-6 col-xs-6">
                             <input type="hidden" name="product_id" value="<?php echo $row->product_id ?>">
                             <input type="hidden" name="product_code" value="<?php echo $row->product_code ?>">
                             <input type="hidden" name="product_title" value="<?php echo $row->product_title ?>">
                             <input type="hidden" name="product_image_1" value="<?php echo $row->product_image_1 ?>">
-                            <input type="submit" class="btn" value="Add to Cart">
+                            <input style="border-color: #e4e4e4;color: #fff; background-color: #d33d3d;" type="submit" class="btn" value="BELI SEKARANG">
                         <?php echo form_close(); ?>
                     </div>
                 </ul>
