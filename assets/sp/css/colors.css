@@ -77,7 +77,7 @@ body.light{
 	background:#ffffff;
 }
 .light .cart > a > i {
-	color:#FE8301;;
+	color:#000;
 }
 .light .navigation {
   	border-bottom:#eee;
@@ -143,7 +143,7 @@ body.light{
 	color:#333333;
 }
 .light .right-wrapper .cart a span{
-	background-color:#FE8301;;
+	background-color:#000;;
 	color:#fff;
 }
 .light .search .search-form input{

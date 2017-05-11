@@ -9,7 +9,7 @@
           <div class="pull-left flip left-top">
             <div class="links">
               <ul>
-                <li class="mobile"><a href="tel:+62-21-4585-6666"><i class="fa fa-phone"></i>Customer Support : +62 813 8008 8927</a></li>
+                <li class="mobile"><a href="tel:+62-21-4585-6666"><i class="fa fa-phone"></i>Customer Support !! : +62 813 8008 8927</a></li>
                 <li class="email"><a href="mailto:info@besha-analitika.co.id"><i class="fa fa-envelope"></i>info@mochakidshop.com</a></li>
               </ul>
             </div>
@@ -46,10 +46,10 @@
             </div>
           </div>
         </div>
-        <div class="table-container">
+        <div class="table-container" style="margin-top: 25px;">
           <!-- Logo Start -->
           
-          <div class="col-table-cell col-lg-4 col-md-6 col-sm-12 col-xs-12 inner">
+          <div class="col-table-cell col-lg-3 col-md-6 col-sm-12 col-xs-12 inner">
               <div id="search" class="input-group" style="margin-top: 2px;">
                 <form class="" action="<?php echo base_url('product/search'); ?>"  method="post">
                   <input id="filter_name" type="text" name="keyword" value="" placeholder="Search for product" class="form-control input-lg" />
@@ -59,7 +59,7 @@
           </div>
           <!-- Logo End -->
           <!-- Mini Cart Start-->
-          <div class="col-table-cell col-lg-4 col-md-3 col-sm-6 col-xs-12">
+          <div class="col-table-cell col-lg-7 col-md-3 col-sm-6 col-xs-12">
             
           </div>
           <!-- Mini Cart End-->
