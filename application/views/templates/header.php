@@ -9,7 +9,7 @@
           <div class="pull-left flip left-top">
             <div class="links">
               <ul>
-                <li class="mobile"><a href="tel:+62-21-4585-6666"><i class="fa fa-phone"></i>Customer Support !! : +62 813 8008 8927</a></li>
+                <li class="mobile"><a href="tel:+62-21-4585-6666"><i class="fa fa-phone"></i>Customer Support: +62 813 8008 8927</a></li>
                 <li class="email"><a href="mailto:info@besha-analitika.co.id"><i class="fa fa-envelope"></i>info@mochakidshop.com</a></li>
               </ul>
             </div>
