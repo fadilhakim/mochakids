@@ -85,7 +85,6 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	    // Retrieve the posted information
 
 	    $item = $this->input->post('rowid');
-
 	    $qty = $this->input->post('qty');
 
 	 	/*echo $qty;
