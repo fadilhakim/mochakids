@@ -39,9 +39,9 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="col-sm-5 control-label">Product Manufacturer</label>
+                                                <label class="col-sm-5 control-label">Brand</label>
                                                 <div class="col-sm-7">
-                                                    <select required class="form-control" name="manu_id">
+                                                    <select required class="form-control" name="brand">
                                                         <option value="">---</option>
                                                         <?php foreach ($manu as $m) { ?>
                                                             <option value="<?php echo $m->manu_id; ?>"><?php echo $m->manu_title; ?></option>
@@ -69,25 +69,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label class="col-sm-5 control-label">Product Availability</label>
-                                                <div class="col-sm-7">
-                                                     <?php
-                                                    $cek_rol = $this->session->userdata('role_id');
-                                                    if($cek_rol == 3 ){ ?>
-                                                      <input class="form-control" value="-" name="product_availability" readonly="" style="background-color: #ccc !important;" placeholder="Product Stock">
-                                                    <?php } else {?>
-                                                          <select class="form-control" name="product_availability" required>
-                                                            <option value="">---</option>
-                                                            <?php foreach ($stock as $st) { ?>
-                                                                <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
-                                                            <?php } ?>
-                                                    </select>
-                                                           
-                                                    <?php } ?>
-                                                   
-                                                </div>
-                                            </div>
+                                            
 
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Featured Product</label>
@@ -137,6 +119,76 @@
                                         </div>
                                         <hr>
                                     </div>
+                                    <hr>
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                    	<div class="form-group">
+                                        	<label class="control-label col-sm-5">1 Pack pieces </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="pack_item" id="pack_item" class="form-control ">
+                                            </div>
+                                         	
+                                        </div>
+                                        <div class="form-group">
+                                        	<label class="control-label col-sm-5">Deposit </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="deposit" id="deposit" class="form-control ">
+                                            </div>
+                                         	
+                                        </div>
+                                        <div class="form-group">
+                                        	<label class="control-label col-sm-5">ETA </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="eta" id="eta" class="form-control ">
+                                            </div>
+                                         	
+                                        </div>
+                                        <div class="form-group">
+                                        	<label class="control-label col-sm-5">Size </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="size" id="size" class="form-control ">
+                                            </div>
+                                         	
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                      	<div class="form-group">
+                                        	<label class="control-label col-sm-5">Style Code </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="style_code" id="style_code" class="form-control ">
+                                            </div>
+                                         	
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-5 control-label">Product Availability</label>
+                                                <div class="col-sm-7">
+                                                     <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+                                                    if($cek_rol == 3 ){ ?>
+                                                      <input class="form-control" value="-" name="product_availability" readonly style="background-color: #ccc !important;" placeholder="Product Stock">
+                                                    <?php } else {?>
+                                                          <select class="form-control" name="product_availability" required>
+                                                            <option value="">---</option>
+                                                            <?php foreach ($stock as $st) { ?>
+                                                                <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
+                                                            <?php } ?>
+                                                    </select>
+                                                           
+                                                    <?php } ?>
+                                                   
+                                                </div>
+                                            </div>
+                                        <div class="form-group">
+                                        	<label class="control-label col-sm-5">Price </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="price" id="price" class="form-control ">
+                                            </div>
+                                         	
+                                        </div>
+                                      
+                                      </div>
+                                    </div>
+                                    <hr>
                                     <div class="row">
                                         <div class="col-lg-12">
                                         

@@ -316,16 +316,25 @@ class update extends CI_Controller {
 
 	function update_product() {
 
-		$product_id 			= $this->input->post('product_id');
-		$product_title 			= $this->input->post('product_title');
-		$product_brand 			= $this->input->post('manu_id');
-		$product_category 		= $this->input->post('product_category');
-		$product_code 			= $this->input->post('product_code');
-		$product_availability 	= $this->input->post('product_availability');
-		$featured_product 		= $this->input->post('featured');
-		$product_spec 			= $this->input->post('product_specification');
-		$product_text 			= $this->input->post('product_text');
-		$product_description 	= $this->input->post('product_desc');
+		$product_id 			= $this->input->post('product_id',true);
+		$product_title 			= $this->input->post('product_title',true);
+		$product_brand 			= $this->input->post('manu_id',true);
+		$product_category 		= $this->input->post('product_category',true);
+		$product_code 			= $this->input->post('product_code',true);
+		$product_availability 	= $this->input->post('product_availability',true);
+		$featured_product 		= $this->input->post('featured',true);
+		
+		$pack_item 				= $this->input->post("pack_item",TRUE);
+		$deposit   				= $this->input->post("deposit",TRUE);
+		$eta	   				= $this->input->post("eta",TRUE);
+		$size	   				= $this->input->post("size",TRUE); 
+		
+		$style_code 			= $this->input->post("style_code",TRUE);
+		$price	   				= $this->input->post("price",TRUE);
+		
+		$product_spec 			= $this->input->post('product_specification',true);
+		$product_text 			= $this->input->post('product_text',true);
+		$product_description 	= $this->input->post('product_desc',true);
 		$product_category_url 	= url_title($product_category);
 		$product_slug 			= url_title($product_title);
 
@@ -400,6 +409,14 @@ class update extends CI_Controller {
 			'product_code' => $product_code,
 			'product_availability' => $product_availability,
 			'featured' => $featured_product,
+			
+			"pack_item"=>$pack_item,
+			"deposit" => $deposit,
+			"ETA"=>$eta,
+			"size"=>$size,
+			
+			"style_code"=>$style_code,
+			"price"=>$price,
 
 			'product_specification' => 	$product_spec,
 			'product_text_preview' => $product_text,

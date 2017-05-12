@@ -14,6 +14,13 @@
       $product_availability=$row->product_availability;
       $product_category=$row->product_category;
       $featured=$row->featured;
+	  
+	  $pack_item = $row->pack_item;
+	  $deposit = $row->deposit;
+	  $eta = $row->ETA;
+	  $size = $row->size;
+	  $style_code = $row->style_code;
+	  $price = $row->price;
 
       $product_image_1=$row->product_image_1;
       $product_image_2=$row->product_image_2;
@@ -45,7 +52,7 @@
                                                 $cek_rol = $this->session->userdata('role_id');
 
                                                 if($cek_rol != 1 ){ ?>
-                                                <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_title; ?>" name="product_title" readonly="" placeholder="Change Product Title " type="text">
+                                                <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_title; ?>" name="product_title" readonly placeholder="Change Product Title " type="text">
                                                 <?php } else { ?>
                                                 <input class="form-control" value="<?php echo $product_title; ?>" name="product_title" required placeholder="Change Title " type="text">
 
@@ -62,7 +69,7 @@
 
                                                     if($cek_rol != 1 ){ ?>
                                                         <?php foreach ($manufacturer as $ma) { ?>
-                                                         <input class="form-control" style="background-color: #ccc !important" value="<?php echo $ma->manu_title; ?>" name="manu_id" readonly="" placeholder="Change Product Brand " type="text">
+                                                         <input class="form-control" style="background-color: #ccc !important" value="<?php echo $ma->manu_title; ?>" name="manu_id" readonly placeholder="Change Product Brand " type="text">
                                                         <?php } ?> 
                                                     <?php } else { ?>
                                                         <select class="form-control" name="manu_id">
@@ -89,7 +96,7 @@
 
                                                     if($cek_rol != 1 ){ ?>
                                                         
-                                                        <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_category; ?>" name="product_category" readonly="" placeholder="Change Product Category" type="text">
+                                                        <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_category; ?>" name="product_category" readonly placeholder="Change Product Category" type="text">
                                                     <?php } else { ?>
                                                     <select class="form-control" name="product_category">
                                                         <option selected="selected" value="<?php echo $product_category; ?>"><?php echo $product_category; ?></option>
@@ -109,7 +116,7 @@
                                                 $cek_rol = $this->session->userdata('role_id');
 
                                                 if($cek_rol != 1 ){ ?>
-                                                 <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_code; ?>" name="product_code" readonly="" placeholder="Change Product Code " type="text">
+                                                 <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_code; ?>" name="product_code" readonly placeholder="Change Product Code " type="text">
                                                 <?php } else { ?>
                                                 <input class="form-control" value="<?php echo $product_code; ?>" name="product_code" required placeholder="Change Product Code " type="text">
                                                 <?php } ?>
@@ -123,7 +130,7 @@
                                               <?php
                                                 $cek_rol = $this->session->userdata('role_id');
                                                 if($cek_rol == 3 ){ ?>
-                                                  <input class="form-control" value="<?php echo $product_availability; ?>" name="product_availability" readonly="" style="background-color: #ccc !important;" placeholder="Product Stock">
+                                                  <input class="form-control" value="<?php echo $product_availability; ?>" name="product_availability" readonly style="background-color: #ccc !important;" placeholder="Product Stock">
                                                 <?php } else {?>
                                                           <select class="form-control" name="product_availability" required>
                                                              <option selected="selected" value="<?php echo $product_availability; ?>"><?php echo $product_availability; ?></option>
@@ -148,6 +155,41 @@
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                    	<label class="col-sm-3 control-label" style="text-align:left;"> 1 Pack Pieces </label>
+                                        <div class="col-sm-9">
+                                        	<input type="text" name="pack_item" id="pack_item" class="form-control" value="<?=$pack_item?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                    	<label class="col-sm-3 control-label" style="text-align:left;"> Deposit </label>
+                                        <div class="col-sm-9">
+                                        	<input type="text" name="deposit" id="deposit" class="form-control" value="<?=$deposit?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                    	<label class="col-sm-3 control-label" style="text-align:left;"> Size</label>
+                                        <div class="col-sm-9">
+                                        	<input type="text" name="size" id="size" class="form-control" value="<?=$size?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                    	<label class="col-sm-3 control-label" style="text-align:left;"> Style Code</label>
+                                        <div class="col-sm-9">
+                                        	<input type="text" name="style_code" id="style_code" class="form-control" value="<?=$style_code?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                    	<label class="col-sm-3 control-label" style="text-align:left;"> Price</label>
+                                        <div class="col-sm-9">
+                                        	<input type="text" name="price" id="price" class="form-control" value="<?=$price?>">
                                         </div>
                                     </div>
 
@@ -231,7 +273,7 @@
                                                 <?php
                                                 $cek_rol = $this->session->userdata('role_id');
                                                 if($cek_rol == 2 ){ ?>
-                                                    <textarea class="form-control" readonly="" style="background-color: #ccc !important" name="product_text"><?php echo $product_text; ?></textarea>
+                                                    <textarea class="form-control" readonly style="background-color: #ccc !important" name="product_text"><?php echo $product_text; ?></textarea>
                                                 <?php } else {?>
                                                     <textarea class="form-control" name="product_text"><?php echo $product_text; ?></textarea>
                                                 <?php } ?>
@@ -245,7 +287,7 @@
                                          <?php
                                             $cek_rol = $this->session->userdata('role_id');
                                             if($cek_rol == 2 ){ ?>
-                                            <textarea id="editor2" class="form-control" readonly=""  style="background-color: #ccc !important" name="product_desc"><?php echo $product_desc; ?></textarea>
+                                            <textarea id="editor2" class="form-control" readonly  style="background-color: #ccc !important" name="product_desc"><?php echo $product_desc; ?></textarea>
                                             <?php } else { ?>
                                             <textarea id="editor2" class="form-control" name="product_desc"><?php echo $product_desc; ?></textarea>
                                             <?php } ?>

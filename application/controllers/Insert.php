@@ -56,7 +56,7 @@ class insert extends CI_Controller {
 
 	}
 
-	function do_upload() {
+	/*function do_upload() {
 
 
 
@@ -116,118 +116,73 @@ class insert extends CI_Controller {
 
 		
 
-	}
+	}*/
 
 	function insert_product()
 	{
-
-
-		$product_title = $this->input->post('product_title');
-
-		$product_brand = $this->input->post('manu_id');
-
-		$product_category = $this->input->post('product_category');
-
-		$product_code = $this->input->post('product_code');
-
-		$product_availability = $this->input->post('product_availability');
-
-		$featured_product = $this->input->post('featured_product');
-
-		$product_spec = $this->input->post('product_specification');
-
-		$product_text_preview = $this->input->post('product_text_preview');
-
-		$product_description = $this->input->post('product_descrption');
-
+		$product_title = $this->input->post('product_title',TRUE);
+		$product_brand = $this->input->post('brand',TRUE);
+		$product_category = $this->input->post('product_category',TRUE);
+		$product_code = $this->input->post('product_code',TRUE);
+		$product_availability = $this->input->post('product_availability',TRUE);
+		$featured_product = $this->input->post('featured_product',TRUE); // tampil gak tampil di depan 
+		$product_spec = $this->input->post('product_specification',TRUE);
+		
+		$pack_item = $this->input->post("pack_item",TRUE);
+		$deposit   = $this->input->post("deposit",TRUE);
+		$eta	   = $this->input->post("eta",TRUE);
+		$size	   = $this->input->post("size",TRUE); 
+		
+		$style_code = $this->input->post("style_code",TRUE);
+		$price	   = $this->input->post("price",TRUE);
+		
+		$product_text_preview = $this->input->post('product_text_preview',TRUE);
+		$product_description = $this->input->post('product_descrption',TRUE);
+		
 		$product_category_url = url_title($product_category);
-
 		$product_slug = url_title($product_title);
 
-
-
 		$product_image_1 = $_FILES['product_image_1']['name'];
-
 		$product_image_1 = str_replace(' ' , '_' , $product_image_1);
 
-
-
 		$product_image_2 = $_FILES['product_image_2']['name'];
-
 		$product_image_2 = str_replace(' ' , '_' , $product_image_2);
 
-
-
 		$product_image_3 = $_FILES['product_image_3']['name'];
-
 		$product_image_3 = str_replace(' ' , '_' , $product_image_3);
-
-
-
+		
 		$product_image_4 = $_FILES['product_image_4']['name'];
-
 		$product_image_4 = str_replace(' ' , '_' , $product_image_4);
 
-
-
-		// $config['upload_path']	=	'./assets/image/product/' ;
-
-		// $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
-
-		// $config['remove_spaces'] = FALSE;
-
-		// $config['overwrite'] 	=	TRUE;
-
-		// $config['max_size'] 	=	'2048000';
-
-		// $config['max_height']	=  '1250';
-
-		// $config['max_width'] 	=	'1300';
-
-
-
 		$data = array(
-
 			'product_title' => $product_title,
-
-			'manu_id' => $product_brand,
-
+			'brand' => $product_brand,
 			'product_category' => $product_category,
 
-
-
 			'product_code' => $product_code,
-
 			'product_availability' => $product_availability,
-
 			'featured' => $featured_product,
-
-
-
+			
+			"pack_item"=>$pack_item,
+			"deposit" => $deposit,
+			"ETA"=>$eta,
+			"size"=>$size,
+			
+			"style_code"=>$style_code,
+			"price"=>$price,
+			
 			'product_specification' => 	$product_spec,
-
 			'product_text_preview' => $product_text_preview,
-
 			'product_descrption' => $product_description,
 
-
-
 			'category_url' => $product_category_url,
-
 			'product_slug' => $product_slug,
 
-
-
 			'product_image_1' => $product_image_1,
-
 			'product_image_2' => $product_image_2,
-
 			'product_image_3' => $product_image_3,
-
 			'product_image_4' => $product_image_4
-
-
-
+			
 		);
 
 		/* $this->load->library('upload', $config);
