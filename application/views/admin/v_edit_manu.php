@@ -14,7 +14,7 @@
 		<div class="container">  
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="page-title">Edit Slider</h4>
+                    <h4 class="page-title">Edit Brand</h4>
                     <div class="row">
                         <div class="col-lg-7">
                  
@@ -31,16 +31,16 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Manufacturer Link</label>
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Brand Link</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" value="<?php echo $manu_link; ?>" name="manu_link" required="" placeholder="Slider Link" type="text">
+                                            <input class="form-control" value="<?php echo $manu_link; ?>" name="manu_link" required placeholder="Slider Link" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Old Image</label>
                                         <div class="col-sm-9">
-                                            <img src="<?php echo base_url('assets/image/manufacturer/').$manu_image; ?>" class="img-responsive">
+                                            <img src="<?php echo base_url('assets/image/brand/').$manu_image; ?>" class="img-responsive">
                                         </div>
                                     </div>
 

@@ -73,13 +73,19 @@ class update extends CI_Controller {
 	}
 
 	function update_manufacturer() {
+		
 		$manu_id = $this->input->post('manu_id');
 		$manu_title = $this->input->post('manu_title');
 		$manu_link = $this->input->post('manu_link');
 		$manu_desc = $this->input->post('manu_desc');
 		$manu_image_old = $this->input->post('manu_image_old');
-		$manu_image_new = $_FILES['manu_image_new']['name'];
-
+		
+		if(!empty($_FILES["manu_image_new"]["name"]))
+		{
+			$file_tmp = $_FILES["manu_image_new"]["tmp_name"];
+			$file_path = pathinfo($_FILES['manu_image_new']['name']);
+			$manu_image_new = $manu_title.".$file_path[extension]";;
+		}
 		/*$config = array(
 
 			'upload_path' => "./assets/image/manufacturer",
@@ -120,16 +126,12 @@ class update extends CI_Controller {
 			$this->upload->initialize($config);
 			$this->upload->do_upload('manu_image_new');*/
 
-			$new_path = "assets/image/manufacturer";
+			$new_path = "assets/image/brand/$manu_image_new";
 			if(!empty($_FILES["manu_image_new"]["name"]))
 			{
 
-				$arr3["new_path"] = $new_path;
-
-				$arr3["element"]  = "manu_image_new";
-
-				$c = $this->upload2->upload_process($arr3);
-
+				$c = $upload = move_uploaded_file($file_tmp,$new_path);
+				//var_dump($c); exit;	
 			}
 
 

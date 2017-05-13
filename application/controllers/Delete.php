@@ -99,11 +99,13 @@ class delete extends CI_Controller {
 	}
 
 	public function delete_manufacturer() {
-
+		
+		//echo "test"; exit;
+		
 		$id = $this->uri->segment(4);
 		$image = $this->uri->segment(5);
 		$this->model_delete->delete_manufacturer($id, $image);
-		redirect('admin/manufacturer');
+		redirect('admin/brand');
 
 	}
 

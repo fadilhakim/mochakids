@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="col-lg-4">
-                            <a href="<?php echo base_url('admin/manufacturer'); ?>">
+                            <a href="<?php echo base_url('admin/brand'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
                                     <h5>

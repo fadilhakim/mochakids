@@ -553,12 +553,17 @@ class insert extends CI_Controller {
 
 
 		$manu_name = $this->input->post('manu_name');
-
+		$manu_link = $this->input->post("manu_link");
 		$manu_image = $_FILES['manu_image']['name'];
 
 		$manu_slug = url_title($manu_name);
 
-
+		if(!empty($_FILES["manu_image"]["name"]))
+		{
+			$file_tmp = $_FILES["manu_image"]["tmp_name"];
+			$file_path = pathinfo($_FILES['manu_image']['name']);
+			$manu_image = $manu_name.".$file_path[extension]";;
+		}
 
 
 		/*$config = array(
@@ -583,7 +588,7 @@ class insert extends CI_Controller {
 		$data = array(
 
 			'manu_title' => $manu_name,
-
+			"manu_link" => $manu_link,
 			'manu_image' => $manu_image,
 
 			'manu_slug' => $manu_slug,
@@ -594,13 +599,10 @@ class insert extends CI_Controller {
 		$this->upload->initialize($config);
 		$this->upload->do_upload('manu_image');*/
 		
-		$new_path = "assets/image/manufacturer/";
-		if(!empty($_FILES["menu_image"]["name"]))
+		$new_path = "assets/image/brand/$manu_image";
+		if(!empty($_FILES["manu_image"]["name"]))
 		{
-
-			$arr1["new_path"] = $new_path;
-			$arr1["element"]  = "menu_image"; 
-			$a = $this->upload2->upload_process($arr1);
+			$a = move_uploaded_file($file_tmp,$new_path);
 
 		}
 
@@ -614,7 +616,6 @@ class insert extends CI_Controller {
 		$value='Insert Product Success';
 
 		/*$this->do_upload($result);*/
-
 		}
 
 		else
