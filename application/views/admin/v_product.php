@@ -41,7 +41,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Brand</label>
                                                 <div class="col-sm-7">
-                                                    <select required class="form-control" name="brand">
+                                                    <select required class="form-control" name="manu">
                                                         <option value="">---</option>
                                                         <?php foreach ($manu as $m) { ?>
                                                             <option value="<?php echo $m->manu_id; ?>"><?php echo $m->manu_title; ?></option>

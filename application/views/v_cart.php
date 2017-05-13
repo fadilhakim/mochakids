@@ -7,7 +7,7 @@ if(!$this->cart->contents()){ ?>
         <div class="breadcrumbs-main clearfix">
             <h2>You don't have any item yet</h2>
             <br>
-            <a href="<?php echo base_url('sparepart'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
+            <a href="<?php echo base_url('product'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
         </div>
       </div>
     <div class="spacer15"></div><!--spacer-->
@@ -57,23 +57,22 @@ if(!$this->cart->contents()){ ?>
                                         <?php $i = 1; ?>
                                         <?php 
 										
-										foreach($this->cart->contents() as $items): 
-											
-						$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
+										foreach($this->cart->contents() as $items): $detail_product = $this->model_cart->getproductfromIdandCode($items['id'],$items['code'])->row();
 											
 										?>
                                         <?php echo form_hidden('rowid[]', $items['rowid']); ?>
                                             <tr>
                                                 <td class="product-name-col">
                                                     <figure>
-                                                        <a href="#"><img src="<?=check_image_sparepart($items['id'])?>" alt=""></a>
+                                                       <!--  <a href="#"><img src="<?php /* <?= check_image_product($items['id']) ?> */?>" alt=""></a> -->
                                                     </figure>
                                                     <h2 class="product-name">
-                                                        <a href="#"><?php echo $detail_sparepart->sparepart_name; ?></a>
+                                                        <a href="#"><?php echo $detail_product->product_title; ?></a>
                                                     </h2>
-                                                    <ul>
-                                                        <li>Manufacturer: <?php echo $items['manu']; ?></li>
+                                                    <!-- /<ul>
+                                                        <li>Manufacturer: <?php //echo $items['manu']; ?></li>
                                                     </ul>
+                                                    -->
                                                 </td>
                                                 <td class="product-code"><?php echo $items['code']; ?></td>
                                                 <td class="product-price-col"><span class="product-price-special">Rp <?php echo $this->cart->format_number($items['price']); ?></span>
@@ -161,7 +160,7 @@ if(!$this->cart->contents()){ ?>
                                                 </div><!-- End .tab-content -->
                                             </div><!-- End .tab-container -->
                                             <div class="md-margin"></div><!-- space -->
-                                            <a href="<?php echo base_url('spareparts/all'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
+                                            <a href="<?php echo base_url('products/all'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
                                         </div><!-- End .col-md-8 -->
                                         <div class="col-md-4">
                                             <table class="table total-table">

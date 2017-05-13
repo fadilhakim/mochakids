@@ -78,6 +78,12 @@ foreach ($manufacturer as $manu) {
                   <li><b>Brand:</b> <a href="#"><span itemprop="brand">Nike</span></a></li>
                   <li><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
                   <li><b>Availability:</b> <span class="instock"><?php echo $product_availability; ?></span></li>
+                  <li>
+                    <?php foreach($this->cart->contents() as $items): echo $items['rowid']; ?>
+
+
+                    <?php endforeach; ?>
+                  </li>
                 </ul>
                 <ul class="price-box">
                    <?php echo form_open('cart/add_cart_item'); ?>

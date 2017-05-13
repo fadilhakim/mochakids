@@ -52,7 +52,22 @@ class model_cart extends CI_Model {
 	        // Update the cart with the new information
 	        //$this->cart->update($data);
 	    }
-	 	die();
+	}
+
+	public function getproductfromIdandCode($id, $code) {
+
+        $this -> db -> select('*');
+
+        $this -> db -> from('product_tbl');
+
+        $this -> db -> where('product_id = '.$id.'');
+
+        $this -> db -> like('product_code', ''.$code.''); // Select where id matches the posted id
+
+        $query = $this -> db -> get();
+
+        return $query;
+
 	}           
  
 }

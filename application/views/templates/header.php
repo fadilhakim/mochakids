@@ -25,6 +25,9 @@
                 <a href="<?php echo base_url('sparepart/signup'); ?>">Sign up</a>
               </li>
              <?php } else {?>
+             <li>
+                <a href="<?php echo base_url('payment/confirmation/page/921391sc');  ?>">Konfirmasi Pembayaran</a>
+              </li>
               <li>
                 <a href="<?php echo base_url('sparepart/logout');  ?>">Logout</a>
               </li>
@@ -67,7 +70,7 @@
           <div class="col-table-cell col-lg-4 col-md-3 col-sm-6 col-xs-12 inner light">
             <div class="right-wrapper">
                 <div class="cart"><!--Start Cart-->
-                  <a href="#">
+                  <a href="<?php echo base_url('cart/show_cart'); ?>">
                     <i class="fa fa-shopping-cart dropdown-toggle" data-toggle="dropdown"></i>
                     <span class="cart-block pull-right">
                         <span class="cart-num">

@@ -121,7 +121,7 @@ class insert extends CI_Controller {
 	function insert_product()
 	{
 		$product_title = $this->input->post('product_title',TRUE);
-		$product_brand = $this->input->post('brand',TRUE);
+		$manu_id = $this->input->post('manu',TRUE);
 		$product_category = $this->input->post('product_category',TRUE);
 		$product_code = $this->input->post('product_code',TRUE);
 		$product_availability = $this->input->post('product_availability',TRUE);
@@ -156,7 +156,7 @@ class insert extends CI_Controller {
 
 		$data = array(
 			'product_title' => $product_title,
-			'brand' => $product_brand,
+			'manu_id' => $manu_id,
 			'product_category' => $product_category,
 
 			'product_code' => $product_code,
