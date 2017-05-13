@@ -165,23 +165,29 @@ if(!$this->cart->contents()){ ?>
                                         <div class="col-md-4">
                                             <table class="table total-table">
                                                 <tbody>
+                                                  <?php
+                                  					$cart_total = $this->cart->total();
+                                  					$sub_total = $cart_total * 0.1;
+                                  					$grand_total = $cart_total + $sub_total;
+
+                                  				?>
                                                     <tr>
                                                         <td class="total-table-title">Subtotal:</td>
-                                                        <td>Rp.000.00</td>
+                                                        <td>Rp. <?=number_format((float)$cart_total, 2, '.', ',');?></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="total-table-title">Shipping:</td>
-                                                        <td>Rp. 000.000</td>
+                                                        <td>Rp. 0</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="total-table-title">TAX (0%):</td>
-                                                        <td></td>
+                                                        <td class="total-table-title">TAX (10%):</td>
+                                                        <td>Rp. <?=number_format((float)$sub_total, 2, '.', ',');?></td>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
                                                         <td>Total:</td>
-                                                        <td><?php echo $this->cart->total(); ?></td>
+                                                        <td>Rp. <?=number_format((float)$grand_total, 2, '.', ',');?></td>
                                                     </tr>
                                                 </tfoot>
                                             </table>

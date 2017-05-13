@@ -630,7 +630,7 @@ class insert extends CI_Controller {
 
 
 
-		redirect('admin/manufacturer');	
+		redirect('admin/brand');	
 
 	}
 

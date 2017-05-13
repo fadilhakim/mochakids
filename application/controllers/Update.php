@@ -141,7 +141,7 @@ class update extends CI_Controller {
 
 
 
-		redirect('admin/manufacturer');
+		redirect('admin/brand');
 	}
 
 	function update_event() {
