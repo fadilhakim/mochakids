@@ -554,12 +554,9 @@ class insert extends CI_Controller {
 
 		$manu_name = $this->input->post('manu_name');
 
-		$manu_link = $this->input->post('manu_link');
-
-		$manu_desc = $this->input->post('manu_desc');
-
 		$manu_image = $_FILES['manu_image']['name'];
 
+		$manu_slug = url_title($manu_name);
 
 
 
@@ -587,11 +584,9 @@ class insert extends CI_Controller {
 
 			'manu_title' => $manu_name,
 
-			'manu_link' => $manu_link,
+			'manu_image' => $manu_image,
 
-			'manu_desc' => $manu_desc,
-
-			'manu_image' => $manu_image
+			'manu_slug' => $manu_slug,
 
 		);
 

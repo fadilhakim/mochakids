@@ -61,6 +61,18 @@
                             </a>
                         </div>
 
+                        <div class="col-lg-4">
+                            <a href="<?php echo base_url('admin/manufacturer'); ?>">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h5>
+                                        Brands
+                                    </h5>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
                 
                         <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/event'); ?>">
@@ -130,17 +142,7 @@
                     
 
                     
-                        <div class="col-lg-4">
-                            <a href="<?php echo base_url('admin/manufacturer'); ?>">
-                            <div class="card-box widget-user">
-                                <div class="text-center">
-                                    <h5>
-                                        Manufacturers
-                                    </h5>
-                                </div>
-                            </div>
-                            </a>
-                        </div> -->
+                         -->
 
                        
                         <?php } ?>
