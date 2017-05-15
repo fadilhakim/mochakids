@@ -39,6 +39,7 @@ class Model_product extends CI_Model {
 		$this->db->from('product_tbl');
 		$this->db->where('product_id = '.$id.'');
 		$query = $this->db->get();
+		
 			if($query)
 			{
 				return $query->row();	

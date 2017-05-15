@@ -111,6 +111,10 @@ $route['admin/discount'] = 'admin/discount';
 $route['admin/users_admin'] = 'admin/users_admin';
 $route['admin/members'] = 'admin/members';
 
+$route["admin/order"] = "order";
+$route["admin/order/test"] = "order/test";
+//$route["admin/order/insert"] = "order/insert_order";
+
 //insert
 $route['admin/add/product'] = 'insert/insert_product';
 $route['admin/add/slider'] = 'insert/insert_slider';

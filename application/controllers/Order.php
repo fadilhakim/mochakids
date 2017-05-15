@@ -4,14 +4,60 @@
 		
 		function __construct()
 		{
-			parent::__construct();	
+			parent::__construct();
+			
+			$this->load->model("order_model");	
+			$this->load->model("model_cart");
+			$this->load->library("cart");
 		}
 		
-		function index()
+		function insert_order()
+		{
+			$cart_content =  $this->cart->contents();
+			
+			if(!empty($cart_content))
+			{
+				$this->order_model->insert_order();
+				
+				//hapus cart 
+				$this->cart->destroy();
+				
+				echo $suceess = success("You Successfully save Order");
+				$this->session->set_flashdata("message",$suceess);
+			}
+			else
+			{
+				echo $danger = danger("Your Cart is empty");
+				$this->session->set_flashdata("message",$danger);
+				
+				//redirect();	
+			}
+			
+			
+			
+			
+			
+		}
+		
+		function update_order()
 		{
 			
 			
 			
+		}
+		
+		function payment_confirmation($id_order)
+		{
+			
+			
+			
+			
+		}
+		
+		function test()
+		{
+			$sess = $this->session->all_userdata();
+			print_r($sess);
 			
 		}
 		

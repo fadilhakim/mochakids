@@ -87,6 +87,18 @@
                         </div> -->
                         
                         <div class="col-lg-4">
+                            <a href="<?php echo base_url('admin/order'); ?>">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h5>
+                                        Order
+                                    </h5>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-4">
                             <a href="<?php echo base_url('bank'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">

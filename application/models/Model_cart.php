@@ -68,7 +68,13 @@ class model_cart extends CI_Model {
 
         return $query;
 
-	}           
+	}     
+	
+	function clear_all()
+	{
+		$this->cart->destroy();	
+		
+	}
  
 }
      	
