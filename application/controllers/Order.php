@@ -10,10 +10,9 @@
 		function index()
 		{
 			
-			// $this->load->view("admin/order/v_order");
+			
+			
 			
 		}
-		
-		
 		
 	}

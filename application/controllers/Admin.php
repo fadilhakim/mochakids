@@ -38,6 +38,16 @@ class admin extends CI_Controller {
 		$this->load->view('templates/footer-admin');
 
 	}
+	
+	
+	function order()
+	{
+		
+		
+		$data["list_order"] = "";
+		$data["content"] = "admin/order/v_order";
+		$this->load->view("admin/template",$data);
+	}
 
 
 
