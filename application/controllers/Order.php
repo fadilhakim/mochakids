@@ -24,13 +24,15 @@
 				
 				echo $suceess = success("You Successfully save Order");
 				$this->session->set_flashdata("message",$suceess);
+				
+				//redirect();
 			}
 			else
 			{
 				echo $danger = danger("Your Cart is empty");
 				$this->session->set_flashdata("message",$danger);
 				
-				//redirect();	
+				//redirect("cart/show_cart");	
 			}
 			
 			

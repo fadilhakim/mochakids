@@ -40,20 +40,32 @@
                                     
                                     <tbody>
                                        <?php
-									
+										foreach($list_order as $row){
+											
+											$user = $this->model_user->get_user_detail($row["id_user"]);
 									   ?>
                                        <tr>
-                                        <td>&nbsp;  </td>
-                                        <td>&nbsp;  </td>
-                                        <td>&nbsp;  </td>
-                                        <td>&nbsp;  </td>
-                                        <td>&nbsp;  </td>
+                                        <td>#<?=$row["id_order"]?>  </td>
+                                        <td><?=$user["contact_person"]?>  </td>
+                                        <td><?=number_format($row["grand_total"])?> </td>
+                                        <td><?=$row["status"]?>  </td>
+                                        <td><?=$row["create_date"]?>  </td>
                                         <td>
-                                        	
+                                        	<div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Setting <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="#">Detail Order</a></li>
+                                              <li><a href="#">Payment Confirmation</a></li>
+                                              <li><a href="#">Change Status</a></li>
+                                             
+                                            </ul>
+                                          </div>
                                          </td>
                                        </tr>
                                        <?php
-									   
+										}
 									   ?>
                                     </tbody>
                                     

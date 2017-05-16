@@ -42,9 +42,12 @@ class admin extends CI_Controller {
 	
 	function order()
 	{
+		$this->load->model("order_model");
+		$this->load->model("model_user");
 		
+		$order = $this->order_model->list_order();
 		
-		$data["list_order"] = "";
+		$data["list_order"] = $order;
 		$data["content"] = "admin/order/v_order";
 		$this->load->view("admin/template",$data);
 	}

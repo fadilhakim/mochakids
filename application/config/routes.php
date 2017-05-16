@@ -111,7 +111,7 @@ $route['admin/discount'] = 'admin/discount';
 $route['admin/users_admin'] = 'admin/users_admin';
 $route['admin/members'] = 'admin/members';
 
-$route["admin/order"] = "order";
+$route["admin/order"] = "admin/order";
 $route["admin/order/test"] = "order/test";
 //$route["admin/order/insert"] = "order/insert_order";
 
