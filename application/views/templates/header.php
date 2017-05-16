@@ -17,7 +17,7 @@
           </div>
           <div id="top-links" class="nav pull-right flip">
             <ul>
-            <?php if(!$this->session->userdata('email')){ ?>
+            <?php if(!$this->session->userdata('contact_person')){ ?>
               <li>
                 <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
               </li>
@@ -29,7 +29,7 @@
                 <a href="<?php echo base_url('payment/confirmation/page/921391sc');  ?>">Konfirmasi Pembayaran</a>
               </li>
               <li>
-                <a href="<?php echo base_url('sparepart/logout');  ?>">Logout</a>
+                <a href="<?php echo base_url('login/logout');  ?>">Logout</a>
               </li>
             <?php } ?>
             </ul>

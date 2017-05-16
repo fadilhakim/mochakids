@@ -67,12 +67,12 @@ class login extends CI_Controller {
 
 	function logout(){
 		$this->session->sess_destroy();
-		redirect(base_url('login'));
+		redirect(base_url(''));
 	}
 
 	function logout_2(){
 		$this->session->sess_destroy();
-		redirect(base_url('sparepart'));
+		redirect(base_url(''));
 	}
 
 	function login_costumer(){
@@ -113,7 +113,7 @@ class login extends CI_Controller {
 							// $sess_data['admin_id'] = $data->admin_id;
 							$sess_data['contact_person'] = $data->contact_person;
 							$this->session->set_userdata($sess_data);
-							redirect(base_url("sparepart"));
+							redirect($this->agent->referrer());
 						
 						}	
 				}		

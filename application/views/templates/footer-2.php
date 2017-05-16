@@ -41,10 +41,7 @@
           <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <h5>Contact Details</h5>
             <ul>
-              <li class="address"><i class="fa fa-map-marker"></i>Jl. Boulevard Barat
-                Kompleks Perkantoran Gading Bukit Indah Blok N No.23
-                Kelapa Gading, Jakarta Utara,
-                Indonesia, 14240
+              <li class="address"><i class="fa fa-map-marker"></i>Jl. Pondok Indah Raya No 31 Jakarta Selatan
               </li>
               <li class="mobile"><i class="fa fa-phone"></i>+62-21-4585-6666</li>
               <li class="email"><i class="fa fa-envelope"></i>Send email via our <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
