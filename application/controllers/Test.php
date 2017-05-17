@@ -60,57 +60,39 @@
 			
 		}
 		
-		function process()
+		function api_rajaongkir()
 		{
 			error_reporting(E_ALL);
 			
-			$file_name = $_FILES["file"]["name"];
-			$tmp_name = $_FILES["file"]["tmp_name"];
-			$file_type = $_FILES["file"]["type"];
+			$this->load->library("rajaongkir");
 			
-			print_r($_FILES);
+			$province = $this->rajaongkir->show_province();
 			
-			$a = move_uploaded_file($tmp_name,"assets/image/aneh.png");	
-			var_dump($a);
+		    $json_decode = json_decode($province,TRUE);
+			
+			$data["province"] = $json_decode["rajaongkir"]["results"];
+			
+			$this->load->view("test/rajaongkir",$data);
+			
 		}
 		
-		function send_email_bro()
+		function numberGrouping()
 		{
-			//error_reporting(E_ALL);
-
-			$this->load->library("MY_Email2");
-	
-			$content = array(
-
-				"subject" 		=> "welcome Besha-analitika.co.id",
-
-				"subject_title"  => "besha-analitika.co.id",
-
-				"to" 			 => "alhusna901@gmail.com",
-
-				"message" 		=> " untuk awal dia masuk spam, tp, kenapa usernya jadi fromnya Root User <root@localhost> ? harusnya dari test@besha-analitika.com",
-
-				"mv" 			=> FALSE
-
-			);  
-
-			$user = "fadil182_gmail";
-
-			// $this->load->view($content["message"],$dtt);
-
-			$this->my_email2->send_email($user,$content);
-
-			echo $this->my_email2->get_email_message();
-		}
-		
-		function send_email_lagi()
-		{
-			error_reporting(E_ALL);
-			$this->load->model("model_user");
+			$arr = array(1,2,3,4,5,6,7,8,9);
 			
-			$aa = $this->model_user->sendEmail("dimas","test","alhusna901@gmail.com","Welcome Bro");	
-			//$aa = $this->model_user->sendEmail2("alhusna901@gmail.com","alhusna901");	
-			//$kk = $this->model_user->sendEmailAdmin("alhusna901@gmail.com","alhusna901");
-			var_dump($aa);
+			$count_group = 3;
+			$str_angka = "";
+			
+			for($i=1 ; $i<=count($arr); $i++)
+			{
+				$str_angka .= "$i";
+				if($i%3 == 0)
+				{
+					$str_angka .= "-";
+				}
+				// mendeteksi sisa 4 angka dibelakang 
+				
+			}
+			
 		}
 	}
