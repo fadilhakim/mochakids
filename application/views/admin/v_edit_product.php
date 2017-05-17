@@ -6,8 +6,6 @@
       $product_id=$row->product_id;
       $product_title=$row->product_title;
       $product_desc=$row->product_descrption;
-      $product_specification=$row->product_specification;
-      $product_text=$row->product_text_preview;
 
       $product_brand=$row->manu_id;
       $product_code=$row->product_code;
@@ -21,11 +19,9 @@
 	  $size = $row->size;
 	  $style_code = $row->style_code;
 	  $price = $row->price;
+      $old_price = $row->old_price;
 
       $product_image_1=$row->product_image_1;
-      $product_image_2=$row->product_image_2;
-      $product_image_3=$row->product_image_3;
-      $product_image_4=$row->product_image_4;
 }
 
 ?>
@@ -194,12 +190,19 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Image Group</label>
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Old Price</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="old_price" id="price" class="form-control" value="<?=$old_price?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Image</label>
                                         <div class="col-sm-9">
                                             <div class="row">
                                                 <div class="col-lg-12">
 
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-6">
                                                         <label class="control-label" style="text-align:center; display:block;">Product Thumbnail</label><br>
 
                                                         <?php if($product_image_1 != '') {?>
@@ -216,69 +219,10 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-sm-3">
-                                                        <label class="control-label" style="text-align:center; display:block;">Product Image 2</label><br>
-                                                        <?php if($product_image_2 != '') {?>
-                                                            <img src="<?php echo base_url('assets/image/product/').$product_image_2; ?>" class="img-responsive">
-                                                        <?php } else {?>
-                                                            <img src="<?php echo base_url('assets/image/no-image.png')?>" class="img-responsive">
-                                                        <?php } ?>
-                                                        <label class="col-sm-12 control-label" style="text-align:center;">Select New Image</label>
-                                                        <div class="col-sm-12">
-                                                        <br>
-                                                        <input class="form-control" value="<?php echo $product_image_2; ?>" name="product_image_old_2" type="hidden">
-                                                            <input class="" name="product_image_new_2" type="file">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-3">
-                                                        <label class="control-label" style="text-align:center; display:block;">Product Image 3</label><br>
-                                                        <?php if($product_image_3 != '') {?>
-                                                            <img src="<?php echo base_url('assets/image/product/').$product_image_3; ?>" class="img-responsive">
-                                                        <?php } else {?>
-                                                            <img src="<?php echo base_url('assets/image/no-image.png')?>" class="img-responsive">
-                                                        <?php } ?>
-                                                        <label class="col-sm-12 control-label" style="text-align:center;">Select New Image</label>
-                                                        <div class="col-sm-12">
-                                                        <br>
-                                                        <input class="form-control" value="<?php echo $product_image_3; ?>" name="product_image_old_3" type="hidden">
-                                                            <input class="" name="product_image_new_3" type="file">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-3">
-                                                        <label class="control-label" style="text-align:center; display:block;">Product Image 4</label><br>
-                                                        <?php if($product_image_4 != '') {?>
-                                                            <img src="<?php echo base_url('assets/image/product/').$product_image_4; ?>" class="img-responsive">
-                                                        <?php } else {?>
-                                                            <img src="<?php echo base_url('assets/image/no-image.png')?>" class="img-responsive">
-                                                        <?php } ?>
-                                                        <label class="col-sm-12 control-label" style="text-align:center;">Select New Image</label>
-                                                        <div class="col-sm-12">
-                                                        <br>
-                                                        <input class="form-control" value="<?php echo $product_image_4; ?>" name="product_image_old_4" type="hidden">
-                                                            <input class="" name="product_image_new_4" type="file">
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Product Text Preview</label>
-                                        <div class="col-sm-9">
-                                                <?php
-                                                $cek_rol = $this->session->userdata('role_id');
-                                                if($cek_rol == 2 ){ ?>
-                                                    <textarea class="form-control" readonly style="background-color: #ccc !important" name="product_text"><?php echo $product_text; ?></textarea>
-                                                <?php } else {?>
-                                                    <textarea class="form-control" name="product_text"><?php echo $product_text; ?></textarea>
-                                                <?php } ?>
-                                            
-                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -294,12 +238,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Product Specification</label>
-                                        <div class="col-sm-9">
-                                            <textarea id="editor3" class="form-control" name="product_specification"><?php echo $product_specification; ?></textarea>
-                                        </div>
-                                    </div>
                                     <script type="text/javascript">
                                             CKEDITOR.replace( 'editor2' );
                                             CKEDITOR.add            

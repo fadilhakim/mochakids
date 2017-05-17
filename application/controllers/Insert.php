@@ -126,7 +126,6 @@ class insert extends CI_Controller {
 		$product_code = $this->input->post('product_code',TRUE);
 		$product_availability = $this->input->post('product_availability',TRUE);
 		$featured_product = $this->input->post('featured_product',TRUE); // tampil gak tampil di depan 
-		$product_spec = $this->input->post('product_specification',TRUE);
 		
 		$pack_item = $this->input->post("pack_item",TRUE);
 		$deposit   = $this->input->post("deposit",TRUE);
@@ -135,8 +134,8 @@ class insert extends CI_Controller {
 		
 		$style_code = $this->input->post("style_code",TRUE);
 		$price	   = $this->input->post("price",TRUE);
+		$old_price	   = $this->input->post("old_price",TRUE);
 		
-		$product_text_preview = $this->input->post('product_text_preview',TRUE);
 		$product_description = $this->input->post('product_descrption',TRUE);
 		
 		$product_category_url = url_title($product_category);
@@ -145,14 +144,14 @@ class insert extends CI_Controller {
 		$product_image_1 = $_FILES['product_image_1']['name'];
 		$product_image_1 = str_replace(' ' , '_' , $product_image_1);
 
-		$product_image_2 = $_FILES['product_image_2']['name'];
-		$product_image_2 = str_replace(' ' , '_' , $product_image_2);
+		// $product_image_2 = $_FILES['product_image_2']['name'];
+		// $product_image_2 = str_replace(' ' , '_' , $product_image_2);
 
-		$product_image_3 = $_FILES['product_image_3']['name'];
-		$product_image_3 = str_replace(' ' , '_' , $product_image_3);
+		// $product_image_3 = $_FILES['product_image_3']['name'];
+		// $product_image_3 = str_replace(' ' , '_' , $product_image_3);
 		
-		$product_image_4 = $_FILES['product_image_4']['name'];
-		$product_image_4 = str_replace(' ' , '_' , $product_image_4);
+		// $product_image_4 = $_FILES['product_image_4']['name'];
+		// $product_image_4 = str_replace(' ' , '_' , $product_image_4);
 
 		$data = array(
 			'product_title' => $product_title,
@@ -170,29 +169,20 @@ class insert extends CI_Controller {
 			
 			"style_code"=>$style_code,
 			"price"=>$price,
+			"old_price"=>$old_price,
 			
-			'product_specification' => 	$product_spec,
-			'product_text_preview' => $product_text_preview,
 			'product_descrption' => $product_description,
 
 			'category_url' => $product_category_url,
 			'product_slug' => $product_slug,
 
 			'product_image_1' => $product_image_1,
-			'product_image_2' => $product_image_2,
-			'product_image_3' => $product_image_3,
-			'product_image_4' => $product_image_4
+			// 'product_image_2' => $product_image_2,
+			// 'product_image_3' => $product_image_3,
+			// 'product_image_4' => $product_image_4
 			
 		);
 
-		/* $this->load->library('upload', $config);
-		$this->upload->initialize($config);
-		$this->upload->do_upload('product_image_1');
-		$this->upload->do_upload('product_image_2');
-		$this->upload->do_upload('product_image_3');
-		$this->upload->do_upload('product_image_4');*/
-
-		//upload baru
 		$img_msg = "";
 		if(!empty($_FILES["product_image_1"]["name"]))
 		{
@@ -206,36 +196,6 @@ class insert extends CI_Controller {
 
 		}
 
-		
-
-		if(!empty($_FILES["product_image_2"]["name"]))
-		{
-
-			$arr2["new_path"] = "assets/image/product";
-			$arr2["element"]  = "product_image_2"; 
-			$b = $this->upload2->upload_process($arr2);
-			$img_msg .= $b["msg"];
-
-		}
-
-	
-		if(!empty($_FILES["product_image_3"]["name"]))
-		{
-			$arr3["new_path"] = "assets/image/product";
-			$arr3["element"]  = "product_image_3"; 
-			$c = $this->upload2->upload_process($arr3);
-			$img_msg .= $c["msg"];
-		}
-
-		
-
-		if(!empty($_FILES["product_image_4"]["name"]))
-		{
-			$arr4["new_path"] = "assets/image/product";
-			$arr4["element"]  = "product_image_4"; 
-			$d = $this->upload2->upload_process($arr4);
-			$img_msg .= $d["msg"];
-		}
 		
 		$result = $this->model_insert->insert($data,'product_tbl');
 

@@ -62,6 +62,18 @@
                                                 </div>
                                             </div>
 
+                                            
+                                        </div>
+
+                                        <div class="col-lg-6">
+
+                                            <div class="form-group">
+                                                <label class="col-sm-5 control-label">Select Image(Thumbnail)</label>
+                                                <div class="col-sm-7">
+                                                    <input name="product_image_1" size="20" class="" placeholder="Type something" type="file">
+                                                </div>
+                                            </div>
+
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Product Code</label>
                                                 <div class="col-sm-7">
@@ -80,18 +92,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-lg-6">
-
-                                            <div class="form-group">
-                                                <label class="col-sm-5 control-label">Select Image 1 (Thumbnail)</label>
-                                                <div class="col-sm-7">
-                                                    <input name="product_image_1" size="20" class="" placeholder="Type something" type="file">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
+<!--                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Select Image 2</label>
                                                 <div class="col-sm-7">
                                                     <input name="product_image_2" size="20" class="" placeholder="Type something" type="file">
@@ -110,7 +112,7 @@
                                                 <div class="col-sm-7">
                                                     <input name="product_image_4" size="20" class="" placeholder="Type something" type="file">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- <div class="alert alert-info">
                                               <strong>Warning!</strong> image size should be H : 250 W : 300 
                                             </div> -->
@@ -185,6 +187,14 @@
                                             </div>
                                          	
                                         </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5">Old Price </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="old_price" id="price" class="form-control ">
+                                            </div>
+                                            
+                                        </div>
                                       
                                       </div>
                                     </div>
@@ -193,12 +203,7 @@
                                         <div class="col-lg-12">
                                         
                                         
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Product Text Preview</label>
-                                            <div class="col-sm-9">
-                                                <textarea name="product_text_preview" id="textarea" class="form-control" maxlength="225" rows="2" placeholder="This textarea has a limit of 225 chars."></textarea>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Product Description</label>
@@ -207,12 +212,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Product Specification</label>
-                                            <div class="col-sm-9">
-                                                <textarea id="editor3" name="product_specification" id="textarea" class="form-control" rows="2" placeholder=""></textarea>
-                                            </div>
-                                        </div>
                                            <script type="text/javascript">
                                             CKEDITOR.replace( 'editor2' );
                                             CKEDITOR.add            

@@ -333,24 +333,13 @@ class update extends CI_Controller {
 		
 		$style_code 			= $this->input->post("style_code",TRUE);
 		$price	   				= $this->input->post("price",TRUE);
+		$old_price	   			= $this->input->post("old_price",TRUE);
 		
-		$product_spec 			= $this->input->post('product_specification',true);
-		$product_text 			= $this->input->post('product_text',true);
+
 		$product_description 	= $this->input->post('product_desc',true);
 		$product_category_url 	= url_title($product_category);
 		$product_slug 			= url_title($product_title);
 
-		/*$product_image_old_1 = $this->input->post('product_image_old_1');
-		$product_image_new_1 = $_FILES['product_image_new_1']['name'];
-
-		$product_image_old_2 = $this->input->post('product_image_old_2');
-		$product_image_new_2 = $_FILES['product_image_new_2']['name'];
-
-		$product_image_old_3 = $this->input->post('product_image_old_3');
-		$product_image_new_3 = $_FILES['product_image_new_3']['name'];
-
-		$product_image_old_4 = $this->input->post('product_image_old_4');
-		$product_image_new_4 = $_FILES['product_image_new_4']['name'];*/
 
 		if ($_FILES['product_image_new_1']['name']== '') {
 
@@ -359,48 +348,6 @@ class update extends CI_Controller {
 		else {
 			$image_1 = $_FILES['product_image_new_1']['name'];
 		}
-
-
-		if ($_FILES['product_image_new_2']['name'] == '') {
-
-			$image_2 = $this->input->post('product_image_old_2');
-		}
-		else {
-			$image_2 = $_FILES['product_image_new_2']['name'];
-		}
-
-
-
-		if ($_FILES['product_image_new_3']['name'] == '') {
-
-			$image_3 = $this->input->post('product_image_old_3');
-		}
-		else {
-			$image_3 = $_FILES['product_image_new_3']['name'];
-		}
-
-
-
-		if ($_FILES['product_image_new_4']['name'] == '') {
-
-			$image_4 = $this->input->post('product_image_old_4');
-		}
-		else {
-			$image_4 = $_FILES['product_image_new_4']['name'];
-		}
-
-
-		/* $config = array(
-
-			'upload_path' => "./assets/image/product",
-			'allowed_types' => "gif|jpg|png|jpeg|pdf",
-			'remove_spaces' => FALSE,
-			'overwrite' => TRUE,
-			'max_size' => "2048000",
-			'max_height' => "2200",
-			'max_width' => "2200"
-
-		);*/
 
 			$data = array(
 			'product_id' => $product_id,
@@ -419,30 +366,16 @@ class update extends CI_Controller {
 			
 			"style_code"=>$style_code,
 			"price"=>$price,
+			"old_price"=>$old_price,
 
-			'product_specification' => 	$product_spec,
-			'product_text_preview' => $product_text,
 			'product_descrption' => $product_description,
 
 			'category_url' => $product_category_url,
 			'product_slug' => $product_slug,
 
 			'product_image_1' => $image_1,
-			'product_image_2' => $image_2,
-			'product_image_3' => $image_3,
-			'product_image_4' => $image_4
-
 			);
 
-
-
-
-			/* $this->load->library('upload', $config);
-			$this->upload->initialize($config);
-			$this->upload->do_upload('product_image_new_1');
-			$this->upload->do_upload('product_image_new_2');
-			$this->upload->do_upload('product_image_new_3');
-			$this->upload->do_upload('product_image_new_4');*/
 
 			//upload baru
 			$img_msg = "";
@@ -452,30 +385,6 @@ class update extends CI_Controller {
 				$arr1["element"]  = "product_image_new_1";
 				$a = $this->upload2->upload_process($arr1);
 				$img_msg .= $a["msg"];
-			}
-
-			if(!empty($_FILES["product_image_new_2"]["name"]))
-			{
-				$arr2["new_path"] = "assets/image/product";
-				$arr2["element"]  = "product_image_new_2";
-				$b = $this->upload2->upload_process($arr2);
-				$img_msg .= $b["msg"];
-			}
-
-			if(!empty($_FILES["product_image_new_3"]["name"]))
-			{
-				$arr3["new_path"] = "assets/image/product";
-				$arr3["element"]  = "product_image_new_3";
-				$c = $this->upload2->upload_process($arr3);
-				$img_msg .= $c["msg"];
-			}
-
-			if(!empty($_FILES["product_image__new_4"]["name"]))
-			{
-				$arr4["new_path"] = "assets/image/product";
-				$arr4["element"]  = "product_image_new_4";
-				$d = $this->upload2->upload_process($arr4);
-				$img_msg .= $c["msg"];
 			}
 
 			$result = $this->model_update->update_product($product_id,$data);
@@ -496,8 +405,6 @@ class update extends CI_Controller {
 				redirect("admin/edit_product/$product_id/$product_category_url/$product_slug");
 
 			}
-
-
 
 
 		redirect('admin/product-list');
