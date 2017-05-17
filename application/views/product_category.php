@@ -1,9 +1,9 @@
+<?php if(!empty($spareparts)) {?>
 <?php
                 foreach($product->result() as $row){
                          $product_id=$row->product_id;
                   $product_title=$row->product_title;
                   $product_descrption=$row->product_descrption;
-                  $product_specification=$row->product_specification;
 
                   $product_brand=$row->manu_id;
                   $product_code=$row->product_code;
@@ -25,15 +25,6 @@
         <aside id="column-left" class="col-sm-3 hidden-xs">
          
 
-          <h3 class="subtitle">Manufacturer</h3>
-          <div class="box-category">
-            <ul id="cat_accordion">
-              <?php foreach ($manu as $m) { ?>
-                <li><a href="<?php echo base_url('product/manufacturer/'.$m->manu_id); ?>"><?php echo $m->manu_title ?></a></li>
-               <?php } ?>
-            </ul>
-          </div>
-
            <h3 class="subtitle">Categories</h3>
           <div class="box-category">
             <ul id="cat_accordion">
@@ -48,7 +39,7 @@
         <!--Left Part End -->
         <!--Middle Part Start-->
         <div id="content" class="col-sm-9">
-          <h1 class="title">Categories : <?php echo $product_category; ?></h1>
+          <h1 class="title"><?php echo $product_category; ?></h1>
           <div class="product-filter">
             <div class="row">
               <div class="col-md-4 col-sm-5">
@@ -95,7 +86,6 @@
                   $product_id=$row->product_id;
                   $product_title=$row->product_title;
                   $product_descrption=$row->product_descrption;
-                  $product_specification=$row->product_specification;
                   $product_category_url=$row->category_url;
                   $product_slug=$row->product_slug;
 
@@ -105,11 +95,6 @@
                   $product_category=$row->product_category;
 
                   $product_image_1=$row->product_image_1;
-                  $product_image_2=$row->product_image_2;
-                  $product_image_3=$row->product_image_3;
-                  $product_image_4=$row->product_image_4;
-
-                  $product_preview = $row->product_text_preview;
 
             ?>
             <div class="product-layout product-list col-xs-12">
@@ -118,7 +103,7 @@
                 <div>
                   <div class="caption">
                     <h4><a href="<?php  echo base_url('product'.'/'.$product_brand.'/'.$product_category_url.'/'.$product_slug); ?>"><?php echo $product_title; ?></a></h4>
-                    <p class="description"><?php echo $product_preview; ?></p>
+                    <p class="description"><?php echo $product_descrption ?></p>
                   </div>
                   <div class="button-group">
                     <a class="btn-primary" style="background-color:#0A098B;" href="<?php  echo base_url('product'.'/'.$product_brand.'/'.$product_category_url.'/'.$product_slug); ?>"><span>See Product</span></button></a>
@@ -143,4 +128,30 @@
         <!--Middle Part End -->
       </div>
     </div>
-  </div>
+</div>
+<?php } else { ?>
+    <div id="container">
+      <div class="container">
+        <div class="row">
+          <!--Left Part Start -->
+          <aside id="column-left" class="col-sm-3 hidden-xs">
+           
+
+             <h3 class="subtitle">Categories</h3>
+            <div class="box-category">
+              <ul id="cat_accordion">
+                 <?php foreach ($category as $c) { ?>
+                  <li><a href="<?php  echo base_url('product/'.$c->category_url); ?>"><?php echo $c->category_title ?></a></li>
+                 <?php } ?>
+              </ul>
+            </div>
+
+            
+          </aside>
+          <div id="content" class="col-sm-9">
+            <h1 class="title">Maaf belum ada product pada category ini</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+<?php } ?>

@@ -4,7 +4,6 @@ foreach($product_cat->result() as $row){
   $product_title=$row->product_title;
   $product_id=$row->product_id;
   $product_descrption=$row->product_descrption;
-  $product_specification=$row->product_specification;
 
   $product_brand=$row->manu_id;
   $product_code=$row->product_code;

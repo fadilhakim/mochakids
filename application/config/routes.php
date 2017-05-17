@@ -60,7 +60,7 @@ $route['info'] = 'info';
 
 $route['product/(:num)/(:any)/(:any)']['get'] = 'product/detail/$1/$2/$3';
 $route['product/(:num)'] = 'product/view/$1';
-$route['product/(:any)']['get'] = 'product/category/$1/$2';
+$route['product/category/(:any)'] = 'product/category/$1';
 $route['product/manufacturer/(:num)']= 'product/manufacturer/$1';
 $route['product/search/(:any)']['get'] = 'product/search/$1';
 

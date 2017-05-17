@@ -124,14 +124,12 @@ class product extends CI_Controller {
 		$this->load->view('templates/meta');
 		$this->load->view('templates/header');
 
-		$cat=$this->uri->segment(2);
+		$cat=$this->uri->segment(3);
 		$page = 'product_category';
-		$cat=trim($cat);	
+		$cat=trim($cat);
+
 		$data['category'] = $this->model_product->list_category()->result();
-
-		$this->load->model('model_manufacturer');
-		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
-
+		
 		$getcate = $this->model_product->getcategory($cat);
 		$data['product'] = $getcate;
 
