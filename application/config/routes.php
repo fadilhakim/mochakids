@@ -86,6 +86,13 @@ $route['cart/remove_item/(:any)'] = 'cart/removeCartItem/$1';
 $route['cart/empty'] = 'cart/empty_cart';
 $route['cart/update_cart'] = 'cart/update_cart';
 
+// profile
+$route["profile/order/detail/(:any)"] = "profile/detail_order/$1";
+$route["profile/order"] = "profile/order";
+$route["profile"] = "profile";
+
+
+
 // payment user confirmation
 $route['payment/confirmation/page/(:any)'] = 'payment/page/$1';
 

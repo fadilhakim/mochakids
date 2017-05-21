@@ -33,7 +33,7 @@
 		{
 			$str = "SELECT * FROM order_detail_tbl WHERE id_order = '$id_order' ";
 			$q = $this->db->query($str);
-			$f = $q->result_array();
+			$f = $q->row_array();
 			
 			return $f;
 			

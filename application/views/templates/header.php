@@ -3,9 +3,12 @@
   <div id="header">
     <!-- Top Bar Start-->
     <?php $this->load->view('sparepart/v_login_popup'); ?>
-    <nav id="top" class="htop navbar navbar-default navbar-fixed-top" style="min-height:0px;">
+    <nav id="top" class="htop navbar navbar-fixed-top navbar-default" style="min-height:0px;">
       <div class="container">
         <div class="row"> <span class="drop-icon visible-sm visible-xs"><i class="fa fa-align-justify"></i></span>
+        
+     
+          
           <div class="pull-left flip left-top">
             <div class="links">
               <ul>
@@ -15,24 +18,52 @@
             </div>
             
           </div>
-          <div id="top-links" class="nav pull-right flip">
-            <ul>
-            <?php if(!$this->session->userdata('contact_person')){ ?>
-              <li>
-                <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-              </li>
+          
+          <div id="top-links" class="collapse navbar-collapse pull-right">
+            
+            <?php if(!empty($this->session->userdata('contact_person'))){ ?>
+             <ul class="nav navbar-nav">
               <li class="dropdown">
-                <a href="<?php echo base_url('sparepart/signup'); ?>">Sign up</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?=$this->session->userdata('contact_person')?> <span class="caret"></span></a>
+                
+                <ul class="dropdown-menu">
+                 <li>
+                 	<a href="<?=base_url("profile")?>">My Profile</a> 
+                 </li>    
+                 <li>
+                 	<a href="<?=base_url("profile/order")?>"> Order </a>
+                 </li>    
+                 <li>
+                 	<a href="<?=base_url("profile/account_setting")?>"> Account Setting </a>
+                 </li>
+                 <!-- <li>
+                    <a href="<?php echo base_url('payment/confirmation/page/921391sc');  ?>">Konfirmasi Pembayaran</a>
+                 </li> -->
+                 <li>
+                   <a href="<?php echo base_url('login/logout_member');  ?>">Logout</a>
+                 </li>
+                </ul>
               </li>
-             <?php } else {?>
-             <li>
-                <a href="<?php echo base_url('payment/confirmation/page/921391sc');  ?>">Konfirmasi Pembayaran</a>
-              </li>
-              <li>
-                <a href="<?php echo base_url('login/logout');  ?>">Logout</a>
-              </li>
-            <?php } ?>
-            </ul>
+             </ul>
+             <script>
+				$('.dropdown-toggle').dropdown()
+			 </script>
+             <style>
+			 	.navbar-default .navbar-nav > .open > a:focus {
+					color: #555;
+					background-color: black !important;
+				}
+			 </style>
+            <?php } else {?>
+             <ul class="nav navbar-nav">
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                </li>
+                <li>
+                  <a href="<?php echo base_url('sparepart/signup'); ?>">Sign up</a>
+                </li>
+              </ul>
+            <?php } ?>           
           </div>
         </div>
       </div>

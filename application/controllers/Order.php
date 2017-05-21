@@ -13,6 +13,8 @@
 		
 		function insert_order()
 		{
+			$this->authentification->logged_in();
+			
 			$cart_content =  $this->cart->contents();
 			
 			if(!empty($cart_content))
@@ -34,10 +36,6 @@
 				
 				//redirect("cart/show_cart");	
 			}
-			
-			
-			
-			
 			
 		}
 		

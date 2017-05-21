@@ -40,10 +40,9 @@ class home extends CI_Controller {
 
 	public function besha404()
 	{
-		$this->load->view('templates/meta');
-		$this->load->view('templates/header');
-		$this->load->view('404page');
-		$this->load->view('templates/footer-2');
+		
+		$data["content"] = "404page";
+		$this->load->view("templates/template");
 	}
 
 }
