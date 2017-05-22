@@ -4,8 +4,8 @@
 <div id="profile-content">
 	<h2> Profile </h2>
     <hr>
-    
-    <form action="<?=base_url("profile/edit_profile_process")?>">
+    <div><?=$this->session->flashdata("message")?></div>
+    <form action="<?=base_url("profile/edit_profile_process")?>" method="post" role="form">
     <div class="row">
      <div class="col-md-12">
      
@@ -61,6 +61,7 @@
          </div>
       
       </div>
+     
       <span class="clearfix"></span>
       <div class="col-md-12">
       	<input type="submit" value="Edit Profile" class="btn btn-success pull-right">

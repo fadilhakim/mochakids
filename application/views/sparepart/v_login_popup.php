@@ -4,13 +4,13 @@
 					<h1>Login to Your Account</h1><br>
 				  <form method="post" action="<?php echo base_url('login/aksi_login_costumer'); ?>" >
                   	<input type="hidden" name="redirect_success" value="<?=current_url()?>">
-					<input type="text" name="email" placeholder="email">
-					<input type="password" name="password" placeholder="password">
+					<input type="text" name="email" placeholder="email" class="form-control">
+					<input type="password" name="password" placeholder="password" class="form-control">
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				  </form>
 					
 				  <div class="login-help">
-					<a href="<?php echo base_url('sparepart/signup'); ?>">Register</a> 
+					<a href="<?php echo base_url('register'); ?>">Register</a> 
 				  </div>
 				</div>
 			</div>

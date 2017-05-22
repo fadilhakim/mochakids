@@ -168,7 +168,6 @@ class model_user extends CI_Model
 	}
 	
 	function get_user_detail($user_id)
-
 	{
 
 		$str = "SELECT * FROM user_tbl WHERE user_id = '$user_id' ";	
@@ -176,11 +175,79 @@ class model_user extends CI_Model
 		$q = $this->db->query($str);
 
 		$f = $q->row_array();
-
-		
-
 		return $f;
-
 	}
+	
+	function check_account($email,$password)
+	{
+		$password = md5($password);
+		
+		$str = "SELECT * FROM user_tbl WHERE email = '$email' AND password = '$password' ";
+		$q = $this->db->query($str);
+		$f = $q->row_array();
+		
+		return $f;
+	}
+	
+	function change_password($password)
+	{
+		$user_id = $this->session->userdata("user_id");
+		
+		$dt = array(
+			"password" => md5($password)
+		);
+		
+		$this->db->where('user_id', $user_id);
+		$this->db->update('user_tbl', $dt);	
+	}
+	
+	function change_email($email)
+	{
+		$user_id = $this->session->userdata("user_id");
+		
+		$dt = array(
+			"email" => $email
+		);
+		
+		$this->db->where('user_id', $user_id);
+		$this->db->update('user_tbl', $dt);
+		
+	}
+	
+	function edit_profile_process()
+	{
+		
+		$id_user = $this->session->userdata("user_id");
+		
+		$contact_person = $this->input->post("contact_person",TRUE);
+		$no_telp		= $this->input->post("no_telp",TRUE);
+		$no_hp			= $this->input->post("no_hp",TRUE);
+		$no_fax			= $this->input->post("no_fax",TRUE);
+		$billing_address = $this->input->post("billing_address",TRUE);
+		$shipping_address = $this->input->post("shipping_address",TRUE);
+		
+		$data = array(
+		
+			'contact_person' => $contact_person,
+			'no_tlp' => $no_telp,
+			'no_hp' => $no_hp,
+			"no_fax" => $no_fax,
+			"billing_address" => $billing_address,
+			"shipping_address" => $shipping_address
+			
+		);
+		
+		$this->db->where('user_id', $id_user);
+		$this->db->update('user_tbl', $data);		
+	}
+	
+	function register_process()
+	{
+		
+		
+		
+	}
+	
+	
 
 }

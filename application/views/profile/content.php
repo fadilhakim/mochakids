@@ -7,10 +7,10 @@
               <div class="inner-block"><!------Main Inner-------->
                   <div class="row">
                   
-                      <div class="col-md-3">
+                      <div class="col-md-2">
                           <?php $this->load->view("profile/sidebar");?>    
                       </div>
-                      <div class="col-md-9">
+                      <div class="col-md-10">
                           <?php $this->load->view($subcontent,$dt_subcontent);?>
                       </div>
                   </div>

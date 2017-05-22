@@ -91,7 +91,8 @@ $route["profile/order/detail/(:any)"] = "profile/detail_order/$1";
 $route["profile/order"] = "profile/order";
 $route["profile"] = "profile";
 
-
+// login / register
+$route["register"] = "login/register";
 
 // payment user confirmation
 $route['payment/confirmation/page/(:any)'] = 'payment/page/$1';

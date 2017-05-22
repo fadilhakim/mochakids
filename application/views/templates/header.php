@@ -60,7 +60,7 @@
                   <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                 </li>
                 <li>
-                  <a href="<?php echo base_url('sparepart/signup'); ?>">Sign up</a>
+                  <a href="<?php echo base_url('register'); ?>">Sign up</a>
                 </li>
               </ul>
             <?php } ?>           

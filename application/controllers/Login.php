@@ -73,7 +73,7 @@ class login extends CI_Controller {
 	}
 
 	function logout(){
-		$this->session->sess_destroy();
+		$this->session->sess_destroy(); // jangan session destroy
 		redirect(base_url(''));
 	}
 
@@ -85,7 +85,7 @@ class login extends CI_Controller {
 		
 		$this->session->unset_userdata($array_items);
 		
-		redirect(base_url('login/login_costumer'));
+		redirect(base_url('login/login_customer'));
 	}
 
 	function login_customer(){
@@ -95,7 +95,19 @@ class login extends CI_Controller {
 		$this->load->view("templates/template",$data);
 	}
 	
+	function register()
+	{
+		$this->authentification->logged_out();
+		$data["content"] = "register";
+		$this->load->view("templates/template",$data);
+	}
 	
+	function register_process()
+	{
+		$this->load->library("form_validation");	
+		
+		
+	}
 
 	function aksi_login_costumer(){
 		
@@ -115,7 +127,7 @@ class login extends CI_Controller {
 					  
 					  $message = danger("Silahkan konfirmasi email terlebih dahulu");
 					  $this->session->set_flashdata('message',$message);
-					  redirect(base_url("login/login_costumer"));
+					  redirect(base_url("login/login_customer"));
 				  }
 
 				  else {
@@ -138,7 +150,7 @@ class login extends CI_Controller {
 				
 				$message = danger("Maaf email / password yang anda masukan salah ");
 				$this->session->set_flashdata('message',$message);
-				redirect(base_url("login/login_costumer"));
+				redirect(base_url("login/login_customer"));
 			}
 
 
