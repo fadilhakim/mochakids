@@ -92,10 +92,7 @@
 			$grand_total = $this->cart->total();
 			$status = "pending";
 			$id_user = 1;
-			
-			
-			
-			
+
 			  $str  = "INSERT INTO order_tbl SET 			 ";
 			  $str .= "id_order 			= '$new_code'	,";
 			  $str .= "id_user			= '$id_user'	,";
@@ -125,10 +122,6 @@
 				  $q = $this->db->query($str2);
 				  
 			  }
-		  
-		  	
-			
-			
 			
 		}
 		
