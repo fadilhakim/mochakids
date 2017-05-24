@@ -33,7 +33,7 @@
 <div id="add_address_book">
 	<h2> Add Address Book </h2>
     <hr>
-    
+    <div><?=$this->session->flashdata("message");?></div>
     <form action="<?=base_url("profile/add_address_book_process")?>" role="form" method="post">
       <div class="row">
       	<h4> Contact </h4>

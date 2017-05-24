@@ -22,6 +22,13 @@
 			
 		}
 		
+		function view_session()
+		{
+			$s = $this->session->all_userdata();
+			
+			print_r($s);	
+		}
+		
 		function cetak()
 		{
 			$this->load->library("rajaongkir");

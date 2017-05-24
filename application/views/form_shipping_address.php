@@ -30,11 +30,18 @@
 	}
 
 </script>
-<form action="<?=base_url("checkout/shipping_address_process")?>" method="post">
+<!-- <form action="<?=base_url("checkout/shipping_address_process")?>" method="post"> -->
  <div class="form-group col-md-5">
  	 <label> Choose Address Book </label>
-     <select class="form-control" id="address_book">
+     <select class="form-control" id="address_book" name="address_book">
      	<option value=""> - Select -</option>
+        <?php
+			foreach($address_book as $row){
+		?>
+        	<option value="<?=$row["user_add_id"]?>"><?=$row["contact_person"]?></option>
+        <?php
+			}
+		?>
      </select>
  </div>
  <span class="clearfix"></span>
@@ -65,6 +72,14 @@
     </div>
 </div>
 <div class="col-md-5">
+	<div class="form-group">
+       <label> Kurir </label>
+       <select class="form-control" name="kurir">
+       		<option value="jne"> JNE </option>
+            <option value="tiki"> TIKI </option>
+            <option value="pos"> POS </option>
+       </select>
+    </div>
     <div class="form-group">
         <label> Shipping Address </label>	
         <textarea name="shipping_address" id="shipping_address" class="form-control"></textarea>
@@ -77,7 +92,7 @@
     
 </div>
 <span class="clearfix"></span>
-</form>
+<!-- </form> -->
 <script>
 	$(document).ready(function(e) {
 		

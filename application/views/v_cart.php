@@ -1,5 +1,8 @@
 <?php 
 
+$user_id_sess 	 = $this->session->userdata("user_id");
+$email_user_sess = $this->session->userdata("member_email");
+
 if(!$this->cart->contents()){ ?>
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
@@ -104,10 +107,12 @@ if(!$this->cart->contents()){ ?>
                                         </div>
                                     </div>
                     
-                                    <?php echo form_close(); ?> 
+                                    <?php echo form_close(); // END FORM  ?> 
                                     <hr>
                                     <div class="spacer15"></div> 
+                                    
                                     <div class="row">
+                                    <form method="post" action="<?=base_url("order/insert_order")?>">
                                         <div class="col-md-8">
                                             <div class="tab-container left clearfix">
                                                 <!-- Tab nav -->
@@ -150,7 +155,8 @@ if(!$this->cart->contents()){ ?>
                                                     </tr>
                                                     <tr>
                                                         <td class="total-table-title">Shipping:</td>
-                                                        <td>Rp. 0</td>
+                                                        <input type="hidden" name="result_ongkir" id="result_ongkir" value=""><!-- di dapat dari AJAX rajaongkir -->
+                                                        <td><div id="result-ongkir">Rp. 0</div></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="total-table-title">TAX (10%):</td>
@@ -171,22 +177,27 @@ if(!$this->cart->contents()){ ?>
 											?>
                                             <div class="md-margin"></div><!-- space -->
                                             <div class="text-right">
-                                            	<?php if(!empty($email_sess)){ ?>
-                                                <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button onclick="" class="btn btn-custom btn-lger min-width-sm">Print Checkout</button></a>
+                                            	<?php if(!empty($email_user_sess)){ ?>
+                                                <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button type="button" onclick="" class="btn btn-default">Print Checkout</button></a>
+                                                <button title="submit to order" class="btn btn-success"> Order and Payment </button>
+                                                
+                                                
                                                 <?php }else{   ?>
                                                 	<a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm"> Print Checkout</a>
                                                 <?php } ?>
                                             </div>
                                             
-                                            <div class="text-right">
-                                            <?php if(!empty($email_sess)) { ?>
+                                            <!-- <div class="text-right">
+                                            <?php if(!empty($email_user_sess)) { ?>
+                                            
                                                 <a href="<?=base_url("cart/send_email_invoice")?>" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
+                                                
                                             <?php } else {  ?>
                                             <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
                                             <?php
 											}
 											?>
-                                            </div>
+                                            </div> -->
                                         </div><!-- End .col-md-4 -->
                                     </div><!-- End .row -->
                                 </div>

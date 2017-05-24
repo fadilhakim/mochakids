@@ -39,7 +39,7 @@
 		{
 			$this->load->library("rajaongkir");
 			
-			$id_city = $this->input->post("id_city");
+			$id_city = $this->input->post("id_city",TRUE);
 			
 			$aa = $this->rajaongkir->dt_city($id_city);
 			
@@ -47,6 +47,18 @@
 			$aa = $aa["rajaongkir"]["results"];
 			
 			echo json_encode($aa);	
+			
+			
+		}
+		
+		function detail_cost()
+		{
+			$this->load->library("rajaongkir");
+			
+			$origin 	 = $this->input->post("origin",TRUE);
+			$destination = $this->input->post("destination",TRUE);
+			$weight 	 = $this->input->post("weight",TRUE);
+			$courier 	 = $this->input->post("courier",TRUE);  
 			
 			
 		}
@@ -61,5 +73,6 @@
 			
 			echo json_encode($check_email_user);
 		}
+		
 		
 	}

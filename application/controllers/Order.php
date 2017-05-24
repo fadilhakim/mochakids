@@ -15,6 +15,10 @@
 		{
 			$this->authentification->logged_in();
 			
+			print_r($_POST); exit;
+			
+			
+			
 			$cart_content =  $this->cart->contents();
 			
 			if(!empty($cart_content))

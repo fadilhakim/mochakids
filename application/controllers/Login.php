@@ -98,6 +98,15 @@ class login extends CI_Controller {
 	function register()
 	{
 		$this->authentification->logged_out();
+		
+		$this->load->library("rajaongkir");
+
+		$user_id = $this->session->userdata("user_id");		
+		$province = $this->rajaongkir->show_province();
+		$json_decode = json_decode($province,TRUE);
+			
+		$data["province"] = $json_decode["rajaongkir"]["results"];
+		
 		$data["content"] = "register";
 		$this->load->view("templates/template",$data);
 	}

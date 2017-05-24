@@ -122,8 +122,40 @@
 			)*/
 			
 			$contact_person = $this->input->post("contact_person",TRUE);
-			$no_hp = $this->input->post("no_hp");
+			$no_hp = $this->input->post("no_hp",TRUE);
+			$id_province = $this->input->post("id_province",TRUE);
+			$id_city = $this->input->post("id_city",TRUE);
+			$kecamatan = $this->input->post("kecamatan",TRUE);
+			$kode_pos = $this->input->post("kode_pos",TRUE);
+			$shipping_address = $this->input->post("shipping_address",TRUE);
+			$billing_address = $this->input->post("billing_address",TRUE);
 			
+			$this->form_validation->set_rules("contact_person","Contact Person","required");
+			$this->form_validation->set_rules("no_hp","No Hp","required");
+			$this->form_validation->set_rules("id_province","Province","required");
+			$this->form_validation->set_rules("id_city","City","required");
+			$this->form_validation->set_rules("kecamatan","Kecamatan","required");
+			$this->form_validation->set_rules("kode_pos","Kode Pos","required");
+			$this->form_validation->set_rules("shipping_address","Shipping Address","required");
+			
+			
+			if($this->form_validation->run() == TRUE)
+			{
+				$this->model_user->add_address_book();
+				
+				$message = success("You successfully Add Address Book ");
+				$this->session->set_flashdata("message",$message);
+				
+			}
+			else
+			{
+				$err = validation_errors();
+				$message = danger($err);
+				
+				$this->session->set_flashdata("message",$message);
+			}
+			
+			redirect(site_url("profile/add_address_book"));
 		}
 		
 		function edit_profile_process()

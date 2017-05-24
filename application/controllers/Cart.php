@@ -8,6 +8,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
    	  $this->load->model('model_cart');
 	  $this->load->helper("check_data");
+	  $this->load->model("model_user");
 
   	}
 
@@ -73,9 +74,9 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 		$user_id = $this->session->userdata("user_id");		
 		$province = $this->rajaongkir->show_province();
 		$json_decode = json_decode($province,TRUE);
-			
-		$data["province"] = $json_decode["rajaongkir"]["results"];
 		
+		$data["address_book"] = $this->model_user->address_book_list($user_id);
+		$data["province"] = $json_decode["rajaongkir"]["results"];
 		$data["content"] = "v_cart";
     	
 		$this->load->view("templates/template",$data);

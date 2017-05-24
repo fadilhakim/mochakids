@@ -180,7 +180,7 @@ class model_user extends CI_Model
 	
 	function address_book_list($user_id)
 	{
-		$str = "SELECT * FROM user_tbl WHERE user_id = '$user_id' ";
+		$str = "SELECT * FROM user_address_tbl WHERE user_id = '$user_id' ";
 		$q = $this->db->query($str);
 		$f = $q->result_array();
 		
@@ -252,9 +252,48 @@ class model_user extends CI_Model
 		$this->db->update('user_tbl', $data);		
 	}
 	
-	function register_process()
+	function add_address_book()
+	{
+		$user_id = $this->session->userdata("user_id");
+		$datetime = date("Y-m-d H:i:i");
+		
+		$contact_person = $this->input->post("contact_person",TRUE);
+		$no_hp = $this->input->post("no_hp",TRUE);
+		$id_province = $this->input->post("id_province",TRUE);
+		$id_city = $this->input->post("id_city",TRUE);
+		$kecamatan = $this->input->post("kecamatan",TRUE);
+		$kode_pos = $this->input->post("kode_pos",TRUE);
+		$shipping_address = $this->input->post("shipping_address",TRUE);
+		$billing_address = $this->input->post("billing_address",TRUE);	
+		
+		$dt = array(
+		
+			"user_id" => $user_id,
+			"contact_person" => $contact_person,
+			"no_hp" => $no_hp,
+			"provinsi" => $id_province,
+			"kota" => $id_city,
+			"kecamatan" => $kecamatan,
+			"kode_pos" => $kode_pos,
+			"shipping_address" => $shipping_address,
+			"billing_address" => $billing_address ,
+			"create_date" => $datetime
+		
+		
+		);
+		
+		//$this->db->set("");
+		$this->db->insert("user_address_tbl",$dt);
+	}
+	
+	function delete_address_book()
 	{
 		
+		
+	}
+	
+	function register_process()
+	{
 		
 		
 	}
