@@ -11,12 +11,15 @@
 		foreach($address_list as $row){
 	?>
     	<div class="panel panel-default col-md-4">
-        	<div class="panel-header">
-            	<h3> Haloo </h3>
+        	<div class="panel-heading">
+            	<b><?=$row["contact_person"]?> </b>
             </div>
     		<div class="panel-body">
-            
-            
+            	Billing Address : <br>
+                <?=$row["billing_address"]?> <br>
+            	
+                Shipping Address : <br>
+                <?=$row["shipping_address"]?> <br>
             
             </div>
     	</div>
