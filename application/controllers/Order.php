@@ -46,14 +46,6 @@
 			
 		}
 		
-		function payment_confirmation($id_order)
-		{
-			
-			
-			
-			
-		}
-		
 		function test()
 		{
 			$sess = $this->session->all_userdata();

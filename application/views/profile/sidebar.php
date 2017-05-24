@@ -7,6 +7,9 @@
   </li>
   <li class="list-group-item"><a href="<?=base_url("profile")?>"> Profile </a></li>
   <li class="list-group-item"><a href="<?=base_url("profile/order")?>"> Order </a></li>
+  <li class="list-group-item">
+  		<a href="<?=base_url("profile/address_book")?>"> Address Book </a> 
+  </li>
   <li class="list-group-item"><a href="<?=base_url("profile/account_setting")?>"> Account Setting </a></li>
   <li class="list-group-item"><a href="<?=base_url("login/logout_member")?>"> Logout </a></li>
 </ul>

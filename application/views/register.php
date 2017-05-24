@@ -4,7 +4,7 @@
     <div class="container">
         <div class="breadcrumbs-main clearfix">
             <h2>Sign Up</h2>
-            <hr>
+          
         </div>
     </div>
 </div>
@@ -17,6 +17,10 @@
               <div class="sign-main"><!-- Start Sign -->
                     <div class="sign-details clearfix"><!-- Start Form -->
                       <div class="col-sm-12 contact-form">
+                      
+                      <div class="panel panel-default">
+                      	<div class="panel-body">	
+                      
                         <form action="<?=base_url("login/register_process")?>" method="post" role="form">
                             <div class="row">
                              <div class="col-md-12">
@@ -92,6 +96,10 @@
                              </div>
                             </div>
                             </form>
+                        
+                        </div>
+                      </div>
+                      
                       </div>
                     </div>
                     

@@ -24,7 +24,15 @@
 		
 		function cetak()
 		{
-			echo " I cant believe its worrrkk ....";	
+			$this->load->library("rajaongkir");
+			
+			$id_city = $this->uri->segment(3);
+			
+			$a = $this->rajaongkir->dt_city($id_city);
+			
+			$result = json_decode($a,TRUE);
+			
+			print_r($result);
 		}
 		
 		function ci_process()

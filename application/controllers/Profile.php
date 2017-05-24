@@ -7,6 +7,7 @@
 			parent::__construct();
 			$this->authentification->logged_in();
 			$this->load->model("model_user");
+			$this->load->library("rajaongkir");
 		}
 		
 		function index()
@@ -53,6 +54,38 @@
 			$this->load->view("templates/template",$data);
 		}
 		
+		function address_book()
+		{
+			$user_id = $this->session->userdata("user_id");
+			$address_list = $this->model_user->address_book_list($user_id);
+			
+			$data["address_list"] = $address_list;
+			$data["content"] = "profile/content";
+			$data["subcontent"] = "profile/address_book";
+			
+			
+			$this->load->view("templates/template",$data);	
+			
+			
+		}
+		
+		function add_address_book()
+		{
+			$user_id = $this->session->userdata("user_id");	
+			
+			$province = $this->rajaongkir->show_province();
+			
+		    $json_decode = json_decode($province,TRUE);
+			
+			$data["province"] = $json_decode["rajaongkir"]["results"];
+			$data["content"] = "profile/content";
+			$data["subcontent"] = "profile/add_address_book";
+			
+			
+			$this->load->view("templates/template",$data);	
+			
+		}
+		
 		function account_setting()
 		{
 			$user_id = $this->session->userdata("user_id");
@@ -72,6 +105,27 @@
 			$this->load->view("templates/template",$data);	
 		}
 		
+		function add_address_book_process()
+		{
+			$this->load->library("form_validation");
+			
+			/* Array
+			(
+				[contact_person] => 
+				[no_hp] => 
+				[id_province] => 1
+				[id_city] => 17
+				[kecamatan] => 
+				[kode_pos] => 
+				[shipping_address] => 
+				[billing_address] => 
+			)*/
+			
+			$contact_person = $this->input->post("contact_person",TRUE);
+			$no_hp = $this->input->post("no_hp");
+			
+		}
+		
 		function edit_profile_process()
 		{
 			$this->load->library("form_validation");
@@ -80,14 +134,14 @@
 			$no_telp		= $this->input->post("no_telp",TRUE);
 			$no_hp			= $this->input->post("no_hp",TRUE);
 			$no_fax			= $this->input->post("no_fax",TRUE);
-			$billing_address = $this->input->post("billing_address",TRUE);
-			$shipping_address = $this->input->post("shipping_address",TRUE);
+			//$billing_address = $this->input->post("billing_address",TRUE);
+			//$shipping_address = $this->input->post("shipping_address",TRUE);
 			
 			$this->form_validation->set_rules("contact_person","Contact Person","required");
 			$this->form_validation->set_rules("no_telp","No Telp","required");
 			$this->form_validation->set_rules("no_hp","No Hp","required");
-			$this->form_validation->set_rules("billing_address","Billing Address","required"); 	
-			$this->form_validation->set_rules("shipping_address","Shipping Address","required");
+			//$this->form_validation->set_rules("billing_address","Billing Address","required"); 	
+			//$this->form_validation->set_rules("shipping_address","Shipping Address","required");
 			
 			if($this->form_validation->run() == TRUE)
 			{				

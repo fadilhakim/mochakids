@@ -178,6 +178,17 @@ class model_user extends CI_Model
 		return $f;
 	}
 	
+	function address_book_list($user_id)
+	{
+		$str = "SELECT * FROM user_tbl WHERE user_id = '$user_id' ";
+		$q = $this->db->query($str);
+		$f = $q->result_array();
+		
+		return $f;
+		
+		
+	}
+	
 	function check_account($email,$password)
 	{
 		$password = md5($password);
@@ -223,8 +234,8 @@ class model_user extends CI_Model
 		$no_telp		= $this->input->post("no_telp",TRUE);
 		$no_hp			= $this->input->post("no_hp",TRUE);
 		$no_fax			= $this->input->post("no_fax",TRUE);
-		$billing_address = $this->input->post("billing_address",TRUE);
-		$shipping_address = $this->input->post("shipping_address",TRUE);
+		//$billing_address = $this->input->post("billing_address",TRUE);
+		//$shipping_address = $this->input->post("shipping_address",TRUE);
 		
 		$data = array(
 		
@@ -232,8 +243,8 @@ class model_user extends CI_Model
 			'no_tlp' => $no_telp,
 			'no_hp' => $no_hp,
 			"no_fax" => $no_fax,
-			"billing_address" => $billing_address,
-			"shipping_address" => $shipping_address
+			//"billing_address" => $billing_address,
+			//"shipping_address" => $shipping_address
 			
 		);
 		

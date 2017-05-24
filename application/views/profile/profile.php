@@ -46,21 +46,21 @@
       <span class="clearfix"></span>
       <hr>
 
-      <h4> Address </h4>
+      <!-- <h4> Address </h4>
       <div class="col-md-12">
       	<div class="form-group">
         	<label> Billing Address </label>
-            <textarea class="form-control" name="billing_address" id="billing_address"><?=$dt_profile["billing_address"]?></textarea>
+            <textarea class="form-control" name="billing_address" id="billing_address"></textarea>
       	</div>
       
       </div>
       <div class="col-md-12">
       	 <div class="form-group">
          	<label> Shipping Address </label>
-         	<textarea name="shipping_address" id="shipping_address" class="form-control"><?=$dt_profile["shipping_address"]?></textarea>
+         	<textarea name="shipping_address" id="shipping_address" class="form-control"></textarea>
          </div>
       
-      </div>
+      </div> -->
      
       <span class="clearfix"></span>
       <div class="col-md-12">

@@ -104,8 +104,51 @@ class login extends CI_Controller {
 	
 	function register_process()
 	{
-		$this->load->library("form_validation");	
+		$this->load->library("form_validation");
+		$this->load->library("check_data");
 		
+		/*Array
+		(
+			[contact_person] => 
+			[password] => 
+			[email] => 
+			[confirm_password] => 
+			[no_telp] => 
+			[no_hp] => 
+			[no_fax] => 
+			[billing_address] => 
+			[shipping_address] => 
+		)
+		*/	
+		
+		$contact_person = $this->input->post("contact_person",TRUE);
+		$email 			= $this->input->post("email",TRUE);
+		$password 		= $this->input->post("password",TRUE);
+		
+		$no_telp 		= $this->input->post("no_telp",TRUE);
+		$no_hp			= $this->input->post("no_hp",TRUE);
+		$no_fax 		= $this->input->post("no_fax",TRUE);
+		
+		$billing_address = $this->input->post("billing_address",TRUE);
+		$shipping_address = $this->input->post("shipping_address",TRUE);
+		
+		$this->form_validation->set_rules("contact_person","Contact Person","required");
+		$this->form_validation->set_rules("email","email","required|valid_email");
+		$this->form_validation->set_rules("password","Password","required|matches[confirm_password]");
+		
+		$this->form_validation->set_rules("no_telp","No Telp","required");
+		$this->form_validation->set_rules("no_hp","No Hp","required");
+		
+		$this->form_validation->set_rules("billing_address","Billing Address","required");
+		$this->form_validation->set_rules("Shipping Address","Shipping Address","required");
+		
+		$check_email = $this->check_data->check_email_user($email);
+		
+		if($this->form_validation->run() == TRUE && $check_email == TRUE)
+		{
+			
+		}
+				
 		
 	}
 

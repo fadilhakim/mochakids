@@ -50,6 +50,11 @@
 			return $this->general("http://api.rajaongkir.com/starter/city?id=$id_city&province=$id_province");	
 		}
 		
+		function dt_city($id_city)
+		{
+			return $this->general("http://api.rajaongkir.com/starter/city?id=$id_city");
+		}
+		
 		function city_province($id_province)
 		{
 			return $this->general("http://api.rajaongkir.com/starter/city?province=$id_province");	

@@ -35,4 +35,31 @@
 			
 		}
 		
+		function dt_city()
+		{
+			$this->load->library("rajaongkir");
+			
+			$id_city = $this->input->post("id_city");
+			
+			$aa = $this->rajaongkir->dt_city($id_city);
+			
+			$aa = json_decode($aa,TRUE);
+			$aa = $aa["rajaongkir"]["results"];
+			
+			echo json_encode($aa);	
+			
+			
+		}
+		
+		function check_email_user()
+		{
+			$this->load->library("check_data");
+			
+			$email = $this->input->post("email");
+			
+			$check_email_user = $this->check_data->check_email_user($email);	
+			
+			echo json_encode($check_email_user);
+		}
+		
 	}

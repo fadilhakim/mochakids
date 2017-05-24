@@ -66,9 +66,9 @@ if(!$this->cart->contents()){ ?>
                                                     <figure>
                                                        <!--  <a href="#"><img src="<?php /* <?= check_image_product($items['id']) ?> */?>" alt=""></a> -->
                                                     </figure>
-                                                    <h2 class="product-name">
+                                                    <b class="product-name">
                                                         <a href="#"><?php echo $detail_product->product_title; ?></a>
-                                                    </h2>
+                                                    </b>
                                                     <!-- /<ul>
                                                         <li>Manufacturer: <?php //echo $items['manu']; ?></li>
                                                     </ul>
@@ -105,6 +105,7 @@ if(!$this->cart->contents()){ ?>
                                     </div>
                     
                                     <?php echo form_close(); ?> 
+                                    <hr>
                                     <div class="spacer15"></div> 
                                     <div class="row">
                                         <div class="col-md-8">
@@ -116,35 +117,7 @@ if(!$this->cart->contents()){ ?>
                                                 </ul>
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active" id="shipping">
-                                                        <form action="#" class="clearfix">
-                                                            <p class="ship-desc">Enter your destination to get a shipping estimate</p>
-                                                            <div class="ship-row clearfix">
-                                                                <span class="ship-label col-3">City<i>*</i></span>
-                                                                <div class="normal-selectbox">
-                                                                    <select id="country" name="country" class="selectpicker">
-                                                                        <option value="">Please select</option>
-                                                                        <option value="Turkey">Turkey</option>
-                                                                        <option value="Germany">Germany</option>
-                                                                        <option value="Korea">Korea</option>
-                                                                    </select>
-                                                                </div><!-- End .normal-selectbox-->    
-                                                            </div>
-                                                            <div class="ship-row clearfix">
-                                                                <span class="ship-label col-3">Region/State<i>*</i></span>
-                                                                <div class="normal-selectbox">
-                                                                    <select id="region" name="region" class="selectpicker">
-                                                                        <option value="">Please select</option>
-                                                                        <option value="Texas">Texas</option>
-                                                                        <option value="California">California</option>
-                                                                    </select>
-                                                                </div><!-- End .normal-selectbox-->    
-                                                            </div>
-                                                            <div class="ship-row clearfix">
-                                                                <span class="ship-label col-3">Post Codes<i>*</i></span>
-                                                                <div class="col-3 ship-post"><input type="text" class="form-control text-center" value="12315"></div>
-                                                                <div class="col-3 text-right"><a href="#" class="btn btn-custom-6 btn-block">Get Quotes</a></div>
-                                                            </div>
-                                                        </form>
+                                                   <?php $this->load->view("form_shipping_address");?>
                                                     </div><!-- End .tab-pane -->
                                                     <div class="tab-pane fade" id="discount">
                                                         <p class="ship-desc">Enter your discount coupon here:</p>
