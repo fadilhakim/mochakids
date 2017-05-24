@@ -1,3 +1,6 @@
+<?php
+	$total_weight = $this->model_cart->weight_total();
+?>
 <script>
 	function city_province(id_province)
 	{
@@ -28,8 +31,27 @@
 		
 		});
 	}
+	
+	function detail_cost(origin,destination,weight,courier)
+	{
+		origin = 152;
+		
+		$.ajax({	
+			type:"POST",
+			url:"<?=base_url("ajax/list_result_ongkir")?>",
+			data:"origin="+origin+"&destination="+destination+"&weight="+weight+"&courier="+courier,
+			success: function(data)
+			{
+				$("#layanan_kurir").html(data);
+		
+			}
+		});
+		
+		
+	}
 
 </script>
+<?=$this->session->flashdata("message");?>
 <!-- <form action="<?=base_url("checkout/shipping_address_process")?>" method="post"> -->
  <div class="form-group col-md-5">
  	 <label> Choose Address Book </label>
@@ -74,11 +96,21 @@
 <div class="col-md-5">
 	<div class="form-group">
        <label> Kurir </label>
-       <select class="form-control" name="kurir">
+       <select class="form-control" name="kurir" id="kurir">
        		<option value="jne"> JNE </option>
             <option value="tiki"> TIKI </option>
             <option value="pos"> POS </option>
        </select>
+       
+       <input type="hidden" name="total_weight" id="total_weight" value="<?=$total_weight?>">
+     
+    </div>
+    <div class="form-group">
+    	<label> Layanan Kurir </label>
+    	<select class="form-control" name="layanan_kurir" id="layanan_kurir">
+        
+        </select>
+    
     </div>
     <div class="form-group">
         <label> Shipping Address </label>	
@@ -98,24 +130,56 @@
 		
 			var id_province = $("#id_province").val();
 			var id_city = $("#id_city").val();
+			var origin = 152; // default
+			var destination = $("#id_city").val();
+			var weight = $("#total_weight").val();
+			var courier = $(this).val();
+			
 			city_province(id_province);	
 			dt_city(id_city);
+			detail_cost(origin,destination,weight,courier);
+			
 		
 		$("#id_province").change(function(){
 		
 			var id_province = $(this).val();
 			var id_city = $("#id_city").val();
+			
+			var origin = 152; // default
+			var destination = $("#id_city").val();
+			var weight = $("#total_weight").val();
+			var courier = $(this).val();
+			
+			
+			
 			city_province(id_province);	
 			dt_city(id_city);
+			detail_cost(origin,destination,weight,courier);
 		});
 		
 		$("#id_city").change(function(){
 			
 			var id_city = $(this).val();
+			var origin = 152; // default
+			var destination = $("#id_city").val();
+			var weight = $("#total_weight").val();
+			var courier = $(this).val();
+			
 			dt_city(id_city);
-			
-			
+			detail_cost(origin,destination,weight,courier);
 		});
+		
+		$("#kurir").change(function(){
+			
+			var origin = 152; // default
+			var destination = $("#id_city").val();
+			var weight = $("#total_weight").val();
+			var courier = $(this).val();
+			
+			
+			detail_cost(origin,destination,weight,courier);
+			
+		})
 	});
 
 

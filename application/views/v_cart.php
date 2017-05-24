@@ -80,6 +80,7 @@ if(!$this->cart->contents()){ ?>
                                                 <td class="product-code"><?php echo $items['code']; ?></td>
                                                 <td class="product-price-col"><span class="product-price-special">Rp <?php echo $this->cart->format_number($items['price']); ?></span>
                                                 <input type="hidden" class="price" value="<?php echo $items['price']; ?>">
+                                                
                                                 </td>
                                                 <td>
                                                     <div class="custom-quantity-input">

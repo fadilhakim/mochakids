@@ -15,6 +15,25 @@
 		{
 			$this->authentification->logged_in();
 			
+			/*
+				Array
+				(
+					[address_book] => 1 // id_user_add
+					[id_province] => 6
+					[id_city] => 151
+					[kecamatan] => 
+					[kode_pos] => 80351
+					[kurir] => tiki
+					[total_weight] => 200
+					[layanan_kurir] => 9000 // price ongkir
+					[shipping_address] => 
+					[billing_address] => 
+					[result_ongkir] => 
+				)			
+			
+			
+			*/
+
 			print_r($_POST); exit;
 			
 			

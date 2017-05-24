@@ -26,6 +26,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	     	$title = $this->input->post('product_title');
 	     	$code = $this->input->post('product_code');
 			
+			
 	     	// $id_ajak = $this->input->post('ajax');
 			// Create an array with product information
 

@@ -26,7 +26,26 @@ class model_cart extends CI_Model {
 		return $query->row_array();
 	     
 	}
-
+	
+	function weight_total()
+	{
+		$this->load->library("cart");
+		$contents = $this->cart->contents();
+		$result = 0;
+		if(!empty($contents))
+		{
+			foreach($contents as $items){
+				
+				$dt_product = $this->getproductfromIdandCode($items['id'],$items['code'])->row();
+				$subtotal = $items["qty"] * $dt_product->weight;
+				$result += $subtotal;
+				
+			}
+		}
+		
+		return $result;
+	}
+	
 	// Updated the shopping cart
 	function validate_update_cart(){
      	

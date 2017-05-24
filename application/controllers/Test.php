@@ -29,6 +29,14 @@
 			print_r($s);	
 		}
 		
+		function weight_total()
+		{
+			$this->load->model("model_cart");	
+			
+			
+			echo $weight_total = $this->model_cart->weight_total();
+		}
+		
 		function cetak()
 		{
 			$this->load->library("rajaongkir");

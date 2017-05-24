@@ -60,8 +60,36 @@
 			$weight 	 = $this->input->post("weight",TRUE);
 			$courier 	 = $this->input->post("courier",TRUE);  
 			
+			$dt = array("origin"=>$origin,"destination"=>$destination,"weight"=>$weight,"courier"=>$courier);
+			
+			$result = $this->rajaongkir->cost($dt);
+			$result = json_decode($result,TRUE);
+			$result = $result["rajaongkir"]["results"][0];
+			
+			return $result;
+			//echo json_encode($result);
+			
 			
 		}
+		
+		function list_result_ongkir()
+		{
+			$dt_cost = $this->detail_cost();
+			
+			print_r($dt_cost);
+			
+			$cost = $dt_cost["costs"];
+			
+			foreach($cost as $row)
+			{
+				$ongkir = $row["cost"][0]["value"];
+				$poles_ongkir = number_format($ongkir);
+				echo "<option value='$ongkir'>Rp. $poles_ongkir - $row[service] - $row[description]</option>";	
+				
+			}
+			
+		}
+		
 		
 		function check_email_user()
 		{
