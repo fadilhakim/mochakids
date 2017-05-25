@@ -53,7 +53,7 @@
                       
                       <div class="panel panel-default">
                       	<div class="panel-body">	
-                      
+                      	<div><?=$this->session->flashdata("message");?></div>
                         <form action="<?=base_url("login/register_process")?>" method="post" role="form">
                             <div class="row">
                              <div class="col-md-12">

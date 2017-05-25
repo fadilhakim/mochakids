@@ -3,6 +3,8 @@
 $user_id_sess 	 = $this->session->userdata("user_id");
 $email_user_sess = $this->session->userdata("member_email");
 
+$shipping_session = $this->session->userdata("shipping");
+
 if(!$this->cart->contents()){ ?>
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
@@ -147,7 +149,7 @@ if(!$this->cart->contents()){ ?>
                                                   <?php
                                   					$cart_total = $this->cart->total();
                                   					$sub_total = $cart_total * 0.1;
-                                  					$grand_total = $cart_total + $sub_total;
+                                  					$grand_total = $cart_total + $sub_total + $shipping_session ;
 
                                   				?>
                                                     <tr>
@@ -156,8 +158,8 @@ if(!$this->cart->contents()){ ?>
                                                     </tr>
                                                     <tr>
                                                         <td class="total-table-title">Shipping:</td>
-                                                        <input type="hidden" name="result_ongkir" id="result_ongkir" value=""><!-- di dapat dari AJAX rajaongkir -->
-                                                        <td><div id="result-ongkir">Rp. 0</div></td>
+                                                        <!-- di dapat dari AJAX rajaongkir -->
+                                                        <td><div id="result-ongkir">Rp. <?=number_format($shipping_session)?></div></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="total-table-title">TAX (10%):</td>

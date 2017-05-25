@@ -85,20 +85,20 @@
 		{
 			$this->load->library("cart");
 			
-			$new_code 	= $this->generate_order_code();
-			$ip_address = $this->input->ip_address();
-			$user_agent = $this->agent->agent_string();
+			$new_code 	  = $this->generate_order_code();
+			$ip_address   = $this->input->ip_address();
+			$user_agent   = $this->agent->agent_string();
 			$cart_content = $this->cart->contents();
-			$grand_total = $this->cart->total();
+			$subtotal 	  = $this->cart->total();
 			$status = "pending";
 			$id_user = 1;
 
 			  $str  = "INSERT INTO order_tbl SET 			 ";
 			  $str .= "id_order 			= '$new_code'	,";
-			  $str .= "id_user			= '$id_user'	,";
-			  $str .= "grand_total		= '$grand_total',";
+			  $str .= "id_user				= '$id_user'	,";
+			  $str .= "sub_total			= '$subtotal'	,";
 			  $str .= "status				= '$status'		,";
-			  $str .= "create_date		= now()			,";
+			  $str .= "create_date			= now()			,";
 			  $str .= "ip_address			= '$ip_address'	 ";
 			  
 			  $this->db->query($str);

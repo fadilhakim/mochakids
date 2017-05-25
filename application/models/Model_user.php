@@ -178,6 +178,17 @@ class model_user extends CI_Model
 		return $f;
 	}
 	
+	function get_user_detail_email($email)
+	{
+
+		$str = "SELECT * FROM user_tbl WHERE email = '$email' ";	
+
+		$q = $this->db->query($str);
+
+		$f = $q->row_array();
+		return $f;
+	}
+	
 	function address_book_list($user_id)
 	{
 		$str = "SELECT * FROM user_address_tbl WHERE user_id = '$user_id' ";
@@ -185,8 +196,6 @@ class model_user extends CI_Model
 		$f = $q->result_array();
 		
 		return $f;
-		
-		
 	}
 	
 	function check_account($email,$password)
@@ -294,6 +303,58 @@ class model_user extends CI_Model
 	
 	function register_process()
 	{
+		
+		$contact_person = $this->input->post("contact_person",TRUE);
+		$email 			= $this->input->post("email",TRUE);
+		$password 		= $this->input->post("password",TRUE);
+		
+		$no_telp 		= $this->input->post("no_telp",TRUE);
+		$no_hp			= $this->input->post("no_hp",TRUE);
+		$no_fax 		= $this->input->post("no_fax",TRUE);
+		
+		$id_province    = $this->input->post("id_province",TRUE);
+		$id_city 		= $this->input->post("id_city",TRUE);
+		$kecamatan		= $this->input->post("kecamatan",TRUE);
+		$kode_pos		= $this->input->post("kode_pos",TRUE); 
+		
+		$billing_address = $this->input->post("billing_address",TRUE);
+		$shipping_address = $this->input->post("shipping_address",TRUE);
+		
+		$datetime = date("Y-m-d H:i:s");
+		
+		$dt_user = array(
+			"contact_person"=>$contact_person,
+			"no_telp"=>$no_telp,
+			"no_fax"=>$no_fax,
+			"no_hp"=>$no_hp,
+			"email"=>$email,
+			"password"=>md5($password),
+			"act_status"=>0,
+			"join_date"=>$datetime,
+			"discount_price"=>0
+		
+		);
+		
+		$this->db->insert("user_tbl",$dt_user);
+		
+		$user_detail = $this->get_user_detail_email($email);
+		
+		$dt_user_add = array(
+			"user_id"=>$user_detail["user_id"],
+			"contact_person"=>$contact_person,
+			"billing_address"=>$billing_address,
+			"shipping_address"=>$shipping_address,
+			"provinsi"=>$id_provinsi,
+			"kota"=>$id_city,
+			"kecamatan"=>$kecamatan,
+			"kode_pos"=>$kode_pos,
+			"no_hp"=>$no_hp,
+			"create_date"=>$datetime
+		);
+		
+		$this->db->insert("user_address_tbl",$dt_user_add);
+		
+		
 		
 		
 	}

@@ -110,6 +110,7 @@
     	<select class="form-control" name="layanan_kurir" id="layanan_kurir">
         
         </select>
+        <input type="hidden" name="ongkir" id="ongkir" >
     
     </div>
     <div class="form-group">
@@ -178,6 +179,14 @@
 			
 			
 			detail_cost(origin,destination,weight,courier);
+			
+		});
+		
+		$("#layanan_kurir").change(function(){
+			
+			var layanan_kurir = $(this).val();
+			
+			$("#ongkir").val();	
 			
 		})
 	});

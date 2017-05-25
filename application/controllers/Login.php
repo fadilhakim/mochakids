@@ -116,20 +116,6 @@ class login extends CI_Controller {
 		$this->load->library("form_validation");
 		$this->load->library("check_data");
 		
-		/*Array
-		(
-			[contact_person] => 
-			[password] => 
-			[email] => 
-			[confirm_password] => 
-			[no_telp] => 
-			[no_hp] => 
-			[no_fax] => 
-			[billing_address] => 
-			[shipping_address] => 
-		)
-		*/	
-		
 		$contact_person = $this->input->post("contact_person",TRUE);
 		$email 			= $this->input->post("email",TRUE);
 		$password 		= $this->input->post("password",TRUE);
@@ -137,6 +123,11 @@ class login extends CI_Controller {
 		$no_telp 		= $this->input->post("no_telp",TRUE);
 		$no_hp			= $this->input->post("no_hp",TRUE);
 		$no_fax 		= $this->input->post("no_fax",TRUE);
+		
+		$id_province    = $this->input->post("id_province",TRUE);
+		$id_city 		= $this->input->post("id_city",TRUE);
+		$kecamatan		= $this->input->post("kecamatan",TRUE);
+		$kode_pos		= $this->input->post("kode_pos",TRUE); 
 		
 		$billing_address = $this->input->post("billing_address",TRUE);
 		$shipping_address = $this->input->post("shipping_address",TRUE);
@@ -148,6 +139,11 @@ class login extends CI_Controller {
 		$this->form_validation->set_rules("no_telp","No Telp","required");
 		$this->form_validation->set_rules("no_hp","No Hp","required");
 		
+		$this->form_validation->set_rules("id_province","Province","required");
+		$this->form_validation->set_rules("id_city","City","required");
+		$this->form_validation->set_rules("kecamatan","Kecamatan","required");
+		$this->form_validation->set_rules("kode_pos","Kode Pos","required");
+		
 		$this->form_validation->set_rules("billing_address","Billing Address","required");
 		$this->form_validation->set_rules("Shipping Address","Shipping Address","required");
 		
@@ -155,6 +151,25 @@ class login extends CI_Controller {
 		
 		if($this->form_validation->run() == TRUE && $check_email == TRUE)
 		{
+			
+			$this->model_user->register_process();
+			
+			$message = success($err);
+			$this->session->set_flashdata('message',$message);
+			redirect(base_url("login/login_customer"));
+		}
+		else
+		{
+			
+			
+			$err = validation_errors();
+			if($check_email == FALSE)
+			{
+				$err .= "<p> Your Email is already registered </p>";
+			}
+			$message = danger($err);
+			$this->session->set_flashdata('message',$message);
+			redirect($this->agent->referrer());
 			
 		}
 				

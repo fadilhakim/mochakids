@@ -34,10 +34,26 @@
 			
 			*/
 
-			print_r($_POST); exit;
+			//print_r($_POST); 
+			echo "Under Development Process, thank you .... ";
+			exit;
 			
+			$id_add_user  = $this->input->post("address_book",TRUE);
+			$id_province  = $this->input->post("id_province",TRUE);
+			$id_city	  = $this->input->post("id_city",TRUE);
+			$kecamatan	  = $this->input->post("kecamatan",TRUE);
+			$kode_pos	  = $this->input->post("kode_pos",TRUE);
 			
+			$kurir 		  = $this->input->post("kurir",TRUE);
+			$total_weight = $this->input->post("total_weight",TRUE);
+			$layanan_kurir= $this->input->post("layanan_kurir",TRUE);
 			
+			$exp		  = explode("&",$layanan_kurir);
+			$layanan_kurir= $exp[0];
+			$ongkir 	  = $exp[1];
+			
+			$shipping_address = 
+						
 			$cart_content =  $this->cart->contents();
 			
 			if(!empty($cart_content))

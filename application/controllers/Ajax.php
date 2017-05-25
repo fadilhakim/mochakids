@@ -76,15 +76,13 @@
 		{
 			$dt_cost = $this->detail_cost();
 			
-			print_r($dt_cost);
-			
 			$cost = $dt_cost["costs"];
 			
 			foreach($cost as $row)
 			{
 				$ongkir = $row["cost"][0]["value"];
 				$poles_ongkir = number_format($ongkir);
-				echo "<option value='$ongkir'>Rp. $poles_ongkir - $row[service] - $row[description]</option>";	
+				echo "<option value='$row[service]&$ongkir'>Rp. $poles_ongkir - $row[service] - $row[description]</option>";	
 				
 			}
 			
