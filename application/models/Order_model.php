@@ -85,23 +85,54 @@
 		{
 			$this->load->library("cart");
 			
+			$user_id 	  = $this->session->userdata("user_id");
+			
 			$new_code 	  = $this->generate_order_code();
 			$ip_address   = $this->input->ip_address();
 			$user_agent   = $this->agent->agent_string();
 			$cart_content = $this->cart->contents();
 			$subtotal 	  = $this->cart->total();
-			$status = "pending";
-			$id_user = 1;
-
-			  $str  = "INSERT INTO order_tbl SET 			 ";
-			  $str .= "id_order 			= '$new_code'	,";
-			  $str .= "id_user				= '$id_user'	,";
-			  $str .= "sub_total			= '$subtotal'	,";
-			  $str .= "status				= '$status'		,";
-			  $str .= "create_date			= now()			,";
-			  $str .= "ip_address			= '$ip_address'	 ";
-			  
-			  $this->db->query($str);
+			$create_date  = date("Y-m-d H:i:s");
+			$status 	  = "pending";
+			
+			$id_add_user  = $this->input->post("address_book",TRUE);
+			$id_province  = $this->input->post("id_province",TRUE);
+			$id_city	  = $this->input->post("id_city",TRUE);
+			$kecamatan	  = $this->input->post("kecamatan",TRUE);
+			$kode_pos	  = $this->input->post("kode_pos",TRUE);
+			
+			$kurir 		  = $this->input->post("kurir",TRUE);
+			$total_weight = $this->input->post("total_weight",TRUE);
+			$layanan_kurir= $this->input->post("layanan_kurir",TRUE);
+			
+			$exp		  = explode("&",$layanan_kurir);
+			$layanan_kurir= $exp[0];
+			$ongkir 	  = $exp[1];
+			
+			$shipping_address = $this->input->post("shipping_address",TRUE);
+			$billing_address = $this->input->post("billing_address",TRUE);
+			
+			$grand_total_session = $this->session->userdata("grand_total");
+			
+			$arr = array(
+			
+				"id_order" => $new_code,
+				"id_user" => $user_id,
+				"subtotal" => $subtotal,
+				"status" => $status,
+				"grand_total" => $grand_total_session,
+				"ongkir" => $ongkir,
+				"kurir" => $kurir,
+				"total_berat" => $total_weight,
+				"kurir_service" => $layanan_kurir,
+				"create_date" => $create_date,
+				"ip_address" => $ip_address,
+				"user_agent" => $user_agent
+				
+			
+			);
+			
+			$this->db->insert("order_tbl",$arr);
 			  
 			  foreach($cart_content as $row)
 			  {
@@ -122,6 +153,8 @@
 				  $q = $this->db->query($str2);
 				  
 			  }
+			  
+			 return array("id_order"=>$new_code);
 			
 		}
 		

@@ -14,23 +14,19 @@
 			
 		}*/
 		
-		function review()
+		function index()
 		{
 			
 			
-			
-			$this->load->view("templates/template",$data);
 		}
 		
 		function payment()
 		{
+			//$id_order = $this->uri->segment(3); // id_order	
 			
+			$data["content"] = "v_payment_confirmation";
+			$this->load->view("templates/template",$data);
 		}
 		
-		function shipping_address_process()
-		{
-			//simpan di session 	
-			
-		}
 		
 	}

@@ -2,8 +2,16 @@
 
 $user_id_sess 	 = $this->session->userdata("user_id");
 $email_user_sess = $this->session->userdata("member_email");
-
 $shipping_session = $this->session->userdata("shipping");
+
+$cart_total = $this->cart->total();
+$sub_total = $cart_total * 0.1;
+$grand_total = $cart_total + $sub_total + $shipping_session ;
+
+$arrr = array("grand_total"=>$grand_total);
+$this->session->set_userdata($arrr);
+
+$grand_total_session = $this->session->userdata("grand_total");
 
 if(!$this->cart->contents()){ ?>
 <div class="wrapper-breadcrumbs clearfix">
@@ -23,11 +31,7 @@ if(!$this->cart->contents()){ ?>
     <div class="container">
     	<div class="clearfix">
         	<?php
-				//echo "aaaaa";
-            	//echo $cookie_msg = !empty($this->session->flashdata("error")) ? $this->session->flashdata("error") : "";
-				//print_r($_SESSION);
-				echo $this->session->flashdata("error");
-				//print_r($this->session->all_flashdata());
+				echo $this->session->flashdata("message");
 			?>
         </div>
         <div class="breadcrumbs-main clearfix">
@@ -147,9 +151,7 @@ if(!$this->cart->contents()){ ?>
                                             <table class="table total-table">
                                                 <tbody>
                                                   <?php
-                                  					$cart_total = $this->cart->total();
-                                  					$sub_total = $cart_total * 0.1;
-                                  					$grand_total = $cart_total + $sub_total + $shipping_session ;
+                                  					// perhitungan grand total ada di baris atas 
 
                                   				?>
                                                     <tr>
@@ -159,7 +161,7 @@ if(!$this->cart->contents()){ ?>
                                                     <tr>
                                                         <td class="total-table-title">Shipping:</td>
                                                         <!-- di dapat dari AJAX rajaongkir -->
-                                                        <td><div id="result-ongkir">Rp. <?=number_format($shipping_session)?></div></td>
+                                                        <td>Rp. <span id="result-ongkir"><?=number_format($shipping_session)?></span></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="total-table-title">TAX (10%):</td>
@@ -169,7 +171,12 @@ if(!$this->cart->contents()){ ?>
                                                 <tfoot>
                                                     <tr>
                                                         <td>Total:</td>
-                                                        <td>Rp. <?=number_format((float)$grand_total, 2, '.', ',');?></td>
+                                                        <td>Rp. 
+														<span id="result-grand-total">
+														<?=number_format((float)$grand_total_session, 2, '.', ',');?>
+                                                        </span>
+                                                        </td>
+                                                        
                                                     </tr>
                                                 </tfoot>
                                             </table>

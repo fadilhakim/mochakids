@@ -2,7 +2,9 @@
 	<h2>Konfirmasi Pembayaran</h2>
 	<label style="color:red;">* Wajib Di isi</label>
 	<hr>
-	<form>
+    
+    <div><?=$this->session->flashdata("message");?></div>
+	<form method="post">
 	 	<fieldset>
           <div class="form-group col-lg-12 required">
             <label class="col-md-2 col-sm-3 control-label" >Nomor Order</label>

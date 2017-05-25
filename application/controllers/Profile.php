@@ -266,9 +266,4 @@
 			
 		}
 		
-		function payment_confirmation_process()
-		{
-			
-			
-		}
 	}

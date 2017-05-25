@@ -15,29 +15,6 @@
 		{
 			$this->authentification->logged_in();
 			
-			/*
-				Array
-				(
-					[address_book] => 1 // id_user_add
-					[id_province] => 6
-					[id_city] => 151
-					[kecamatan] => 
-					[kode_pos] => 80351
-					[kurir] => tiki
-					[total_weight] => 200
-					[layanan_kurir] => 9000 // price ongkir
-					[shipping_address] => 
-					[billing_address] => 
-					[result_ongkir] => 
-				)			
-			
-			
-			*/
-
-			//print_r($_POST); 
-			echo "Under Development Process, thank you .... ";
-			exit;
-			
 			$id_add_user  = $this->input->post("address_book",TRUE);
 			$id_province  = $this->input->post("id_province",TRUE);
 			$id_city	  = $this->input->post("id_city",TRUE);
@@ -52,36 +29,62 @@
 			$layanan_kurir= $exp[0];
 			$ongkir 	  = $exp[1];
 			
-			$shipping_address = 
-						
+			$shipping_address = $this->input->post("shipping_address",TRUE);
+			$billing_address = $this->input->post("billing_address",TRUE);
+			
+			$grand_total_session = $this->session->userdata("grand_total");
+			
+			$this->form_validation->set_rules("id_province","Province","required");
+			$this->form_validation->set_rules("id_city","City","required");
+			$this->form_validation->set_rules("kecamatan","Kecamatan","required");
+			$this->form_validation->set_rules("kode_pos","Kode Pos","required");
+			
+			$this->form_validation->set_rules("kurir","Kurir","required");
+			$this->form_validation->set_rules("total_weight","Total Weight","required");
+			$this->form_validation->set_rules("layanan_kurir","Layanan Kurir","required");
+			
+			$this->form_validation->set_rules("shipping_address","Shipping Address","required");
+			$this->form_validation->set_rules("billing_address","Billing Address","required");
+			
 			$cart_content =  $this->cart->contents();
 			
-			if(!empty($cart_content))
+			if(!empty($cart_content) && $this->form_validation->run() == TRUE)
 			{
-				$this->order_model->insert_order();
+				if(empty($id_add_user))
+				{
+				 // insert to address book	
+				}
+				
+				$order = $this->order_model->insert_order();
 				
 				//hapus cart 
 				$this->cart->destroy();
 				
-				echo $suceess = success("You Successfully save Order");
+				$suceess = success("You Successfully save Order. now you must confirm the Payment 24 Hours after you order ");
 				$this->session->set_flashdata("message",$suceess);
 				
-				//redirect();
+				redirect(base_url("checkput/payment/$order[id_order]"));
 			}
 			else
 			{
-				echo $danger = danger("Your Cart is empty");
-				$this->session->set_flashdata("message",$danger);
+				$err = "";
+				if(empty($cart_content))
+				{
+					$err  .= "<p> Your Cart is empty </p>";
+				}
 				
-				//redirect("cart/show_cart");	
+				$err .= validation_errors(); 
+				$message = danger($err);
+				$this->session->set_flashdata("message",$message);
+				
+				redirect("cart/show_cart");	
 			}
 			
 		}
 		
-		function update_order()
+		function cancel_order()
 		{
-			
-			
+			$id_order = $this->input->post("id_order");	
 			
 		}
 		
