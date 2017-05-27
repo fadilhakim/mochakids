@@ -15,6 +15,8 @@
 		{
 			$this->authentification->logged_in();
 			
+			$this->load->library("form_validation");
+			
 			$id_add_user  = $this->input->post("address_book",TRUE);
 			$id_province  = $this->input->post("id_province",TRUE);
 			$id_city	  = $this->input->post("id_city",TRUE);
@@ -63,7 +65,7 @@
 				$suceess = success("You Successfully save Order. now you must confirm the Payment 24 Hours after you order ");
 				$this->session->set_flashdata("message",$suceess);
 				
-				redirect(base_url("checkput/payment/$order[id_order]"));
+				redirect(base_url("checkout/payment/$order[id_order]"));
 			}
 			else
 			{
