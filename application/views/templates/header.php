@@ -211,8 +211,10 @@
                 </ul>
               </div> -->
             </li>
-            <li class="dropdown"><a href="<?php echo base_url('product'); ?>">Ready Stock</a>
-            <li class="dropdown"><a href="<?php echo base_url('product'); ?>">Pre-Order</a>
+            <li class="dropdown"><a href="<?php echo base_url('product'); ?>">All Products</a>
+            <li class="dropdown"><a href="<?php echo base_url('product/ready_stock'); ?>">Ready Stock</a>
+            <li class="dropdown"><a href="<?php echo base_url('product/pre_order'); ?>">Pre-Order</a>
+            <li class="dropdown"><a href="<?php echo base_url('product/sales_stock'); ?>">Sales Stock</a>
               <!-- <div class="dropdown-menu">
                 <ul>
                   <li><a href="category.html">Category (Grid/List)</a></li>

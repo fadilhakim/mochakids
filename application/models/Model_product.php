@@ -95,6 +95,15 @@ class Model_product extends CI_Model {
 			return $this->db->count_all("product_tbl");
 		}
 
+		public function count_product_ready_stock($status) {
+
+        $query = $this->db-> where('product_availability', $status) -> get('product_tbl');
+        //echo $this->db->last_query(); 
+      	//echo $status;
+        echo $query -> num_rows();
+        //exit();
+    }
+
 		public function fetch_product($limit, $start = 0) {
 	        $qry= $this->db->get("product_tbl", $limit, $start);
 	    	return $qry->result();
@@ -107,6 +116,26 @@ class Model_product extends CI_Model {
 	        }
         	return false;
    		}
+
+   	 public function fetch_product_by_status($status, $limit, $start = 0) {
+
+        $this ->db-> select('*');
+
+        $this ->db-> from('product_tbl');
+
+        if ($status) {
+
+            $this ->db-> where('product_availability', $status);
+
+        }
+
+        $this ->db-> limit($limit, $start);
+
+        $query = $this ->db-> get();
+
+        return $query -> result();
+
+    }	
 
 
 }

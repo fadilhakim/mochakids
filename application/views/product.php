@@ -58,6 +58,7 @@
           </div>
           <br />
           <div class="row products-category">
+            <?php if(!empty($results)) {?>
             <?php foreach ($results as $p) { ?>
             <div class="product-layout product-list col-xs-12">
               <div class="product-thumb">
@@ -73,8 +74,9 @@
                 </div>
               </div>
             </div>
+            <?php } } else {?>
+                <p>Maaf, masih belum ada product pada category ini</p>
             <?php } ?>
-
           </div>
           <div class="row">
             <div class="col-sm-6 text-left">

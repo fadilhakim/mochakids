@@ -81,6 +81,61 @@ class product extends CI_Controller {
 		$this->load->view('templates/footer-2');
 	}
 
+	public function view_ready_stock()
+	{
+
+		$config = array();
+		$status=$this->uri->segment(2);  
+        $config["base_url"] = base_url() . "/product/". $status;
+              
+        $config["total_rows"] = $this->model_product->count_product_ready_stock($status);
+		// Use pagination number for anchor URL.
+		$config['use_page_numbers'] = TRUE;
+
+		//Set that how many number of pages you want to view.
+		$config['num_links'] =  $this->model_product->count_product_ready_stock($status);
+
+		// Open tag for CURRENT link.
+		$config['cur_tag_open'] = '<li class="active"><span>';
+
+		// Close tag for CURRENT link.
+		$config['cur_tag_close'] = '</span></li>';
+
+		/*$config['next_tag_open'] = '<li><span>';
+
+		$config['next_tag_close'] = '</span></li>';*/
+
+		// By clicking on performing NEXT pagination.
+		$config['next_link'] = '<li><span>Next';
+
+		// By clicking on performing PREVIOUS pagination.
+		$config['prev_link'] = '<li><span>Prev';
+
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+
+        $limit = $config["per_page"] = 100;
+        $config["uri_segment"] = 2;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+
+        $data["results"] = $this->model_product->fetch_product_by_status($status, $limit, $page);
+        $data["links"] = $this->pagination->create_links();
+
+		$this->load->view('templates/meta');
+		$this->load->view('templates/header');
+		
+		$data['category'] = $this->model_product->list_category()->result();
+
+		$this->load->model('model_manufacturer');
+		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
+
+		$this->load->view('product',$data);
+		$this->load->view('templates/footer-2');
+	}
+
 	public function detail($id_brand, $cat, $slug)
 	{
 		/*$this->data['product'] = $this->model_product->get($id);*/

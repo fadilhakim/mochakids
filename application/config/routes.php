@@ -55,6 +55,9 @@ $route['home-2'] = 'home/view_2';
 $route['about'] = 'about/view';
 $route['event'] = 'event/view';
 $route['product'] = 'product/view';
+$route['product/ready_stock'] = 'product/view_ready_stock';
+$route['product/pre_order'] = 'product/view_ready_stock';
+$route['product/sales_stock'] = 'product/view_ready_stock';
 $route['career'] = 'career/view';
 $route['info'] = 'info';
 
