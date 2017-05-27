@@ -3,5 +3,5 @@
 	$this->load->view('templates/menu-admin');
 	$this->load->view('templates/leftsidemenu');
 	$this->load->view($content);
-	$this->load->view('templates/footer-admin');
+	$this->load->view('templates/footer-admin'); 
 ?>

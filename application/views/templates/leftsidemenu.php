@@ -34,10 +34,10 @@
                     </ul>
                 </li>
 
-                <!-- <li class="">
-                    <a href="<?php echo base_url('admin/event'); ?>" class="waves-effect"><i class="zmdi zmdi-calendar-check"></i> <span>Event</span> </a>
+                <li class="">
+                    <a href="<?php echo base_url('admin/order'); ?>" class="waves-effect"><i class="zmdi zmdi-calendar-check"></i> <span>Order</span> </a>
                 </li>
-                 <li class="">
+                <!-- <li class="">
                     <a href="<?php echo base_url('admin/news'); ?>" class="waves-effect"><i class="zmdi zmdi-calendar-check"></i> <span>News</span> </a>
                 </li> -->
                 <!-- <li class="has_sub">
