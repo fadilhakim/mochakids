@@ -39,19 +39,22 @@
 		
 		function detail_order()
 		{
-			$this->load->model("order_model");
-			
+			//$this->load->model("order_model");
+			$this->load->view('templates/meta');
+		    $this->load->view('templates/header');
 			$id_order = $this->uri->segment(4);
 			
-			$order_detail = $this->order_model->detail_order($id_order);
+			//$order_detail = $this->order_model->detail_order($id_order);
 			
 			//print_r($order_detail); exit;
 			
-			$data["order_detail"] = $order_detail;
-			$data["content"]    = "profile/content";
-			$data["subcontent"] = "profile/order_detail";
+			//$data["order_detail"] = $order_detail;
+			//$data["content"]    = "profile/content";
+			//$data["subcontent"] = "profile/order_detail";
 			
-			$this->load->view("templates/template",$data);
+			$this->load->view("profile/order_detail");
+
+			$this->load->view('templates/footer-2');
 		}
 		
 		function address_book()
