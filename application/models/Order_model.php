@@ -88,6 +88,7 @@
 			$user_id 	  = $this->session->userdata("user_id");
 			
 			$new_code 	  = $this->generate_order_code();
+			
 			$ip_address   = $this->input->ip_address();
 			$user_agent   = $this->agent->agent_string();
 			$cart_content = $this->cart->contents();
@@ -95,7 +96,7 @@
 			$create_date  = date("Y-m-d H:i:s");
 			$status 	  = "pending";
 			
-			$id_add_user  = $this->input->post("address_book",TRUE);
+			$user_add_id  = $this->input->post("address_book",TRUE);
 			$id_province  = $this->input->post("id_province",TRUE);
 			$id_city	  = $this->input->post("id_city",TRUE);
 			$kecamatan	  = $this->input->post("kecamatan",TRUE);
@@ -118,16 +119,26 @@
 			
 				"id_order" => $new_code,
 				"id_user" => $user_id,
+				
 				"subtotal" => $subtotal,
-				"status" => $status,
-				"grand_total" => $grand_total_session,
 				"ongkir" => $ongkir,
+				"tax"    => TAX,
+				"grand_total" => $grand_total_session,
+				
 				"kurir" => $kurir,
 				"total_berat" => $total_weight,
 				"kurir_service" => $layanan_kurir,
+				
+				"user_add_id" => $user_add_id,
+				"id_province" => $id_province,
+				"id_city"	  => $id_city,
+				"kecamatan"	  => $kecamatan,
+				"kode_pos"	  => $kode_pos,
+				
+				"status" 	  => $status,
 				"create_date" => $create_date,
-				"ip_address" => $ip_address,
-				"user_agent" => $user_agent
+				"ip_address"  => $ip_address,
+				"user_agent"  => $user_agent
 				
 			
 			);

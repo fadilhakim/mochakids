@@ -84,7 +84,7 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-// DATA BESHA ANALITIKA
+// DATA MOCHAKIDS
 define("TITLE","MOCHAKIDS");
 define("BASE_URL","http://localhost/mochakids/");
 define("ASSET_URL",BASE_URL."assets/");
@@ -96,3 +96,5 @@ define("ADDRESS","Jl. Boulevard Barat Kompleks Perkantoran Gading <br> Bukit Ind
 define("INFO_EMAIL","info@besha-analitika.co.id");
 define("EMAIL_SPAREPART","service@besha-analitika.co.id");
 define("ABOUT_US","PT Besha Analitika is a privately held laboratory instrument company based in Jakarta, Indonesia. Since our inception in the year 1999, we are engaged in importing, trading and supplying of scientific laboratory equipment which are known for their high accuracy, precision, durability and high end technology from trusted manufacturer.");
+
+define("TAX",0.10);

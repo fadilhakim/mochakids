@@ -51,7 +51,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			// die();
 			$this->cart->insert($data);
 			
-			print_r($this->cart->contents()); 
+			
 			redirect($this->agent->referrer());
 			
 	        /* $i = 1;

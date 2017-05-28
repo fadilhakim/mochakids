@@ -49,6 +49,8 @@
 		
 		
 	}
+	
+	
 
 </script>
 <?=$this->session->flashdata("message");?>
@@ -97,6 +99,7 @@
 	<div class="form-group">
        <label> Kurir </label>
        <select class="form-control" name="kurir" id="kurir">
+       		<option value=""> -Select Kurir - </option>
        		<option value="jne"> JNE </option>
             <option value="tiki"> TIKI </option>
             <option value="pos"> POS </option>
@@ -127,6 +130,29 @@
 <span class="clearfix"></span>
 <!-- </form> -->
 <script>
+
+	function change_shipping()
+	{
+		var layanan_kurir = $("#layanan_kurir").val();
+	
+		var ongkir = layanan_kurir.split("&");
+		
+		
+		$.ajax({
+			type:"POST",
+			url:"<?=base_url("ajax/load_shipping_data")?>",
+			data:"ongkir="+ongkir[1],
+			dataType:"JSON",
+			success:function(dt)	
+			{
+				$("#result-grand-total").html(dt.grand_total);	
+				$("#result-ongkir").html(dt.shipping);
+				
+			}
+		})
+		
+	}
+	
 	$(document).ready(function(e) {
 		
 			var id_province = $("#id_province").val();
@@ -179,14 +205,15 @@
 			
 			
 			detail_cost(origin,destination,weight,courier);
+			change_shipping();
 			
 		});
 		
 		$("#layanan_kurir").change(function(){
 			
-			var layanan_kurir = $(this).val();
 			
-			$("#ongkir").val();	
+			
+			change_shipping();
 			
 		})
 	});

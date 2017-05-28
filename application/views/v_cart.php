@@ -5,10 +5,10 @@ $email_user_sess = $this->session->userdata("member_email");
 $shipping_session = $this->session->userdata("shipping");
 
 $cart_total = $this->cart->total();
-$sub_total = $cart_total * 0.1;
+$sub_total = $cart_total * TAX;
 $grand_total = $cart_total + $sub_total + $shipping_session ;
 
-$arrr = array("grand_total"=>$grand_total);
+$arrr = array("grand_total"=>number_format((float)$grand_total, 2, '.', ','));
 $this->session->set_userdata($arrr);
 
 $grand_total_session = $this->session->userdata("grand_total");
@@ -173,7 +173,7 @@ if(!$this->cart->contents()){ ?>
                                                         <td>Total:</td>
                                                         <td>Rp. 
 														<span id="result-grand-total">
-														<?=number_format((float)$grand_total_session, 2, '.', ',');?>
+														<?=$grand_total_session?>
                                                         </span>
                                                         </td>
                                                         

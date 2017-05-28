@@ -6,6 +6,30 @@
 		{
 			parent::__construct();
 			
+			$this->input->is_ajax_request();
+			
+		}
+		
+		function load_shipping_data()
+		{
+			$this->load->library("cart");
+			
+			$ongkir = $this->input->post("ongkir");
+			
+			$this->session->set_userdata("shipping",$ongkir);
+			
+			$shipping_session = $this->session->userdata("shipping");
+			
+			$cart_total = $this->cart->total();
+			$sub_total = $cart_total * TAX;
+			$grand_total = $cart_total + $sub_total + $shipping_session ;
+			
+			$rr = array("grand_total"=>$grand_total,
+			"sub_total"=>$sub_total,
+			"cart_total"=>$cart_total,
+			"shipping"=>$shipping_session);
+			
+			echo json_encode($rr);
 		}
 		
 		function city_province()

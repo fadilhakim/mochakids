@@ -99,6 +99,7 @@ class login extends CI_Controller {
 	{
 		$this->authentification->logged_out();
 		
+		$this->load->helper("form");
 		$this->load->library("rajaongkir");
 
 		$user_id = $this->session->userdata("user_id");		
@@ -119,6 +120,7 @@ class login extends CI_Controller {
 		$contact_person = $this->input->post("contact_person",TRUE);
 		$email 			= $this->input->post("email",TRUE);
 		$password 		= $this->input->post("password",TRUE);
+		$confirm_password = $this->input->post("confirm_password",TRUE);
 		
 		$no_telp 		= $this->input->post("no_telp",TRUE);
 		$no_hp			= $this->input->post("no_hp",TRUE);
@@ -132,20 +134,21 @@ class login extends CI_Controller {
 		$billing_address = $this->input->post("billing_address",TRUE);
 		$shipping_address = $this->input->post("shipping_address",TRUE);
 		
-		$this->form_validation->set_rules("contact_person","Contact Person","required");
-		$this->form_validation->set_rules("email","email","required|valid_email");
-		$this->form_validation->set_rules("password","Password","required|matches[confirm_password]");
+		$this->form_validation->set_rules("contact_person","Contact Person","required|trim");
+		$this->form_validation->set_rules("email","email","required|valid_email|trim");
+		$this->form_validation->set_rules("password","Password","required|min_length[6]");
+		$this->form_validation->set_rules("confirm_password","Confirm Password","required|matches[password]");
 		
-		$this->form_validation->set_rules("no_telp","No Telp","required");
-		$this->form_validation->set_rules("no_hp","No Hp","required");
+		$this->form_validation->set_rules("no_telp","No Telp","required|trim");
+		$this->form_validation->set_rules("no_hp","No Hp","required|trim");
 		
-		$this->form_validation->set_rules("id_province","Province","required");
-		$this->form_validation->set_rules("id_city","City","required");
-		$this->form_validation->set_rules("kecamatan","Kecamatan","required");
-		$this->form_validation->set_rules("kode_pos","Kode Pos","required");
+		$this->form_validation->set_rules("id_province","Province","required|trim");
+		$this->form_validation->set_rules("id_city","City","required|trim");
+		$this->form_validation->set_rules("kecamatan","Kecamatan","required|trim");
+		$this->form_validation->set_rules("kode_pos","Kode Pos","required|trim");
 		
-		$this->form_validation->set_rules("billing_address","Billing Address","required");
-		$this->form_validation->set_rules("Shipping Address","Shipping Address","required");
+		$this->form_validation->set_rules("billing_address","Billing Address","required|trim");
+		$this->form_validation->set_rules("Shipping Address","Shipping Address","required|trim");
 		
 		$check_email = $this->check_data->check_email_user($email);
 		
@@ -160,7 +163,8 @@ class login extends CI_Controller {
 		}
 		else
 		{
-			
+			$post_data = $this->input->post();
+			$this->session->set_flashdata("post_data",$post_data);
 			
 			$err = validation_errors();
 			if($check_email == FALSE)
