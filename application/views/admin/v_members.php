@@ -15,7 +15,6 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Company Name</th>
                                                 <th>Contact Person</th>
                                                 <th>Phone Number</th>
                                                 <th>Email</th>
@@ -27,7 +26,6 @@
                                                 
                                             <tr>
                                                 <td><?php echo $i; $i++;?></td>
-                                                <td><?php echo $sb->company_name; ?></td>
                                                 <td><?php echo $sb->contact_person; ?></td>
                                                 <td><?php echo $sb->no_tlp; ?></td>
                                                 <td><?php echo $sb->email; ?></td>

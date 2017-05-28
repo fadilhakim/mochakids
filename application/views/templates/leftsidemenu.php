@@ -62,7 +62,7 @@
                     </ul>
                 </li> -->
                 <li class="has_sub">
-                    <a href="<?php echo base_url('bank'); ?>" class="waves-effect"><i class="fa fa-users"></i> <span> Bank </span> </a>
+                    <a href="<?php echo base_url('bank'); ?>" class="waves-effect"><i class="zmdi zmdi-money-box"></i> <span> Bank </span> </a>
                 </li>
                 <?php
                 if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==3 ){ ?>

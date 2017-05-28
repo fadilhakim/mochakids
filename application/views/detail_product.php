@@ -78,7 +78,7 @@ foreach ($manufacturer as $manu) {
                   <li><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
                   <li><b>Availability:</b> <span class="instock"><?php echo $product_availability; ?></span></li>
                   <li>
-                    <?php foreach($this->cart->contents() as $items): echo $items['rowid']; ?>
+                    <?php foreach($this->cart->contents() as $items): ?>
 
 
                     <?php endforeach; ?>

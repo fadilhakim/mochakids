@@ -19,13 +19,6 @@
                                             <input class="form-control" name="manu_name" required placeholder="Brand Title" type="text">
                                         </div>
                                     </div>
-									<div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Brand Link</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control" value="" name="manu_link" required placeholder="Slider Link" type="text">
-                                        </div>
-                                    </div>
-
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Brand Logo</label>
                                         <div class="col-sm-9">

@@ -513,7 +513,6 @@ class insert extends CI_Controller {
 
 
 		$manu_name = $this->input->post('manu_name');
-		$manu_link = $this->input->post("manu_link");
 		$manu_image = $_FILES['manu_image']['name'];
 
 		$manu_slug = url_title($manu_name);
