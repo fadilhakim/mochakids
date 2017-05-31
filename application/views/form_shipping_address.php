@@ -53,7 +53,7 @@
 	
 
 </script>
-<?=$this->session->flashdata("message");?>
+
 <!-- <form action="<?=base_url("checkout/shipping_address_process")?>" method="post"> -->
  <div class="form-group col-md-5">
  	 <label> Choose Address Book </label>

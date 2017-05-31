@@ -29,9 +29,19 @@
 			
 		}
 		
-		function detail_order($id_order)
+		function detail_list_order($id_order)
 		{
 			$str = "SELECT * FROM order_detail_tbl WHERE id_order = '$id_order' ";
+			$q = $this->db->query($str);
+			$f = $q->result_array();
+			
+			return $f;
+			
+		}
+		
+		function detail_order($id_order)
+		{
+			$str = "SELECT * FROM order_tbl WHERE id_order = '$id_order' ";
 			$q = $this->db->query($str);
 			$f = $q->row_array();
 			
@@ -83,6 +93,7 @@
 		
 		function insert_order()
 		{
+			$this->load->model("model_user");
 			$this->load->library("cart");
 			
 			$user_id 	  = $this->session->userdata("user_id");
@@ -115,6 +126,13 @@
 			
 			$grand_total_session = $this->session->userdata("grand_total");
 			
+			// tambah data address book
+			if(empty($user_add_id))
+			{
+				$this->model_user->add_address_book();
+				$user_add_id = $this->db->insert_id();
+			}
+			
 			$arr = array(
 			
 				"id_order" => $new_code,
@@ -128,12 +146,13 @@
 				"kurir" => $kurir,
 				"total_berat" => $total_weight,
 				"kurir_service" => $layanan_kurir,
+				"user_add_id"=>$user_add_id,
 				
-				"user_add_id" => $user_add_id,
+				/*"user_add_id" => $user_add_id,
 				"id_province" => $id_province,
 				"id_city"	  => $id_city,
 				"kecamatan"	  => $kecamatan,
-				"kode_pos"	  => $kode_pos,
+				"kode_pos"	  => $kode_pos,*/
 				
 				"status" 	  => $status,
 				"create_date" => $create_date,
@@ -171,8 +190,8 @@
 		
 		function insert_payment_confirmation($order)
 		{
-			$str  = "INSERT INTO payment_confirm SET ";
-			$str .= "";
+			
+			return $this->db->insert("payment_confirm",$order);
 			
 		}
 		
@@ -185,7 +204,7 @@
 		function order_payment_confirmation($id_order)
 		{
 			
-			
+			return $this->db->get("payment_confirm",array("id_order"=>$id_order));
 		}
 		
 		function update_order()

@@ -267,6 +267,11 @@ class model_user extends CI_Model
 		$datetime = date("Y-m-d H:i:i");
 		
 		$contact_person = $this->input->post("contact_person",TRUE);
+		if(empty($contact_person))
+		{
+			$contact_person = $this->session->userdata("contact_person");
+		}
+		
 		$no_hp = $this->input->post("no_hp",TRUE);
 		$id_province = $this->input->post("id_province",TRUE);
 		$id_city = $this->input->post("id_city",TRUE);
