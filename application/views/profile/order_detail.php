@@ -45,6 +45,7 @@
 	      </table>
 	    </div>
 	  <h3> Payment Confirmation </h3>
+      <form method="post" id="form-confirm" action="<?=base_url("checkout/payment_process")?>">
 	  <div class="row">
 	    <div class="col-sm-6">
 	      <div class="panel panel-default">
@@ -53,7 +54,7 @@
 	        </div>
 	        <div id="collapse-coupon" class="panel-collapse collapse in">
 	          <div class="panel-body">
-	            <form method="post" id="form-confirm">
+	            
                   <fieldset>
                     <div class="form-group col-lg-12 required">
                       <label>Nomor Order</label>
@@ -66,6 +67,8 @@
                       <label class="control-label">Jumlah Pembayaran</label>
                       
                         <input type="number" name="jumlah_pembayaran" value=""  placeholder="Jumlah Pembayaran" class="form-control" />
+                        <input type="hidden" name="grand_total" value="<?=$detail_order["grand_total"]?>">
+                        
                          <span class="text-danger"><?php echo form_error('jumlah_pembayaran'); ?></span>
                      
                     </div>
@@ -97,7 +100,7 @@
                     </div>
                     
                   </fieldset>
-				</form>
+				
 	          </div>
 	        </div>
 	      </div>
@@ -129,8 +132,9 @@
 	    
 	  <div class="buttons">
 	    <div class="pull-left"><a href="index-2.html" class="btn btn-default">Continue Shopping</a></div>
-	    <div class="pull-right"><a href="#" id="btn-confirm" class="btn btn-primary">Confirm</a></div>
+	    <div class="pull-right"><button class="btn btn-primary">Confirm</button></div>
 	  </div>
+      </form>
 	</div>
 <script>
 

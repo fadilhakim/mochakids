@@ -7,7 +7,8 @@
 	<!-- <link href="<?php echo base_url('assets/image/icon-besha.png') ?>" rel="icon" /> -->
 
 	<title>Admin Mocha Kids</title>
-	<link rel="stylesheet" href="<?php echo base_url('admin-assets/plugins/morris/morris.css') ?>" rel="stylesheet" type="text/css">
+   <link href="<?php echo base_url('admin-assets/plugins/jquery-ui-1.12.1/jquery-ui.min.css') ?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('admin-assets/plugins/morris/morris.css') ?>" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url('admin-assets/plugins/bootstrap-sweetalert/sweet-alert.css') ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('admin-assets/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('admin-assets/css/menu.css') ?>" rel="stylesheet" type="text/css" />
@@ -27,7 +28,11 @@
 
 
     <link rel="stylesheet" href="<?php echo base_url('assets/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') ?>">
-
+	
+    <script src="<?php echo base_url('admin-assets/js/jquery.min.js') ?>"></script>
+    <script src="<?php echo base_url('admin-assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js') ?>"></script>
+    <script src="<?php echo base_url('admin-assets/js/bootstrap.min.js') ?>"></script>
+    
     <script src="<?php echo base_url('assets/ckeditor/ckeditor.js') ?>"></script>
     <script src="<?php echo base_url('assets/ckeditor/samples/js/sample.js') ?>"></script>
     <script src="<?php echo base_url('admin-assets/js/modernizr.min.js') ?>"></script>

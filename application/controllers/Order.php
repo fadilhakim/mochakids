@@ -16,6 +16,7 @@
 			$this->authentification->logged_in();
 			
 			$this->load->library("form_validation");
+			$this->load->model("model_user");
 			
 			$id_add_user  = $this->input->post("address_book",TRUE);
 			$id_province  = $this->input->post("id_province",TRUE);
@@ -54,7 +55,9 @@
 			{
 				if(empty($id_add_user))
 				{
-				 // insert to address book	
+				 	// insert to address book	
+				 	$this->model_user->add_address_book();
+				 
 				}
 				
 				$order = $this->order_model->insert_order();

@@ -1,12 +1,14 @@
 </div>
 <!-- END wrapper -->
 <script>
-            var resizefunc = [];
+     var resizefunc = [];
 </script>
 
         <!-- jQuery  -->
-        <script src="<?php echo base_url('admin-assets/js/jquery.min.js') ?>"></script>
-        <script src="<?php echo base_url('admin-assets/js/bootstrap.min.js') ?>"></script>
+        <?php 
+			// jquery js sama bootstrap taro atas yaa ..
+			// di meta-admin
+		?>
         <script src="<?php echo base_url('admin-assets/js/detect.js') ?>"></script>
         <script src="<?php echo base_url('admin-assets/js/fastclick.js') ?>"></script>
         <script src="<?php echo base_url('admin-assets/js/jquery.slimscroll.js') ?>"></script>

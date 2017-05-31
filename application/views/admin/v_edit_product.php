@@ -16,6 +16,7 @@
 	  $pack_item = $row->pack_item;
 	  $deposit = $row->deposit;
 	  $eta = $row->ETA;
+	  $minimum_order = $row->minimum_order;
 	  $size = $row->size;
 	  $style_code = $row->style_code;
 	  $price = $row->price;
@@ -128,17 +129,37 @@
                                                 if($cek_rol == 3 ){ ?>
                                                   <input class="form-control" value="<?php echo $product_availability; ?>" name="product_availability" readonly style="background-color: #ccc !important;" placeholder="Product Stock">
                                                 <?php } else {?>
-                                                          <select class="form-control" name="product_availability" required>
-                                                             <option selected="selected" value="<?php echo $product_availability; ?>"><?php echo $product_availability; ?></option>
-                                                            <?php foreach ($stock as $s) { ?>
-                                                                <option value="<?php echo $s->status_title; ?>"><?php echo $s->status_title; ?></option>
-                                                            <?php } ?>
-                                                </select>
+                                                    <select class="form-control" name="product_availability" id="product_availability" required>
+                                                      
+                                                      <?php foreach ($stock as $s) { 
+													  
+													  $selected = "";
+													  if($s->status_id == $product_availability)
+													  {
+														  $selected = "selected=selected";
+													  }
+													  ?>
+                                                          <option value="<?php echo $s->status_id; ?>" <?=$selected?>><?php echo $s->status_title; ?></option>
+                                                      <?php } ?>
+                                          			</select>
                                                        
                                                 <?php } ?>
                                         </div>
                                     </div>
-
+									<div class="form-group hidden" id="mo_element" >
+                                        	<label id="lbl-mo" class="col-sm-3 control-label" style="text-align:left;">Minimum Order</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="minimum_order" id="minimum_order" class="form-control" value="<?=$minimum_order?>" disabled >
+                                            </div>
+                                        
+                                    </div>
+                                    <div class="form-group hidden" id="eta_element">
+                                        	<label class="control-label col-sm-3" style="text-align:left;">ETA </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" name="eta" id="eta" class="form-control datepicker1" value="<?=$eta?>" disabled>
+                                            </div>
+                                         	
+                                    </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Featured Product</label>
                                         <div class="col-sm-9">
@@ -266,7 +287,50 @@
             </footer>
         </div> <!-- container -->
     </div> <!-- content -->
+	<script>
+		  function pre_order()
+		  {
+			  var pa = $("#product_availability").val();
+			  
+			  if(pa == 1)
+			  {
+			  
+				  $("#mo_element").removeClass("hidden");
+				  $("#minimum_order").removeAttr("disabled");
+				  
+				  $("#eta_element").removeClass("hidden");
+				  $("#eta").removeAttr("disabled");
+				  
+				  
+				  $(".datepicker1").datepicker({
+					changeMonth: true,
+					changeYear: true,
+					dateFormat:"yy-mm-dd",
+					minDate:0	
+				  });
+			  }
+			  else
+			  {
+				  $("#mo_element").addClass("hidden");
+				  $("#minimum_order").attr("disabled");
+				  
+				  $("#eta_element").addClass("hidden");
+				  $("#eta").attr("disabled");
+			  }	
+		  }
+	  
+		  $("#product_availability").change(function(){
+			  
+			  pre_order();
+		  });
+		  
+		  $(document).ready(function(e) {
+			  pre_order();
+		  });
+	
 
+	</script>
+        
 
 
 </div>

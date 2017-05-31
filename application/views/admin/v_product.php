@@ -139,9 +139,9 @@
                                          	
                                         </div>
                                         <div class="form-group">
-                                        	<label class="control-label col-sm-5">ETA </label>
+                                        	<label class="control-label col-sm-5">Style Code </label>
                                             <div class="col-sm-7">
-                                            <input type="text" name="eta" id="eta" class="form-control ">
+                                            <input type="text" name="style_code" id="style_code" class="form-control ">
                                             </div>
                                          	
                                         </div>
@@ -154,14 +154,7 @@
                                         </div>
                                       </div>
                                       <div class="col-lg-6">
-                                      	<div class="form-group">
-                                        	<label class="control-label col-sm-5">Style Code </label>
-                                            <div class="col-sm-7">
-                                            <input type="text" name="style_code" id="style_code" class="form-control ">
-                                            </div>
-                                         	
-                                        </div>
-                                        <div class="form-group">
+                                      	 <div class="form-group">
                                                 <label class="col-sm-5 control-label">Product Availability</label>
                                                 <div class="col-sm-7">
                                                      <?php
@@ -169,17 +162,37 @@
                                                     if($cek_rol == 3 ){ ?>
                                                       <input class="form-control" value="-" name="product_availability" readonly style="background-color: #ccc !important;" placeholder="Product Stock">
                                                     <?php } else {?>
-                                                          <select class="form-control" name="product_availability" required>
+                                                          <select class="form-control" name="product_availability" id="product_availability" required>
                                                             <option value="">---</option>
                                                             <?php foreach ($stock as $st) { ?>
-                                                                <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
+                                                                <option value="<?php echo $st->status_id; ?>"><?php echo $st->status_title; ?></option>
                                                             <?php } ?>
                                                     </select>
+                                                    
+                                                   
                                                            
                                                     <?php } ?>
                                                    
                                                 </div>
+                                                
                                             </div>
+                                            
+                                        <div class="form-group hidden" id="mo_element">
+                                        	<label id="lbl-mo" class="col-sm-5 control-label">Minimum Order</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="minimum_order" id="minimum_order" class="form-control" value="" disabled >
+                                            </div>
+                                        
+                                        </div>
+                                      	<div class="form-group hidden" id="eta_element">
+                                        	<label class="control-label col-sm-5">ETA </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="eta" id="eta" class="form-control datepicker1" disabled>
+                                            </div>
+                                         	
+                                        </div>
+                                      	
+                                       
                                         <div class="form-group">
                                         	<label class="control-label col-sm-5">Price </label>
                                             <div class="col-sm-7">
@@ -208,7 +221,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Product Description</label>
                                             <div class="col-sm-9">
-                                                <textarea id="editor2" name="product_descrption" id="textarea" class="form-control" rows="2" placeholder=""></textarea>
+                                                <textarea id="editor2" name="product_descrption" class="form-control" rows="2" placeholder=""></textarea>
                                             </div>
                                         </div>
 
@@ -248,4 +261,47 @@
 
 </div>
         <!-- Plugin JS -->
+<script>
+	function pre_order()
+	{
+		var pa = $("#product_availability").val();
+		
+		if(pa == 1)
+		{
+		
+			$("#mo_element").removeClass("hidden");
+			$("#minimum_order").removeAttr("disabled");
+			
+			$("#eta_element").removeClass("hidden");
+			$("#eta").removeAttr("disabled");
+			
+			
+			$(".datepicker1").datepicker({
+			  changeMonth: true,
+			  changeYear: true,
+			  dateFormat:"yy-mm-dd",
+			  minDate:0	
+			});
+		}
+		else
+		{
+			$("#mo_element").addClass("hidden");
+			$("#minimum_order").attr("disabled");
+			
+			$("#eta_element").addClass("hidden");
+			$("#eta").attr("disabled");
+		}	
+	}
+
+	$("#product_availability").change(function(){
+		
+		pre_order();
+	});
+	
+	$(document).ready(function(e) {
+        pre_order();
+    });
+	
+
+</script>
         

@@ -44,18 +44,27 @@
 			
 			$id_order = $this->uri->segment(4);
 			
-			$detail_list_order = $this->order_model->detail_list_order($id_order);
 			$detail_order 	   = $this->order_model->detail_order($id_order);
-			$payment_confirm   = $this->order_model->order_payment_confirmation($id_order);
 			
-			$data["bank"]	 = $this->bank_model->get_all();
+			if(!empty($detail_order))
+			{
 			
-			$data["detail_list_order"] = $detail_list_order;
-			$data["detail_order"]	   = $detail_order;
-			$data["payment"]		   = $payment_confirm;
-			
-			$data["content"]    = "profile/content";
-			$data["subcontent"] = "profile/order_detail";
+				$detail_list_order = $this->order_model->detail_list_order($id_order);
+				$payment_confirm   = $this->order_model->order_payment_confirmation($id_order);
+				
+				$data["bank"]	 = $this->bank_model->get_all();
+				
+				$data["detail_list_order"] = $detail_list_order;
+				$data["detail_order"]	   = $detail_order;
+				$data["payment"]		   = $payment_confirm;
+				
+				$data["content"]    = "profile/content";
+				$data["subcontent"] = "profile/order_detail";
+			}
+			else
+			{
+				$data["content"] = "404page";	
+			}
 			
 			//$this->load->view("profile/order_detail");
 

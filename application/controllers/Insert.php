@@ -120,6 +120,8 @@ class insert extends CI_Controller {
 
 	function insert_product()
 	{
+		$this->load->library("form_validation");
+		
 		$product_title = $this->input->post('product_title',TRUE);
 		$manu_id = $this->input->post('manu',TRUE);
 		$product_category = $this->input->post('product_category',TRUE);
@@ -131,6 +133,7 @@ class insert extends CI_Controller {
 		$deposit   = $this->input->post("deposit",TRUE);
 		$eta	   = $this->input->post("eta",TRUE);
 		$size	   = $this->input->post("size",TRUE); 
+		$minimum_order = $this->input->post("minimum_order",TRUE);
 		
 		$style_code = $this->input->post("style_code",TRUE);
 		$price	   = $this->input->post("price",TRUE);
@@ -166,6 +169,7 @@ class insert extends CI_Controller {
 			"deposit" => $deposit,
 			"ETA"=>$eta,
 			"size"=>$size,
+			"minimum_order"=>$minimum_order,
 			
 			"style_code"=>$style_code,
 			"price"=>$price,

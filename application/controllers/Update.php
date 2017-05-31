@@ -317,7 +317,9 @@ class update extends CI_Controller {
 	}
 
 	function update_product() {
-
+		
+		$this->load->library("form_validation");
+		
 		$product_id 			= $this->input->post('product_id',true);
 		$product_title 			= $this->input->post('product_title',true);
 		$product_brand 			= $this->input->post('manu_id',true);
@@ -330,6 +332,7 @@ class update extends CI_Controller {
 		$deposit   				= $this->input->post("deposit",TRUE);
 		$eta	   				= $this->input->post("eta",TRUE);
 		$size	   				= $this->input->post("size",TRUE); 
+		$minimum_order			= $this->input->post("minimum_order",TRUE);
 		
 		$style_code 			= $this->input->post("style_code",TRUE);
 		$price	   				= $this->input->post("price",TRUE);
@@ -349,7 +352,7 @@ class update extends CI_Controller {
 			$image_1 = $_FILES['product_image_new_1']['name'];
 		}
 
-			$data = array(
+		$data = array(
 			'product_id' => $product_id,
 			'product_title' => $product_title,
 			'manu_id' => $product_brand,
@@ -361,8 +364,9 @@ class update extends CI_Controller {
 			
 			"pack_item"=>$pack_item,
 			"deposit" => $deposit,
-			"ETA"=>$eta,
+			
 			"size"=>$size,
+			"minimum_order"=>$minimum_order,
 			
 			"style_code"=>$style_code,
 			"price"=>$price,
@@ -374,7 +378,21 @@ class update extends CI_Controller {
 			'product_slug' => $product_slug,
 
 			'product_image_1' => $image_1,
+		);
+		
+		// jika pre order maka minimum order dan eta harus berubah 
+		if($product_availability == 1)
+		{
+		
+			$data2 = array(
+				"minimum_order"=>$minimum_order,
+				"ETA"=>$eta
+			
 			);
+			
+			//update ETA and minimum order
+			$this->model_update->update_product($product_id,$data2);
+		}
 
 
 			//upload baru
@@ -419,6 +437,7 @@ class update extends CI_Controller {
 		// $sparepart_code = str_replace('/\s+/', '',$this->input->post("sparepart_code"));
 		$catalog_code =  str_replace(' ', '',$this->input->post('catalog_code'));
 		$sparepart_price = $this->input->post('sparepart_price');
+		
 		$stock = $this->input->post('stock');
 		$berat = $this->input->post('berat');
 		$dimensi = $this->input->post('dimensi');
@@ -477,7 +496,7 @@ class update extends CI_Controller {
 
 		); */
 
-			$data = array(
+		$data = array(
 			'sparepart_name' => $sparepart_name,
 			'manu_id' => $manu_id,
 			'sparepart_category' => $sparepart_category,
@@ -551,7 +570,7 @@ class update extends CI_Controller {
 			//print_r($_FILES);
 
 			//var_dump($a);
-
+			
 			$result = $this->model_update->update_sparepart($sparepart_id,$data);
 
 			if($result == TRUE)
