@@ -56,6 +56,9 @@
 			$id_bank 		   = $this->input->post("id_bank",TRUE);
 			$document 		   = $_FILES["document"];
 			
+			$ip_address 	   = $this->input->ip_address();
+			$user_agent		   = $this->input->user_agent();
+			
 			$this->form_validation->set_rules("grand_total","Grand Total","required|trim");
 			$this->form_validation->set_rules("no_order","No Order","required|trim");
 			$this->form_validation->set_rules("jumlah_pembayaran","Jumlah Pembayaran","required|trim|matches[grand_total]"); 
@@ -80,6 +83,8 @@
 					"status"=>"pending",
 					"bukti_transfer"=>$new_name,
 					"id_bank" => $id_bank,
+					"ip_address"=>$ip_address,
+					"user_agent"=>$user_agent
 				
 				);
 				
