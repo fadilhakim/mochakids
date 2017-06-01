@@ -51,11 +51,18 @@ class Model_update extends CI_Model {
 		return $getidslider;
 	}
 
+	function update_promo_text($data){
+
+		$this->db->where('promo_id', '1');
+		$this->db->update('promo_tbl', $data);
+	}
+
 	function update_event($event_id, $data){
 
 		$this->db->where('news_id', $event_id);
 		$this->db->update('event_tbl', $data);
 	}
+
 
 	function list_discount($id) {
 		

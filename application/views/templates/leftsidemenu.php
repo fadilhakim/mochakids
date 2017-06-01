@@ -35,6 +35,10 @@
                 </li>
 
                 <li class="has_sub">
+                    <a href="<?php echo base_url('admin/promo/1'); ?>" class="waves-effect"><i class="fa fa-users"></i> <span>Promo Text</span> </a>
+                </li>
+
+                <li class="has_sub">
                     <a href="<?php echo base_url('admin/brand'); ?>" class="waves-effect"><i class="fa fa-users"></i> <span>Brands</span> </a>
                 </li>
 

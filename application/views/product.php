@@ -26,22 +26,6 @@
                   <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
                 </div>
               </div>
-              <div class="col-sm-2 text-right">
-                <label class="control-label" for="input-sort">Sort By:</label>
-              </div>
-              <div class="col-md-3 col-sm-2 text-right">
-                <select id="input-sort" class="form-control col-sm-3">
-                  <option value="" selected="selected">Default</option>
-                  <option value="">Name (A - Z)</option>
-                  <option value="">Name (Z - A)</option>
-                  <option value="">Price (Low &gt; High)</option>
-                  <option value="">Price (High &gt; Low)</option>
-                  <option value="">Rating (Highest)</option>
-                  <option value="">Rating (Lowest)</option>
-                  <option value="">Model (A - Z)</option>
-                  <option value="">Model (Z - A)</option>
-                </select>
-              </div>
               <div class="col-sm-1 text-right">
                 <label class="control-label" for="input-limit">Show:</label>
               </div>

@@ -144,6 +144,24 @@ class update extends CI_Controller {
 		redirect('admin/brand');
 	}
 
+
+	function update_promo_text()
+	{
+
+		$promo_text = $this->input->post('promo_text');
+
+		$data = array(
+
+			'promo_text' => $promo_text,
+
+		);
+
+		$this->model_update->update_promo_text($data);
+
+		redirect('admin/promo/1');
+
+	}
+
 	function update_event() {
 
 		$event_id = $this->input->post('event_id');

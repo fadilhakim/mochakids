@@ -73,6 +73,20 @@
                             </a>
                         </div>
 
+                        <div class="col-lg-4">
+                            <a href="<?php echo base_url('admin/promo/1'); ?>">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h5>
+                                        Promo Text Home
+                                    </h5>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
+
                 
                         <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/event'); ?>">

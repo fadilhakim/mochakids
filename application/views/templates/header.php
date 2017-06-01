@@ -255,7 +255,11 @@
         </div>
       </nav>
       <div class="container example1">
-        <h3>Free ongkir JABODETABEK untuk pembelian minimal IDR 1.000.000</h3>
+        <h3><?php foreach ($promo as $p) {
+          echo $p->promo_text;
+        }
+
+         ?></h3>
       </div>
     </div>
     <!-- Main Menu End-->

@@ -54,6 +54,8 @@ class admin extends CI_Controller {
 
 
 
+
+
 	public function users_admin()
 
 	{
@@ -74,15 +76,33 @@ class admin extends CI_Controller {
 
 	}
 
+	public function promo($promo_id = 1)
+
+	{
+		$promo_id = $this->uri->segment(3);
+		$this->load->model('model_event');
+
+		$data['promo'] = $this->model_event->list_promo()->result();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_promo_text',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
+
 	public function slider()
 
 	{
 
-		
 
 		$data['slider'] = $this->model_home->list_slider()->result();
-
-
 
 		$this->load->view('templates/meta-admin');
 

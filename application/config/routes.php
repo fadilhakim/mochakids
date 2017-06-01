@@ -166,6 +166,7 @@ $route['admin/edit/discount/(:num)'] = 'admin/edit_voucher/$1';
 $route['admin/edit/sparepart/(:num)'] = 'admin/edit_sparepart/$1';
 $route['admin/edit/admin/(:num)'] = 'admin/edit_admin/$1';
 $route['admin/edit/member/(:num)'] = 'admin/edit_member/$1';
+$route['admin/promo/1'] = 'admin/promo/$1';
 
 //edit function
 $route['admin/edit/slider_f'] = 'update/update_slider';
@@ -177,6 +178,7 @@ $route['admin/edit/discount_f'] = 'update/update_discount';
 $route['admin/edit/sparepart_f'] = 'update/update_sparepart';
 $route['admin/edit/admin_f'] = 'update/update_admin';
 $route['admin/edit/member_f'] = 'update/update_member';
+$route['admin/edit/promo_f'] = 'update/update_promo_text';
 
 
 

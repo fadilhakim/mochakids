@@ -100,7 +100,7 @@ class Model_product extends CI_Model {
         $query = $this->db-> where('product_availability', $status) -> get('product_tbl');
         echo $this->db->last_query(); 
       	echo $status;
-        echo $query -> num_rows();
+        $query -> num_rows();
         //exit();
     }
 

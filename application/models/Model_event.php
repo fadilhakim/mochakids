@@ -9,6 +9,14 @@ class Model_event extends CI_Model {
 			return $event;
 		}
 
+		function list_promo() {
+
+			$event = $this->db->get('promo_tbl');
+			// echo $this->db->last_query();
+			// exit();
+			return $event;
+		}
+
 		function list_event_limit() {
 
 			$this->db->select('*');

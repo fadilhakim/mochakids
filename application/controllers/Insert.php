@@ -768,7 +768,6 @@ class insert extends CI_Controller {
 	}
 
 
-
 	function insert_discount()
 
 	{
