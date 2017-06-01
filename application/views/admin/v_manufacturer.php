@@ -45,7 +45,6 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Brand Name</th>
-                                            <th>Brand Logo</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -54,7 +53,6 @@
                                         <tr>
                                             <th scope="row"><?php echo $i; $i++;?></th>
                                             <td><?php echo $m->manu_title; ?></td>
-                                            <td><img src="<?php echo base_url('assets/image/brand').'/'.$m->manu_image;; ?>" class="img-responsive"></td>
                                             <td>
                                                 <a href="<?php echo base_url('admin/edit/brand/'.$m->manu_id); ?>" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit</a>
                                                 <a href="<?php echo base_url('admin/delete/brand/'.$m->manu_id.'/'.$m->manu_image); ?>" class="delete-manu btn btn-danger btn-bordred waves-effect w-md waves-light m-b-5">Delete</a>
