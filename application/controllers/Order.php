@@ -32,7 +32,7 @@
 			$err_ongkir = "";
 			if(in_array($kurir,array("jne","tiki","pos")) )
 			{
-			  if($layanan_kurir == 0 || $ongkir == 0)
+			  if($layanan_kurir == "")
 			  {
 				  $check_ongkir = FALSE;
 				  $err_ongkir .= "you must choose layanan kurir";

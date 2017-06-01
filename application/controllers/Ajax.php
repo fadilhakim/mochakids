@@ -95,16 +95,16 @@
 			if($courier != "pick_up")
 			{
 			
-			$dt = array("origin"=>$origin,"destination"=>$destination,"weight"=>$weight,"courier"=>$courier);
-			
-			$result = $this->rajaongkir->cost($dt);
-			
-			$result = json_decode($result,TRUE);
-			
-			$result = $result["rajaongkir"]["results"][0];
+				$dt = array("origin"=>$origin,"destination"=>$destination,"weight"=>$weight,"courier"=>$courier);
+				
+				$result = $this->rajaongkir->cost($dt);
+				
+				$result = json_decode($result,TRUE);
+				
+				$result = $result["rajaongkir"]["results"][0];
 			
 			}
-			else
+			else if($courier == "pick_up")
 			{
 				$result = array("courier"=>"pick_up","costs"=>0);	
 			}
