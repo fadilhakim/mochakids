@@ -46,6 +46,7 @@
 		function payment_process()
 		{
 			$this->load->library("form_validation");
+			$this->load->model("order_model");
 			
 			$no_order 		   = $this->input->post("no_order",TRUE);
 			$jumlah_pembayaran = $this->input->post("jumlah_pembayaran",TRUE);
@@ -67,7 +68,7 @@
 				//uplaod gambar bukti pembayaran 
 				$dest = "assets/image/payment_conf";
 				$ext  = pathinfo($document["name"],PATHINFO_EXTENSION);
-				$new_name = $dest.".$ext";
+				$new_name = $no_order.".$ext";
 				move_uploaded_file($document["tmp_name"],$new_name);
 				
 				$arr = array(
@@ -77,7 +78,7 @@
 					"bank"=>$user_bank,
 					"no_rekening"=>$user_bank_rekening,
 					"status"=>"pending",
-					"bukti_transfer"=>$document["name"],
+					"bukti_transfer"=>$new_name,
 					"id_bank" => $id_bank,
 				
 				);

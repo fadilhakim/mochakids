@@ -1,10 +1,13 @@
+<?php
+	$post_data = $this->session->flashdata("post_data");
+?>
 <div class="container">
 	<h2>Konfirmasi Pembayaran</h2>
 	<label style="color:red;">* Wajib Di isi</label>
 	<hr>
     
     <div><?=$this->session->flashdata("message");?></div>
-	<form method="post" action="<?=base_url("checkout/payment_process")?>">
+	<form method="post" action="<?=base_url("checkout/payment_process")?>" enctype="multipart/form-data">
 	 	<fieldset class="col-md-6">
           <div class="form-group required">
             <label class="col-md-4 control-label" >Nomor Order</label>
@@ -16,7 +19,7 @@
           <div class="form-group required">
             <label class="col-md-4 control-label">Jumlah Pembayaran</label>
             <div class="col-md-8">
-              <input type="number" name="jumlah_pembayaran" value=""  placeholder="Jumlah Pembayaran" class="form-control" />
+              <input type="number" name="jumlah_pembayaran" value="<?=$post_data["jumlah_pembayaran"]?>"  placeholder="Jumlah Pembayaran" class="form-control"  />
               <input type="hidden" name="grand_total" value="<?=$detail_order["grand_total"]?>">
                <span class="text-danger"><?php echo form_error('jumlah_pembayaran'); ?></span>
             </div>
@@ -25,10 +28,10 @@
           <div class="form-group required">
             <label class="col-md-4 control-label">Transfer Order (Rekening Bank Anda)</label>
             <div class="col-md-8">
-              <input type="text" name="user_bank"  placeholder="Nama Bank" class="form-control" /><br>
-              <input type="text" name="user_bank_rekening" placeholder="No Rekening" class="form-control" />
+              <input type="text" name="user_bank"  placeholder="Nama Bank" class="form-control" value="<?=$post_data["user_bank"]?>" /><br>
+              <input type="text" name="user_bank_rekening" placeholder="No Rekening" class="form-control" value="<?=$post_data["user_bank_rekening"]?>" />
               <br>
-              <input type="text" name="atas_nama" placeholder="a/n (Nama Pemilik akun Bank)" class="form-control">
+              <input type="text" name="atas_nama" placeholder="a/n (Nama Pemilik akun Bank)" class="form-control" value="<?=$post_data["atas_nama"]?>">
               
               <br>
               
