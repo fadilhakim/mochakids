@@ -66,7 +66,9 @@
 			$this->form_validation->set_rules("user_bank_rekening","Your Bank Account","required|trim"); 
 			$this->form_validation->set_rules("id_bank","Mochakids Bank","required|trim");
 			
-			if($this->form_validation->run() == TRUE && !empty($document["name"]))
+			$check_payment = $this->order_model->check_payment_confirmation($no_order);
+			
+			if($this->form_validation->run() == TRUE && !empty($document["name"]) && !empty($check_payment))
 			{
 				//uplaod gambar bukti pembayaran 
 				$dest = "assets/image/payment_conf";
@@ -101,6 +103,10 @@
 				if(empty($document["name"]))
 				{
 					$err .= "<p> Bukti Transfer must be uploaded </p> ";	
+				}
+				if(!empty($check_payment))
+				{
+					$err .= "<p> you already sent a payment confirmation </p>";	
 				}
 				
 				$err .= validation_errors();

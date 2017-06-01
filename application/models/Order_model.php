@@ -188,6 +188,15 @@
 			
 		}
 		
+		function check_payment_confirmation($no_order)
+		{
+			$str = "SELECT * FROM payment_confirm WHERE id_order = '$no_order' ";
+			$q = $this->db->query($str);
+			$f = $q->row_array();
+			
+			return $f;	
+		}
+		
 		function insert_payment_confirmation($order)
 		{
 			
