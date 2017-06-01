@@ -128,7 +128,6 @@ class insert extends CI_Controller {
 		$product_code = $this->input->post('product_code',TRUE);
 		$product_availability = $this->input->post('product_availability',TRUE);
 		$featured_product = $this->input->post('featured_product',TRUE); // tampil gak tampil di depan 
-		
 		$pack_item = $this->input->post("pack_item",TRUE);
 		$deposit   = $this->input->post("deposit",TRUE);
 		$eta	   = $this->input->post("eta",TRUE);
@@ -155,7 +154,9 @@ class insert extends CI_Controller {
 		
 		// $product_image_4 = $_FILES['product_image_4']['name'];
 		// $product_image_4 = str_replace(' ' , '_' , $product_image_4);
-
+ 		
+		
+		
 		$data = array(
 			'product_title' => $product_title,
 			'manu_id' => $manu_id,
