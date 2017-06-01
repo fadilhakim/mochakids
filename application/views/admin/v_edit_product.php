@@ -139,7 +139,7 @@
 														  $selected = "selected=selected";
 													  }
 													  ?>
-                                                          <option value="<?php echo $s->status_id; ?>" <?=$selected?>><?php echo $s->status_title; ?></option>
+                                                          <option value="<?php echo $s->status_title; ?>" <?=$selected?>><?php echo $s->status_title; ?></option>
                                                       <?php } ?>
                                           			</select>
                                                        

@@ -165,7 +165,7 @@
                                                           <select class="form-control" name="product_availability" id="product_availability" required>
                                                             <option value="">---</option>
                                                             <?php foreach ($stock as $st) { ?>
-                                                                <option value="<?php echo $st->status_id; ?>"><?php echo $st->status_title; ?></option>
+                                                                <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
                                                             <?php } ?>
                                                     </select>
                                                     
