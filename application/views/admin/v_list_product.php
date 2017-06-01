@@ -37,7 +37,7 @@
                                             <td><img src="<?php echo base_url('assets/image/product/').$p->product_image_1; ?>" class="img-responsive"></td>
                                             <td><?php echo $p->product_category; ?></td>
                                             <td>
-                                                <?php echo $p->product_availbility; ?>
+                                                <?php echo $p->product_availability; ?>
                                             </td>
                                             <td><?php
                                                 $manu_title_p = $p->manu_id;
