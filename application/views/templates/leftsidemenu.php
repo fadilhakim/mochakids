@@ -34,6 +34,10 @@
                     </ul>
                 </li>
 
+                <li class="has_sub">
+                    <a href="<?php echo base_url('admin/brand'); ?>" class="waves-effect"><i class="fa fa-users"></i> <span>Brands</span> </a>
+                </li>
+
                 <li class="">
                     <a href="<?php echo base_url('admin/order'); ?>" class="waves-effect"><i class="zmdi zmdi-calendar-check"></i> <span>Order</span> </a>
                 </li>

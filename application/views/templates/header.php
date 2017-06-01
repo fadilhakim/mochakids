@@ -174,7 +174,7 @@
         <div class="navbar-header"> <span class="visible-xs visible-sm"> Menu <b></b></span></div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
-            <li><a class="home_link" title="Home" href="<?php echo base_url('home'); ?>"><span>Home</span></a></li>
+            <!-- <li><a class="home_link" title="Home" href="<?php echo base_url('home'); ?>"><span>Home</span></a></li> -->
             <li class="mega-menu dropdown"><a href="<?php echo base_url('home'); ?>">Home</a></li>
             <li class="menu_brands dropdown"><a href="<?php echo base_url('about'); ?>">About</a>
             </li>
@@ -212,9 +212,9 @@
               </div> -->
             </li>
             <li class="dropdown"><a href="<?php echo base_url('product'); ?>">All Products</a>
-            <li class="dropdown"><a href="<?php echo base_url('product/ready_stock'); ?>">Ready Stock</a>
-            <li class="dropdown"><a href="<?php echo base_url('product/pre_order'); ?>">Pre-Order</a>
-            <li class="dropdown"><a href="<?php echo base_url('product/sales_stock'); ?>">Sales Stock</a>
+            <li class="dropdown"><a href="<?php echo base_url('product/2'); ?>">Ready Stock</a>
+            <li class="dropdown"><a href="<?php echo base_url('product/1'); ?>">Pre-Order</a>
+            <li class="dropdown"><a href="<?php echo base_url('product/3'); ?>">Sales Stock</a>
               <!-- <div class="dropdown-menu">
                 <ul>
                   <li><a href="category.html">Category (Grid/List)</a></li>
