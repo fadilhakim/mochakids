@@ -46,6 +46,7 @@
 		function payment_process()
 		{
 			$this->load->library("form_validation");
+			$this->load->model("order_model");
 			
 			$no_order 		   = $this->input->post("no_order",TRUE);
 			$jumlah_pembayaran = $this->input->post("jumlah_pembayaran",TRUE);
@@ -55,6 +56,9 @@
 			$id_bank 		   = $this->input->post("id_bank",TRUE);
 			$document 		   = $_FILES["document"];
 			
+			$ip_address 	   = $this->input->ip_address();
+			$user_agent		   = $this->input->user_agent();
+			
 			$this->form_validation->set_rules("grand_total","Grand Total","required|trim");
 			$this->form_validation->set_rules("no_order","No Order","required|trim");
 			$this->form_validation->set_rules("jumlah_pembayaran","Jumlah Pembayaran","required|trim|matches[grand_total]"); 
@@ -62,12 +66,14 @@
 			$this->form_validation->set_rules("user_bank_rekening","Your Bank Account","required|trim"); 
 			$this->form_validation->set_rules("id_bank","Mochakids Bank","required|trim");
 			
-			if($this->form_validation->run() == TRUE && !empty($document["name"]))
+			$check_payment = $this->order_model->check_payment_confirmation($no_order);
+			
+			if($this->form_validation->run() == TRUE && !empty($document["name"]) && !empty($check_payment))
 			{
 				//uplaod gambar bukti pembayaran 
 				$dest = "assets/image/payment_conf";
 				$ext  = pathinfo($document["name"],PATHINFO_EXTENSION);
-				$new_name = $dest.".$ext";
+				$new_name = $no_order.".$ext";
 				move_uploaded_file($document["tmp_name"],$new_name);
 				
 				$arr = array(
@@ -77,8 +83,10 @@
 					"bank"=>$user_bank,
 					"no_rekening"=>$user_bank_rekening,
 					"status"=>"pending",
-					"bukti_transfer"=>$document["name"],
+					"bukti_transfer"=>$new_name,
 					"id_bank" => $id_bank,
+					"ip_address"=>$ip_address,
+					"user_agent"=>$user_agent
 				
 				);
 				
@@ -95,6 +103,10 @@
 				if(empty($document["name"]))
 				{
 					$err .= "<p> Bukti Transfer must be uploaded </p> ";	
+				}
+				if(!empty($check_payment))
+				{
+					$err .= "<p> you already sent a payment confirmation </p>";	
 				}
 				
 				$err .= validation_errors();

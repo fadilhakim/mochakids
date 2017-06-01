@@ -284,7 +284,7 @@ class model_user extends CI_Model
 		
 			"user_id" => $user_id,
 			"contact_person" => $contact_person,
-			"no_hp" => $no_hp,
+			"no_hp" => ($no_hp != NULL) ? $no_hp : "",
 			"provinsi" => $id_province,
 			"kota" => $id_city,
 			"kecamatan" => $kecamatan,

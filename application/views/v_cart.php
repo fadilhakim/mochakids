@@ -188,12 +188,14 @@ if(!$this->cart->contents()){ ?>
                                             <div class="md-margin"></div><!-- space -->
                                             <div class="text-right">
                                             	<?php if(!empty($email_user_sess)){ ?>
-                                                <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button type="button" onclick="" class="btn btn-default">Print Checkout</button></a>
+                                                <!-- <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button type="button" onclick="" class="btn btn-default">Print Checkout</button></a>-->
                                                 <button title="submit to order" class="btn btn-success"> Order and Payment </button>
                                                 
                                                 
                                                 <?php }else{   ?>
-                                                	<a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm"> Print Checkout</a>
+                                                	
+                                                    
+                                                    <button type="button" title="submit to order" class="btn btn-success" data-toggle="modal" data-target="#login-modal"> Order and Payment </button>
                                                 <?php } ?>
                                             </div>
                                             

@@ -175,7 +175,7 @@
 			var origin = 152; // default
 			var destination = $("#id_city").val();
 			var weight = $("#total_weight").val();
-			var courier = $(this).val();
+			var courier = $("#kurir").val();
 			
 			city_province(id_province);	
 			dt_city(id_city);
