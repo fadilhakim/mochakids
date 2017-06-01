@@ -19,12 +19,12 @@
                                             <input class="form-control" name="manu_name" required placeholder="Brand Title" type="text">
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                   <!--  <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Brand Logo</label>
                                         <div class="col-sm-9">
-                                            <input class="" name="manu_image" required type="file">
+                                            <input class="" name="manu_image" type="file">
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-group text-right m-b-0">
                                         <button class="btn btn-primary waves-effect waves-light" type="submit";>

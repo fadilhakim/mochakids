@@ -174,7 +174,7 @@
         <div class="navbar-header"> <span class="visible-xs visible-sm"> Menu <b></b></span></div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
-            <li><a class="home_link" title="Home" href="<?php echo base_url('home'); ?>"><span>Home</span></a></li>
+            <!-- <li><a class="home_link" title="Home" href="<?php echo base_url('home'); ?>"><span>Home</span></a></li> -->
             <li class="mega-menu dropdown"><a href="<?php echo base_url('home'); ?>">Home</a></li>
             <li class="menu_brands dropdown"><a href="<?php echo base_url('about'); ?>">About</a>
             </li>
