@@ -125,7 +125,7 @@ if(!$this->cart->contents()){ ?>
                                                 <!-- Tab nav -->
                                                 <ul class="nav nav-tabs" role="tablist">
                                                     <li class="active"><a href="#shipping" data-toggle="tab">Shipping &amp; Taxes</a></li>
-                                                    <li><a href="#discount" data-toggle="tab">Discount Code</a></li>
+                                                    <!-- <li><a href="#discount" data-toggle="tab">Discount Code</a></li> -->
                                                 </ul>
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active" id="shipping">
