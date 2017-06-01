@@ -50,6 +50,7 @@ foreach ($manufacturer as $manu) {
             <?=$this->session->flashdata('message');?>
             <div class="row product-info">
               <div class="col-sm-6">
+                <h4><?php echo  $product_title; ?></h4>
                 <div class="image">
                   <img class="img-responsive" itemprop="image" id="zoom_01" src="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" title="<?php echo $product_title; ?>" alt="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" /> 
                 </div>
