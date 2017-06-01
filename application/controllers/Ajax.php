@@ -20,7 +20,8 @@
 		{
 			$this->load->library("cart");
 			
-			$ongkir = $this->input->post("ongkir");
+		
+			 $ongkir = $this->input->post("ongkir");
 			
 			$this->session->set_userdata("shipping",$ongkir);
 			
@@ -57,6 +58,7 @@
 			
 			//var_dump($city_province); exit;
 			
+			
 			foreach($city_province as $row)
 			{
 				echo "<option value='$row[city_id]'>$row[city_name]</option>";	
@@ -90,11 +92,25 @@
 			$weight 	 = $this->input->post("weight",TRUE);
 			$courier 	 = $this->input->post("courier",TRUE);  
 			
+			if($courier != "pick_up")
+			{
+			
 			$dt = array("origin"=>$origin,"destination"=>$destination,"weight"=>$weight,"courier"=>$courier);
 			
 			$result = $this->rajaongkir->cost($dt);
+			
 			$result = json_decode($result,TRUE);
+			
 			$result = $result["rajaongkir"]["results"][0];
+			
+			}
+			else
+			{
+				$result = array("courier"=>"pick_up","costs"=>0);	
+			}
+			
+			
+			
 			
 			return $result;
 			//echo json_encode($result);
@@ -108,12 +124,25 @@
 			
 			$cost = $dt_cost["costs"];
 			
-			foreach($cost as $row)
+			echo "<option value='0'> -select layanan kurir-</option>";
+			if(!empty($cost))
 			{
-				$ongkir = $row["cost"][0]["value"];
-				$poles_ongkir = number_format($ongkir);
-				echo "<option value='$row[service]&$ongkir'>Rp. $poles_ongkir - $row[service] - $row[description]</option>";	
 				
+			  foreach($cost as $row)
+			  {
+				  $ongkir = $row["cost"][0]["value"];
+				  $poles_ongkir = number_format($ongkir);
+				  echo "<option value='$row[service]&$ongkir'>Rp. $poles_ongkir - $row[service] - $row[description]</option>";	
+				  
+			  }
+			}
+			else if($dt_cost["courier"] == "pick_up")
+			{
+				echo "<option value='0'> You Choose Pick Up </option>";
+			}
+			else
+			{
+				echo "<option value='0'> No Ongkir, please choose another kurir </option>";	
 			}
 			
 		}

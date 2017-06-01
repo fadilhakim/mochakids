@@ -100,9 +100,11 @@
        <label> Kurir </label>
        <select class="form-control" name="kurir" id="kurir">
        		<option value=""> -Select Kurir - </option>
+           
        		<option value="jne"> JNE </option>
             <option value="tiki"> TIKI </option>
             <option value="pos"> POS </option>
+            <option value="pick_up"> Pick Up - in Store </option>
        </select>
        
        <input type="hidden" name="total_weight" id="total_weight" value="<?=$total_weight?>">
@@ -111,9 +113,9 @@
     <div class="form-group">
     	<label> Layanan Kurir </label>
     	<select class="form-control" name="layanan_kurir" id="layanan_kurir">
-        
+        	<option value="0"> - Select - </option>
         </select>
-        <input type="hidden" name="ongkir" id="ongkir" >
+        <input type="hidden" name="ongkir" id="ongkir" value="0" >
     
     </div>
     <div class="form-group">
@@ -135,21 +137,34 @@
 	{
 		var layanan_kurir = $("#layanan_kurir").val();
 	
-		var ongkir = layanan_kurir.split("&");
+		var ongkir = 0;
+		
+		if( layanan_kurir != 0 )
+		{
+		  
+		  var ongkir = layanan_kurir.split("&");
+		  var ongkir2 = ongkir[1];
+		}
+		else
+		{
+	 	  
+		  var ongkir2 = 0;
+		}
+		
+		  $.ajax({
+			  type:"POST",
+			  url:"<?=base_url("ajax/load_shipping_data")?>",
+			  data:"ongkir="+ongkir2,
+			  dataType:"JSON",
+			  success:function(dt)	
+			  {
+				  $("#result-grand-total").html(dt.grand_total);	
+				  $("#result-ongkir").html(dt.shipping);
+				  
+			  }
+		  });
 		
 		
-		$.ajax({
-			type:"POST",
-			url:"<?=base_url("ajax/load_shipping_data")?>",
-			data:"ongkir="+ongkir[1],
-			dataType:"JSON",
-			success:function(dt)	
-			{
-				$("#result-grand-total").html(dt.grand_total);	
-				$("#result-ongkir").html(dt.shipping);
-				
-			}
-		})
 		
 	}
 	

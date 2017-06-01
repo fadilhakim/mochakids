@@ -28,9 +28,36 @@
 			$total_weight = $this->input->post("total_weight",TRUE);
 			$layanan_kurir= $this->input->post("layanan_kurir",TRUE);
 			
-			$exp		  = explode("&",$layanan_kurir);
-			$layanan_kurir= $exp[0];
-			$ongkir 	  = $exp[1];
+			$check_ongkir = FALSE;
+			$err_ongkir = "";
+			if(in_array($kurir,array("jne","tiki","pos")) )
+			{
+			  if($layanan_kurir == 0 || $ongkir == 0)
+			  {
+				  $check_ongkir = FALSE;
+				  $err_ongkir .= "you must choose layanan kurir";
+			  }
+			  else
+			  {
+				  $check_ongkir = TRUE;  
+			  }
+			
+			  if($check_ongkir == TRUE)
+			  {
+			  	$exp		  = explode("&",$layanan_kurir);
+			  	$layanan_kurir= $exp[0];
+			  	$ongkir 	  = $exp[1];
+			  }	  
+			  
+			}
+			else if($kurir == "pick_up")
+			{
+				$check_ongkir = TRUE;
+				if($layanan_kurir == 0)
+				{
+					$check_ongkir = TRUE;	
+				}
+			}
 			
 			$shipping_address = $this->input->post("shipping_address",TRUE);
 			$billing_address = $this->input->post("billing_address",TRUE);
@@ -51,7 +78,8 @@
 			
 			$cart_content =  $this->cart->contents();
 			
-			if(!empty($cart_content) && $this->form_validation->run() == TRUE)
+			if(!empty($cart_content) && 
+			$this->form_validation->run() == TRUE && $check_ongkir == TRUE)
 			{
 				if(empty($id_add_user))
 				{
@@ -76,6 +104,10 @@
 				if(empty($cart_content))
 				{
 					$err  .= "<p> Your Cart is empty </p>";
+				}
+				if($check_ongkir == FALSE)
+				{
+					$err .= "<p>".$err_ongkir."</p>";	
 				}
 				
 				$err .= validation_errors(); 
