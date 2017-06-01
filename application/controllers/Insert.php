@@ -517,7 +517,6 @@ class insert extends CI_Controller {
 
 
 		$manu_name = $this->input->post('manu_name');
-		$manu_image = $_FILES['manu_image']['name'];
 
 		$manu_slug = url_title($manu_name);
 
@@ -551,9 +550,6 @@ class insert extends CI_Controller {
 		$data = array(
 
 			'manu_title' => $manu_name,
-			"manu_link" => $manu_link,
-			'manu_image' => $manu_image,
-
 			'manu_slug' => $manu_slug,
 
 		);
