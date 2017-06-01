@@ -20,7 +20,7 @@
                                             <th>Product Title</th>
                                             <th>Product Display</th>
                                             <th>Product Category</th>
-                                            <th>Featured Product</th>
+                                            <th>Product Status</th>
                                             <th>Product Brand</th>
                                             <th>Action / Product Detail</th>
                                         </tr>
@@ -36,15 +36,8 @@
                                             <td><?php echo $p->product_title; ?></td>
                                             <td><img src="<?php echo base_url('assets/image/product/').$p->product_image_1; ?>" class="img-responsive"></td>
                                             <td><?php echo $p->product_category; ?></td>
-                                            <td><?php
-                                                $featured = $p->featured;
-                                                if ($featured == '1') {
-                                                    echo "Yes";
-                                                }
-                                                else {
-                                                    echo "No";
-                                                }
-                                                ?>
+                                            <td>
+                                                <?php echo $p->product_availbility; ?>
                                             </td>
                                             <td><?php
                                                 $manu_title_p = $p->manu_id;
