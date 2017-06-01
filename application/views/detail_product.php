@@ -9,6 +9,15 @@ foreach($product_cat->result() as $row){
   $product_code=$row->product_code;
   $product_availability=$row->product_availability;
   $product_category=$row->product_category;
+  $product_pack=$row->pack_item;
+  $product_deposit=$row->deposit;
+  $product_eta=$row->ETA;
+  $product_size=$row->size;
+  $product_status=$row->status;
+  $product_price=$row->price;
+  $product_old_price=$row->old_price;
+  $product_stock=$row->stock;
+  $product_weight=$row->weight;
 
   $product_image_1=$row->product_image_1;
   $product_image_2=$row->product_image_2;
@@ -74,9 +83,21 @@ foreach ($manufacturer as $manu) {
               <div class="col-sm-6">
                 <ul class="list-unstyled description">
                   <h2>Additional Information</h2>
-                  <li><b>Brand:</b> <a href="#"><span itemprop="brand">Nike</span></a></li>
-                  <li><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
+                  <li><b>Price : </b><span itemprop="mpn"><?php echo $product_price; ?></span></li>
+                  <?php if($product_availability === 'sales_stock' ) {?>
+                    <li><b>Old Price : </b><span itemprop="mpn"> <strike><?php echo $product_old_price; ?></strike></span></li>
+                  <?php } ?>
+
+                  <li><b>1 Pack isi :</b> <span itemprop="mpn"><?php echo $product_pack; ?></span></li>
+                  <li><b>Berat </b> <span itemprop="mpn"><?php echo $product_weight ?></span></li>
+                  <!-- <li><b>Brand</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li> -->
+                  <li><b>Deposit per seri :</b> <span itemprop="mpn"><?php echo $product_deposit; ?></span></li>
+                  <li><b>Detail :</b> <span itemprop="mpn"><?php echo $product_descrption; ?></span></li>
+                  <li><b>ETA :</b> <span itemprop="mpn"><?php echo $product_eta; ?></span></li>
+                  <li><b>Size :</b> <span itemprop="mpn"><?php echo $product_size; ?></span></li>
+                  <li><b>Stock :</b> <span itemprop="mpn"><?php echo $product_stock; ?></span></li>
                   <li><b>Availability:</b> <span class="instock"><?php echo $product_availability; ?></span></li>
+                  <li><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
                   <li>
                     <?php foreach($this->cart->contents() as $items): ?>
 
@@ -125,17 +146,6 @@ foreach ($manufacturer as $manu) {
             </div>
           </div>
         </div>
-        <!--Middle Part End -->
-        <!--Right Part Start -->
-        <!-- <aside id="column-right" class="col-sm-3 hidden-xs">
-          <div class="list-group">
-            <h3 class="subtitle">Custom Content</h3>
-            <p>This is a CMS block edited from admin. You can insert any content (HTML, Text, Images) Here. </p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-          </div>
-        </aside> -->
-        <!--Right Part End -->
       </div>
     </div>
 </div>
