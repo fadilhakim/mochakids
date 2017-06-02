@@ -9,5 +9,3 @@
 
 
 </IfModule>
-
-php_value date.timezone 'Asia/Jakarta'
