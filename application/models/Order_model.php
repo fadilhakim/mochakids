@@ -57,6 +57,15 @@
 			
 		}
 		
+		function get_last_order()
+		{
+			$str = "SELECT id_order,create_date FROM order_tbl ORDER BY create_date DESC LIMIT 1";
+			$q = $this->db->query($str);
+			$f = $q->row_array();
+			
+			return $f;	
+		}
+		
 		function generate_order_code()
 		{
 			date_default_timezone_set("Asia/jakarta");
@@ -67,9 +76,7 @@
 			
 			//echo date("H:i:s"); exit;	
 			
-			$str = "SELECT id_order,create_date FROM order_tbl ORDER BY create_date LIMIT 1";
-			$q = $this->db->query($str);
-			$f = $q->row_array();
+			$f = $this->get_last_order();
 			
 			if(empty($f))
 			{
@@ -81,8 +88,18 @@
 			else
 			{
 				$substr = substr($f["id_order"],-5);
-				$int = (int)$substr;	
-				$int++;
+				$int = (int)$substr;
+				
+				if($int < 9999) // di check untuk di reset 
+				{
+					$int++;
+				}
+				else
+				{
+					$int = 1; // reset dari ulang	
+				}
+					
+				
 				$str = sprintf("%05d",$int);
 				
 				$new_code = $mk.$date.$hour.$str;
