@@ -158,7 +158,7 @@ class login extends CI_Controller {
 			
 			$this->model_user->register_process();
 			
-			$message = success($err);
+			$message = success(" You Success fully register ");
 			$this->session->set_flashdata('message',$message);
 			redirect(base_url("login/login_customer"));
 		}
