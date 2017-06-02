@@ -158,30 +158,30 @@ class insert extends CI_Controller {
 		
 		
 		$data = array(
-			'product_title' => $product_title,
-			'manu_id' => $manu_id,
-			'product_category' => $product_category,
+			'product_title' 	=> $product_title,
+			'manu_id' 			=> $manu_id,
+			'product_category'  => $product_category,
 
-			'product_code' => $product_code,
-			'product_availability' => $product_availability,
-			'featured' => $featured_product,
+			'product_code' 			=> $product_code,
+			'product_availability'  => $product_availability,
+			'featured' 				=> $featured_product,
 			
-			"pack_item"=>$pack_item,
-			"deposit" => $deposit,
-			"ETA"=>$eta,
-			"size"=>$size,
-			"minimum_order"=>$minimum_order,
+			"pack_item"				=> $pack_item,
+			"deposit" 				=> $deposit,
+			"ETA"					=> is_null($eta) ? $eta : "",
+			"minimum_order"			=> is_null($minimum_order) ? $minimum_order : "",
+			"size"					=> $size,
 			
-			"style_code"=>$style_code,
-			"price"=>$price,
-			"old_price"=>$old_price,
+			"style_code"			=> $style_code,
+			"price"					=> $price,
+			"old_price"				=> $old_price,
 			
-			'product_descrption' => $product_description,
+			'product_descrption' 	=> $product_description,
 
-			'category_url' => $product_category_url,
-			'product_slug' => $product_slug,
+			'category_url' 			=> $product_category_url,
+			'product_slug' 			=> $product_slug,
 
-			'product_image_1' => $product_image_1,
+			'product_image_1' 		=> $product_image_1,
 			// 'product_image_2' => $product_image_2,
 			// 'product_image_3' => $product_image_3,
 			// 'product_image_4' => $product_image_4
