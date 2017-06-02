@@ -70,6 +70,7 @@ class product extends CI_Controller {
         $data["links"] = $this->pagination->create_links();
 
 		$this->load->view('templates/meta');
+		$this->load->model('model_event');
 		$data['promo'] = $this->model_event->list_promo()->result();
 		$this->load->view('templates/header',$data);
 		
@@ -126,6 +127,7 @@ class product extends CI_Controller {
         $data["links"] = $this->pagination->create_links();
 
 		$this->load->view('templates/meta');
+		$this->load->model('model_event');
 		$data['promo'] = $this->model_event->list_promo()->result();
 		$this->load->view('templates/header',$data);
 		
