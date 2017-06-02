@@ -148,7 +148,7 @@ class login extends CI_Controller {
 		$this->form_validation->set_rules("kode_pos","Kode Pos","required|trim");
 		
 		$this->form_validation->set_rules("billing_address","Billing Address","required|trim");
-		$this->form_validation->set_rules("Shipping Address","Shipping Address","required|trim");
+		$this->form_validation->set_rules("shipping Address","Shipping Address","required|trim");
 		
 		$check_email = $this->check_data->check_email_user($email);
 		
