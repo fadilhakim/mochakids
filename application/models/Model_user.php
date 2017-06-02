@@ -329,13 +329,13 @@ class model_user extends CI_Model
 		
 		$dt_user = array(
 			"contact_person"=>$contact_person,
-			"no_telp"=>$no_telp,
+			"no_tlp"=>$no_telp,
 			"no_fax"=>$no_fax,
 			"no_hp"=>$no_hp,
 			"email"=>$email,
 			"password"=>md5($password),
 			"act_status"=>0,
-			"join_date"=>$datetime,
+			"joindate"=>$datetime,
 			"discount_price"=>0
 		
 		);

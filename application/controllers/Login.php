@@ -21,6 +21,7 @@ class login extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('model_login');
+		$this->load->model("model_user"); 
 	}
 
 	function index(){
@@ -148,7 +149,7 @@ class login extends CI_Controller {
 		$this->form_validation->set_rules("kode_pos","Kode Pos","required|trim");
 		
 		$this->form_validation->set_rules("billing_address","Billing Address","required|trim");
-		$this->form_validation->set_rules("shipping Address","Shipping Address","required|trim");
+		$this->form_validation->set_rules("shipping_address","Shipping Address","required|trim");
 		
 		$check_email = $this->check_data->check_email_user($email);
 		
