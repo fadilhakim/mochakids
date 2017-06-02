@@ -134,7 +134,7 @@
                                                       <?php foreach ($stock as $s) { 
 													  
 													  $selected = "";
-													  if($s->status_id == $product_availability)
+													  if($s->status_title == $product_availability)
 													  {
 														  $selected = "selected=selected";
 													  }
