@@ -168,8 +168,8 @@ class insert extends CI_Controller {
 			
 			"pack_item"				=> $pack_item,
 			"deposit" 				=> $deposit,
-			"ETA"					=> is_null($eta) ? $eta : "",
-			"minimum_order"			=> is_null($minimum_order) ? $minimum_order : "",
+			"ETA"					=> !is_null($eta) ? $eta : "",
+			"minimum_order"			=> !is_null($minimum_order) ? $minimum_order : "",
 			"size"					=> $size,
 			
 			"style_code"			=> $style_code,
