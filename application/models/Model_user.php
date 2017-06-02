@@ -349,7 +349,7 @@ class model_user extends CI_Model
 			"contact_person"=>$contact_person,
 			"billing_address"=>$billing_address,
 			"shipping_address"=>$shipping_address,
-			"provinsi"=>$id_provinsi,
+			"provinsi"=>$id_province,
 			"kota"=>$id_city,
 			"kecamatan"=>$kecamatan,
 			"kode_pos"=>$kode_pos,
