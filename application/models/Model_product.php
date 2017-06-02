@@ -98,8 +98,8 @@ class Model_product extends CI_Model {
 		public function count_product_ready_stock($status) {
 
         $query = $this->db-> where('product_availability', $status) -> get('product_tbl');
-        echo $this->db->last_query(); 
-      	echo $status;
+       //  echo $this->db->last_query(); 
+      	// echo $status;
         $query -> num_rows();
         //exit();
     }

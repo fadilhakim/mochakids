@@ -19,7 +19,7 @@
             
           </div>
           
-          <div id="top-links" class="collapse navbar-collapse pull-right">
+          <div id="top-links" class="pull-right flip right-top">
             
             <?php if(!empty($this->session->userdata('contact_person'))){ ?>
              <ul class="nav navbar-nav">
@@ -49,25 +49,26 @@
               </li>
              </ul>
              <script>
-				$('.dropdown-toggle').dropdown()
-			 </script>
+      				  $('.dropdown-toggle').dropdown()
+      			 </script>
              <style>
-			 	.navbar-default .navbar-nav > .open > a:focus {
-					color: #555;
-					background-color: black !important;
-				}
-			 </style>
-            <?php } else {?>
-             <ul class="nav navbar-nav">
-                <li>
-                  <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-                </li>
-                <li>
-                  <a href="<?php echo base_url('register'); ?>">Sign up</a>
-                </li>
-              </ul>
-            <?php } ?>           
+    			 	.navbar-default .navbar-nav > .open > a:focus {
+        					color: #555;
+        					background-color: black !important;
+    				}
+    			 </style>
+                <?php } else {?>
+                 <ul class="nav navbar-nav">
+                    <li>
+                      <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                    </li>
+                    <li>
+                      <a href="<?php echo base_url('register'); ?>">Sign up</a>
+                    </li>
+                  </ul>
+                <?php } ?>           
           </div>
+
         </div>
       </div>
     </nav>
@@ -255,9 +256,15 @@
         </div>
       </nav>
       <div class="container example1">
-        <h3><?php foreach ($promo as $p) {
+        <h3>
+
+        <?php
+          $url = $this->uri->segment(1);
+          if($url === 'home' || $url === 'product' )
+          foreach ($promo as $p) {
           echo $p->promo_text;
-        }
+          
+          }
 
          ?></h3>
       </div>
