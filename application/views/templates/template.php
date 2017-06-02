@@ -5,6 +5,7 @@
 	}
 
 		$this->load->view('templates/meta');
+		$this->load->model('model_event');
 		$data['promo'] = $this->model_event->list_promo()->result();
 		$this->load->view('templates/header',$data);
 		$this->load->view($content);
