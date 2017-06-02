@@ -292,7 +292,7 @@
 		  {
 			  var pa = $("#product_availability").val();
 			  
-			  if(pa == "Pre-Order")
+			  if(pa == "pre_order")
 			  {
 			  
 				  $("#mo_element").removeClass("hidden");
