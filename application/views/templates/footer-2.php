@@ -2,7 +2,7 @@
 <hr>
       <div class="row">
           <div class="col-lg-6">
-            <h3 class="code-f" style="text-align: right">Hubungi Kami :</h3>
+            <h3 class="code-f" style="text-align: right">Hubungi Kami</h3>
           </div>
           <div class="col-lg-6">
             <div class="phone">
