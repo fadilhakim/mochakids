@@ -3,6 +3,10 @@
   <div id="header">
     <!-- Top Bar Start-->
     <?php $this->load->view('sparepart/v_login_popup'); ?>
+    <?php
+      $this->load->model('model_event');
+      $data['promo'] = $this->model_event->list_promo()->result();
+     ?>
     <nav id="top" class="htop navbar navbar-fixed-top navbar-default" style="min-height:0px;">
       <div class="container">
         <div class="row"> <span class="drop-icon visible-sm visible-xs"><i class="fa fa-align-justify"></i></span>

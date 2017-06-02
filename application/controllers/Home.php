@@ -27,13 +27,12 @@ class home extends CI_Controller {
 	public function view_2()
 	{
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
 		$data['promo'] = $this->model_event->list_promo()->result();
 		$this->load->view('templates/header',$data);
 
 		$this->load->model('model_home');
 		$this->load->model('model_product');
-		
+		$this->load->model('model_event');
 		$data['category'] = $this->model_product->list_category()->result();
 		$data['slider'] = $this->model_home->list_slider()->result();
 		
