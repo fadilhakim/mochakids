@@ -34,11 +34,11 @@ class Model_product extends CI_Model {
 
 		public function getproductfromID($id){
 
-		//$this->db->get_where('product_tbl',array('product_id' => $id));
-		$this->db->select('*');
-		$this->db->from('product_tbl');
-		$this->db->where('product_id = '.$id.'');
-		$query = $this->db->get();
+			//$this->db->get_where('product_tbl',array('product_id' => $id));
+			$this->db->select('*');
+			$this->db->from('product_tbl');
+			$this->db->where('product_id = '.$id.'');
+			$query = $this->db->get();
 		
 			if($query)
 			{
@@ -48,6 +48,17 @@ class Model_product extends CI_Model {
 			{
 				return false;
 			}
+		}
+		
+		function get_detail_product($id)
+		{
+			$this->db->select('*');
+			$this->db->from('product_tbl');
+			$this->db->where('product_id = '.$id.'');
+			$query = $this->db->get();
+			
+			return $query->row_array();
+			
 		}
 
 		public function getproductfromSLUGandcat($id,$slug,$cat){

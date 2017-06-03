@@ -43,6 +43,7 @@
 		{
 			$this->load->model("order_model");
 			$this->load->model("bank_model");
+			$this->load->model("model_product");
 			
 			$id_order = $this->uri->segment(4);
 			
@@ -54,7 +55,14 @@
 				$detail_list_order = $this->order_model->detail_list_order($id_order);
 				$payment_confirm   = $this->order_model->order_payment_confirmation($id_order);
 				
-				$data["bank"]	 = $this->bank_model->get_all();
+				if(empty($payment_confirm))
+				{
+					$data["bank"]	 = $this->bank_model->get_all();
+				}
+				else if(!empty($payment_confirm))
+				{
+					$data["bank_dt"] = $this->bank_model->get_by_id_arr($payment_confirm["id_bank"]);
+				}
 				
 				$data["detail_list_order"] = $detail_list_order;
 				$data["detail_order"]	   = $detail_order;
@@ -71,7 +79,7 @@
 			//$this->load->view("profile/order_detail");
 
 			//$this->load->view('templates/footer-2');
-			$this->load->view("templates/template",$data);	
+			$this->load->view("templates/template",$data);		
 		}
 		
 		function address_book()

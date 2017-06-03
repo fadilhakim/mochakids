@@ -230,7 +230,7 @@
 		function order_payment_confirmation($id_order)
 		{
 			
-			return $this->db->get("payment_confirm",array("id_order"=>$id_order));
+			return $this->db->get_where("payment_confirm",array("id_order"=>$id_order))->row_array();
 		}
 		
 		function update_order()

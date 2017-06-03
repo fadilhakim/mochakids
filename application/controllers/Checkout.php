@@ -55,6 +55,8 @@
 			$user_bank_rekening = $this->input->post("user_bank_rekening",TRUE);
 			$id_bank 		   = $this->input->post("id_bank",TRUE);
 			
+			$type_form		   = $this->input->post("type_form",TRUE);
+			
 			
 			$document 		   = isset($_FILES["document"]) ? $_FILES["document"] : "";
 			
@@ -67,17 +69,23 @@
 			$this->form_validation->set_rules("jumlah_pembayaran","Jumlah Pembayaran","required|trim|matches[grand_total]"); 
 			$this->form_validation->set_rules("user_bank","Your Bank","required|trim");
 			$this->form_validation->set_rules("user_bank_rekening","Your Bank Account","required|trim"); 
+			$this->form_validation->set_rules("atas_nama","Your Name","required|trim");
 			$this->form_validation->set_rules("id_bank","Mochakids Bank","required|trim");
+			
+			$this->form_validation->set_rules("type_form","Type Form","required");
 			
 			$check_payment = $this->order_model->check_payment_confirmation($no_order);
 			
-			if($this->form_validation->run() == TRUE && !empty($document["name"]) && !empty($check_payment))
+			if($this->form_validation->run() == TRUE  && !empty($check_payment))
 			{
-				//uplaod gambar bukti pembayaran 
-				$dest = "assets/image/payment_conf";
-				$ext  = pathinfo($document["name"],PATHINFO_EXTENSION);
-				$new_name = $no_order.".$ext";
-				move_uploaded_file($document["tmp_name"],$new_name);
+				if(!empty($document["name"]))
+				{
+					//uplaod gambar bukti pembayaran 
+					$dest = "assets/image/payment_conf";
+					$ext  = pathinfo($document["name"],PATHINFO_EXTENSION);
+					$new_name = $no_order.".$ext";
+					move_uploaded_file($document["tmp_name"],$new_name);
+				}
 				
 				$arr = array(
 					"id_order"=>$no_order,
@@ -98,15 +106,12 @@
 				$suceess = success("You Successfully send a confirmation payment");
 				$this->session->set_flashdata("message",$suceess);
 				
-				redirect(base_url("checkout/payment/$no_order"));
+				redirect(base_url("profile/order/detail/$no_order"));
 			}
 			else
 			{
 				$err = "";
-				if(empty($document["name"]))
-				{
-					$err .= "<p> Bukti Transfer must be uploaded </p> ";	
-				}
+				
 				if(!empty($check_payment))
 				{
 					$err .= "<p> you already sent a payment confirmation </p>";	
@@ -119,7 +124,14 @@
 				$this->session->set_flashdata("post_data",$post_data);
 				$this->session->set_flashdata("message",$danger);
 				
-				redirect(base_url("checkout/payment/$no_order"));
+				if($type_form == "checkout")
+				{
+					redirect(base_url("checkout/payment/$no_order"));
+				}
+				else if($type_form == "profile")
+				{
+					redirect(base_url("profile/order/detail/$no_order"));
+				}
 			}
 			
 		}

@@ -8,6 +8,7 @@
     
     <div><?=$this->session->flashdata("message");?></div>
 	<form method="post" action="<?=base_url("checkout/payment_process")?>" enctype="multipart/form-data">
+    	<input type="hidden" name="type_form" value="checkout" />
 	 	<fieldset class="col-md-6">
           <div class="form-group required">
             <label class="col-md-4 control-label" >Nomor Order</label>
