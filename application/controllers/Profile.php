@@ -26,8 +26,10 @@
 		function order()
 		{
 			$this->load->model("order_model");
-	
-			$order = $this->order_model->list_order();
+			
+			$id_user_sess = $this->session->userdata("id_user");
+			
+			$order = $this->order_model->list_order_member($id_user_sess);
 			
 			$data["list_order"] = $order;
 			
