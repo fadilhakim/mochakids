@@ -128,8 +128,15 @@
         <textarea name="billing_address" id="billing_address" class="form-control"></textarea>
     </div>
     
+    
+     
 </div>
 <span class="clearfix"></span>
+<div class="checkbox">
+    <label>
+      <input type="checkbox" name="save_address_book"> Save this Adress
+    </label>
+    </div>
 <!-- </form> -->
 <script>
 

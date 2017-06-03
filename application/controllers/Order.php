@@ -28,6 +28,8 @@
 			$total_weight = $this->input->post("total_weight",TRUE);
 			$layanan_kurir= $this->input->post("layanan_kurir",TRUE);
 			
+			$save_address_book = $this->input->post("save_address_book",TRUE);
+			
 			$check_ongkir = FALSE;
 			$err_ongkir = "";
 			if(in_array($kurir,array("jne","tiki","pos")) )
@@ -81,11 +83,10 @@
 			if(!empty($cart_content) && 
 			$this->form_validation->run() == TRUE && $check_ongkir == TRUE)
 			{
-				if(empty($id_add_user))
+				if(empty($id_add_user) && $save_addrress_book == "on")
 				{
 				 	// insert to address book	
 				 	$this->model_user->add_address_book();
-				 
 				}
 				
 				$order = $this->order_model->insert_order();

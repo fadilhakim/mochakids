@@ -143,13 +143,6 @@
 			
 			$grand_total_session = $this->session->userdata("grand_total");
 			
-			// tambah data address book
-			if(empty($user_add_id))
-			{
-				$this->model_user->add_address_book();
-				$user_add_id = $this->db->insert_id();
-			}
-			
 			$arr = array(
 			
 				"id_order" => $new_code,

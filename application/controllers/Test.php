@@ -116,6 +116,25 @@
 				// mendeteksi sisa 4 angka dibelakang 
 				
 			}
+		}
+		
+		function checkbox()
+		{
+			$str = "
+			
+				<form action='".base_url("test/checkbox")."' method='post'>
+					<input type='checkbox' name='test' > 
+					<input type='submit' value='submit' > 
+				</form>
+				
+			";	
+			
+			echo $str;
+			
+			if(!empty($_POST["test"]))
+			{
+				echo $this->input->post("test");
+			}
 			
 		}
 	}
