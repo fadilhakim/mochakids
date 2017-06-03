@@ -83,7 +83,7 @@
 
                                             
 
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="col-sm-5 control-label">Featured Product</label>
                                                 <div class="col-sm-7">
                                                     <select class="form-control" name="featured_product">
@@ -91,7 +91,7 @@
                                                         <option value="1">Yes</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
 <!--                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Select Image 2</label>

@@ -70,7 +70,8 @@ class Model_product extends CI_Model {
 		public function getcategory($cat){
 
 		$getcate = $this->db->get_where('product_tbl',array('category_url' => $cat));
-
+		// echo $this->db->last_query();
+		// exit();
 		return $getcate;
 
 		}

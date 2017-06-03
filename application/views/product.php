@@ -4,7 +4,7 @@
         <!--Left Part Start -->
         <aside id="column-left" class="col-sm-3 hidden-xs">
           
-          <h3 class="subtitle">Categories</h3>
+          <h4 class="subtitle">Categories</h4>
           <div class="box-category">
             <ul id="cat_accordion">
                <?php foreach ($category as $c) { ?>
@@ -26,7 +26,7 @@
                   <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
                 </div>
               </div>
-              <div class="col-sm-1 text-right">
+              <!-- <div class="col-sm-1 text-right">
                 <label class="control-label" for="input-limit">Show:</label>
               </div>
               <div class="col-sm-2 text-right">
@@ -37,7 +37,7 @@
                   <option value="">75</option>
                   <option value="">100</option>
                 </select>
-              </div>
+              </div> -->
             </div>
           </div>
           <br />

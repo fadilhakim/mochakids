@@ -112,10 +112,14 @@ a:focus { outline:none; }
 	color:#000;
 	border-bottom:2px solid #ddd;
 	padding-bottom:3px;
-	font-family: "wicked";
+	font-family: "Code";
 	letter-spacing: 1px;
 	font-size: 30px;
 	text-align: center;
+}
+h4.subtitle { 
+	font-size: 25px;
+	text-align: left;
 }
 .subtitle .viewall { font-size:12px; }
 /**===== Title for 404 Page =====**/
@@ -879,7 +883,7 @@ border-color:#eae9e9;
 }
 
 #content h1.title {
-	font-family: "wicked";
+	 font-family: "Code";
 	color:#000;
 	font-size: 28px;
 }

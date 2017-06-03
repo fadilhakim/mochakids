@@ -179,7 +179,10 @@ class product extends CI_Controller {
 	public function category($cat) {
 
 		$this->load->view('templates/meta');
-		$this->load->view('templates/header');
+		$this->load->model('model_event');
+		$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data);
+
 
 		$cat=$this->uri->segment(3);
 		$page = 'product_category';
