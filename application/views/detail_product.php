@@ -25,10 +25,6 @@ foreach($product_cat->result() as $row){
   $product_image_4=$row->product_image_4;
 }
 
-foreach ($manufacturer as $manu) {
-                  
-}
-
 ?>
 
 

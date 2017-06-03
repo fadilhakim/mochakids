@@ -50,9 +50,9 @@ class Model_product extends CI_Model {
 			}
 		}
 
-		public function getproductfromSLUGandcat($slug , $cat){
+		public function getproductfromSLUGandcat($id,$slug,$cat){
 
-		$getslugproduct = $this->db->get_where('product_tbl',array('category_url' => $slug , 'product_slug' => $cat ));
+		$getslugproduct = $this->db->get_where('product_tbl',array('product_id' => $id , 'category_url' => $slug , 'product_slug' => $cat ));
 
 		return $getslugproduct;
 

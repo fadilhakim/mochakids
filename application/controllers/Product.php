@@ -144,7 +144,7 @@ class product extends CI_Controller {
 		$this->load->view('templates/footer-2');
 	}
 
-	public function detail($id_brand, $cat, $slug)
+	public function detail($id, $cat, $slug)
 	{
 		/*$this->data['product'] = $this->model_product->get($id);*/
 		/*count($this->data['product_cat']) || show_404(uri_string());*/
@@ -155,28 +155,20 @@ class product extends CI_Controller {
 		$this->load->view('templates/header',$data);
 
 		/*$product_id=$this->uri->segment(2);*/
-		$id_brand=$this->uri->segment(2);
+		$id=$this->uri->segment(2);
 		$cat=$this->uri->segment(3);
 		$slug=$this->uri->segment(4);
 		$page = 'detail_product';
 		
 		/*$product_id=trim($product_id);*/
-		$id_brand=trim($id_brand);
+		$id=trim($id);
 		$cat=trim($cat);
 		$slug=trim($slug);
-
 		$this->load->model('model_manufacturer');
-
-		/*$getimage = $this->model_product->getimagefromID($product_id);
-		$data['getimagefromID'] = $getimage;
-*/
-		$getmanufacturer = $this->model_manufacturer->getManufacturer($id_brand);
-		$data['manufacturer'] = $getmanufacturer;
-
 		$rp = $this->model_manufacturer->related($cat);
 		$data['related'] = $rp;
 
-		$getcatproduct = $this->model_product->getproductfromSLUGandcat($cat,$slug);
+		$getcatproduct = $this->model_product->getproductfromSLUGandcat($id,$cat,$slug);
 		$data['product_cat'] = $getcatproduct;
 		
 
