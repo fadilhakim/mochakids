@@ -123,18 +123,18 @@ class insert extends CI_Controller {
 		$this->load->library("form_validation");
 		
 		$product_title = $this->input->post('product_title',TRUE);
-		$manu_id = $this->input->post('manu',TRUE);
+		// $manu_id = $this->input->post('manu',TRUE);
 		$product_category = $this->input->post('product_category',TRUE);
 		$product_code = $this->input->post('product_code',TRUE);
 		$product_availability = $this->input->post('product_availability',TRUE);
-		$featured_product = $this->input->post('featured_product',TRUE); // tampil gak tampil di depan 
+		// $featured_product = $this->input->post('featured_product',TRUE); // tampil gak tampil di depan 
 		$pack_item = $this->input->post("pack_item",TRUE);
 		$deposit   = $this->input->post("deposit",TRUE);
 		$eta	   = $this->input->post("eta",TRUE);
 		$size	   = $this->input->post("size",TRUE); 
 		$minimum_order = $this->input->post("minimum_order",TRUE);
 		
-		$style_code = $this->input->post("style_code",TRUE);
+		// $style_code = $this->input->post("style_code",TRUE);
 		$price	   = $this->input->post("price",TRUE);
 		$old_price	   = $this->input->post("old_price",TRUE);
 		
@@ -159,12 +159,12 @@ class insert extends CI_Controller {
 		
 		$data = array(
 			'product_title' 	=> $product_title,
-			'manu_id' 			=> $manu_id,
+			// 'manu_id' 			=> $manu_id,
 			'product_category'  => $product_category,
 
 			'product_code' 			=> $product_code,
 			'product_availability'  => $product_availability,
-			'featured' 				=> $featured_product,
+			// 'featured' 				=> $featured_product,
 			
 			"pack_item"				=> $pack_item,
 			"deposit" 				=> $deposit,
@@ -172,7 +172,7 @@ class insert extends CI_Controller {
 			"minimum_order"			=> !is_null($minimum_order) ? $minimum_order : "",
 			"size"					=> $size,
 			
-			"style_code"			=> $style_code,
+			// "style_code"			=> $style_code,
 			"price"					=> $price,
 			"old_price"				=> $old_price,
 			

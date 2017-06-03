@@ -743,11 +743,11 @@ class admin extends CI_Controller {
 
 
 
-	public function edit_product($id_brand, $cat, $slug)
+	public function edit_product($id, $cat, $slug)
 
 	{
 
-		$id_brand=$this->uri->segment(3);
+		$id=$this->uri->segment(3);
 
 		$cat=$this->uri->segment(4);
 
@@ -757,7 +757,7 @@ class admin extends CI_Controller {
 
 		$this->load->model('model_product');
 
-		$getcatproduct = $this->model_product->getproductfromSLUGandcat($cat,$slug);
+		$getcatproduct = $this->model_product->getproductfromSLUGandcat($id,$cat,$slug);
 
 		$data['product_cat'] = $getcatproduct;
 
@@ -777,9 +777,9 @@ class admin extends CI_Controller {
 
 
 
-		$getmanufacturer = $this->model_manufacturer->getManufacturer($id_brand);
+		// $getmanufacturer = $this->model_manufacturer->getManufacturer($id_brand);
 
-		$data['manufacturer'] = $getmanufacturer;
+		// $data['manufacturer'] = $getmanufacturer;
 
 
 

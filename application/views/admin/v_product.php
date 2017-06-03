@@ -38,7 +38,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="col-sm-5 control-label">Brand</label>
                                                 <div class="col-sm-7">
                                                     <select required class="form-control" name="manu">
@@ -48,7 +48,7 @@
                                                         <?php } ?>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Product Category</label>
@@ -138,13 +138,13 @@
                                             </div>
                                          	
                                         </div>
-                                        <div class="form-group">
+                                       <!--  <div class="form-group">
                                         	<label class="control-label col-sm-5">Style Code </label>
                                             <div class="col-sm-7">
                                             <input type="text" name="style_code" id="style_code" class="form-control ">
                                             </div>
                                          	
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                         	<label class="control-label col-sm-5">Size </label>
                                             <div class="col-sm-7">

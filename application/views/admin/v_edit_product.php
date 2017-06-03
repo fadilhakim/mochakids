@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                 <!--    <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Brand</label>
                                         <div class="col-sm-9">
                                             
@@ -82,7 +82,7 @@
 
                                            
                                         </div>
-                                    </div>
+                                    </div> -->
 
 
                                     <div class="form-group">
@@ -160,7 +160,7 @@
                                             </div>
                                          	
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Featured Product</label>
                                         <div class="col-sm-9">
                                             <select class="form-control" name="featured">
@@ -173,7 +173,7 @@
                                                 <option value="0">No</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     
                                     <div class="form-group">
                                     	<label class="col-sm-3 control-label" style="text-align:left;"> 1 Pack Pieces </label>
@@ -196,12 +196,12 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group">
+                                   <!--  <div class="form-group">
                                     	<label class="col-sm-3 control-label" style="text-align:left;"> Style Code</label>
                                         <div class="col-sm-9">
                                         	<input type="text" name="style_code" id="style_code" class="form-control" value="<?=$style_code?>">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     
                                     <div class="form-group">
                                     	<label class="col-sm-3 control-label" style="text-align:left;"> Price</label>

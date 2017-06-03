@@ -340,11 +340,11 @@ class update extends CI_Controller {
 		
 		$product_id 			= $this->input->post('product_id',true);
 		$product_title 			= $this->input->post('product_title',true);
-		$product_brand 			= $this->input->post('manu_id',true);
+		// $product_brand 			= $this->input->post('manu_id',true);
 		$product_category 		= $this->input->post('product_category',true);
 		$product_code 			= $this->input->post('product_code',true);
 		$product_availability 	= $this->input->post('product_availability',true);
-		$featured_product 		= $this->input->post('featured',true);
+		// $featured_product 		= $this->input->post('featured',true);
 		
 		$pack_item 				= $this->input->post("pack_item",TRUE);
 		$deposit   				= $this->input->post("deposit",TRUE);
@@ -352,7 +352,7 @@ class update extends CI_Controller {
 		$size	   				= $this->input->post("size",TRUE); 
 		$minimum_order			= $this->input->post("minimum_order",TRUE);
 		
-		$style_code 			= $this->input->post("style_code",TRUE);
+		// $style_code 			= $this->input->post("style_code",TRUE);
 		$price	   				= $this->input->post("price",TRUE);
 		$old_price	   			= $this->input->post("old_price",TRUE);
 		
@@ -373,12 +373,12 @@ class update extends CI_Controller {
 		$data = array(
 			'product_id' => $product_id,
 			'product_title' => $product_title,
-			'manu_id' => $product_brand,
+			// 'manu_id' => $product_brand,
 			'product_category' => $product_category,
 
 			'product_code' => $product_code,
 			'product_availability' => $product_availability,
-			'featured' => $featured_product,
+			// 'featured' => $featured_product,
 			
 			"pack_item"=>$pack_item,
 			"deposit" => $deposit,
@@ -386,7 +386,7 @@ class update extends CI_Controller {
 			"size"=>$size,
 			"minimum_order"=>$minimum_order,
 			
-			"style_code"=>$style_code,
+			// "style_code"=>$style_code,
 			"price"=>$price,
 			"old_price"=>$old_price,
 
