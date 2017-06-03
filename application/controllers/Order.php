@@ -130,6 +130,7 @@
 		{
 			$sess = $this->session->all_userdata();
 			//print_r($sess);
+			
 			echo "last order : ". $this->order_model->get_last_order()["id_order"];
 			echo "<hr>";
 			echo "new order : ".$this->order_model->generate_order_code();

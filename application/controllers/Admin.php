@@ -51,6 +51,51 @@ class admin extends CI_Controller {
 		$data["content"] = "admin/order/v_order";
 		$this->load->view("admin/template",$data);
 	}
+	
+	function order_detail()
+	{
+		$this->load->model("order_model");
+		$this->load->model("bank_model");
+		$this->load->model("model_product");
+		
+		$id_order = $this->uri->segment(3);
+		
+		$detail_order 	   = $this->order_model->detail_order($id_order);
+		
+		if(!empty($detail_order))
+		{
+		
+			$detail_list_order = $this->order_model->detail_list_order($id_order);
+			$payment_confirm   = $this->order_model->order_payment_confirmation($id_order);
+			
+			if(empty($payment_confirm))
+			{
+				
+			}
+			else if(!empty($payment_confirm))
+			{
+				$data["bank_dt"] = $this->bank_model->get_by_id_arr($payment_confirm["id_bank"]);
+			}
+			
+			$data["detail_list_order"] = $detail_list_order;
+			$data["detail_order"]	   = $detail_order;
+			$data["payment"]		   = $payment_confirm;
+			
+			$data["content"]    = "admin/order/v_detail_order";
+			
+		}
+		else
+		{
+			$data["content"] = "404page";	
+		}
+		
+		//$this->load->view("profile/order_detail");
+  
+		//$this->load->view('templates/footer-2');
+		$this->load->view("admin/template",$data);	
+		
+		
+	}
 
 
 

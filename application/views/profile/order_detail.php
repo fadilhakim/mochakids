@@ -3,7 +3,11 @@
 <div class="row">
 <!--Middle Part Start-->
 	<div id="content" class="col-sm-12">
-	  <h3 class="title">This is your order code :  <strong>#<?=$detail_order["id_order"]?></strong></h3>
+	  <h3 class="title"><span class="pull-left">This is your order code :  <strong>#<?=$detail_order["id_order"]?></strong></span>
+      
+      <span class="pull-right"><h3 class="label label-primary"> status : <?=$detail_order["status"]?></h3></span>
+      </h3>
+      <span class="clearfix"><br></span>
         <?=$this->session->flashdata("message");?>
         <?php
 		
@@ -54,7 +58,9 @@
 	      <div class="panel panel-default">
 	        <div class="panel-heading">
 	          <h3 class="panel-title">
-              <span class="pull-left"> Status: </span> <span class="pull-right"> <?=isset($payment["status"]) ? $payment["status"] : "waiting for confirmation" ?> </span> </h3>
+              <span class="pull-left"> Status: </span> <span class="pull-right">
+              <span class="label label-default">
+               <?=isset($payment["status"]) ? $payment["status"] : "waiting for confirmation" ?> </span> </span> </h3>
               <span class="clearfix"></span>
 	        </div>
 	        <div id="collapse-coupon" class="panel-collapse collapse in">
