@@ -27,7 +27,7 @@
 		{
 			$this->load->model("order_model");
 			
-			$id_user_sess = $this->session->userdata("id_user");
+			$id_user_sess = $this->session->userdata("user_id");
 			
 			$order = $this->order_model->list_order_member($id_user_sess);
 			

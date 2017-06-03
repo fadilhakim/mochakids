@@ -54,7 +54,10 @@
 			$user_bank 		   = $this->input->post("user_bank",TRUE);
 			$user_bank_rekening = $this->input->post("user_bank_rekening",TRUE);
 			$id_bank 		   = $this->input->post("id_bank",TRUE);
-			$document 		   = $_FILES["document"];
+			
+			
+			$document 		   = isset($_FILES["document"]) ? $_FILES["document"] : "";
+			
 			
 			$ip_address 	   = $this->input->ip_address();
 			$user_agent		   = $this->input->user_agent();
