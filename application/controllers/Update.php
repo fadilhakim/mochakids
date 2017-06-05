@@ -349,7 +349,9 @@ class update extends CI_Controller {
 		$pack_item 				= $this->input->post("pack_item",TRUE);
 		$deposit   				= $this->input->post("deposit",TRUE);
 		$eta	   				= $this->input->post("eta",TRUE);
-		$size	   				= $this->input->post("size",TRUE); 
+		$size	   				= $this->input->post("size",TRUE);
+		$stock	  			 	= $this->input->post("stock",TRUE); 
+		$weight	   				= $this->input->post("weight",TRUE);  
 		$minimum_order			= $this->input->post("minimum_order",TRUE);
 		
 		// $style_code 			= $this->input->post("style_code",TRUE);
@@ -384,6 +386,8 @@ class update extends CI_Controller {
 			"deposit" => $deposit,
 			
 			"size"=>$size,
+			"stock"					=> $stock,
+			"weight"			    => $weight,
 			"minimum_order"=>$minimum_order,
 			
 			// "style_code"=>$style_code,

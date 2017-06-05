@@ -18,6 +18,8 @@
 	  $eta = $row->ETA;
 	  $minimum_order = $row->minimum_order;
 	  $size = $row->size;
+      $stock_p = $row->stock;
+      $weight = $row->weight;
 	  $style_code = $row->style_code;
 	  $price = $row->price;
       $old_price = $row->old_price;
@@ -146,6 +148,15 @@
                                                 <?php } ?>
                                         </div>
                                     </div>
+
+                                    <div class="form-group hidden" id="stock_element">
+                                        <label id="lbl-mo" class="col-sm-3 control-label" style="text-align:left;">Stock</label>
+                                        <div class="col-md-9">
+                                            <input type="number" name="stock" id="stock_id" class="form-control" value="<?=$stock_p?>"" disabled >
+                                        </div>
+                                    
+                                    </div>
+
 									<div class="form-group hidden" id="mo_element" >
                                         	<label id="lbl-mo" class="col-sm-3 control-label" style="text-align:left;">Minimum Order</label>
                                             <div class="col-sm-9">
@@ -194,6 +205,14 @@
                                         <div class="col-sm-9">
                                         	<input type="text" name="size" id="size" class="form-control" value="<?=$size?>">
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3" style="text-align:left;">Weight (in Gram) </label>
+                                        <div class="col-sm-9">
+                                        <input type="text" name="weight" id="size" class="form-control " value="<?=$weight ?>">
+                                        </div>
+                                        
                                     </div>
                                     
                                    <!--  <div class="form-group">
@@ -316,7 +335,19 @@
 				  
 				  $("#eta_element").addClass("hidden");
 				  $("#eta").attr("disabled");
-			  }	
+			  }
+
+              if(pa == "ready_stock" || pa == "sales_stock")
+                {
+                    $("#stock_element").removeClass("hidden");
+                    $("#stock_id").removeAttr("disabled");
+                }
+                else {
+                    $("#stock_element").addClass("hidden");
+                    $("#stock_id").attr("disabled");
+                }   
+
+
 		  }
 	  
 		  $("#product_availability").change(function(){
