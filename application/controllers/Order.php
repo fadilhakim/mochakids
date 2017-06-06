@@ -11,6 +11,8 @@
 			$this->load->library("cart");
 		}
 		
+		
+		
 		function insert_order()
 		{
 			$this->authentification->logged_in();

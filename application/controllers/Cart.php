@@ -21,39 +21,50 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	    if(!empty($validate_cart)){
 
 	     	$id = $this->input->post('product_id');
-	     	$cty = $this->input->post('quantity');
+	     	$qty = $this->input->post('quantity');
 	     	$image = $this->input->post('product_image_1');
 	     	$title = $this->input->post('product_title');
-	     	$code = $this->input->post('product_code');
-			
+	     	$code = $this->input->post('product_code');		
 			
 	     	// $id_ajak = $this->input->post('ajax');
 			// Create an array with product information
-
-			$data = array(
-
-				'id'      => $id,
-				'qty'     => $cty,
-				'name'    => $title,
-				'price'   => $validate_cart["price"],
-				'image'	  => $image,
-				'code'	  => $code
-				/*'options' => array('image' => $image , 'code' => $product_code , 'manu' => $manu)*/
-			);
-
-
-			// Add the data to the cart using the insert function that is available because we loaded the cart library
-
-			// echo $id;
-			// echo $cty ;
-			// echo $title ;
-			// echo $image;
-			// die();
-			$this->cart->insert($data);
 			
+		  if($qty <= $validate_cart["stock"])
+		  {
+				$data = array(
+	
+					'id'      => $id,
+					'qty'     => $qty,
+					'name'    => $title,
+					'price'   => $validate_cart["price"],
+					'image'	  => $image,
+					'code'	  => $code
+					/*'options' => array('image' => $image , 'code' => $product_code , 'manu' => $manu)*/
+				);
+	
+	
+				// Add the data to the cart using the insert function that is available because we loaded the cart library
+	
+				// echo $id;
+				// echo $cty ;
+				// echo $title ;
+				// echo $image;
+				// die();
+				$this->cart->insert($data);
+				
+				$message = success("You Successfully Add Product to cart");
+				$this->session->set_flashdata("message",$message);
+  
+			}
+		  
+			else
+			{
+				$message = danger("this product out of stock");
+				$this->session->set_flashdata("message",$message);
+				
+			}
 			
 			redirect($this->agent->referrer());
-			
 	        /* $i = 1;
 	         foreach($this->cart->contents() as $items);
 	        echo  $items['product_name'];
@@ -87,40 +98,56 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	function update_cart(){
 
 		// Get the total number of items in cart
-
+		$id = $this->input->post('product_id');
+	    $qty = $this->input->post('quantity');
+		
+		$validate_cart = $this->model_cart->validate_add_cart_item();
+		
+		
 	    $total = count($this->cart->contents());
 
 	    // Retrieve the posted information
 
 	    $item = $this->input->post('rowid');
-	    $qty = $this->input->post('qty');
 
 	 	/*echo $qty;
 	 	die();*/
 	    // Cycle true all items and update them
-
-	    for($i=0;$i < $total;$i++)
-	    {
-
-	        // Create an array with the products rowid's and quantities. 
-
-	        $data = array(
-
-	           'rowid' => $item[$i],
-	           'qty'   => $qty[$i]
-
-	        );
-
-	        //echo $item[$i];
-
-	        // Update the cart with the new information
-
-	        $this->cart->update($data);
-
-	    }
-
+		// check stock
+		if($qty <= $validate_cart["stock"])
+		{
+			for($i=0;$i < $total;$i++)
+			{
+	
+				// Create an array with the products rowid's and quantities. 
+	
+				$data = array(
+	
+				   'rowid' => $item[$i],
+				   'qty'   => $qty[$i]
+	
+				);
+	
+				//echo $item[$i];
+	
+				// Update the cart with the new information
+	
+				$this->cart->update($data);
+				
+				$message = success("You Successfully updated cart");
+				$this->session->set_flashdata("message",$message);
+	
+			}
+		}
+		else
+		{
+			$message = danger("this product out of stock");
+			$this->session->set_flashdata("message",$message);
+			
+		}
+		redirect($this->agent->referrer());
 	    /*$this->model_cart->validate_update_cart();*/
-	    redirect($this->agent->referrer());
+	    
 
 	}
 

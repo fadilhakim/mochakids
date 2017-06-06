@@ -108,6 +108,13 @@
 			return $new_code;
 		}
 		
+		function update_stock($stock,$product_id)
+		{
+			$str = "UPDATE product_tbl SET product = '$stock'  WHERE product_id = '$product_id' ";
+			$q = $this->db->query($str);	
+			
+		}
+		
 		function insert_order()
 		{
 			$this->load->model("model_user");
@@ -181,11 +188,18 @@
 				  $sub_total = $row["qty"] * $product->price;
 				  $now = date("Y-m-d H:i:s");
 				  
-				  $str2  = "INSERT INTO order_detail_tbl SET			 ";
-				  $str2 .= "id_order			= '$new_code'			,";
+				  if($product["stock"] > 0)
+				  {
+				  	$sisa_stock = $product["stock"] - $row["qty"];
+				  	// update stock
+				  	$this->update_stock($sisa_stock,$row["id"]);
+				  }
+				  
+				  $str2  = "INSERT INTO order_detail_tbl SET		 ";
+				  $str2 .= "id_order		= '$new_code'			,";
 				  $str2 .= "product_id		= '$row[id]'			,";
 				  $str2 .= "qty				= '$row[qty]'			,";
-				  $str2 .= "sub_total			= '$sub_total'			,";
+				  $str2 .= "sub_total		= '$sub_total'			,";
 				  $str2 .= "create_date		= '$now'				,";
 				  $str2 .= "ip_address		= '$ip_address'			,";
 				  $str2 .= "user_agent		= '$user_agent'			 ";
