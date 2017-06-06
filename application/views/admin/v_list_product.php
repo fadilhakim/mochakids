@@ -21,7 +21,7 @@
                                             <th>Product Display</th>
                                             <th>Product Category</th>
                                             <th>Product Status</th>
-                                            <th>Product Brand</th>
+                                            <th>Product Price</th>
                                             <th>Action / Product Detail</th>
                                         </tr>
                                     </thead>
@@ -39,17 +39,8 @@
                                             <td>
                                                 <?php echo $p->product_availability; ?>
                                             </td>
-                                            <td><?php
-                                                $manu_title_p = $p->manu_id;
-
-                                                foreach ($manu as $m) {
-                                                        $manu_title_m = $m->manu_id;
-                                                        if($manu_title_p == $manu_title_m){ 
-                                                            echo $m->manu_title;
-                                                        }
-                                                    }
-                                                ?>
-
+                                            <td>
+                                                Rp. <?php echo number_format($p->price); ?>
                                             </td>
                                             <td>
                                                 <a href="<?php  echo base_url('admin/edit_product/'.$p->product_id.'/'.$p->category_url.'/'.$p->product_slug); ?>" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit</a>
