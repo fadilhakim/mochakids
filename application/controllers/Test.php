@@ -137,4 +137,25 @@
 			}
 			
 		}
+		
+		function invoice()
+		{
+			$this->load->model("model_user");
+			$this->load->model("order_model");
+			$this->load->model("model_product");
+			
+			$order_id = "MK271000002";
+			$user_sess_id = $this->session->userdata("user_id");
+			
+			$user_detail = $this->model_user->get_user_detail($user_sess_id);
+			$order 		 = $this->order_model->detail_order($order_id);
+			$order_detail= $this->order_model->detail_list_order($order_id);
+			
+			$data["user_detail"] = $user_detail;
+			$data["order"]		 = $order;
+			$data["order_detail"]= $order_detail;
+			
+			//$this->load->view("invoice/invoice-fancy-page-inline",$data);	
+			$this->load->view("invoice/new_invoice",$data);
+		}
 	}

@@ -8,9 +8,7 @@
   $due_date = date("d M, Y",$effectiveDate);
   
   $user_sess = $this->session->all_userdata();
-  
- // print_r($user_sess);exit;
-  
+    
   $detail_user = $this->model_user->get_user_detail($user_sess["user_id"]);
 ?>
 
