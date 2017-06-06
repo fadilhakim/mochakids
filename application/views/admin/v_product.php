@@ -152,6 +152,15 @@
                                             </div>
                                          	
                                         </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-5">Weight (in Gram) </label>
+                                            <div class="col-sm-7">
+                                            <input type="text" name="weight" id="size" class="form-control ">
+                                            </div>
+                                            
+                                        </div>
+
                                       </div>
                                       <div class="col-lg-6">
                                       	 <div class="form-group">
@@ -176,7 +185,14 @@
                                                 </div>
                                                 
                                             </div>
-                                            
+                                        <div class="form-group hidden" id="stock_element">
+                                            <label id="lbl-mo" class="col-sm-5 control-label">Stock</label>
+                                            <div class="col-md-7">
+                                                <input type="number" name="stock" id="stock_id" class="form-control" value="" disabled >
+                                            </div>
+                                        
+                                        </div>
+
                                         <div class="form-group hidden" id="mo_element">
                                         	<label id="lbl-mo" class="col-sm-5 control-label">Minimum Order</label>
                                             <div class="col-md-7">
@@ -283,6 +299,7 @@
 			  minDate:0	
 			});
 		}
+       
 		else
 		{
 			$("#mo_element").addClass("hidden");
@@ -290,7 +307,19 @@
 			
 			$("#eta_element").addClass("hidden");
 			$("#eta").attr("disabled");
-		}	
+
+            
+		}
+
+        if(pa == "ready_stock" || pa == "sales_stock")
+        {
+            $("#stock_element").removeClass("hidden");
+            $("#stock_id").removeAttr("disabled");
+        }
+        else {
+            $("#stock_element").addClass("hidden");
+            $("#stock_id").attr("disabled");
+        }	
 	}
 
 	$("#product_availability").change(function(){
