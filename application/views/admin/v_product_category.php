@@ -20,6 +20,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Category Image</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" name="image" required placeholder="Category Name" type="file">
+                                        </div>
+                                    </div>
+
                                     <div class="form-group text-right m-b-0">
                                         <button id="sa-success-slider" class="btn btn-primary waves-effect waves-light" type="submit";>
                                             Add Category
@@ -45,6 +52,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Category Name</th>
+                                            <th>Category Image</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -54,6 +62,11 @@
                                             <th scope="row"><?php echo $i; $i++;?></th>
                                             <td><?php echo $c->category_title; ?></td>
                                             <td>
+                                <img class="img-responsive" src="<?php echo base_url('assets/image/product/category/'.$c->image)?>">
+                                            </td>
+                                            <td>
+                                            <a href="<?php echo base_url('admin/edit/category/'.$c->category_id); ?>" id="" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Update</a>
+
                                                 <a href="<?php echo base_url('admin/delete/category/'.$c->category_url); ?>" id="" class="delete-category btn btn-danger btn-bordred waves-effect w-md waves-light m-b-5">Delete</a>
                                             </td>
                                         </tr>

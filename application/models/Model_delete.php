@@ -96,8 +96,8 @@ class Model_delete extends CI_Model {
 	function check_product($get_category_id) {
 
 	$this->db->select('*');
-    $this->db->from('sparepart_tbl');
-    $this->db->where('sparepart_category' , $get_category_id);
+    $this->db->from('product_tbl');
+    $this->db->where('product_category' , $get_category_id);
 	$query = $this->db->get();
 
 	      if($query->num_rows() != 0)

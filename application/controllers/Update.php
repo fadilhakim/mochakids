@@ -72,6 +72,61 @@ class update extends CI_Controller {
 		redirect('admin/slider');
 	}
 
+	 function update_category() {
+
+            $category_id        = $this->input->post('category_id');
+            $category_title     = $this->input->post('category_title');
+            $category_image_old = $this->input->post('category_image_old');
+            $category_image_new = $_FILES['category_image_new']['name'];
+
+            /* $config = array(
+
+                'upload_path' => "./assets/image/category",
+                'allowed_types' => "gif|jpg|png|jpeg|pdf",
+                'remove_spaces' => FALSE,
+                'overwrite' => TRUE,
+                'max_size' => "2048000",
+                'max_height' => "2200",
+                'max_width' => "2200"
+
+            ); */
+
+            if ($category_image_new == '') {
+
+                $data = array(
+
+                  'category_title' => $category_title,
+                  'image' => $category_image_old,
+
+                );
+
+                $this->model_update->update_category($category_id,$data);
+            }
+            else {
+
+            $data = array(
+
+                'category_title' => $category_title,
+                'image' => $category_image_new,
+
+
+            );
+
+
+            $new_path = "assets/image/product/category";
+            if(!empty($category_image_new))
+            {
+                $arr3["new_path"] = $new_path;
+                $arr3["element"]  = "category_image_new";
+                $c = $this->upload2->upload_process($arr3);
+            }
+
+            $this->model_update->update_category($category_id,$data);
+        }
+
+        redirect('admin/product-category');
+    }
+
 	function update_manufacturer() {
 		
 		$manu_id = $this->input->post('manu_id');

@@ -89,7 +89,7 @@
             <p>Mocha Kids © 2017 </a></p>
           </div>
           <div class="social pull-right flip"> 
-            <a href="#" target="_blank"> 
+          <!--   <a href="#" target="_blank"> 
               <img data-toggle="tooltip" src="<?php echo base_url('assets/image/socialicons/facebook.png') ?>" alt="Facebook" title="Facebook">
             </a> 
             <a href="#" target="_blank"> 
@@ -103,7 +103,7 @@
             </a> 
             <a href="#" target="_blank"> 
               <img data-toggle="tooltip" src="<?php echo base_url('assets/image/socialicons/rss.png') ?>" alt="RSS" title="RSS"> 
-            </a> 
+            </a>  -->
           </div>
         </div>
         <div class="bottom-row">

@@ -157,6 +157,7 @@ $route['admin/delete/category_to_manu/(:num)/(:num)'] = 'delete/category_to_manu
 $route['admin/delete/member/(:num)'] = 'delete/delete_member';
 //edit view
 $route['admin/edit/slider/(:num)'] = 'admin/edit_slider/$1';
+$route['admin/edit/category/(:num)'] = 'admin/edit_category/$1';
 $route['admin/edit/brand/(:num)'] = 'admin/edit_manu/$1';
 $route['admin/edit/event/(:num)'] = 'admin/edit_event/$1';
 $route['admin/edit/news/(:num)'] = 'admin/edit_news/$1';
@@ -170,6 +171,7 @@ $route['admin/promo/1'] = 'admin/promo/$1';
 
 //edit function
 $route['admin/edit/slider_f'] = 'update/update_slider';
+$route['admin/edit/category_f'] = 'update/update_category';
 $route['admin/edit/manu_f'] = 'update/update_manufacturer';
 $route['admin/edit/product_f'] = 'update/update_product';
 $route['admin/edit/event_f'] = 'update/update_event';

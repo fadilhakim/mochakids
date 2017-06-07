@@ -957,28 +957,25 @@ class insert extends CI_Controller {
 
 
 		$category_name = $this->input->post('category_name');
-
+		$image = $_FILES['image']['name'];
 		$category_url = url_title($category_name);
-
-
-
-		
-
 
 
 		$data = array(
 
 			'category_title' => $category_name,
-
+			'image' => $image,
 			'category_url' => $category_url
-
-
 
 		);
 
 		
-
-
+		if(!empty($image))
+		{
+			$arr["new_path"] = "assets/image/product/category/";
+			$arr["element"]  = "image"; 
+			$d = $this->upload2->upload_process($arr);
+		}
 
 		$result = $this->model_insert->insert($data,'category_tbl');
 

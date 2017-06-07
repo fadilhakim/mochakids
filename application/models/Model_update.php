@@ -16,10 +16,24 @@ class Model_update extends CI_Model {
 		return $getidslider;
 	}
 
+	function list_category($id) {
+
+		
+		$getidslider = $this->db->get_where('category_tbl',array('category_id' => $id));
+
+		return $getidslider;
+	}
+
 	function update_slider($slider_id, $data){
 
 		$this->db->where('slider_id', $slider_id);
 		$this->db->update('slider_tbl', $data);
+	}
+
+	function update_category($category_id, $data){
+
+		$this->db->where('category_id', $category_id);
+		$this->db->update('category_tbl', $data);
 	}
 
 	function list_manu($id) {
