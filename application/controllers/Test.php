@@ -140,21 +140,26 @@
 		
 		function invoice()
 		{
+			$this->load->library("rajaongkir");
+			
 			$this->load->model("model_user");
 			$this->load->model("order_model");
 			$this->load->model("model_product");
+			$this->load->model("bank_model");
 			
-			$order_id = "MK271000002";
+			$order_id     = "MK101100001";
 			$user_sess_id = $this->session->userdata("user_id");
 			
 			$user_detail = $this->model_user->get_user_detail($user_sess_id);
 			$order 		 = $this->order_model->detail_order($order_id);
 			$order_detail= $this->order_model->detail_list_order($order_id);
+			$address_tr  = $this->order_model->address_tr_detail($order["user_addtr_id"]);
 			
 			$data["user_detail"] = $user_detail;
 			$data["order"]		 = $order;
 			$data["order_detail"]= $order_detail;
-			
+			$data["address_tr"]  = $address_tr;
+ 			
 			//$this->load->view("invoice/invoice-fancy-page-inline",$data);	
 			$this->load->view("invoice/new_invoice",$data);
 		}

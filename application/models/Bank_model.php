@@ -21,6 +21,12 @@ class Bank_model extends CI_Model
         $this->db->order_by($this->id, $this->order);
         return $this->db->get($this->table)->result();
     }
+	
+	function get_all_array()
+	{
+		 $this->db->order_by($this->id, $this->order);
+        return $this->db->get($this->table)->result_array();
+	}
 
     // get data by id
     function get_by_id($id)
@@ -32,6 +38,12 @@ class Bank_model extends CI_Model
 	 function get_by_id_arr($id)
     {
         $this->db->where($this->id, $id);
+        return $this->db->get($this->table)->row_array();
+    }
+	
+	function get_by_name_arr($nama_bank)
+    {
+        $this->db->where("nama_bank", $nama_bank);
         return $this->db->get($this->table)->row_array();
     }
     

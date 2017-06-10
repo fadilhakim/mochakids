@@ -82,11 +82,13 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	function show_cart(){
 
 		$this->load->library("rajaongkir");
-
+		$this->load->model("bank_model");
+		
 		$user_id = $this->session->userdata("user_id");		
 		$province = $this->rajaongkir->show_province();
 		$json_decode = json_decode($province,TRUE);
 		
+		$data["bank"]		  = $this->bank_model->get_all_array();
 		$data["address_book"] = $this->model_user->address_book_list($user_id);
 		$data["province"] = $json_decode["rajaongkir"]["results"];
 		$data["content"] = "v_cart";

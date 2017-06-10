@@ -22,12 +22,12 @@ $config['fadil182_gmail']['smtp_pass'] = 'bismilah1';
 $config['fadil182_gmail']['charset']   = 'iso-8859-1';
 
 
-$config['beshaanalitika99']['protocol']  = 'smtp';
-$config['beshaanalitika99']['mailtype']  = 'html';
-$config['beshaanalitika99']['priority']  = '1';
-$config['beshaanalitika99']['wordwrap']  = FALSE;
-$config['beshaanalitika99']['smtp_host'] = 'ssl://smtp.gmail.com';
-$config['beshaanalitika99']['smtp_port'] = 465;
-$config['beshaanalitika99']['smtp_user'] = 'beshaanalitika99@gmail.com';
-$config['beshaanalitika99']['smtp_pass'] = 'adminbesha';
-$config['beshaanalitika99']['charset']   = 'iso-8859-1';
+$config['mochakids']['protocol']  = 'smtp';
+$config['mochakids']['mailtype']  = 'html';
+$config['mochakids']['priority']  = '1';
+$config['mochakids']['wordwrap']  = FALSE;
+$config['mochakids']['smtp_host'] = 'ssl://smtp.gmail.com';
+$config['mochakids']['smtp_port'] = 465;
+$config['mochakids']['smtp_user'] = 'beshaanalitika99@gmail.com';
+$config['mochakids']['smtp_pass'] = 'adminbesha';
+$config['mochakids']['charset']   = 'iso-8859-1';

@@ -66,6 +66,17 @@
 			return $f;	
 		}
 		
+		function address_tr_detail($user_addtr_id)
+		{
+			$str = "SELECT * FROM user_address_tr WHERE user_addtr_id = '$user_addtr_id' ";
+			$q = $this->db->query($str);
+			
+			$f = $q->row_array();	
+			
+			return $f;
+			
+		}
+		
 		function generate_order_code()
 		{
 			date_default_timezone_set("Asia/jakarta");
@@ -110,8 +121,50 @@
 		
 		function update_stock($stock,$product_id)
 		{
-			$str = "UPDATE product_tbl SET product = '$stock'  WHERE product_id = '$product_id' ";
+			$str = "UPDATE product_tbl SET stock = '$stock'  WHERE product_id = '$product_id' ";
 			$q = $this->db->query($str);	
+			
+		}
+		
+		function insert_addbook_tr()
+		{
+			
+			$user_id = $this->session->userdata("user_id");
+			$datetime = date("Y-m-d H:i:i");
+			
+			$contact_person = $this->input->post("contact_person",TRUE);
+			if(empty($contact_person))
+			{
+				$contact_person = $this->session->userdata("contact_person");
+			}
+			
+			$no_hp = $this->input->post("no_hp",TRUE);
+			$id_province = $this->input->post("id_province",TRUE);
+			$id_city = $this->input->post("id_city",TRUE);
+			$kecamatan = $this->input->post("kecamatan",TRUE);
+			$kode_pos = $this->input->post("kode_pos",TRUE);
+			$shipping_address = $this->input->post("shipping_address",TRUE);
+			//$billing_address = $this->input->post("billing_address",TRUE);	
+			
+			$dt = array(
+			
+				"user_id" => $user_id,
+				"contact_person" => $contact_person,
+				"no_hp" => ($no_hp != NULL) ? $no_hp : "",
+				"provinsi" => $id_province,
+				"kota" => $id_city,
+				"kecamatan" => $kecamatan,
+				"kode_pos" => $kode_pos,
+				"shipping_address" => $shipping_address,
+				//"billing_address" => $billing_address ,
+				"create_date" => $datetime
+			
+			
+			);
+			
+			//$this->db->set("");
+			$this->db->insert("user_address_tr",$dt);
+			return $this->db->insert_id();
 			
 		}
 		
@@ -141,14 +194,18 @@
 			$total_weight = $this->input->post("total_weight",TRUE);
 			$layanan_kurir= $this->input->post("layanan_kurir",TRUE);
 			
+			$purpose_bank = $this->input->post("purpose_bank",TRUE);
+			
 			$exp		  = explode("&",$layanan_kurir);
 			$layanan_kurir= $exp[0];
 			$ongkir 	  = $exp[1];
 			
 			$shipping_address = $this->input->post("shipping_address",TRUE);
-			$billing_address = $this->input->post("billing_address",TRUE);
+			//$billing_address = $this->input->post("billing_address",TRUE);
 			
 			$grand_total_session = $this->session->userdata("grand_total");
+			
+			$addbook_tr = 	$addbook_tr = $this->insert_addbook_tr(); // 
 			
 			$arr = array(
 			
@@ -163,8 +220,9 @@
 				"kurir" => $kurir,
 				"total_berat" => $total_weight,
 				"kurir_service" => $layanan_kurir,
-				"user_add_id"=>$user_add_id,
+				"user_addtr_id"=>$addbook_tr,
 				
+				"purpose_bank" => $purpose_bank,
 				/*"user_add_id" => $user_add_id,
 				"id_province" => $id_province,
 				"id_city"	  => $id_city,
@@ -183,9 +241,9 @@
 			  
 			  foreach($cart_content as $row)
 			  {
-				  $product = $this->model_product->getproductfromID($row["id"]);
+				  $product = $this->model_product->get_detail_product($row["id"]);
 				  
-				  $sub_total = $row["qty"] * $product->price;
+				  $sub_total = $row["qty"] * $product["price"];
 				  $now = date("Y-m-d H:i:s");
 				  
 				  if($product["stock"] > 0)

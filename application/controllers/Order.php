@@ -19,6 +19,12 @@
 			
 			$this->load->library("form_validation");
 			$this->load->model("model_user");
+			$this->load->model("bank_model");
+			$this->load->model("model_product");
+			
+			
+			$contact_person = $this->input->post("contact_person",TRUE);
+			$no_hp			= $this->input->post("no_hp",TRUE);
 			
 			$id_add_user  = $this->input->post("address_book",TRUE);
 			$id_province  = $this->input->post("id_province",TRUE);
@@ -30,7 +36,17 @@
 			$total_weight = $this->input->post("total_weight",TRUE);
 			$layanan_kurir= $this->input->post("layanan_kurir",TRUE);
 			
+			$purpose_bank = $this->input->post("purpose_bank",TRUE);
+			
 			$save_address_book = $this->input->post("save_address_book",TRUE);
+			
+			//var_dump($save_address_book); exit;
+			
+			/*$save_address_book = !is_null($save_address_book) ? $save_address_book : "";
+			
+			var_dump($save_address_book);
+			echo"<hr>";
+			var_dump(!is_null($save_address_book)); exit;*/
 			
 			$check_ongkir = FALSE;
 			$err_ongkir = "";
@@ -64,9 +80,11 @@
 			}
 			
 			$shipping_address = $this->input->post("shipping_address",TRUE);
-			$billing_address = $this->input->post("billing_address",TRUE);
+			//$billing_address = $this->input->post("billing_address",TRUE);
 			
 			$grand_total_session = $this->session->userdata("grand_total");
+			
+			$this->form_validation->set_rules("contact_person","Contact Person","required");
 			
 			$this->form_validation->set_rules("id_province","Province","required");
 			$this->form_validation->set_rules("id_city","City","required");
@@ -78,23 +96,54 @@
 			$this->form_validation->set_rules("layanan_kurir","Layanan Kurir","required");
 			
 			$this->form_validation->set_rules("shipping_address","Shipping Address","required");
-			$this->form_validation->set_rules("billing_address","Billing Address","required");
+			//$this->form_validation->set_rules("billing_address","Billing Address","required");
+			
+			$this->form_validation->set_rules("purpose_bank","Bank Transfer in Payment Method","required");
 			
 			$cart_content =  $this->cart->contents();
 			
 			if(!empty($cart_content) && 
 			$this->form_validation->run() == TRUE && $check_ongkir == TRUE)
 			{
-				if(empty($id_add_user) && $save_addrress_book == "on")
+				// ini address book master 
+				if(empty($id_add_user) && $save_address_book == "on")
 				{
 				 	// insert to address book	
 				 	$this->model_user->add_address_book();
 				}
 				
+			    // add address book tr
 				$order = $this->order_model->insert_order();
+				$id_order = $order["id_order"]; // new_code
 				
 				//hapus cart 
 				$this->cart->destroy();
+				
+				//send email invoice
+				/* $this->load->library("my_email");
+					
+				$order_dt = $this->order_model->detail_order($id_order);
+				$order_detail= $this->order_model->detail_list_order($order_id);
+				$address_tr  = $this->order_model->address_tr_detail($order["user_addtr_id"]);
+				
+				$dt = array("order"=>$order_dt,"order_detail"=>$order_detail,"address_tr"=>$address_tr);
+				
+				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
+				$message = $this->load->view("invoice/new_invoice", $dt, true);
+				
+				$content = array(
+					
+					"subject" 		=> "Mochakids Invoice - $id_order",
+					"subject_title"  => WEBSITE,
+					"to" 			 => array($email), 						
+					"message" 		=> $message,
+					"mv" 			 => FALSE/*,
+					//"alt_message"  => "users/email/email-create-alt", // buat alt nya 
+					"amv" 		    => FALSE
+				
+				);
+				
+				$this->my_email->send_email($user,$content);*/
 				
 				$suceess = success("You Successfully save Order. now you must confirm the Payment 24 Hours after you order ");
 				$this->session->set_flashdata("message",$suceess);

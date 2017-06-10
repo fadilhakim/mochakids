@@ -87,10 +87,10 @@
         		<textarea name="shipping_address" id="shipping_address" class="form-control"></textarea>
             
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
             	<label> Billing Address </label>
             	<textarea name="billing_address" id="billing_address" class="form-control"></textarea>
-            </div>
+            </div> -->
         </div>
         <span class="clearfix"></span>
         <div class="col-md-10">

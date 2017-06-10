@@ -278,7 +278,7 @@ class model_user extends CI_Model
 		$kecamatan = $this->input->post("kecamatan",TRUE);
 		$kode_pos = $this->input->post("kode_pos",TRUE);
 		$shipping_address = $this->input->post("shipping_address",TRUE);
-		$billing_address = $this->input->post("billing_address",TRUE);	
+		//$billing_address = $this->input->post("billing_address",TRUE);	
 		
 		$dt = array(
 		
@@ -290,7 +290,7 @@ class model_user extends CI_Model
 			"kecamatan" => $kecamatan,
 			"kode_pos" => $kode_pos,
 			"shipping_address" => $shipping_address,
-			"billing_address" => $billing_address ,
+			//"billing_address" => $billing_address ,
 			"create_date" => $datetime
 		
 		
@@ -322,7 +322,7 @@ class model_user extends CI_Model
 		$kecamatan		= $this->input->post("kecamatan",TRUE);
 		$kode_pos		= $this->input->post("kode_pos",TRUE); 
 		
-		$billing_address = $this->input->post("billing_address",TRUE);
+		//$billing_address = $this->input->post("billing_address",TRUE);
 		$shipping_address = $this->input->post("shipping_address",TRUE);
 		
 		$datetime = date("Y-m-d H:i:s");
@@ -347,7 +347,7 @@ class model_user extends CI_Model
 		$dt_user_add = array(
 			"user_id"=>$user_detail["user_id"],
 			"contact_person"=>$contact_person,
-			"billing_address"=>$billing_address,
+			//"billing_address"=>$billing_address,
 			"shipping_address"=>$shipping_address,
 			"provinsi"=>$id_province,
 			"kota"=>$id_city,

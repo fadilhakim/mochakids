@@ -26,14 +26,16 @@
   
      <div id="header">
        <div style="float:left; width:40%; font-size:16px; font-weight:bold">
-       	  <div> Jl. KH. Hasyim ashari no.112 </div>
+       	  <!-- <div> Jl. KH. Hasyim ashari no.112 </div>
           <div> RT 02/02 Pinang Tangerang 15145 </div>
-          <div> 0217317895 </div>
+          <div> 0217317895 </div> -->
+           <a href='<?=$base_url?>'><img src="<?=$image_url?>" style="width:95%"></a>
        </div>
        <div style="float:right; width:50%">
-          <a href='<?=$base_url?>'><img src="<?=$image_url?>" style="width:95%"></a>
+         
         
        </div>
+       <span style="clear:both"></span>
      </div>
      <div id="body">
        <div style="clear:both"></div>
@@ -43,21 +45,30 @@
        <div style="font-size:14px; font-weight:bold; color:#F0F"> Submitted on <?=$order["create_date"]?> </div>
         <div class="devider" style="margin:40px 0"></div>
        
-       <div>
+       <div style="font-size:12px">
          <div style="float:left; width:40%; margin-right:10px; ">
          	<b> Invoice For </b>
-            <div> <?=$user_detail["contact_person"]?> </div>
+            <div> <?=$address_tr["contact_person"]?> </div>
             <div> <?=$user_detail["email"]?></div>
          
          </div>
-        
+        <?php
+			
+			$province = $this->rajaongkir->detail_province($address_tr["provinsi"]);
+			$province = json_decode($province,TRUE);
+		
+			$city 	  = $this->rajaongkir->detail_city($address_tr["kota"],$address_tr["provinsi"]);
+			$city 	  = json_decode($city,TRUE);
+			
+		
+		?>
          <div style="float:left; width:50%; margin-right:10px;">
          	<b>Shipping information </b>
-            <div> Province : </div>
-            <div> City : </div>
-            <div> Shipping Address : <br> 
+            <div> Province : <?=$province["rajaongkir"]["results"]["province"]?></div>
+            <div> City :  <?=$city["rajaongkir"]["results"]["city_name"]?></div>
+            <div> Shipping Address : <?=$address_tr["shipping_address"]?> <br> 
             </div>
-            <div> Post Code : </div>
+            <div> Post Code :<?=$address_tr["kode_pos"]?> </div>
             
             
             
@@ -108,15 +119,15 @@
                 	<td>&nbsp;  </td>
                     <td>&nbsp;  </td>
                     <td> Discount 0% </td>
-                    <td align="right"> </td>
+                    <td align="right"> 0 </td>
                 </tr>
-                <tr>
+                <!-- <tr>
             		<td>    </td>
                 	<td>&nbsp;  </td>
                     <td>&nbsp;  </td>
                     <td > PPN 10% </td>
                     <td align="right"><?=number_format(TAX * $order["subtotal"])?></td>
-                </tr>
+                </tr> -->
                 
                 <tr>
             		<td>&nbsp;  </td>
@@ -127,15 +138,19 @@
                 </tr>
             </tbody>
         </table>
-        
+        <?php 
+			
+		$bank = $this->bank_model->get_by_name_arr($order["purpose_bank"]);
+		
+		?>
         <div class="devider" style="margin:40px 0"></div>
         
         <h4 style="font-size:16px;"> PAYMENT DETAIL </h4>
 		 
-        <div> Bank Name : BCA </div>
+        <div> Bank Name : <?=$bank["nama_bank"]?> </div>
 		<!-- <div> Bank Branch : TAMAN PALEM </div> -->
-		<div> Bank Account Number :  </div>
-		<div> Bank Account Name :  </div>
+		<div> Bank Account Number : <?=$bank["rekening_bank"]?>  </div>
+		<div> Bank Account Name :  <?=$bank["nama_pemilik"]?></div>
         
      </div><!-- body --> 
        

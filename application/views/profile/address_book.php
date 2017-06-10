@@ -15,8 +15,6 @@
             	<b><?=$row["contact_person"]?> </b>
             </div>
     		<div class="panel-body">
-            	Billing Address : <br>
-                <?=$row["billing_address"]?> <br>
             	
                 Shipping Address : <br>
                 <?=$row["shipping_address"]?> <br>

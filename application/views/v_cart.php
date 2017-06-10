@@ -125,22 +125,28 @@ if(!$this->cart->contents()){ ?>
                                                 <!-- Tab nav -->
                                                 <ul class="nav nav-tabs" role="tablist">
                                                     <li class="active"><a href="#shipping" data-toggle="tab">Shipping &amp; Taxes</a></li>
-                                                    <!-- <li><a href="#discount" data-toggle="tab">Discount Code</a></li> -->
+                                                    <li><a href="#payment_method" data-toggle="tab">Payment Method</a></li>
                                                 </ul>
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active" id="shipping">
                                                    <?php $this->load->view("form_shipping_address");?>
                                                     </div><!-- End .tab-pane -->
-                                                    <div class="tab-pane fade" id="discount">
-                                                        <p class="ship-desc">Enter your discount coupon here:</p>
-                                                        <hr>
-                                                        <div class="ship-row clearfix">
-                                                            <span class="ship-label col-3">Discount Code<i>*</i></span>
-                                                            <div class="col-3-2x"><input type="text" class="form-control" placeholder="coupon here"></div>
+ 
+                                                   <div class="tab-pane fade" id="payment_method">
+                                                   		
+                                                        <?php foreach($bank as $row){ ?>
+                                                    	<div class="pull-left col-md-4">
+                                                          <input type="radio" value="<?=$row["nama_bank"]?>" name="purpose_bank" id="<?=$row["nama_bank"]?>">
+                                                          <label for="<?=$row["nama_bank"]?>">
+                                                              
+                                                              <div><img src="<?=base_url("assets/image/bank/".$row["logo_bank"])?>" style="width:150px; height:78px"></div>
+                                                              <div><?=$row["nama_pemilik"]?></div>
+                                                              <div> No. Rekening <?=$row["rekening_bank"]?> </div>
+                                                          </label>
                                                         </div>
-                                                        <div class="ship-row">
-                                                            <a href="#" class="btn btn-custom-5">Activate</a>
-                                                        </div>
+                                                        <?php } ?>
+                                                        <span class="clearfix"></span>
+                                                        
                                                     </div><!-- End .tab-pane -->
                                                 </div><!-- End .tab-content -->
                                             </div><!-- End .tab-container -->
@@ -163,10 +169,10 @@ if(!$this->cart->contents()){ ?>
                                                         <!-- di dapat dari AJAX rajaongkir -->
                                                         <td>Rp. <span id="result-ongkir"><?=number_format($shipping_session)?></span></td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td class="total-table-title">TAX (10%):</td>
                                                         <td>Rp. <?=number_format((float)$sub_total, 2, '.', ',');?></td>
-                                                    </tr>
+                                                    </tr>-->
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>

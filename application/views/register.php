@@ -139,10 +139,10 @@
                                       <textarea name="shipping_address" id="shipping_address" class="form-control"><?=$post_data["shipping_address"]?></textarea>
                                   
                                   </div>
-                                  <div class="form-group">
+                                  <!-- <div class="form-group">
                                       <label> Billing Address </label>
                                       <textarea name="billing_address" id="billing_address" class="form-control"><?=$post_data["billing_address"]?></textarea>
-                                  </div>
+                                  </div> -->
                                   
                               </div>
                              
