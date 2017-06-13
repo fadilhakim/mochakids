@@ -259,7 +259,7 @@
 
         <?php
           $url = $this->uri->segment(1);
-          if($url === 'home' || $url === 'product'){
+          if($url === 'home' || $url === 'product' || base_url()){
             foreach ($promo as $p) {
             echo $p->promo_text;
             
