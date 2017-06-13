@@ -389,6 +389,32 @@ class update extends CI_Controller {
 		redirect('admin/users_admin');
 	}
 
+	function update_member() {
+
+		$admin_id = $this->input->post('admin_id');
+		$username = $this->input->post('username');
+		$surename = $this->input->post('surename');
+		$role_name= $this->input->post('role_name');
+		$email= $this->input->post('email');
+
+	    $user_id = $this->input->post('user_id');
+        $username = $this->input->post('contact_person');
+        $notlp = $this->input->post('no_tlp');
+        $shippingaddress = $this->input->post('shipping_address');
+        $email = $this->input->post('email');
+
+		$data = array(
+			'shipping_address' => $shippingaddress,
+			'contact_person' => $username,
+			'no_tlp' => $notlp,
+			'email' => $email
+		);
+
+		$this->model_update->update_member($user_id,$data);
+
+		redirect('admin/members');
+	}
+
 	function update_product() {
 		
 		$this->load->library("form_validation");

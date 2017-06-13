@@ -45,7 +45,7 @@ foreach($product_cat->result() as $row){
            
             <?=$this->session->flashdata('message');?>
             <div class="row product-info">
-              <div class="col-sm-6">
+              <div class="col-sm-offset-2 col-sm-3">
                 <h4><?php echo  $product_title; ?></h4>
                 <div class="image">
                   <img class="img-responsive" itemprop="image" id="zoom_01" src="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" title="<?php echo $product_title; ?>" alt="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" /> 
@@ -80,13 +80,13 @@ foreach($product_cat->result() as $row){
               <div class="col-sm-6">
                 <ul class="list-unstyled description">
                   <h2>Additional Information</h2>
-                  <li><b>Price : </b><span itemprop="mpn"><?php echo $product_price; ?></span></li>
+                  <li><b>Price : </b><span itemprop="mpn">Rp. <?php echo $product_price; ?></span></li>
                   <?php if($product_availability === 'sales_stock' ) {?>
-                    <li><b>Old Price : </b><span itemprop="mpn"> <strike><?php echo $product_old_price; ?></strike></span></li>
+                    <li><b>Old Price : </b><span itemprop="mpn"> <strike>Rp. <?php echo $product_old_price; ?></strike></span></li>
                   <?php } ?>
 
                   <li><b>1 Pack isi :</b> <span itemprop="mpn"><?php echo $product_pack; ?></span></li>
-                  <li><b>Berat </b> <span itemprop="mpn"><?php echo $product_weight ?></span></li>
+                  <li><b>Berat </b> <span itemprop="mpn"><?php echo $product_weight ?> Gram</span></li>
                   <!-- <li><b>Brand</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li> -->
                   <li><b>Deposit per seri :</b> <span itemprop="mpn"><?php echo $product_deposit; ?></span></li>
                   <li><b>Detail :</b> <span itemprop="mpn"><?php echo $product_descrption; ?></span></li>
@@ -94,7 +94,7 @@ foreach($product_cat->result() as $row){
                   <li><b>Size :</b> <span itemprop="mpn"><?php echo $product_size; ?></span></li>
                   <li><b>Stock :</b> <span itemprop="mpn"><?php echo $product_stock; ?></span></li>
                   <li><b>Availability:</b> <span class="instock"><?php echo $product_availability; ?></span></li>
-                  <li><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
+                  <li style="text-align: center; font-size: 22px; margin-top: 20px;"><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
                   <li>
                     <?php foreach($this->cart->contents() as $items): ?>
 

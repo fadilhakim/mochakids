@@ -22,29 +22,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Sure Name</label>
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Password</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" name="surename" required placeholder="Sure name" type="text">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Role</label>
-                                        <div class="col-sm-9">
-                    
-                                            <?php 
-                                                foreach ($users as $us)
-                                                $r = $this->db->get('roles_tbl');
-                                                if($r->num_rows()>0)
-                                                {
-                                                    foreach ($r -> result_array() as $row) {
-                                                    $data1[] = $row;
-                                                    }
-                                                }
-                                                foreach($data1 as $roles) {?>
-                                                    <input type="radio" name="role_name" value="<?php echo $roles['role_id']; ?>"> &nbsp;&nbsp;<?php echo $roles['role_name']; ?><br>
-                                            <?php } ?>  
-
                                         </div>
                                     </div>
 
@@ -85,10 +65,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Username Admin</th>
-                                            <th>Surename</th>
                                             <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -97,29 +74,7 @@
                                         <tr>
                                             <th scope="row"><?php echo $i; $i++;?></th>
                                             <td><?php echo $us->username; ?></td>
-                                            <td><?php echo $us->surename; ?></td>
                                             <td><?php echo $us->email; ?></td>
-                                            <td>
-                                                <?php 
-
-                                                    $role_id = $us->role_id;
-                                                    $this->db->where('role_id',$role_id);
-                                                    $r = $this->db->get('roles_tbl');
-                                                    if($r->num_rows()>0)
-                                                    {
-                                                        foreach ($r -> result_array() as $row) {
-                                                        $data1[] = $row;
-                                                        }
-                                                    }
-                                                    foreach($data1 as $roles){} echo $roles['role_name']; 
-                                                ?>
-
-                                            </td>
-                                            <td>
-                                                <?php if ($us->status == 1) {
-                                                    echo "<span style='color:green;'>Active</span>";
-                                                }else { echo "<span style='color:red;'>Unactive</span>";} ?>
-                                            </td>
                                             <td>
                                                 <a href="<?php echo base_url('admin/edit/admin/'.$us->admin_id); ?>" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit</a>
                                                 <?php if($us->role_id == 1) { ?>    

@@ -63,7 +63,7 @@
                       <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                     </li>
                     <li>
-                      <a href="<?php echo base_url('register'); ?>">Sign up</a>
+                      <a href="<?php echo base_url('register'); ?>">Register</a>
                     </li>
                   </ul>
                 <?php } ?>           
@@ -212,10 +212,9 @@
                 </ul>
               </div> -->
             </li>
-            <li class="dropdown"><a href="<?php echo base_url('product'); ?>">All Products</a>
             <li class="dropdown"><a href="<?php echo base_url('product/ready_stock'); ?>">Ready Stock</a>
             <li class="dropdown"><a href="<?php echo base_url('product/pre_order'); ?>">Pre-Order</a>
-            <li class="dropdown"><a href="<?php echo base_url('product/sales_stock'); ?>">Sales Stock</a>
+            <li class="dropdown"><a href="<?php echo base_url('product/sales_stock'); ?>">Sale Product</a>
               <!-- <div class="dropdown-menu">
                 <ul>
                   <li><a href="category.html">Category (Grid/List)</a></li>
@@ -243,7 +242,7 @@
                   <li><a href="register.html">Register</a></li>
                   <li><a href="my-account.html">My Account</a></li>
                   <li><a href="order-history.html">Order History</a></li>
-                  <li><a href="order-information.html">Order Information</a></li>
+                  <li><a href="order-information.html">Ord er Information</a></li>
                   <li><a href="return.html">Return</a></li>
                   <li><a href="gift-voucher.html">Gift Voucher</a></li>
               </ul>
@@ -260,11 +259,12 @@
 
         <?php
           $url = $this->uri->segment(1);
-          if($url === 'home' || $url === 'product' )
-          foreach ($promo as $p) {
-          echo $p->promo_text;
-          
-          }
+          if($url === 'home' || $url === 'product'){
+            foreach ($promo as $p) {
+            echo $p->promo_text;
+            
+            }
+          } 
 
          ?></h3>
       </div>

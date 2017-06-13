@@ -16,6 +16,14 @@ class Model_update extends CI_Model {
 		return $getidslider;
 	}
 
+	function list_member($id) {
+
+		
+		$getidslider = $this->db->get_where('user_tbl',array('user_id' => $id));
+
+		return $getidslider;
+	}
+
 	function list_category($id) {
 
 		
@@ -131,6 +139,12 @@ class Model_update extends CI_Model {
 
 		$this->db->where('admin_id', $admin_id);
 		$this->db->update('admin_tbl', $data);
+	}
+
+	function update_member($user_id, $data){
+
+		$this->db->where('user_id', $user_id);
+		$this->db->update('user_tbl', $data);
 	}
 
 	public function list_role() {

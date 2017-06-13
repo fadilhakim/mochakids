@@ -788,6 +788,30 @@ class admin extends CI_Controller {
 
 	}
 
+	public function edit_member($id)
+
+	{
+
+		$id = $this->uri->segment(4);
+
+		$id=trim($id);
+
+		$this->load->model('model_update');
+
+		$data['member'] = $this->model_update->list_member($id);
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_edit_member',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
 
 
 	public function edit_discount_member($id)

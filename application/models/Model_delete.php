@@ -83,6 +83,14 @@ class Model_delete extends CI_Model {
 
 	}
 
+		function delete_member($id){
+
+		$this->db->get('user_tbl');
+		$this->db->where('user_id', $id);
+        $this->db->delete('user_tbl', array('user_id' => $id));
+
+	}
+
 	function delete_catwithmanu($get_category_id, $manu_id ){
 
 		$this->db->get('detail_sparepart_category_tbl');

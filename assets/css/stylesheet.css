@@ -2150,15 +2150,12 @@ div.required .control-label:before {
  position: relative;
 }
 .example1 h3 {
- font-size:25px;
+ font-size:22px;
  position: absolute;
  width: 100%;
  height: 100%;
  margin: 0;
- font-weight: bold;
  line-height: 50px;
- text-align: center;
- font-family: "brooke" !important;
  color: #000;
  /* Starting position */
  -moz-transform:translateX(100%);

@@ -61,7 +61,6 @@
             <ul>
               <li><a href="<?php echo base_url('contact'); ?>">Contact Us</a></li>
               <li><a href="#">Returns</a></li>
-              <li><a href="#">Site Map</a></li>
             </ul>
           </div>
           <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">

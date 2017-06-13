@@ -171,7 +171,7 @@
                                                     if($cek_rol == 3 ){ ?>
                                                       <input class="form-control" value="-" name="product_availability" readonly style="background-color: #ccc !important;" placeholder="Product Stock">
                                                     <?php } else {?>
-                                                          <select class="form-control" name="product_availability" id="product_availability" required>
+                                                          <select class="form-control" name="product_availability" id="product_availability>
                                                             <option value="">---</option>
                                                             <?php foreach ($stock as $st) { ?>
                                                                 <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>

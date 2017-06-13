@@ -318,17 +318,7 @@ class delete extends CI_Controller {
 	{
 
 
-
-
-
-
-
         	$get_category_id = $this->uri->segment(4);
-
-
-
-
-
 
 
         	$select_type 			=  '*';
@@ -564,6 +554,14 @@ class delete extends CI_Controller {
 		redirect('admin/users_admin');
 
 
+
+	}
+
+	public function delete_member() {
+
+		$id = $this->uri->segment(4);
+		$this->model_delete->delete_member($id);
+		redirect('admin/members');
 
 	} 
 
