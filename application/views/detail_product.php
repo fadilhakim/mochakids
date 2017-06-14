@@ -48,7 +48,9 @@ foreach($product_cat->result() as $row){
               <div class="col-sm-offset-2 col-sm-3">
                 <h4><?php echo  $product_title; ?></h4>
                 <div class="image">
+                <a href="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>">
                   <img class="img-responsive" itemprop="image" id="zoom_01" src="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" title="<?php echo $product_title; ?>" alt="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" /> 
+                </a>
                 </div>
                <!--  <div class="center-block text-center"><span class="zoom-gallery"><i class="fa fa-search"></i> Click image for Gallery</span></div>
                 <div class="image-additional" id="gallery_01">
