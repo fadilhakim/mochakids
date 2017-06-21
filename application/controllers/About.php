@@ -21,7 +21,9 @@ class about extends CI_Controller {
 	public function view()
 	{
 		$this->load->view('templates/meta');
-		$this->load->view('templates/header');
+			$this->load->model('model_event');
+			$data['promo'] = $this->model_event->list_promo()->result();
+		    $this->load->view('templates/header',$data);
 		$this->load->view('about');
 		$this->load->view('templates/footer-2');
 	}
