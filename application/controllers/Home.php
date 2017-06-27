@@ -49,4 +49,28 @@ class home extends CI_Controller {
 		$this->load->view("templates/template");
 	}
 
+	public function htb()
+	{
+		$this->load->view('templates/meta');
+		$this->load->model('model_event');
+		$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data);
+
+		$this->load->view('htb');
+
+		$this->load->view('templates/footer-2');
+	}
+
+	public function returns()
+	{
+		$this->load->view('templates/meta');
+		$this->load->model('model_event');
+		$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data);
+
+		$this->load->view('return');
+
+		$this->load->view('templates/footer-2');
+	}
+
 }

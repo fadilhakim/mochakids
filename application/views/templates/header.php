@@ -80,7 +80,7 @@
         <div class="table-container">
           <div class="col-table-cell col-lg-12 col-md-12 col-sm-12 col-xs-12 inner">
              <div id="logo"><a href="<?php echo base_url('home'); ?>">
-             <img class="img-responsive center-block" src="<?php echo base_url('assets/image/logo_mocha.png') ?>" title="Mocha Kids Logo" alt="Mocha Kids Logo" /></a>
+             <img class="img-responsive center-block" src="<?php echo base_url('assets/image/design2.png') ?>" title="Mocha Kids Logo" alt="Mocha Kids Logo" /></a>
             </div>
           </div>
         </div>

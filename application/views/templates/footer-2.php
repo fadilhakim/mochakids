@@ -6,19 +6,19 @@
           </div>
           <div class="col-lg-6">
             <div class="phone">
-              <a title="No. Phone :" data-toggle="popover" data-content="0813 8008 8927" data-placement="bottom" >
+              <a title="No. Phone :" data-toggle="popover" data-content="0812-9330-6052 " data-placement="bottom" >
                 <img width="80%" style="float:left" src="<?php echo base_url('assets/image/phone-icon-clip-art--royalty--7.png'); ?>" class="img-responsive">
               </a>
             </div>
 
             <div class="phone">
-              <a title="Whatsapp :" data-toggle="popover"  data-content="0813 8008 8927" data-placement="bottom">
+              <a title="Whatsapp :" data-toggle="popover"  data-content="0812-9330-6052" data-placement="bottom">
               <img width="80%" style="float:left" src="<?php echo base_url('assets/image/whatsapp-black-logo-icon--24.png'); ?>" class="img-responsive">
               </a>
             </div>
 
             <div class="phone">
-              <a title="PIN BBM :" data-toggle="popover" data-content="5d4tsd" data-placement="bottom">
+              <a title="PIN BBM :" data-toggle="popover" data-content="7D4380FC" data-placement="bottom">
                 <img width="80%" style="float:left" src="<?php echo base_url('assets/image/bbm-icon-24.png'); ?>" class="img-responsive">
               </a>
             </div>
@@ -51,24 +51,23 @@
             <h5>Information</h5>
             <ul>
               <li><a href="<?php echo base_url('about'); ?>">About Us</a></li>
-              <li><a href="#">Delivery Information</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li><a href="<?php echo base_url('howtobuy'); ?>">How to Buy</a></li>
+              <li><a href="<?php echo base_url('return'); ?>">Return</a></li>
             </ul>
           </div>
           <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
             <h5>Customer Service</h5>
             <ul>
               <li><a href="<?php echo base_url('contact'); ?>">Contact Us</a></li>
-              <li><a href="#">Returns</a></li>
+              <li><a href="<?php echo base_url('return'); ?>">Return</a></li>
             </ul>
           </div>
           <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
             <h5>Contact</h5>
             <ul>
-              <li><a href="<?php echo base_url(''); ?>">Admin 1</a></li>
-              <li><a href="<?php echo base_url(''); ?>">Admin 1</a></li>
-              <li><a href="<?php echo base_url(''); ?>">Admin 1</a></li>
+              <li><a href="<?php echo base_url(''); ?>">Anna 081293306052 </a></li>
+              <li><a href="<?php echo base_url(''); ?>">Yani 081282769610 </a></li>
+              <li><a href="<?php echo base_url(''); ?>">Yuli 081293500124 </a></li>
             </ul>
           </div>
           <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">

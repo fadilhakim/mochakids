@@ -60,6 +60,8 @@ $route['product/pre_order'] = 'product/view_ready_stock';
 $route['product/sales_stock'] = 'product/view_ready_stock';
 $route['career'] = 'career/view';
 $route['info'] = 'info';
+$route['howtobuy'] = 'home/htb';
+$route['return'] = 'home/returns';
 
 $route['product/(:num)/(:any)/(:any)']['get'] = 'product/detail/$1/$2/$3';
 $route['product/(:num)'] = 'product/view/$1';
