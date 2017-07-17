@@ -79,6 +79,12 @@ class Model_update extends CI_Model {
 		$this->db->update('promo_tbl', $data);
 	}
 
+	function update_po_info($data){
+
+		$this->db->where('information_id', '1');
+		$this->db->update('information_tbl', $data);
+	}
+
 	function update_event($event_id, $data){
 
 		$this->db->where('news_id', $event_id);

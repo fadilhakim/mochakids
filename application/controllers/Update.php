@@ -214,6 +214,22 @@ class update extends CI_Controller {
 		$this->model_update->update_promo_text($data);
 
 		redirect('admin/promo/1');
+	}
+
+	function update_po_info()
+	{
+
+		$promo_text = $this->input->post('po_info');
+
+		$data = array(
+
+			'information_desc' => $promo_text,
+
+		);
+
+		$this->model_update->update_po_info($data);
+
+		redirect('admin/po_info/1');
 
 	}
 

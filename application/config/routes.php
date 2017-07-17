@@ -182,7 +182,7 @@ $route['admin/edit/sparepart_f'] = 'update/update_sparepart';
 $route['admin/edit/admin_f'] = 'update/update_admin';
 $route['admin/edit/member_f'] = 'update/update_member';
 $route['admin/edit/promo_f'] = 'update/update_promo_text';
-
+$route['admin/edit/po_info_f'] = 'update/update_po_info';
 
 
 //others 

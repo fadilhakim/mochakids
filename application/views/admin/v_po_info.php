@@ -12,13 +12,13 @@
                         <div class="col-lg-7">
                             <div class="card-box">
                                 <h4 class="header-title m-t-0 m-b-30">Edit PO Info</h4>
-                                <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/edit/promo_f'); ?>"  method="post">
+                                <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/edit/po_info_f'); ?>"  method="post">
                                     <div class="form-group">
                                         
                                         <div class="col-sm-12">
                                          <?php foreach ($po as $p) { ?>
 
-                                             <textarea id="editor2" class="form-control" name="promo_text"><?php echo $p->information_desc ?></textarea>
+                                             <textarea id="editor2" class="form-control" name="po_info"><?php echo $p->information_desc ?></textarea>
                                         <?php } ?>
                                         </div>
                                     </div>
