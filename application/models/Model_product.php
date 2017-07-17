@@ -18,6 +18,12 @@ class Model_product extends CI_Model {
 			return $category;
 		}
 
+		public function info_po() {
+
+			$category = $this->db->get('information_tbl');
+			return $category;
+		}
+
 		public function get_stock_status() {
 
 			$stock = $this->db->get('product_stock_status');

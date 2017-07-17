@@ -17,6 +17,12 @@ class Model_event extends CI_Model {
 			return $event;
 		}
 
+		function list_po_info() {
+
+			$event = $this->db->get('information_tbl');
+			return $event;
+		}
+
 		function list_event_limit() {
 
 			$this->db->select('*');

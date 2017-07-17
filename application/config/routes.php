@@ -82,8 +82,6 @@ $route['404_override'] = 'home/besha404';
 $route['translate_uri_dashes'] = FALSE;
 
 
-
-
 //cart
 $route['cart/showt_cart'] = 'cart/show_cart';
 $route['cart/add_cart_item'] = 'cart/add_cart_item';
@@ -125,7 +123,8 @@ $route['admin/users_admin'] = 'admin/users_admin';
 $route['admin/members'] = 'admin/members';
 
 $route["admin/order"] = "admin/order";
-$route["admin/order/test"] = "order/test";
+$route["admin/po_info/1"] = "admin/po_info/$1";
+//$route["admin/order/test"] = "order/test";
 //$route["admin/order/insert"] = "order/insert_order";
 
 //insert

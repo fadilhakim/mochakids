@@ -128,6 +128,7 @@ class product extends CI_Controller {
         $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
 
         $data["results"] = $this->model_product->fetch_product_by_status($status, $limit, $page);
+        $data["information"] = $this->model_product->info_po()->result();
         $data["links"] = $this->pagination->create_links();
 
 		$this->load->view('templates/meta');

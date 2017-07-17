@@ -141,6 +141,26 @@ class admin extends CI_Controller {
 
 	}
 
+	public function po_info($po_id = 1)
+
+	{
+		$po_id = $this->uri->segment(3);
+		$this->load->model('model_event');
+
+		$data['po'] = $this->model_event->list_po_info()->result();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_po_info',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
 
 	public function slider()
 

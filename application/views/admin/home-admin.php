@@ -62,6 +62,18 @@
                         </div>
 
                         <div class="col-lg-4">
+                            <a href="<?php echo base_url('admin/po_info/1'); ?>">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h5>
+                                        PO Information Text
+                                    </h5>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/brand'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
