@@ -24,6 +24,25 @@ class Model_product extends CI_Model {
 			return $category;
 		}
 
+		public function list_category_po() {
+
+			$category = $this->db->get('category_po_tbl');
+			return $category;
+		}
+
+
+		public function list_category_po_by_id($id) {
+
+			$category = $this->db->get_where('category_po_tbl',array('category_po_id' => $id));
+			return $category;
+		}
+
+		public function list_category_po_active() {
+
+			$category = $this->db->get('category_po_tbl');
+			return $category;
+		}
+
 		public function get_stock_status() {
 
 			$stock = $this->db->get('product_stock_status');
@@ -83,6 +102,20 @@ class Model_product extends CI_Model {
 
 		}
 
+		public function list_po_category() {
+
+			$event = $this->db->get('category_po_tbl');
+			echo $this->db->last_query();
+			exit();
+			return $event;
+		}
+
+		public function list_po_category_active() {
+
+			$event = $this->db->get_where('category_po_tbl',array('status' => '1'));
+			return $event;
+		}
+
 
 		public function getcategory($cat){
 
@@ -112,6 +145,16 @@ class Model_product extends CI_Model {
 		public function count_product() {
 			return $this->db->count_all("product_tbl");
 		}
+
+		public function count_product_po($category_po) {
+			// echo $category_po;
+			// die();
+			$query = $this->db-> where('category_po_url', $category_po) -> get('product_tbl');
+      		  //  echo $this->db->last_query(); 
+      	// echo $status;
+        	$query -> num_rows();
+		}
+
 
 		public function count_product_ready_stock($status) {
 
@@ -153,7 +196,27 @@ class Model_product extends CI_Model {
 
         return $query -> result();
 
-    }	
+    }
+
+    public function fetch_product_by_status_po($category_po, $limit, $start = 0) {
+
+        $this ->db-> select('*');
+
+        $this ->db-> from('product_tbl');
+
+        if ($category_po) {
+
+            $this ->db-> where('category_po_url', $category_po);
+
+        }
+
+        $this ->db-> limit($limit, $start);
+
+        $query = $this ->db-> get();
+
+        return $query -> result();
+
+    }		
 
 
 }

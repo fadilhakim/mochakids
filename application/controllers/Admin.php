@@ -161,6 +161,53 @@ class admin extends CI_Controller {
 
 	}
 
+	public function category_po()
+
+	{
+		$last_status = $this->input->get('status');
+
+		if ($last_status == 'failed') {
+
+			$message = 'Sorry cannot delete category, there is a products in this category';
+
+/*			echo $message;
+
+			die();*/
+
+		}else {
+
+			$message = '';
+
+		}
+
+		$this->load->model('model_product');
+
+		$data1['category'] = $this->model_product->list_category()->result();
+
+		$data = array(
+
+			'message' => $message,
+
+			'category' => $data1['category']
+
+		);
+
+		$this->load->model('model_product');
+
+		$data['po'] = $this->model_product->list_category_po()->result();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/category_po',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
 
 	public function slider()
 
@@ -461,6 +508,7 @@ class admin extends CI_Controller {
 		$this->load->model('model_product');
 
 		$data['category'] = $this->model_product->list_category()->result();
+		$data['category_po'] =  $this->model_product->list_category_po()->result();
 
 		$data['stock'] = $this->model_product->get_stock_status()->result();
 
@@ -663,6 +711,30 @@ class admin extends CI_Controller {
 		$this->load->view('templates/leftsidemenu');
 
 		$this->load->view('admin/v_edit_category',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
+	public function edit_category_po($id)
+
+	{
+
+		$id = $this->uri->segment(4);
+
+		$id=trim($id);
+
+		$this->load->model('model_product');
+
+		$data['category'] = $this->model_product->list_category_po_by_id($id);
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_edit_category_po',$data);
 
 		$this->load->view('templates/footer-admin');
 
@@ -874,6 +946,7 @@ class admin extends CI_Controller {
 
 		$data['product_cat'] = $getcatproduct;
 
+		$data['category_po_url'] = $this->model_product->list_category_po()->result();
 
 
 		$this->load->model('model_update');
@@ -899,8 +972,6 @@ class admin extends CI_Controller {
 		$data['category'] = $this->model_product->list_category()->result();
 
 		$data['stock'] = $this->model_product->get_stock_status()->result();
-
-
 
 		$this->load->view('templates/meta-admin');
 

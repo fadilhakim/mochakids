@@ -18,11 +18,12 @@
                 <div class="contact-detail">
                   <h4>Address</h4>
                   <address>
-                  Mochakids Store<br>
-                  Jl. Pekalongan Raya no 5, <br>
+                  Jakarta
+                  <!-- Kalarta<br> -->
+                  <!-- Jl. Pekalongan Raya no 5, <br>
                   Komplek Bukit Indah, Blok N, No.23 , <br>
                   Rawamangun, Jakarta Barat, <br>
-                  Indonesia, 14240 <br>
+                  Indonesia, 14240 <br> -->
                   </address>
                 </div>
               </div>

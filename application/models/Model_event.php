@@ -17,6 +17,14 @@ class Model_event extends CI_Model {
 			return $event;
 		}
 
+		function list_po_category() {
+
+			$event = $this->db->get('category_po_tbl');
+			// echo $this->db->last_query();
+			// exit();
+			return $event;
+		}
+
 		function list_po_info() {
 
 			$event = $this->db->get('information_tbl');

@@ -8,6 +8,7 @@
                         <a href="<?php echo base_url('admin/product'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Add New Product</a>
                         <a href="<?php echo base_url('admin/product-list'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">List Product</a>
                         <a href="<?php echo base_url('admin/product-category'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Category Product</a>
+                         <a href="<?php echo base_url('admin/category_po'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Category PO</a>
                     </h4>
                     <div class="row">
 
@@ -188,7 +189,20 @@
                                         <div class="form-group hidden" id="stock_element">
                                             <label id="lbl-mo" class="col-sm-5 control-label">Stock</label>
                                             <div class="col-md-7">
-                                                <input type="number" name="stock" id="stock_id" class="form-control" value="" disabled >
+                                                <input type="number" name="stock" id="stock_id" class="form-control"  disabled >
+                                            </div>
+                                        
+                                        </div>
+
+                                         <div class="form-group hidden" id="category_po_element">
+                                            <label id="lbl-mo" class="col-sm-5 control-label">Category PO</label>
+                                            <div class="col-md-7">
+                                                <select required class="form-control" name="category_po">
+                                                    <option value="">---</option>
+                                                    <?php foreach ($category_po as $cp) { ?>
+                                                        <option value="<?php echo $cp->category_po_url; ?>"><?php echo $cp->category_po_title; ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                         
                                         </div>
@@ -290,7 +304,9 @@
 			
 			$("#eta_element").removeClass("hidden");
 			$("#eta").removeAttr("disabled");
-			
+
+			$("#category_po_element").removeClass("hidden");
+            $("#category_po").removeAttr("disabled");
 			
 			$(".datepicker1").datepicker({
 			  changeMonth: true,

@@ -31,6 +31,7 @@
                         <li><a href="<?php echo base_url('admin/product'); ?>" class="waves-effect"><i class="fa fa-plus"></i> <span>Add New Product</span> </a></li>
                         <li><a href="<?php echo base_url('admin/product-list'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Product List</span> </a></li>
                         <li><a href="<?php echo base_url('admin/product-category'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Category List</span> </a></li>
+                         <li><a href="<?php echo base_url('admin/category_po'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Category PO</span> </a></li>
                     </ul>
                 </li>
 

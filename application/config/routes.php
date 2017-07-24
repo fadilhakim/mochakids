@@ -68,6 +68,8 @@ $route['product/(:num)'] = 'product/view/$1';
 $route['product/category/(:any)'] = 'product/category/$1';
 $route['product/manufacturer/(:num)']= 'product/manufacturer/$1';
 $route['product/search/(:any)']['get'] = 'product/search/$1';
+$route['product/po_category'] = 'product/po_category';
+$route['product/po_list/(:num)/(:any)'] = 'product/product_list_po/$1/$2';
 
 $route['event/detail/(:num)'] = 'event/detail/$1';
 $route['news/detail/(:num)'] = 'event/detail_news/$1';
@@ -124,6 +126,7 @@ $route['admin/members'] = 'admin/members';
 
 $route["admin/order"] = "admin/order";
 $route["admin/po_info/1"] = "admin/po_info/$1";
+$route["admin/category_po"] = "admin/category_po";
 //$route["admin/order/test"] = "order/test";
 //$route["admin/order/insert"] = "order/insert_order";
 
@@ -141,6 +144,7 @@ $route['admin/add/category_product'] = 'insert/insert_category_product';
 $route['admin/add/category_sparepart'] = 'insert/insert_category_sparepart';
 $route['admin/add/category_to_manu'] = 'insert/category_to_manu';
 $route['contact/input_subs'] = 'contact/input_subs';
+$route['admin/add/category_po'] = 'insert/insert_category_po';
 
 //delete
 $route['admin/delete/slider/(:num)/(:any)'] = 'delete/delete_slider';
@@ -149,6 +153,7 @@ $route['admin/delete/news/(:num)'] = 'delete/delete_news';
 $route['admin/delete/client/(:num)/(:any)'] = 'delete/delete_client';
 $route['admin/delete/brand/(:num)/(:any)'] = 'delete/delete_manufacturer';
 $route['admin/delete/category/(:any)'] = 'delete/delete_category';
+$route['admin/delete/category_po/(:any)'] = 'delete/delete_category_po';
 $route['admin/delete/sparepart_category/(:any)'] = 'delete/delete_sparepart_category';
 $route['admin/delete/product/(:num)'] = 'delete/delete_product';
 $route['admin/delete/discount/(:num)'] = 'delete/delete_voucher';
@@ -159,6 +164,7 @@ $route['admin/delete/member/(:num)'] = 'delete/delete_member';
 //edit view
 $route['admin/edit/slider/(:num)'] = 'admin/edit_slider/$1';
 $route['admin/edit/category/(:num)'] = 'admin/edit_category/$1';
+$route['admin/edit/category_po/(:num)'] = 'admin/edit_category_po/$1';
 $route['admin/edit/brand/(:num)'] = 'admin/edit_manu/$1';
 $route['admin/edit/event/(:num)'] = 'admin/edit_event/$1';
 $route['admin/edit/news/(:num)'] = 'admin/edit_news/$1';
@@ -173,6 +179,7 @@ $route['admin/promo/1'] = 'admin/promo/$1';
 //edit function
 $route['admin/edit/slider_f'] = 'update/update_slider';
 $route['admin/edit/category_f'] = 'update/update_category';
+$route['admin/edit/category_po_f'] = 'update/update_category_po';
 $route['admin/edit/manu_f'] = 'update/update_manufacturer';
 $route['admin/edit/product_f'] = 'update/update_product';
 $route['admin/edit/event_f'] = 'update/update_event';

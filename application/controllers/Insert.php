@@ -125,6 +125,7 @@ class insert extends CI_Controller {
 		$product_title = $this->input->post('product_title',TRUE);
 		// $manu_id = $this->input->post('manu',TRUE);
 		$product_category = $this->input->post('product_category',TRUE);
+		$category_po_url = $this->input->post('category_po',TRUE);
 		$product_code = $this->input->post('product_code',TRUE);
 		$product_availability = $this->input->post('product_availability',TRUE);
 		// $featured_product = $this->input->post('featured_product',TRUE); // tampil gak tampil di depan 
@@ -172,8 +173,8 @@ class insert extends CI_Controller {
 			"deposit" 				=> $deposit,
 			"ETA"					=> !is_null($eta) ? $eta : "",
 			"minimum_order"			=> !is_null($minimum_order) ? $minimum_order : "",
-			"size"					=> $size,
-			"stock"					=> $stock,
+			"size"					=> !is_null($size) ? $size : "",
+			"stock"					=> !is_null($stock) ? $stock : "",
 			"weight"			    => $weight,
 			
 			// "style_code"			=> $style_code,
@@ -183,6 +184,7 @@ class insert extends CI_Controller {
 			'product_descrption' 	=> $product_description,
 
 			'category_url' 			=> $product_category_url,
+			'category_po_url' 		=> $category_po_url,
 			'product_slug' 			=> $product_slug,
 
 			'product_image_1' 		=> $product_image_1,
@@ -980,6 +982,44 @@ class insert extends CI_Controller {
 		$result = $this->model_insert->insert($data,'category_tbl');
 
 		redirect('admin/product-category');	
+
+	}
+
+	function insert_category_po()
+
+	{
+
+
+
+
+
+		$category_po_title = $this->input->post('category_po_title');
+		$close_po = $this->input->post('expired');
+		$image = $_FILES['image']['name'];
+		$category_po_url = url_title($category_po_title);
+
+
+		$data = array(
+
+			'category_po_title' => $category_po_title,
+			'expired' => $close_po,
+			'status' => 1,
+			'category_po_image' => $image,
+			'category_po_url' => $category_po_url
+
+		);
+
+		
+		if(!empty($image))
+		{
+			$arr["new_path"] = "assets/image/product/category_po/";
+			$arr["element"]  = "image"; 
+			$d = $this->upload2->upload_process($arr);
+		}
+
+		$result = $this->model_insert->insert($data,'category_po_tbl');
+
+		redirect('admin/category_po');	
 
 	}
 
