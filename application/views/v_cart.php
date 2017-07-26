@@ -13,7 +13,7 @@ $this->session->set_userdata($arrr);
 
 $grand_total_session = $this->session->userdata("grand_total");
 
-if(!$this->cart->contents()){ ?>
+if(!$this->cart->contents() || empty($email_user_sess)){ ?>
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
     <div class="container">
@@ -25,7 +25,9 @@ if(!$this->cart->contents()){ ?>
       </div>
     <div class="spacer15"></div><!--spacer-->
 </div>
-<?php } else { ?>
+<?php } else { 
+
+?>
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
     <div class="container">
@@ -66,7 +68,8 @@ if(!$this->cart->contents()){ ?>
                                         <?php $i = 1; ?>
                                         <?php 
 										
-										foreach($this->cart->contents() as $items): $detail_product = $this->model_cart->getproductfromIdandCode($items['id'],$items['code'])->row();
+										foreach($this->cart->contents() as $items): 
+										$detail_product = $this->model_cart->getproductfromIdandCode($items['id'],$items['code'])->row();
 											
 										?>
                                         <?php echo form_hidden('rowid[]', $items['rowid']); ?>
@@ -85,7 +88,8 @@ if(!$this->cart->contents()){ ?>
                                                 </td>
                                                 <td class="product-code"><?php echo $items['code']; ?></td>
                                                 <td class="product-price-col"><span class="product-price-special">Rp <?php echo $this->cart->format_number($items['price']); ?></span>
-                                                <input type="hidden" class="price" value="<?php echo $items['price']; ?>">
+                                                <input type="hidden" class="product_id" name="product_id[]" value="<?=$detail_product->product_id?>" />
+                                                <input type="hidden" class="price" name="price[]" value="<?php echo $items['price']; ?>">
                                                 
                                                 </td>
                                                 <td>

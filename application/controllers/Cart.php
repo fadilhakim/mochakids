@@ -100,11 +100,10 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	function update_cart(){
 
 		// Get the total number of items in cart
-		$id = $this->input->post('product_id');
-	    $qty = $this->input->post('quantity');
+		$product_id = $this->input->post('product_id'); // array
+	    $qty = $this->input->post('qty'); // array
 		
-		$validate_cart = $this->model_cart->validate_add_cart_item();
-		
+		//print_r( $qty); exit;	
 		
 	    $total = count($this->cart->contents());
 
@@ -116,37 +115,38 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	 	die();*/
 	    // Cycle true all items and update them
 		// check stock
-		if($qty <= $validate_cart["stock"])
-		{
+		
 			for($i=0;$i < $total;$i++)
 			{
-	
-				// Create an array with the products rowid's and quantities. 
-	
-				$data = array(
-	
-				   'rowid' => $item[$i],
-				   'qty'   => $qty[$i]
-	
-				);
-	
-				//echo $item[$i];
-	
-				// Update the cart with the new information
-	
-				$this->cart->update($data);
-				
-				$message = success("You Successfully updated cart");
-				$this->session->set_flashdata("message",$message);
-	
+			   $validate_cart = $this->model_cart->validate_add_cart_item($product_id[$i]);	
+			   if($qty[$i] <= $validate_cart["stock"])
+			   {
+					// Create an array with the products rowid's and quantities. 
+		
+					$data = array(
+		
+					   'rowid' => $item[$i],
+					   'qty'   => $qty[$i]
+		
+					);
+		
+					//echo $item[$i];
+		
+					// Update the cart with the new information
+		
+					$this->cart->update($data);
+					
+					$message = success("You Successfully updated cart");
+					$this->session->set_flashdata("message",$message);
+			   }
+				else
+				{
+					$message = danger("this product out of stock");
+					$this->session->set_flashdata("message",$message);
+					
+				}	
 			}
-		}
-		else
-		{
-			$message = danger("this product out of stock");
-			$this->session->set_flashdata("message",$message);
-			
-		}
+		
 		redirect($this->agent->referrer());
 	    /*$this->model_cart->validate_update_cart();*/
 	    

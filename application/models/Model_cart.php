@@ -13,9 +13,10 @@ class model_cart extends CI_Model {
         return $query->result_array(); // Return the results in a array.
     }
 
-    function validate_add_cart_item(){
+    function validate_add_cart_item($id){
  
-	    $id 	= $this->input->post('product_id'); // Assign posted product_id to $id
+	    //$id 	= $this->input->post('product_id'); // Assign posted product_id to $id
+		$id = !empty($id) ? $id :  $this->input->post('product_id');
 		
 	    $this->db->from('product_tbl');
 	    $this->db->where('product_id = '.$id.''); // Select where id matches the posted id
