@@ -132,7 +132,7 @@ class login extends CI_Controller {
 		$kecamatan		= $this->input->post("kecamatan",TRUE);
 		$kode_pos		= $this->input->post("kode_pos",TRUE); 
 		
-		$billing_address = $this->input->post("billing_address",TRUE);
+		//$billing_address = $this->input->post("billing_address",TRUE);
 		$shipping_address = $this->input->post("shipping_address",TRUE);
 		
 		$this->form_validation->set_rules("contact_person","Contact Person","required|trim");
@@ -148,7 +148,7 @@ class login extends CI_Controller {
 		$this->form_validation->set_rules("kecamatan","Kecamatan","required|trim");
 		$this->form_validation->set_rules("kode_pos","Kode Pos","required|trim");
 		
-		$this->form_validation->set_rules("billing_address","Billing Address","required|trim");
+		//$this->form_validation->set_rules("billing_address","Billing Address","required|trim");
 		$this->form_validation->set_rules("shipping_address","Shipping Address","required|trim");
 		
 		$check_email = $this->check_data->check_email_user($email);
