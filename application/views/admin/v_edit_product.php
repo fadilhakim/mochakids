@@ -11,6 +11,7 @@
       $product_code=$row->product_code;
       $product_availability=$row->product_availability;
       $product_category=$row->product_category;
+      $category_po=$row->category_po_url;
       $featured=$row->featured;
 	  
 	  $pack_item = $row->pack_item;
@@ -59,34 +60,6 @@
                                         </div>
                                     </div>
 
-                                 <!--    <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Product Brand</label>
-                                        <div class="col-sm-9">
-                                            
-                                                <?php
-                                                    $cek_rol = $this->session->userdata('role_id');
-
-                                                    if($cek_rol != 1 ){ ?>
-                                                        <?php foreach ($manufacturer as $ma) { ?>
-                                                         <input class="form-control" style="background-color: #ccc !important" value="<?php echo $ma->manu_title; ?>" name="manu_id" readonly placeholder="Change Product Brand " type="text">
-                                                        <?php } ?> 
-                                                    <?php } else { ?>
-                                                        <select class="form-control" name="manu_id">
-                                                        <?php foreach ($manufacturer as $ma) { ?> 
-                                                            <option selected="selected"   value="<?php echo $ma->manu_id; ?>"><?php echo $ma->manu_title; ?></option>
-                                                        <?php } ?>
-
-                                                        <?php foreach ($manu as $m) { ?>
-                                                            <option value="<?php echo $m->manu_id; ?>"><?php echo $m->manu_title; ?></option>
-                                                        <?php } ?> 
-                                                         </select>
-                                                <?php } ?>
-
-                                           
-                                        </div>
-                                    </div> -->
-
-
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Category</label>
                                         <div class="col-sm-9">
@@ -98,9 +71,30 @@
                                                         <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_category; ?>" name="product_category" readonly placeholder="Change Product Category" type="text">
                                                     <?php } else { ?>
                                                     <select class="form-control" name="product_category">
-                                                        <option selected="selected" value="<?php echo $product_category; ?>"><?php echo $product_category; ?></option>
+                                                        <option value="<?php echo $product_category; ?>"><?php echo $product_category; ?></option>
                                                         <?php foreach ($category as $c) { ?> 
                                                             <option value="<?php echo $c->category_title; ?>"><?php echo $c->category_title; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Purchase Order Category</label>
+                                        <div class="col-sm-9">
+                                              <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+
+                                                    if($cek_rol != 1 ){ ?>
+                                                        
+                                                        <input class="form-control" style="background-color: #ccc !important" value="<?php echo $category_po; ?>" name="category_po" readonly placeholder="Change Product Category PO" type="text">
+                                                    <?php } else { ?>
+                                                    <select class="form-control" name="category_po">
+                                                        <option value="<?php echo $category_po; ?>"><?php echo $category_po; ?></option>
+                                                        <?php foreach ($category_po_url as $co) { ?> 
+                                                            <option value="<?php echo $co->category_po_url; ?>"><?php echo $co->category_po_title; ?></option>
                                                         <?php } ?>
                                                     </select>
 

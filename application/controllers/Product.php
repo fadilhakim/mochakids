@@ -65,7 +65,7 @@ class product extends CI_Controller {
 		$config['num_tag_open'] = '<li>';
 		$config['num_tag_close'] = '</li>';
 
-        $limit = $config["per_page"] = 100;
+        $limit = $config["per_page"] = 20;
         $config["uri_segment"] = 2;
 
         $this->pagination->initialize($config);
@@ -84,6 +84,75 @@ class product extends CI_Controller {
 		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
 
 		$this->load->view('product',$data);
+		$this->load->view('templates/footer-2');
+	}
+	public function po_category() {
+
+		$this->load->view('templates/meta');
+		$this->load->model('model_event');
+		$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data);
+		$page = 'product_category_po';
+		$data["information"] = $this->model_product->info_po()->result();
+		$getcate = $this->model_product->list_po_category_active()->result();
+		$data['results'] = $getcate;
+
+		$this->load->view($page, $data);
+		$this->load->view('templates/footer-2');
+	}
+	public function product_list_po()
+	{
+
+		$config = array();
+		// Use pagination number for anchor URL.
+		$po_id = $this->uri->segment(3);  
+		$category_po =$this->uri->segment(4);  
+        $config["base_url"] = base_url() . "/product/po_list/".$po_id."/".$category_po;     
+        $config["total_rows"] = $this->model_product->count_product_po($category_po);
+		// Use pagination number for anchor URL.
+		$config['use_page_numbers'] = TRUE;
+
+		//Set that how many number of pages you want to view.
+		$config['num_links'] =  $this->model_product->count_product_po($category_po);
+
+		// Open tag for CURRENT link.
+		$config['cur_tag_open'] = '<li class="active"><span>';
+
+		// Close tag for CURRENT link.
+		$config['cur_tag_close'] = '</span></li>';
+
+		/*$config['next_tag_open'] = '<li><span>';
+
+		$config['next_tag_close'] = '</span></li>';*/
+
+		// By clicking on performing NEXT pagination.
+		$config['next_link'] = '<li><span>Next';
+
+		// By clicking on performing PREVIOUS pagination.
+		$config['prev_link'] = '<li><span>Prev';
+
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+
+        $limit = $config["per_page"] = 20;
+        $config["uri_segment"] = 4;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+
+        $data["results"] = $this->model_product->fetch_product_by_status_po($category_po,$limit, $page);
+        $data["links"] = $this->pagination->create_links();
+
+		$this->load->view('templates/meta');
+		$this->promo();
+		
+		$data['category'] = $this->model_product->list_category()->result();
+
+		$this->load->model('model_manufacturer');
+		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
+
+		$this->load->view('product_list_po',$data);
 		$this->load->view('templates/footer-2');
 	}
 
@@ -120,7 +189,7 @@ class product extends CI_Controller {
 		$config['num_tag_open'] = '<li>';
 		$config['num_tag_close'] = '</li>';
 
-        $limit = $config["per_page"] = 100;
+        $limit = $config["per_page"] = 20;
         $config["uri_segment"] = 2;
 
         $this->pagination->initialize($config);

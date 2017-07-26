@@ -8,6 +8,7 @@
                         <a href="<?php echo base_url('admin/product'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Add New Product</a>
                         <a href="<?php echo base_url('admin/product-list'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">List Product</a>
                          <a href="<?php echo base_url('admin/product-category'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Products Category</a>
+                         <a href="<?php echo base_url('admin/category_po'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Category PO</a>
                     </h4>
                     <div class="row">
                         <div class="col-lg-12" style="overflow:scroll;">

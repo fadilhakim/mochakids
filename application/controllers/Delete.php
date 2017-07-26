@@ -317,131 +317,107 @@ class delete extends CI_Controller {
 
 	{
 
-
         	$get_category_id = $this->uri->segment(4);
-
 
         	$select_type 			=  '*';
 
-
-
         	$table_name  			=  'product_tbl';
-
-
 
         	$foreignkey_table	 	=  'category_url';
 
-
-
         	$table_join_1 			=  'category_tbl';
-
-
 
         	$coloum_id_join_1 		=  'category_url';
 
-
-
         	$condition_coloum 		=  'category_url';
-
-
 
         	$value_condition 		=  ''.$get_category_id.'';
 
-
-
-
-
-
-
 			$check_product_data['count_data'] = $this->model_delete->check_product($get_category_id);
-
-
-
-        
-
-
 
         	if($check_product_data['count_data'] == true)
 
-
-
         	{
 
-
-
         		$status = 'failed';
-
-
-
         		redirect('admin/product-category?status='.$status.'');
 
-
-
-
-
-
-
         	}
-
-
 
         	else
 
-
-
         	{
-
-
 
         		$get_id_data	= ''.$get_category_id.'';
 
-
-
         		$colloum_table  = 'category_url';
-
-
 
         		$table_name     = ''.$table_join_1.'';
 
-
-
-
-
-
-
         		$delete_file = $this->model_delete->delete_data_1_condition($get_id_data,$table_name,$colloum_table);
 
-
-
-
-
-
-
         		if($delete_file == true)
-
-
-
         		{
 
-
-
         			redirect('admin/product-category');
-
-
-
         		}
-
-
 
         	}
 
-
-
     }
 
+    public function delete_category_po()
 
+	{
 
+        	$get_category_id = $this->uri->segment(4);
 
+        	$select_type 			=  '*';
+
+        	$table_name  			=  'product_tbl';
+
+        	$foreignkey_table	 	=  'category_po_url';
+
+        	$table_join_1 			=  'category_po_tbl';
+
+        	$coloum_id_join_1 		=  'category_po_url';
+
+        	$condition_coloum 		=  'category_po_url';
+
+        	$value_condition 		=  ''.$get_category_id.'';
+
+			$check_product_data['count_data'] = $this->model_delete->check_product($get_category_id);
+
+        	if($check_product_data['count_data'] == true)
+
+        	{
+
+        		$status = 'failed';
+        		redirect('admin/category_po?status='.$status.'');
+
+        	}
+
+        	else
+
+        	{
+
+        		$get_id_data	= ''.$get_category_id.'';
+
+        		$colloum_table  = 'category_po_url';
+
+        		$table_name     = ''.$table_join_1.'';
+
+        		$delete_file = $this->model_delete->delete_data_1_condition($get_id_data,$table_name,$colloum_table);
+
+        		if($delete_file == true)
+        		{
+
+        			redirect('admin/category_po');
+        		}
+
+        	}
+
+    }
 
 
 

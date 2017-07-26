@@ -40,8 +40,14 @@ class Model_update extends CI_Model {
 
 	function update_category($category_id, $data){
 
+
 		$this->db->where('category_id', $category_id);
 		$this->db->update('category_tbl', $data);
+	}
+
+	function update_category_po($category_id, $data){
+		$this->db->where('category_po_id', $category_id);
+		$this->db->update('category_po_tbl', $data);
 	}
 
 	function list_manu($id) {

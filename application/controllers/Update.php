@@ -72,7 +72,7 @@ class update extends CI_Controller {
 		redirect('admin/slider');
 	}
 
-	 function update_category() {
+	function update_category() {
 
             $category_id        = $this->input->post('category_id');
             $category_title     = $this->input->post('category_title');
@@ -125,6 +125,55 @@ class update extends CI_Controller {
         }
 
         redirect('admin/product-category');
+    }
+
+    function update_category_po() {
+
+            $category_id        = $this->input->post('category_po_id');
+            $category_title     = $this->input->post('category_po_title');
+            $category_image_old = $this->input->post('category_po_image_old');
+            $expired = $this->input->post('expired');
+            $category_image_new = $_FILES['category_image_new']['name'];
+
+            if ($category_image_new == '') {
+
+                $data = array(
+
+                  'category_po_title' => $category_title,
+                  'category_po_image' => $category_image_old,
+                  'expired' => $expired,
+
+
+                );
+
+                $this->model_update->update_category_po($category_id,$data);
+            }
+            else {
+
+            $data = array(
+
+                'category_po_title' => $category_title,
+                'category_po_image' => $category_image_new,
+                'expired' => $expired,
+
+
+
+            );
+
+
+
+            $new_path = "assets/image/product/category_po";
+            if(!empty($category_image_new))
+            {
+                $arr3["new_path"] = $new_path;
+                $arr3["element"]  = "category_image_new";
+                $c = $this->upload2->upload_process($arr3);
+            }
+
+            $this->model_update->update_category_po($category_id,$data);
+        }
+
+        redirect('admin/category_po');
     }
 
 	function update_manufacturer() {
@@ -439,10 +488,10 @@ class update extends CI_Controller {
 		$product_title 			= $this->input->post('product_title',true);
 		// $product_brand 			= $this->input->post('manu_id',true);
 		$product_category 		= $this->input->post('product_category',true);
+		$category_po 		    = $this->input->post('category_po',true);
 		$product_code 			= $this->input->post('product_code',true);
 		$product_availability 	= $this->input->post('product_availability',true);
 		// $featured_product 		= $this->input->post('featured',true);
-		
 		$pack_item 				= $this->input->post("pack_item",TRUE);
 		$deposit   				= $this->input->post("deposit",TRUE);
 		$eta	   				= $this->input->post("eta",TRUE);
@@ -450,12 +499,9 @@ class update extends CI_Controller {
 		$stock	  			 	= $this->input->post("stock",TRUE); 
 		$weight	   				= $this->input->post("weight",TRUE);  
 		$minimum_order			= $this->input->post("minimum_order",TRUE);
-		
 		// $style_code 			= $this->input->post("style_code",TRUE);
 		$price	   				= $this->input->post("price",TRUE);
 		$old_price	   			= $this->input->post("old_price",TRUE);
-		
-
 		$product_description 	= $this->input->post('product_desc',true);
 		$product_category_url 	= url_title($product_category);
 		$product_slug 			= url_title($product_title);
@@ -494,6 +540,7 @@ class update extends CI_Controller {
 			'product_descrption' => $product_description,
 
 			'category_url' => $product_category_url,
+			'category_po_url' => $category_po,
 			'product_slug' => $product_slug,
 
 			'product_image_1' => $image_1,
