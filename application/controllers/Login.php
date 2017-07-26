@@ -195,27 +195,18 @@ class login extends CI_Controller {
 				
 				foreach ($cek->result() as $data) {
 
-				  if($data->act_status != 1) {
-					  
-					  $message = danger("Silahkan konfirmasi email terlebih dahulu");
-					  $this->session->set_flashdata('message',$message);
-					  redirect(base_url("login/login_customer"));
-				  }
-
-				  else {
-
-					  // $sess_data['admin_id'] = $data->admin_id;
-					  $sess_data["user_id"]		   = $data->user_id; 
-					  $sess_data['contact_person'] = $data->contact_person;
-					  $sess_data["member_email"]   = $data->email;
-					  
-					  $this->session->set_userdata($sess_data);
-					  
-					  $message = success("You Successfully Login");
-					  $this->session->set_flashdata('message',$message);
-					  redirect($this->agent->referrer());
+				  // $sess_data['admin_id'] = $data->admin_id;
+				  $sess_data["user_id"]		   = $data->user_id; 
+				  $sess_data['contact_person'] = $data->contact_person;
+				  $sess_data["member_email"]   = $data->email;
 				  
-				  }	
+				  $this->session->set_userdata($sess_data);
+				  
+				  $message = success("You Successfully Login");
+				  $this->session->set_flashdata('message',$message);
+				  redirect($this->agent->referrer());
+
+				  
 				}		
 					
 			} else{
