@@ -132,12 +132,12 @@ foreach($product_cat->result() as $row){
             <div class="owl-carousel related_pro">
               <?php foreach ($related as $rpr) { ?>
               <div class="product-thumb">
-                <div class="image"><a href="<?php  echo base_url('product'.'/'.$rpr->category_url.'/'.$rpr->product_slug); ?>"><img src="<?php echo base_url('assets/image/product/'.$rpr->product_image_1); ?>" alt="<?php echo $rpr->product_title; ?>" title="<?php echo $rpr->product_title; ?>" class="img-responsive" /></a></div>
+                <div class="image"><a href="<?php  echo base_url('product/'.$rpr->category_url.'/'.$rpr->product_slug); ?>"><img src="<?php echo base_url('assets/image/product/'.$rpr->product_image_1); ?>" alt="<?php echo $rpr->product_title; ?>" title="<?php echo $rpr->product_title; ?>" class="img-responsive" /></a></div>
                 <div class="caption">
-                  <h4><a href="<?php  echo base_url('product/'.$rpr->manu_id.'/'.$rpr->category_url.'/'.$rpr->product_slug); ?>" style="font-size:15px; font-weight:bold; color:#FAB609; line-height:23px; margin-bottom:10px;"><?php echo $rpr->product_title; ?></a></h4>
+                  <h4><a href="<?php  echo base_url('product/'.$rpr->category_url.'/'.$rpr->product_slug); ?>" style="font-size:15px; font-weight:bold; color:#FAB609; line-height:23px; margin-bottom:10px;"><?php echo $rpr->product_title; ?></a></h4>
                 </div>
                 <div class="button-group">
-                  <a class="btn-primary" style="background-color:#0A098B;" href="<?php  echo base_url('product/'.$rpr->manu_id.'/'.$rpr->category_url.'/'.$rpr->product_slug); ?>"><span>Detail Product</span></a>
+                  <a class="btn-primary" style="background-color:#0A098B;" href="<?php  echo base_url('product/'.$rpr->category_url.'/'.$rpr->product_slug); ?>"><span>Detail Product</span></a>
                 </div>
               </div>
               <?php } ?>
