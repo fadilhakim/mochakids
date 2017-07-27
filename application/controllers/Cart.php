@@ -14,8 +14,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 	function add_cart_item(){
 		
-		//print_r($_POST); exit;
-		
+	
 	    $validate_cart = $this->model_cart->validate_add_cart_item();
 		
 	    if(!empty($validate_cart)){
