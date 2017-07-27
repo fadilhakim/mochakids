@@ -65,7 +65,7 @@ $route['return'] = 'home/returns';
 
 $route['product/(:any)/(:any)']['get'] = 'product/detail/$1/$2';
 $route['product/(:num)'] = 'product/view/$1';
-$route['product_category/(:any)'] = 'product/category/$1';
+$route['product_categories/(:any)'] = 'product/category/$1';
 $route['product/manufacturer/(:num)']= 'product/manufacturer/$1';
 $route['product/search/(:any)']['get'] = 'product/search/$1';
 $route['product/po_category'] = 'product/po_category';
