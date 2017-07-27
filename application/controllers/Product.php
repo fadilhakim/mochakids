@@ -252,7 +252,7 @@ class product extends CI_Controller {
 		$this->load->view('templates/header',$data);
 
 
-		$cat=$this->uri->segment(3);
+		$cat=$this->uri->segment(2);
 		$page = 'product_category';
 		$cat=trim($cat);
 
