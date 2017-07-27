@@ -31,7 +31,7 @@
           <div class="box-category">
             <ul id="cat_accordion">
                <?php foreach ($category as $c) { ?>
-                <li><a href="<?php  echo base_url('product/category/'.$c->category_url); ?>"><?php echo $c->category_title ?></a></li>
+                <li><a href="<?php  echo base_url('product_categories/'.$c->category_url); ?>"><?php echo $c->category_title ?></a></li>
                <?php } ?>
             </ul>
           </div>
@@ -73,14 +73,14 @@
             ?>
             <div class="product-layout product-list col-xs-12">
               <div class="product-thumb">
-                <div class="image"><a href="<?php  echo base_url('product'.'/'.$product_id.'/'.$product_category_url.'/'.$product_slug); ?>"><img src="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" alt="<?php echo $product_title; ?>" title="<?php echo $product_title; ?>" class="img-responsive" /></a></div>
+                <div class="image"><a href="<?php  echo base_url('product'.'/'.$product_category_url.'/'.$product_slug); ?>"><img src="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" alt="<?php echo $product_title; ?>" title="<?php echo $product_title; ?>" class="img-responsive" /></a></div>
                 <div>
                   <div class="caption">
-                    <h4><a href="<?php  echo base_url('product'.'/'.$product_id.'/'.$product_category_url.'/'.$product_slug); ?>"><?php echo $product_title; ?></a></h4>
+                    <h4><a href="<?php  echo base_url('product'.'/'.$product_category_url.'/'.$product_slug); ?>"><?php echo $product_title; ?></a></h4>
                     <p class="description"><?php echo $product_descrption ?></p>
                   </div>
                   <div class="button-group">
-                    <a class="btn-primary" style="background-color:#0A098B;" href="<?php  echo base_url('product'.'/'.$product_id.'/'.$product_category_url.'/'.$product_slug); ?>"><span>See Product</span></button></a>
+                    <a class="btn-primary" style="background-color:#0A098B;" href="<?php  echo base_url('product'.'/'.$product_category_url.'/'.$product_slug); ?>"><span>See Product</span></button></a>
                   </div>
                 </div>
               </div>
