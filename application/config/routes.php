@@ -63,7 +63,7 @@ $route['info'] = 'info';
 $route['howtobuy'] = 'home/htb';
 $route['return'] = 'home/returns';
 
-$route['product/(:num)/(:any)/(:any)']['get'] = 'product/detail/$1/$2/$3';
+$route['product/(:any)/(:any)']['get'] = 'product/detail/$1/$2';
 $route['product/(:num)'] = 'product/view/$1';
 $route['product/category/(:any)'] = 'product/category/$1';
 $route['product/manufacturer/(:num)']= 'product/manufacturer/$1';

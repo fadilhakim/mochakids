@@ -214,7 +214,7 @@ class product extends CI_Controller {
 		$this->load->view('templates/footer-2');
 	}
 
-	public function detail($id, $cat, $slug)
+	public function detail($cat, $slug)
 	{
 		/*$this->data['product'] = $this->model_product->get($id);*/
 		/*count($this->data['product_cat']) || show_404(uri_string());*/
@@ -225,20 +225,18 @@ class product extends CI_Controller {
 		$this->load->view('templates/header',$data);
 
 		/*$product_id=$this->uri->segment(2);*/
-		$id=$this->uri->segment(2);
-		$cat=$this->uri->segment(3);
-		$slug=$this->uri->segment(4);
+		$cat=$this->uri->segment(2);
+		$slug=$this->uri->segment(3);
 		$page = 'detail_product';
 		
 		/*$product_id=trim($product_id);*/
-		$id=trim($id);
 		$cat=trim($cat);
 		$slug=trim($slug);
 		$this->load->model('model_manufacturer');
 		$rp = $this->model_manufacturer->related($cat);
 		$data['related'] = $rp;
 
-		$getcatproduct = $this->model_product->getproductfromSLUGandcat($id,$cat,$slug);
+		$getcatproduct = $this->model_product->getproductfromSLUGandcat($cat,$slug);
 		$data['product_cat'] = $getcatproduct;
 		
 

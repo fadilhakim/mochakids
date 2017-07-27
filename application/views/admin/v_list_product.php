@@ -45,7 +45,7 @@
                                                 Rp. <?php echo number_format($p->price); ?>
                                             </td>
                                             <td>
-                                                <a href="<?php  echo base_url('admin/edit_product/'.$p->product_id.'/'.$p->category_url.'/'.$p->product_slug); ?>" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit</a>
+                                                <a href="<?php  echo base_url('admin/edit_product'.'/'.$p->category_url.'/'.$p->product_slug); ?>" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit</a>
                                                 <?php
                                                     $cek_rol = $this->session->userdata('role_id');
 
