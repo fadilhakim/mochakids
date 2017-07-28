@@ -119,11 +119,19 @@ class Model_product extends CI_Model {
 
 		public function getcategory($cat){
 
-		$getcate = $this->db->get_where('product_tbl',array('category_url' => $cat));
-		// echo $this->db->last_query();
-		// exit();
-		return $getcate;
+			$getcate = $this->db->get_where('product_tbl',array('category_url' => $cat));
+			// echo $this->db->last_query();
+			// exit();
+			return $getcate;
 
+		}
+		
+		public function getcategory_limit($cat,$start=0,$limit=10)
+		{
+			$getcate = $this->db->get_where('product_tbl',array('category_url' => $cat),$limit,$start);
+			// echo $this->db->last_query();
+			// exit();
+			return $getcate;
 		}
 
 		public function getfeatured(){

@@ -258,7 +258,29 @@ class product extends CI_Controller {
 
 		$data['category'] = $this->model_product->list_category()->result();
 		
-		$getcate = $this->model_product->getcategory($cat);
+		$all_getcate = $this->model_product->getcategory($cat);
+		$total_cat = $all_getcate->num_rows();
+		
+		$p   = $this->input->get("p") ;
+		$limit = 12;
+		
+		if(empty($p))
+		{
+			$start = 0;	
+		}
+		else if(!empty($p))
+		{
+			$start = ($p * $limit) - ($limit - 1) - 1 ;
+		}
+		
+		$getcate	 = $this->model_product->getcategory_limit($cat,$start,$limit);
+		
+		// var untuk paging
+		$arr["limit"] = $limit;
+		$arr["base_url"] = base_url("product_categories/$cat/?test");
+		$arr["total_rows"] = $total_cat;
+		
+		$data["page_num"] = paging($arr);
 		$data['product'] = $getcate;
 
 		$this->load->view($page, $data);

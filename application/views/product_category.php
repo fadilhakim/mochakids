@@ -88,14 +88,16 @@
             <?php } ?>
 
           </div>
+          <br />
           <div class="row">
             <div class="col-sm-6 text-left">
-              <ul class="pagination">
+              <!-- <ul class="pagination">
                 <li class="active"><span>1</span></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">&gt;</a></li>
                 <li><a href="#">&gt;|</a></li>
-              </ul>
+              </ul> --> 
+              <?=$page_num?>
             </div>
           </div>
         </div>
