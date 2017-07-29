@@ -59,7 +59,7 @@
 			  
 			
 			  
-			  if($image_width <= 3000 && $image_height <= 250)
+			  if($image_width <= 3000 && $image_height <= 3000)
 			  {
 				  $res = TRUE;	
 			  }

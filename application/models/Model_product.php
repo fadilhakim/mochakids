@@ -94,6 +94,14 @@ class Model_product extends CI_Model {
 
 		}
 
+		public function slugCat($id, $slug,$cat){
+
+		$getslugproduct = $this->db->get_where('product_tbl',array('product_id' => $id ,'category_url' => $slug , 'product_slug' => $cat ));
+
+		return $getslugproduct;
+
+		}
+
 		public function getproductfromSLUG($slug){
 
 		$getslugproduct = $this->db->get_where('product_tbl',array('product_slug' => $slug));

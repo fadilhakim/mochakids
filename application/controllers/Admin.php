@@ -938,11 +938,9 @@ class admin extends CI_Controller {
 
 		$slug=$this->uri->segment(5);
 
-
-
 		$this->load->model('model_product');
 
-		$getcatproduct = $this->model_product->getproductfromSLUGandcat($id,$cat,$slug);
+		$getcatproduct = $this->model_product->slugCat($id,$cat,$slug);
 
 		$data['product_cat'] = $getcatproduct;
 
