@@ -171,6 +171,97 @@
 			
 		}
 		
+		function modal_delete_order()
+		{
+			$is_ajax = $this->input->is_ajax_request();
+			
+			if($is_ajax)
+			{
+				$id_order = $this->input->post("id_order",TRUE);
+				
+				$data["modal_heading"] = "Delete Order #$id_order";
+				$data["modal_body"]    = "Are yout want to delete order #$id_order ? <input type='hidden' name='id_order' value='$id_order'>";	
+				$data["modal_submit"]  = "Delete";
+				$data["modal_submit_url"] = base_url("order/delete_order_process");
+				$data["modal_id"]	   = "modal_delete_order";			
+				
+				$this->load->view("modal",$data);
+			}
+			else
+			{
+				show_404();	
+			}
+		}
+		
+		function delete_order_process()
+		{
+			$id_order = $this->input->post("id_order");	
+			
+			$is_ajax = $this->input->is_ajax_request();
+			
+			if($is_ajax && !empty($id_order))
+			{
+				$this->order_model->delete_order($id_order);
+				
+				echo success("You Successfully Deleted Order");
+				
+				echo "<script> setTimeout(function(){ location.reload(); }, 3000); </script>";
+			}
+			else
+			{
+				show_404();	
+			}
+			
+			
+		}
+		
+		function change_status_modal()
+		{
+			$is_ajax = $this->input->is_ajax_request();
+			$status  = $this->input->post("status"); 
+			$id_order = $this->input->post("id_order");
+			
+			if($is_ajax == TRUE)
+			{ 
+			  $dt = array();
+			  $modal_body = "Are you sure want to Change Status to <b>'$status'</b> in Order <b>#".$id_order."</b> ";
+			  $modal_body .= "<input type='hidden' name='id_order' value='$id_order'> ";
+			  $modal_body .= "<input type='hidden' name='status' value='$status'> ";
+			  $data = array(
+				  "modal_heading"=>"Change Status",
+				  "modal_body"=>$modal_body,
+				  "modal_submit_url"=>base_url("order/change_status_process")
+			  );
+			  
+			  $this->load->view("modal",$data);
+			}
+			else
+			{
+				show_404();	
+			}
+		}
+		
+		function change_status_process()
+		{
+			$is_ajax = $this->input->is_ajax_request();
+			$status  = $this->input->post("status"); 
+			$id_order = $this->input->post("id_order");
+			
+			if($is_ajax == TRUE && !empty($id_order))
+			{ 
+				
+				$this->order_model->change_status($status);
+				
+			 	echo success("You Successfully Change Status Order #$id_order ");
+				echo "<script> setTimeout(function(){ location.reload(); }, 3000); </script>"; 
+			}
+			else
+			{
+				show_404();	
+			}
+			
+		}
+		
 		function cancel_order()
 		{
 			$id_order = $this->input->post("id_order");	

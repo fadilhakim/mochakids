@@ -181,18 +181,18 @@ class Model_product extends CI_Model {
         //exit();
     }
 
-		public function fetch_product($limit, $start = 0) {
-	        $qry= $this->db->get("product_tbl", $limit, $start);
-	    	return $qry->result();
+	public function fetch_product($limit, $start = 0) {
+		$qry= $this->db->get("product_tbl", $limit, $start);
+		return $qry->result();
 
-	        if ($query->num_rows() > 0) {
-	            foreach ($query->result() as $row) {
-	                $data[] = $row;
-	            }
-	            return $data;
-	        }
-        	return false;
-   		}
+		if ($query->num_rows() > 0) {
+			foreach ($query->result() as $row) {
+				$data[] = $row;
+			}
+			return $data;
+		}
+		return false;
+	}
 
    	 public function fetch_product_by_status($status, $limit, $start = 0) {
 
@@ -207,6 +207,26 @@ class Model_product extends CI_Model {
         }
 
         $this ->db-> limit($limit, $start);
+
+        $query = $this ->db-> get();
+
+        return $query -> result();
+
+    }
+	
+	public function all_fetch_product_by_status($status) {
+
+        $this ->db-> select('*');
+
+        $this ->db-> from('product_tbl');
+
+        if ($status) {
+
+            $this ->db-> where('product_availability', $status);
+
+        }
+
+        //$this ->db-> limit($limit, $start);
 
         $query = $this ->db-> get();
 

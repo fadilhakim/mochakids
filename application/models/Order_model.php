@@ -49,12 +49,24 @@
 			
 		}
 		
-		function change_status($id_order,$status)
+		function change_status($status)
 		{
+			$id_order = $this->input->post("id_order");
+			$check = $this->detail_list_order($id_order);
 			
-			$str = "UPDATE order_tbl SET status = '$status' WHERE id_order = '$id_order' ";
-			return $q = $this->db->query($str);
+			if(!empty($check))
+			{
+				$str = "UPDATE order_tbl SET status = '$status' WHERE id_order = '$id_order' ";
+				$q = $this->db->query($str);
+				
+				$result = TRUE;	
+			}
+			else
+			{
+				$result = FALSE;
+			}
 			
+			return $result;
 		}
 		
 		function get_last_order()

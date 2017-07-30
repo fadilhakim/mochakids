@@ -159,46 +159,30 @@ class product extends CI_Controller {
 	public function view_ready_stock()
 	{
 
-		$config = array();
-		$status=$this->uri->segment(2);  
-        $config["base_url"] = base_url() . "/product/". $status;
-              
-        $config["total_rows"] = $this->model_product->count_product_ready_stock($status);
-		// Use pagination number for anchor URL.
-		$config['use_page_numbers'] = TRUE;
-
-		//Set that how many number of pages you want to view.
-		$config['num_links'] =  $this->model_product->count_product_ready_stock($status);
-
-		// Open tag for CURRENT link.
-		$config['cur_tag_open'] = '<li class="active"><span>';
-
-		// Close tag for CURRENT link.
-		$config['cur_tag_close'] = '</span></li>';
-
-		/*$config['next_tag_open'] = '<li><span>';
-
-		$config['next_tag_close'] = '</span></li>';*/
-
-		// By clicking on performing NEXT pagination.
-		$config['next_link'] = '<li><span>Next';
-
-		// By clicking on performing PREVIOUS pagination.
-		$config['prev_link'] = '<li><span>Prev';
-
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-
-        $limit = $config["per_page"] = 20;
-        $config["uri_segment"] = 2;
-
-        $this->pagination->initialize($config);
-
+		$p   = $this->input->get("p") ;
+		$limit = 12;
+		$status = $this->uri->segment(2);  
         $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        
+		if(empty($p))
+		{
+			$start = 0;	
+		}
+		else if(!empty($p))
+		{
+			$start = ($p * $limit) - ($limit - 1) - 1 ;
+		}
+		
+		$getcate	 = $this->model_product->getcategory_limit($cat,$start,$limit);
+		
+		// var untuk paging
+		$arr["limit"] = $limit;
+		$arr["base_url"] = base_url("product/$page/?test");
+		$arr["total_rows"] = $total_cat;
+		
 
-        $data["results"] = $this->model_product->fetch_product_by_status($status, $limit, $page);
-        $data["information"] = $this->model_product->info_po()->result();
-        $data["links"] = $this->pagination->create_links();
+        $data["links"]   = paging($arr);
+		$data["results"] = $this->model_product->fetch_product_by_status($status, $limit, $page);
 
 		$this->load->view('templates/meta');
 		$this->load->model('model_event');
