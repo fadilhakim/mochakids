@@ -173,17 +173,19 @@ class product extends CI_Controller {
 			$start = ($p * $limit) - ($limit - 1) - 1 ;
 		}
 		
-		$getcate	 = $this->model_product->getcategory_limit($cat,$start,$limit);
+		$total_bystatus = $this->model_product->all_fetch_product_by_status($status);
 		
 		// var untuk paging
 		$arr["limit"] = $limit;
 		$arr["base_url"] = base_url("product/$page/?test");
-		$arr["total_rows"] = $total_cat;
+		$arr["total_rows"] = count($total_bystatus);
 		
-
+		
         $data["links"]   = paging($arr);
 		$data["results"] = $this->model_product->fetch_product_by_status($status, $limit, $page);
-
+		
+		
+		
 		$this->load->view('templates/meta');
 		$this->load->model('model_event');
 		$data['promo'] = $this->model_event->list_promo()->result();
