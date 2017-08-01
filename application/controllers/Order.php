@@ -270,6 +270,8 @@
 		
 		function test()
 		{
+			$this->load->library("my_email");
+			
 			$user = "mochakids2";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
 				$message = " Quick brownfox jump over the lazy dog";
@@ -277,8 +279,8 @@
 				
 				$content = array(
 					
-					"subject" 		=> "Mochakids Invoice - $id_order",
-					"subject_title"  => WEBSITE,
+					"subject" 		=> "Mochakids Invoice",
+					"subject_title"  => "Mochakids",
 					"to" 			 => array($email,"alhusna_99@yahoo.co.id"), 						
 					"message" 		=> $message,
 					"mv" 			 => FALSE,
