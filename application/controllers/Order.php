@@ -270,7 +270,7 @@
 		
 		function test()
 		{
-			$this->load->library("my_email2");
+			$this->load->library("MY_Email2");
 			
 			$user = "mochakids2";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
