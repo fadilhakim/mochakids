@@ -18,7 +18,6 @@ foreach($product_cat->result() as $row){
   $product_old_price=$row->old_price;
   $product_stock=$row->stock;
   $product_weight=$row->weight;
-
   $product_image_1=$row->product_image_1;
   $product_image_2=$row->product_image_2;
   $product_image_3=$row->product_image_3;
@@ -94,7 +93,9 @@ foreach($product_cat->result() as $row){
                   <li><b>Detail :</b> <span itemprop="mpn"><?php echo $product_descrption; ?></span></li>
                   <li><b>ETA :</b> <span itemprop="mpn"><?php echo $product_eta; ?></span></li>
                   <li><b>Size :</b> <span itemprop="mpn"><?php echo $product_size; ?></span></li>
+                  <?php if($product_availability !==  'pre_order') { ?>
                   <li><b>Stock :</b> <span itemprop="mpn"><?php echo $product_stock; ?></span></li>
+                  <?php } ?>
                   <li><b>Availability:</b> <span class="instock"><?php echo $product_availability; ?></span></li>
                   <li style="text-align: center; font-size: 22px; margin-top: 20px;"><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
                   <li>

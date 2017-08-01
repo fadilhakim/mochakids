@@ -180,7 +180,7 @@ class update extends CI_Controller {
 		
 		$manu_id = $this->input->post('manu_id');
 		$manu_title = $this->input->post('manu_title');
-		$manu_link = $this->input->post('manu_link');
+		// $manu_link = $this->input->post('manu_link');
 		$manu_desc = $this->input->post('manu_desc');
 		$manu_image_old = $this->input->post('manu_image_old');
 		

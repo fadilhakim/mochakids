@@ -525,6 +525,10 @@ class insert extends CI_Controller {
 
 		$manu_name = $this->input->post('manu_name');
 
+		$manu_desc = $this->input->post('manu_desc');
+
+		$manu_image = $_FILES['manu_image']['name'];
+
 		$manu_slug = url_title($manu_name);
 
 		if(!empty($_FILES["manu_image"]["name"]))
@@ -535,29 +539,12 @@ class insert extends CI_Controller {
 		}
 
 
-		/*$config = array(
-
-			'upload_path' => "./assets/image/manufacturer/",
-
-			'allowed_types' => "gif|jpg|png|jpeg|pdf",
-
-			'remove_spaces' => FALSE,
-
-			'overwrite' => TRUE,
-
-			'max_size' => "2048000", 
-
-			'max_height' => "600",
-
-			'max_width' => "1400"
-		);*/
-
-
-
 		$data = array(
 
 			'manu_title' => $manu_name,
 			'manu_slug' => $manu_slug,
+			'manu_desc' => $manu_desc,
+			'manu_image' => $manu_image
 
 		);
 
