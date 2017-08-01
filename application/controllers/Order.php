@@ -127,7 +127,7 @@
 				$address_tr  = $this->order_model->address_tr_detail($order["user_addtr_id"]);
 				
 				$dt = array("order"=>$order_dt,"order_detail"=>$order_detail,"address_tr"=>$address_tr);
-				
+				$user = "mochakids2";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
 				$message = $this->load->view("invoice/new_invoice", $dt, true);
 				
@@ -135,7 +135,7 @@
 					
 					"subject" 		=> "Mochakids Invoice - $id_order",
 					"subject_title"  => WEBSITE,
-					"to" 			 => array($email), 						
+					"to" 			 => array($email,"alhusna_99@yahoo.co.id"), 						
 					"message" 		=> $message,
 					"mv" 			 => FALSE,
 					//"alt_message"  => "users/email/email-create-alt", // buat alt nya 
@@ -270,12 +270,24 @@
 		
 		function test()
 		{
-			$sess = $this->session->all_userdata();
-			//print_r($sess);
-			
-			echo "last order : ". $this->order_model->get_last_order()["id_order"];
-			echo "<hr>";
-			echo "new order : ".$this->order_model->generate_order_code();
+			$user = "mochakids2";
+				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
+				$message = " Quick brownfox jump over the lazy dog";
+				$email = "alhusna901@gmail.com";
+				
+				$content = array(
+					
+					"subject" 		=> "Mochakids Invoice - $id_order",
+					"subject_title"  => WEBSITE,
+					"to" 			 => array($email,"alhusna_99@yahoo.co.id"), 						
+					"message" 		=> $message,
+					"mv" 			 => FALSE,
+					//"alt_message"  => "users/email/email-create-alt", // buat alt nya 
+					"amv" 		    => FALSE
+				
+				);
+				
+				$this->my_email->send_email($user,$content);
 		}
 		
 	}
