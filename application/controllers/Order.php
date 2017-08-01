@@ -120,7 +120,7 @@
 				$this->cart->destroy();
 				
 				//send email invoice
-				/* $this->load->library("my_email");
+				$this->load->library("my_email");
 					
 				$order_dt = $this->order_model->detail_order($id_order);
 				$order_detail= $this->order_model->detail_list_order($order_id);
@@ -137,13 +137,13 @@
 					"subject_title"  => WEBSITE,
 					"to" 			 => array($email), 						
 					"message" 		=> $message,
-					"mv" 			 => FALSE/*,
+					"mv" 			 => FALSE,
 					//"alt_message"  => "users/email/email-create-alt", // buat alt nya 
 					"amv" 		    => FALSE
 				
 				);
 				
-				$this->my_email->send_email($user,$content);*/
+				$this->my_email->send_email($user,$content);
 				
 				$suceess = success("You Successfully save Order. now you must confirm the Payment 24 Hours after you order ");
 				$this->session->set_flashdata("message",$suceess);
