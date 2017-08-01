@@ -273,7 +273,7 @@
 		
 			$this->load->library("MY_Email2");
 			
-			$user = "mochakids2";
+			$user = "mochakids";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
 				$message = " Quick brownfox jump over the lazy dog";
 				$email = "alhusna901@gmail.com";
