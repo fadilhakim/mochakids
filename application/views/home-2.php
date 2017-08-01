@@ -14,7 +14,7 @@
           </div>
           <!-- Slideshow End-->
           <!-- Featured Product Start-->
-          <h3 class="subtitle">Shop By Category</h3>
+          <h3 class="subtitle">Shop By our Category</h3>
           <div class="owl-carousel product_carousel">
             <?php foreach ($category as $c) { ?>
             <div class="product-thumb clearfix">

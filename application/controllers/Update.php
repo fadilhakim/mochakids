@@ -208,7 +208,7 @@ class update extends CI_Controller {
 
 			  'manu_title' => $manu_title,
 			  'manu_image' => $manu_image_old,
-			  'manu_link' => $manu_link,
+			 // 'manu_link' => $manu_link,
 			  'manu_desc' => $manu_desc
 
 			);
@@ -221,7 +221,7 @@ class update extends CI_Controller {
 
 			  'manu_title' => $manu_title,
 			  'manu_image' => $manu_image_new,
-			  'manu_link' => $manu_link,
+			 // 'manu_link' => $manu_link,
 			  'manu_desc' => $manu_desc
 
 			);
