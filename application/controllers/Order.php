@@ -289,7 +289,7 @@
 				
 				);
 				
-				$this->my_email->send_email($user,$content);
+				$this->my_email2->send_email($user,$content);
 		}
 		
 	}
