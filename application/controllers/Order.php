@@ -120,7 +120,7 @@
 				$this->cart->destroy();
 				
 				//send email invoice
-				$this->load->library("my_email");
+				$this->load->library("my_email2");
 					
 				$order_dt = $this->order_model->detail_order($id_order);
 				$order_detail= $this->order_model->detail_list_order($order_id);
@@ -270,7 +270,7 @@
 		
 		function test()
 		{
-			$this->load->library("my_email");
+			$this->load->library("my_email2");
 			
 			$user = "mochakids2";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
