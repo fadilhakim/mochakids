@@ -282,7 +282,8 @@
 					
 					"subject" 		=> "Mochakids Invoice",
 					"subject_title"  => "Mochakids",
-					"to" 			 => array($email,"alhusna_99@yahoo.co.id"), 						
+					"to" 			 => array($email,"alhusna_99@yahoo.co.id"), 
+					"data"			=> array("hello"=>"world"),						
 					"message" 		=> $message,
 					"mv" 			 => FALSE,
 					//"alt_message"  => "users/email/email-create-alt", // buat alt nya 
