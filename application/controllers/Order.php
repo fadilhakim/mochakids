@@ -270,7 +270,7 @@
 		
 		function test()
 		{
-			error_reporting(0);
+			//error_reporting(0);
 			
 			$this->load->library("MY_Email2");
 			
