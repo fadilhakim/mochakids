@@ -15,13 +15,17 @@
 		
 		function insert_order()
 		{
+			error_reporting(E_ALL & ~E_NOTICE);
 			$this->authentification->logged_in();
 			
 			$this->load->library("form_validation");
+			$this->load->library("Rajaongkir");
+			
 			$this->load->model("model_user");
 			$this->load->model("bank_model");
 			$this->load->model("model_product");
 			
+			$user_sess_id = $this->session->userdata("user_id");
 			
 			$contact_person = $this->input->post("contact_person",TRUE);
 			$no_hp			= $this->input->post("no_hp",TRUE);
@@ -120,14 +124,15 @@
 				$this->cart->destroy();
 				
 				//send email invoice
-				$this->load->library("my_email2");
+				$this->load->library("MY_Email2");
 					
 				$order_dt = $this->order_model->detail_order($id_order);
-				$order_detail= $this->order_model->detail_list_order($order_id);
-				$address_tr  = $this->order_model->address_tr_detail($order["user_addtr_id"]);
+				$order_detail= $this->order_model->detail_list_order($id_order);
+				$address_tr  = $this->order_model->address_tr_detail($order_dt["user_addtr_id"]);
+				$user_detail = $this->model_user->get_user_detail($user_sess_id); 
 				
-				$dt = array("order"=>$order_dt,"order_detail"=>$order_detail,"address_tr"=>$address_tr);
-				$user = "mochakids2";
+				$dt = array("order"=>$order_dt,"order_detail"=>$order_detail,"address_tr"=>$address_tr,"user_detail"=>$user_detail);
+				$user = "mochakids3";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
 				$message = $this->load->view("invoice/new_invoice", $dt, true);
 				
@@ -135,15 +140,16 @@
 					
 					"subject" 		=> "Mochakids Invoice - $id_order",
 					"subject_title"  => WEBSITE,
-					"to" 			 => array($email,"alhusna_99@yahoo.co.id"), 						
+					"to" 			 => array($user_detail["email"],"mochakishop@gmail.com"), 
+					"data"			=> array("hello"=>"world"),						
 					"message" 		=> $message,
 					"mv" 			 => FALSE,
-					//"alt_message"  => "users/email/email-create-alt", // buat alt nya 
+					"alt_message"  => "users/email/email-create-alt", // buat alt nya 
 					"amv" 		    => FALSE
 				
 				);
 				
-				$this->my_email->send_email($user,$content);
+				$this->my_email2->send_email($user,$content);
 				
 				$suceess = success("You Successfully save Order. now you must confirm the Payment 24 Hours after you order ");
 				$this->session->set_flashdata("message",$suceess);
@@ -274,7 +280,7 @@
 			
 			$this->load->library("MY_Email2");
 			
-			$user = "mochakids";
+			$user = "mochakids3";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
 				$message = " Quick brownfox jump over the lazy dog";
 				$email = "alhusna901@gmail.com";

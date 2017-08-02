@@ -114,12 +114,20 @@
                     <td > Subtotal </td>
                     <td align="right"><?=number_format($order["subtotal"])?></td>
                 </tr>
+                
                 <tr>
             		<td>    </td>
                 	<td>&nbsp;  </td>
                     <td>&nbsp;  </td>
                     <td> Discount 0% </td>
                     <td align="right"> 0 </td>
+                </tr>
+                <tr>
+            		<td>    </td>
+                	<td>&nbsp;  </td>
+                    <td>&nbsp;  </td>
+                    <td> Ongkir </td>
+                    <td align="right"> <?=number_format($order["ongkir"])?> </td>
                 </tr>
                 <!-- <tr>
             		<td>    </td>
@@ -138,6 +146,9 @@
                 </tr>
             </tbody>
         </table>
+        <p>
+        	Mohon segara bayarkan sejumlah uang ke rekening berikut dibawah, dan segera konfirmasi pembayarannya agar bisa segera di proses pengiriman barangnya
+        </p>
         <?php 
 			
 		$bank = $this->bank_model->get_by_name_arr($order["purpose_bank"]);

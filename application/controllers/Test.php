@@ -147,7 +147,7 @@
 			$this->load->model("model_product");
 			$this->load->model("bank_model");
 			
-			$order_id     = "MK101100001";
+			$order_id     = "MK021400001";
 			$user_sess_id = $this->session->userdata("user_id");
 			
 			$user_detail = $this->model_user->get_user_detail($user_sess_id);

@@ -87,6 +87,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 // DATA MOCHAKIDS
 define("TITLE","MOCHAKIDS");
 define("BASE_URL","http://localhost/mochakids/");
+define("WEBSITE","mochakidshop.com");
 define("ASSET_URL",BASE_URL."assets/");
 define("NO_TELP","+62-21-4585-6666");
 define("PHONE","(+62-21) 4585-6666");
