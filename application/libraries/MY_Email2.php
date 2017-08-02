@@ -169,7 +169,7 @@
 			}
 			
 			$CI->email->set_alt_message($alt_message);
-		
+			$CI->email->set_newline("\r\n");
 			$CI->email->send();
 			$this->debugger = $CI->email->print_debugger();
 		}	
