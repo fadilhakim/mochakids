@@ -140,7 +140,7 @@
 					
 					"subject" 		=> "Mochakids Invoice - $id_order",
 					"subject_title"  => WEBSITE,
-					"to" 			 => array($user_detail["email"],"mochakishop@gmail.com"), 
+					"to" 			 => array($user_detail["email"],"mochakidshop@gmail.com"), 
 					"data"			=> array("hello"=>"world"),						
 					"message" 		=> $message,
 					"mv" 			 => FALSE,

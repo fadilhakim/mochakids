@@ -310,6 +310,30 @@
 			return $this->db->get_where("payment_confirm",array("id_order"=>$id_order))->row_array();
 		}
 		
+		function delete_order($id_order)
+		{
+			$check = $this->detail_list_order($id_order);
+			
+			if(!empty($check))
+			{
+				$str = "DELETE FROM order_detail_tbl WHERE id_order = '$id_order' ";
+				$q = $this->db->query($str);
+			
+			
+				$str2 = "DELETE FROM order_tbl WHERE id_order = '$id_order' ";
+				$q2 = $this->db->query($str2);
+				
+				$result = TRUE;	
+			}
+			else
+			{
+				$result = FALSE;
+			}
+			
+			return $result;
+			
+		}
+		
 		function update_order()
 		{
 			
