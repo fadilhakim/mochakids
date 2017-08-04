@@ -301,4 +301,11 @@
 		    $this->my_email2->send_email($user,$content);
 		}
 		
+		function test_post()
+		{
+			
+			print_r($_POST);	
+		}
+		
+		
 	}

@@ -31,6 +31,8 @@
 			$sub_total = $cart_total * TAX;
 			$grand_total = $cart_total + $sub_total + $shipping_session ;
 			
+			$this->session->set_userdata("grand_total",$grand_total);
+			
 			$rr = array("grand_total"=>$grand_total,
 			"sub_total"=>$sub_total,
 			"cart_total"=>$cart_total,
@@ -99,9 +101,16 @@
 				
 				$result = $this->rajaongkir->cost($dt);
 				
-				$result = json_decode($result,TRUE);
+				if(!empty($result))
+				{
+					$result = json_decode($result,TRUE);
 				
-				$result = $result["rajaongkir"]["results"][0];
+					$result = $result["rajaongkir"]["results"][0];
+				}
+				else
+				{
+					$result = array("courier"=>"pick_up","costs"=>0);
+				}
 			
 			}
 			else if($courier == "pick_up")
@@ -120,6 +129,8 @@
 		
 		function list_result_ongkir()
 		{
+			error_reporting(0);
+			
 			$dt_cost = $this->detail_cost();
 			
 			$cost = $dt_cost["costs"];

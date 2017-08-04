@@ -215,6 +215,7 @@
 			$shipping_address = $this->input->post("shipping_address",TRUE);
 			//$billing_address = $this->input->post("billing_address",TRUE);
 			
+			// session ini harus masuk
 			$grand_total_session = $this->session->userdata("grand_total");
 			
 			$addbook_tr = 	$addbook_tr = $this->insert_addbook_tr(); // 

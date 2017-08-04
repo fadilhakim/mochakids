@@ -22,13 +22,6 @@
 			
 		}
 		
-		function view_session()
-		{
-			$s = $this->session->all_userdata();
-			
-			print_r($s);	
-		}
-		
 		function weight_total()
 		{
 			$this->load->model("model_cart");	
@@ -162,5 +155,13 @@
  			
 			//$this->load->view("invoice/invoice-fancy-page-inline",$data);	
 			$this->load->view("invoice/new_invoice",$data);
+		}
+		
+		function view_session()
+		{
+			$sess = $this->session->all_userdata();
+			print_r($sess);
+			echo "<hr>";
+				
 		}
 	}
