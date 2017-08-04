@@ -30,6 +30,9 @@ class home extends CI_Controller {
 		$this->load->model('model_event');
 		$data['promo'] = $this->model_event->list_promo()->result();
 		$data['brand'] = $this->model_event->list_brand()->result();
+		
+		//print_r($data["brand"]); exit;
+		
 		$this->load->view('templates/header',$data);
 
 		$this->load->model('model_home');

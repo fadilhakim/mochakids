@@ -74,9 +74,10 @@
 			
 			$this->form_validation->set_rules("type_form","Type Form","required");
 			
-			$check_payment = $this->order_model->check_payment_confirmation($no_order);
+			//$check_payment = $this->order_model->check_payment_confirmation($no_order);
+			$check_order = $this->order_model->detail_list_order($no_order);
 			
-			if($this->form_validation->run() == TRUE  && !empty($check_payment))
+			if($this->form_validation->run() == TRUE  && !empty($check_order))
 			{
 				if(!empty($document["name"]))
 				{
@@ -94,7 +95,7 @@
 					"bank"=>$user_bank,
 					"no_rekening"=>$user_bank_rekening,
 					"status"=>"pending",
-					"bukti_transfer"=>$new_name,
+					"bukti_transfer"=>!empty($new_name) ? $new_name : "",
 					"id_bank" => $id_bank,
 					"ip_address"=>$ip_address,
 					"user_agent"=>$user_agent
@@ -102,6 +103,8 @@
 				);
 				
 				$this->order_model->insert_payment_confirmation($arr);
+				
+				//email
 				
 				$suceess = success("You Successfully send a confirmation payment");
 				$this->session->set_flashdata("message",$suceess);

@@ -259,6 +259,11 @@
     <!-- Main Menu End-->
     <div class="container">
       <div class="owl-carousel product_carousel">
+      <?php 
+	   
+	   $brand = $this->model_event->list_brand()->result();
+	   
+	   ?>
       <?php foreach ($brand as $br) { ?>
       
           <div class="product-thumb clearfix">
