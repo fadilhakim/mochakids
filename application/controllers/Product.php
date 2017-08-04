@@ -20,17 +20,20 @@ class product extends CI_Controller {
 	 */
 
 	public function __construct(){
+		
       parent::__construct();
       
       $this->load->helper("url");
       $this->load->model('model_product');
+	  $this->load->model("model_event");
       $this->load->library('pagination');
+	  
   	}
 
   	public function promo(){
-  		$this->load->model('model_event');
-  		$data['brand'] = $this->model_event->list_brand()->result();
-  		$data['promo'] = $this->model_event->list_promo()->result();
+  		//$this->load->model('model_event');
+  		//$data['brand'] = $this->model_event->list_brand()->result();
+  		//$data['promo'] = $this->model_event->list_promo()->result();
   		$this->load->view('templates/header',$data);
   	}
 
@@ -77,7 +80,7 @@ class product extends CI_Controller {
         $data["links"] = $this->pagination->create_links();
 
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
+		//$this->load->model('model_event');
   		$data['brand'] = $this->model_event->list_brand()->result();
   		$data['promo'] = $this->model_event->list_promo()->result();
   		$this->load->view('templates/header',$data);
@@ -195,10 +198,10 @@ class product extends CI_Controller {
 		
 		
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
+		//$this->load->model('model_event');
 		
-		$data['promo'] = $this->model_event->list_promo()->result();
-		$data['brand'] = $this->model_event->list_brand()->result();
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		//$data['brand'] = $this->model_event->list_brand()->result();
 		$this->load->view('templates/header',$data);
 		
 		$data['category'] = $this->model_product->list_category()->result();
@@ -216,10 +219,10 @@ class product extends CI_Controller {
 		/*count($this->data['product_cat']) || show_404(uri_string());*/
 		
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
-		$data['brand'] = $this->model_event->list_brand()->result();
-		$data['promo'] = $this->model_event->list_promo()->result();
-		$this->load->view('templates/header',$data);
+		//$this->load->model('model_event');
+		//$data['brand'] = $this->model_event->list_brand()->result();
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data = array());
 
 		/*$product_id=$this->uri->segment(2);*/
 		$cat=$this->uri->segment(2);
@@ -244,10 +247,10 @@ class product extends CI_Controller {
 	public function category($cat) {
 
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
-		$data['brand'] = $this->model_event->list_brand()->result();
-		$data['promo'] = $this->model_event->list_promo()->result();
-		$this->load->view('templates/header',$data);
+		//$this->load->model('model_event');
+		//$data['brand'] = $this->model_event->list_brand()->result();
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data = array());
 
 
 		$cat=$this->uri->segment(2);
@@ -310,10 +313,10 @@ class product extends CI_Controller {
 	public function search(){
 
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
-		$data['brand'] = $this->model_event->list_brand()->result();
-		$data['promo'] = $this->model_event->list_promo()->result();
-		$this->load->view('templates/header',$data);
+		//$this->load->model('model_event');
+		//$data['brand'] = $this->model_event->list_brand()->result();
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data = array());
 		$data['category'] = $this->model_product->list_category()->result();
 
 		$this->load->model('model_manufacturer');

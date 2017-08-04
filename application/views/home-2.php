@@ -19,7 +19,7 @@
             <?php foreach ($category as $c) { ?>
             <div class="product-thumb clearfix">
               <div class="image"><a href="<?php  echo base_url('product_categories/'.$c->category_url); ?>"><img src="<?php echo ('assets/image/product/category/'.'/'.$c->image) ?>" alt="<?php echo $c->category_title?>" title="<?php echo $c->category_title?>" class="img-responsive" /></a></div>
-                <h4><a href="<?php  echo base_url('product_categories/'.$c->category_id.'/'.$c->category_url); ?>" class="code-f" style="display: block; text-align: center;"><?php echo $c->category_title?></a></h4>
+                <h4><a href="<?php  echo base_url('product_categories/'.$c->category_url); ?>" class="code-f" style="display: block; text-align: center;"><?php echo $c->category_title?></a></h4>
               <div class="button-group">
                 <a href="<?php  echo base_url('product_categories/'.$c->category_url); ?>" class="btn btn-primary" ><span>View Product</span></a>
               </div>

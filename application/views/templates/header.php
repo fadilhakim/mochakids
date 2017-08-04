@@ -260,7 +260,8 @@
     <div class="container">
       <div class="owl-carousel product_carousel">
       <?php 
-	   $this->load->model("model_event");
+	   
+	   // cukup satu syntax ini aja untuk ngeload datanya disemua halaman. mengingat header.php ada disemua halaman
 	   $brand = $this->model_event->list_brand()->result();
 	   
 	   ?>
@@ -279,10 +280,11 @@
         <h3>
 
         <?php
+		  $promo = $this->model_event->list_promo()->result();
           $url = $this->uri->segment(1);
           if($url === 'home' || $url === 'product' || $url === 'contact' || $url === 'about' ){
             foreach ($promo as $p) {
-            echo $p->promo_text;
+           	 echo $p->promo_text;
             
             }
           } 

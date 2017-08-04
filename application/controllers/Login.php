@@ -22,6 +22,7 @@ class login extends CI_Controller {
 		parent::__construct();		
 		$this->load->model('model_login');
 		$this->load->model("model_user"); 
+		$this->load->model("model_event");
 	}
 
 	function index(){
