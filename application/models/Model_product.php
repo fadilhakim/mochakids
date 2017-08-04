@@ -203,20 +203,16 @@ class Model_product extends CI_Model {
    	 public function fetch_product_by_status($status, $limit, $start = 0) {
 
         $this ->db-> select('*');
-
         $this ->db-> from('product_tbl');
-
         if ($status) {
-
-            $this ->db-> where('product_availability', $status);
-
+            $this ->db->where('product_availability', $status);
         }
 
-        $this ->db-> limit($limit, $start);
+        $this ->db->limit($limit, $start);
 
-        $query = $this ->db-> get();
+        $query = $this->db->get();
 
-        return $query -> result();
+        return $query ->result();
 
     }
 	

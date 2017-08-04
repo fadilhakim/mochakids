@@ -170,7 +170,7 @@ class product extends CI_Controller {
 		$p   = $this->input->get("p") ;
 		$limit = 12;
 		$status = $this->uri->segment(2);  
-        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $page = !empty($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
         
 		if(empty($p))
 		{
@@ -190,7 +190,7 @@ class product extends CI_Controller {
 		
 		
         $data["links"]   = paging($arr);
-		$data["results"] = $this->model_product->fetch_product_by_status($status, $limit, $page);
+		$data["results"] = $this->model_product->fetch_product_by_status($status, $limit, $start);
 		
 		
 		
