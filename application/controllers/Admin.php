@@ -308,6 +308,24 @@ class admin extends CI_Controller {
 
 	}
 
+	public function contact()
+
+	{
+
+		$data['contact'] = $this->model_home->list_contact()->result();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_members', $data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
 
 
 	public function discount()

@@ -123,6 +123,7 @@ $route['admin/susbscriber'] = 'admin/subscriber';
 $route['admin/discount'] = 'admin/discount';
 $route['admin/users_admin'] = 'admin/users_admin';
 $route['admin/members'] = 'admin/members';
+$route['admin/contact'] = 'admin/contact';
 
 $route["admin/order"] = "admin/order";
 $route["admin/po_info/1"] = "admin/po_info/$1";

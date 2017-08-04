@@ -36,6 +36,11 @@ class Model_home extends CI_Model {
 			return $subs;
 		}
 
+		function list_brand() {
+			$subs = $this->db->get('manufacturer_tbl');
+			return $subs;
+		}
+
 		function list_discount() {
 
 			return $this->db->get('discount_tbl');
