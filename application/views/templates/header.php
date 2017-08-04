@@ -260,7 +260,7 @@
     <div class="container">
       <div class="owl-carousel product_carousel">
       <?php 
-	   
+	   $this->load->model("model_event");
 	   $brand = $this->model_event->list_brand()->result();
 	   
 	   ?>
