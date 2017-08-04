@@ -43,6 +43,7 @@ class contact extends CI_Controller {
 			$this->load->view('templates/meta');
 			$this->load->model('model_event');
 			$data['promo'] = $this->model_event->list_promo()->result();
+			$data['brand'] = $this->model_event->list_brand()->result();
 		    $this->load->view('templates/header',$data);
 			$this->load->view('contact');
 			$this->load->view('templates/footer-2');

@@ -8,8 +8,14 @@ class Model_product extends CI_Model {
 
 		public function list_product() {
 
-			$product = $this->db->get('product_tbl');
-			return $product;
+			// $product = $this->db->get('product_tbl');
+			// return $product;
+
+			$this->db->select("*");
+		    $this->db->from("product_tbl");
+		    $this->db->order_by("product_id", "desc");
+		    $query = $this->db->get();
+		    return $query;
 		}
 
 		public function list_category() {

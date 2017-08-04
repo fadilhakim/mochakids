@@ -123,6 +123,7 @@ $route['admin/susbscriber'] = 'admin/subscriber';
 $route['admin/discount'] = 'admin/discount';
 $route['admin/users_admin'] = 'admin/users_admin';
 $route['admin/members'] = 'admin/members';
+$route['admin/contact'] = 'admin/contact';
 
 $route["admin/order"] = "admin/order";
 $route["admin/po_info/1"] = "admin/po_info/$1";
@@ -165,7 +166,7 @@ $route['admin/delete/member/(:num)'] = 'delete/delete_member';
 $route['admin/edit/slider/(:num)'] = 'admin/edit_slider/$1';
 $route['admin/edit/category/(:num)'] = 'admin/edit_category/$1';
 $route['admin/edit/category_po/(:num)'] = 'admin/edit_category_po/$1';
-$route['admin/edit/brand/(:num)'] = 'admin/edit_manu/$1';
+$route['admin/edit/brand/(:num)'] = 'admin/edit_brand/$1';
 $route['admin/edit/event/(:num)'] = 'admin/edit_event/$1';
 $route['admin/edit/news/(:num)'] = 'admin/edit_news/$1';
 $route['admin/edit/product/(:num)'] = 'admin/edit_product/$1';
