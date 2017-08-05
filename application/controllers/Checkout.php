@@ -5,7 +5,8 @@
 		function __construct()
 		{
 			
-			parent::__construct();	
+			parent::__construct();
+			$this->load->model("model_event");	
 		}
 		
 		/* function shipping()

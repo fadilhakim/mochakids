@@ -127,7 +127,7 @@
     <div class="form-group">
     	<label> Layanan Kurir </label>
     	<select class="form-control" name="layanan_kurir" id="layanan_kurir">
-        	<option value="0"> - Select - </option>
+        	<option value=""> - Select - </option>
         </select>
         <input type="hidden" name="ongkir" id="ongkir" value="0" >
     

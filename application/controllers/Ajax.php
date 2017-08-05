@@ -135,7 +135,7 @@
 			
 			$cost = $dt_cost["costs"];
 			
-			echo "<option value='0'> -select layanan kurir-</option>";
+			echo "<option value=''> -select layanan kurir-</option>";
 			if(!empty($cost))
 			{
 				
@@ -153,7 +153,7 @@
 			}
 			else
 			{
-				echo "<option value='0'> No Ongkir, please choose another kurir </option>";	
+				echo "<option value=''> No Ongkir, please choose another kurir </option>";	
 			}
 			
 		}
