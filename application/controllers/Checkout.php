@@ -124,7 +124,7 @@
 				
 				$content = array(
 					
-					"subject" 		=> "Mochakids Invoice - $no_order",
+					"subject" 		=> "Mochakids Payment Confirmation - $no_order",
 					"subject_title"  => WEBSITE,
 					"to" 			 => array($user_detail["email"],"mochakidshop@gmail.com"), 
 					"data"			=> array("hello"=>"world"),						
