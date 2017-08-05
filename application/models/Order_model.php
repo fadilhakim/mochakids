@@ -296,7 +296,7 @@
 		{
 			
 			$this->db->insert("payment_confirm",$order);
-			return $this->db->insert_id;
+			return $this->db->insert_id();
 		}
 		
 		function list_payment_confirmation()
