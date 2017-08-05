@@ -9,6 +9,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
    	  $this->load->model('model_cart');
 	  $this->load->helper("check_data");
 	  $this->load->model("model_user");
+	  $this->load->model("model_event");
 
   	}
 

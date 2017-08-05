@@ -5,7 +5,8 @@
 		function __construct()
 		{
 			
-			parent::__construct();	
+			parent::__construct();
+			$this->load->model("model_event");	
 		}
 		
 		/* function shipping()
@@ -45,8 +46,15 @@
 		
 		function payment_process()
 		{
+			error_reporting(E_ALL & ~E_NOTICE);
+			$this->authentification->logged_in();
+			
+			$this->load->library("rajaongkir");
 			$this->load->library("form_validation");
 			$this->load->model("order_model");
+			$this->load->model("model_user");
+			$this->load->model("bank_model");
+			$this->load->library("MY_Email2");
 			
 			$no_order 		   = $this->input->post("no_order",TRUE);
 			$jumlah_pembayaran = $this->input->post("jumlah_pembayaran",TRUE);
@@ -74,9 +82,10 @@
 			
 			$this->form_validation->set_rules("type_form","Type Form","required");
 			
-			$check_payment = $this->order_model->check_payment_confirmation($no_order);
+			//$check_payment = $this->order_model->check_payment_confirmation($no_order);
+			$check_order = $this->order_model->detail_list_order($no_order);
 			
-			if($this->form_validation->run() == TRUE  && !empty($check_payment))
+			if($this->form_validation->run() == TRUE  && !empty($check_order))
 			{
 				if(!empty($document["name"]))
 				{
@@ -94,14 +103,39 @@
 					"bank"=>$user_bank,
 					"no_rekening"=>$user_bank_rekening,
 					"status"=>"pending",
-					"bukti_transfer"=>$new_name,
+					"bukti_transfer"=>!empty($new_name) ? $new_name : "",
 					"id_bank" => $id_bank,
 					"ip_address"=>$ip_address,
 					"user_agent"=>$user_agent
 				
 				);
 				
-				$this->order_model->insert_payment_confirmation($arr);
+				$id_payment = $this->order_model->insert_payment_confirmation($arr);
+				$user_sess_id = $this->session->userdata("user_id");
+				
+				$payment_dt = $this->order_model->order_payment_confirmation($no_order);
+				$order_dt = $this->order_model->detail_order($no_order); 			
+				$user_detail = $this->model_user->get_user_detail($user_sess_id);
+				//email
+				$dt = array("order"=>$order_dt,"payment"=>$payment_dt);
+				$user = "mochakids3";
+				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
+				$message = $this->load->view("invoice/payment_email", $dt, true);
+				
+				$content = array(
+					
+					"subject" 		=> "Mochakids Payment Confirmation - $no_order",
+					"subject_title"  => WEBSITE,
+					"to" 			 => array($user_detail["email"],"mochakidshop@gmail.com"), 
+					"data"			=> array("hello"=>"world"),						
+					"message" 		=> $message,
+					"mv" 			 => FALSE,
+					"alt_message"  => "users/email/email-create-alt", // buat alt nya 
+					"amv" 		    => FALSE
+				
+				);
+				
+				$this->my_email2->send_email($user,$content);
 				
 				$suceess = success("You Successfully send a confirmation payment");
 				$this->session->set_flashdata("message",$suceess);

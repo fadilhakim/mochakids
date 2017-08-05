@@ -157,6 +157,32 @@
 			$this->load->view("invoice/new_invoice",$data);
 		}
 		
+		function payment()
+		{
+			$this->load->library("rajaongkir");
+			
+			$this->load->model("model_user");
+			$this->load->model("order_model");
+			$this->load->model("bank_model");
+			
+			$order_id     = "MK040000005";
+			$user_sess_id = $this->session->userdata("user_id");
+			
+			$user_detail = $this->model_user->get_user_detail($user_sess_id);
+			$order 		 = $this->order_model->detail_order($order_id);
+			$payment 	 = $this->order_model->order_payment_confirmation($order_id);
+			
+			$data["user_detail"] = $user_detail;
+			$data["order"]		 = $order;
+			$data["payment"]	 = $payment;
+			
+ 			
+			//$this->load->view("invoice/invoice-fancy-page-inline",$data);	
+			$this->load->view("invoice/payment_email",$data);
+			
+			
+		}
+		
 		function view_session()
 		{
 			$sess = $this->session->all_userdata();

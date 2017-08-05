@@ -16,6 +16,16 @@
 			
 		}
 		
+		function load_data_address()
+		{
+			$this->load->model("model_user");
+			$user_add_id = $this->input->post("user_add_id");
+				
+			$f = $this->model_user->detail_address_book($user_add_id); 
+			
+			echo json_encode($f);
+		}
+		
 		function load_shipping_data()
 		{
 			$this->load->library("cart");
@@ -135,7 +145,7 @@
 			
 			$cost = $dt_cost["costs"];
 			
-			echo "<option value='0'> -select layanan kurir-</option>";
+			echo "<option value=''> -select layanan kurir-</option>";
 			if(!empty($cost))
 			{
 				
@@ -153,7 +163,7 @@
 			}
 			else
 			{
-				echo "<option value='0'> No Ongkir, please choose another kurir </option>";	
+				echo "<option value=''> No Ongkir, please choose another kurir </option>";	
 			}
 			
 		}

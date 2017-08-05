@@ -8,6 +8,8 @@
 			$this->authentification->logged_in();
 			$this->load->model("model_user");
 			$this->load->library("rajaongkir");
+			$this->load->model('model_event');
+			
 		}
 		
 		function index()
@@ -20,6 +22,7 @@
 			$data["dt_profile"] = $dt_profile;
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/profile";
+ 			
 			$this->load->view("templates/template",$data);	
 		}
 		
@@ -35,6 +38,7 @@
 			
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/order_list";
+			
 			$this->load->view("templates/template",$data);
 			
 		}
@@ -91,7 +95,6 @@
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/address_book";
 			
-			
 			$this->load->view("templates/template",$data);	
 			
 			
@@ -108,6 +111,7 @@
 			$data["province"] = $json_decode["rajaongkir"]["results"];
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/add_address_book";
+			
 			
 			
 			$this->load->view("templates/template",$data);	

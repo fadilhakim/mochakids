@@ -260,7 +260,14 @@
     <div class="container">
       <div class="owl-carousel product_carousel">
       <?php $link =$this->uri->segment(1);  if($link !== 'cart') {?>
-        <?php foreach ($brand as $br) { ?>
+
+      <?php 
+	   
+	   // cukup satu syntax ini aja untuk ngeload datanya disemua halaman. mengingat header.php ada disemua halaman
+	   $brand = $this->model_event->list_brand()->result();
+	   
+	   ?>
+      <?php foreach ($brand as $br) { ?>
       
           <div class="product-thumb clearfix">
             <div class="image"><a href="<?php  echo base_url('product_categories/'.$br->manu_slug); ?>"><img src="<?php echo base_url('assets/image/brand'.'/'.$br->manu_image) ?>" alt="<?php echo $br->manu_title?>" title="<?php echo $br->manu_title?>" class="img-responsive" /></a>
@@ -276,10 +283,11 @@
         <h3>
 
         <?php
+		  $promo = $this->model_event->list_promo()->result();
           $url = $this->uri->segment(1);
           if($url === 'home' || $url === 'product' || $url === 'contact' || $url === 'about' ){
             foreach ($promo as $p) {
-            echo $p->promo_text;
+           	 echo $p->promo_text;
             
             }
           } 

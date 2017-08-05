@@ -18,7 +18,7 @@
           <div class="box-category">
             <ul id="cat_accordion">
                <?php foreach ($category as $c) { ?>
-                <li><a href="<?php  echo base_url('product/category/'.$c->category_url); ?>"><?php echo $c->category_title ?></a></li>
+                <li><a href="<?php  echo base_url('product_categories/'.$c->category_url); ?>"><?php echo $c->category_title ?></a></li>
                <?php } ?>
             </ul>
           </div>

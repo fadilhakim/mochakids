@@ -18,19 +18,31 @@ class home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	
+	function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->model('model_event');	
+	}
+	 
 	public function index()
 	{
 
 		$this->load->view('under');
+		
 	}
 
 	public function view_2()
 	{
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
-		$data['promo'] = $this->model_event->list_promo()->result();
-		$data['brand'] = $this->model_event->list_brand()->result();
-		$this->load->view('templates/header',$data);
+		
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		//$data['brand'] = $this->model_event->list_brand()->result();
+		
+		//print_r($data["brand"]); exit;
+		
+		$this->load->view('templates/header',$data=array());
 
 		$this->load->model('model_home');
 		$this->load->model('model_product');
@@ -53,9 +65,9 @@ class home extends CI_Controller {
 	public function htb()
 	{
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
-		$data['promo'] = $this->model_event->list_promo()->result();
-		$data['brand'] = $this->model_event->list_brand()->result();
+		//$this->load->model('model_event');
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		//$data['brand'] = $this->model_event->list_brand()->result();
 		$this->load->view('templates/header',$data);
 
 		$this->load->view('htb');
@@ -66,9 +78,9 @@ class home extends CI_Controller {
 	public function returns()
 	{
 		$this->load->view('templates/meta');
-		$this->load->model('model_event');
-		$data['promo'] = $this->model_event->list_promo()->result();
-		$data['brand'] = $this->model_event->list_brand()->result();
+		//$this->load->model('model_event');
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		//$data['brand'] = $this->model_event->list_brand()->result();
 		$this->load->view('templates/header',$data);
 
 		$this->load->view('return');
