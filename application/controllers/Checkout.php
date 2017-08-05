@@ -46,6 +46,9 @@
 		
 		function payment_process()
 		{
+			error_reporting(E_ALL & ~E_NOTICE);
+			$this->authentification->logged_in();
+			
 			$this->load->library("rajaongkir");
 			$this->load->library("form_validation");
 			$this->load->model("order_model");
