@@ -92,8 +92,13 @@ class login extends CI_Controller {
 	function login_customer(){
 		
 		$this->authentification->logged_out();
-		$data["content"] = "login";
-		$this->load->view("templates/template",$data);
+		$this->load->model('model_event');
+		$data['promo'] = $this->model_event->list_promo()->result();
+		$data['brand'] = $this->model_event->list_brand()->result();
+		$this->load->view('templates/meta');
+		$this->load->view('templates/header',$data);
+		$this->load->view('register',$data);
+		$this->load->view('templates/footer-2');
 	}
 	
 	function register()
@@ -108,9 +113,13 @@ class login extends CI_Controller {
 		$json_decode = json_decode($province,TRUE);
 			
 		$data["province"] = $json_decode["rajaongkir"]["results"];
-		
-		$data["content"] = "register";
-		$this->load->view("templates/template",$data);
+		$this->load->model('model_event');
+		$data['promo'] = $this->model_event->list_promo()->result();
+		$data['brand'] = $this->model_event->list_brand()->result();
+		$this->load->view('templates/meta');
+		$this->load->view('templates/header',$data);
+		$this->load->view('register',$data);
+		$this->load->view('templates/footer-2');
 	}
 	
 	function register_process()

@@ -259,13 +259,15 @@
     <!-- Main Menu End-->
     <div class="container">
       <div class="owl-carousel product_carousel">
-      <?php foreach ($brand as $br) { ?>
+      <?php $link =$this->uri->segment(1);  if($link !== 'cart') {?>
+        <?php foreach ($brand as $br) { ?>
       
           <div class="product-thumb clearfix">
             <div class="image"><a href="<?php  echo base_url('product_categories/'.$br->manu_slug); ?>"><img src="<?php echo base_url('assets/image/brand'.'/'.$br->manu_image) ?>" alt="<?php echo $br->manu_title?>" title="<?php echo $br->manu_title?>" class="img-responsive" /></a>
             </div>
           </div>
 
+        <?php } ?>
       <?php } ?>
       </div>
     </div>
