@@ -48,6 +48,7 @@
 		{
 			$this->load->library("form_validation");
 			$this->load->model("order_model");
+			$this->load->model("bank_model");
 			
 			$no_order 		   = $this->input->post("no_order",TRUE);
 			$jumlah_pembayaran = $this->input->post("jumlah_pembayaran",TRUE);
