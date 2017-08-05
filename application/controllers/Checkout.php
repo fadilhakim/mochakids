@@ -108,7 +108,7 @@
 				$payment_dt = $this->order_model-> order_payment_confirmation($id_payment);
 				$order_dt = $this->order_model->detail_order($no_order); 
 				//email
-				$dt = array("order"=>$order_dt,"payment"=>$payment_dt,"user_detail"=>$user_detail);
+				$dt = array("order"=>$order_dt,"payment"=>$payment_dt);
 				$user = "mochakids3";
 				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
 				$message = $this->load->view("invoice/payment_email", $dt, true);
