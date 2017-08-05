@@ -113,7 +113,7 @@
 				$id_payment = $this->order_model->insert_payment_confirmation($arr);
 				$user_sess_id = $this->session->userdata("user_id");
 				
-				$payment_dt = $this->order_model-> order_payment_confirmation($id_payment);
+				$payment_dt = $this->order_model->order_payment_confirmation($id_payment);
 				$order_dt = $this->order_model->detail_order($no_order); 			
 				$user_detail = $this->model_user->get_user_detail($user_sess_id);
 				//email
