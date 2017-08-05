@@ -106,7 +106,7 @@
 				$id_payment = $this->order_model->insert_payment_confirmation($arr);
 				
 				$payment_dt = $this->order_model-> order_payment_confirmation($id_payment);
-				$order_dt = $this->order_model->detail_order($id_order); 
+				$order_dt = $this->order_model->detail_order($no_order); 
 				//email
 				$dt = array("order"=>$order_dt,"payment"=>$payment_dt,"user_detail"=>$user_detail);
 				$user = "mochakids3";
