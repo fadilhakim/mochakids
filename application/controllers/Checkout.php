@@ -49,6 +49,7 @@
 			$this->load->library("form_validation");
 			$this->load->model("order_model");
 			$this->load->model("bank_model");
+			$this->load->library("MY_Email2");
 			
 			$no_order 		   = $this->input->post("no_order",TRUE);
 			$jumlah_pembayaran = $this->input->post("jumlah_pembayaran",TRUE);
@@ -105,9 +106,11 @@
 				);
 				
 				$id_payment = $this->order_model->insert_payment_confirmation($arr);
+				$user_sess_id = $this->session->userdata("user_id");
 				
 				$payment_dt = $this->order_model-> order_payment_confirmation($id_payment);
-				$order_dt = $this->order_model->detail_order($no_order); 
+				$order_dt = $this->order_model->detail_order($no_order); 			
+				$user_detail = $this->model_user->get_user_detail($user_sess_id);
 				//email
 				$dt = array("order"=>$order_dt,"payment"=>$payment_dt);
 				$user = "mochakids3";
@@ -116,7 +119,7 @@
 				
 				$content = array(
 					
-					"subject" 		=> "Mochakids Invoice - $id_order",
+					"subject" 		=> "Mochakids Invoice - $no_order",
 					"subject_title"  => WEBSITE,
 					"to" 			 => array($user_detail["email"],"mochakidshop@gmail.com"), 
 					"data"			=> array("hello"=>"world"),						
