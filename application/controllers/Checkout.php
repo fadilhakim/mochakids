@@ -48,6 +48,7 @@
 		{
 			$this->load->library("form_validation");
 			$this->load->model("order_model");
+			$this->load->model("model_user");
 			$this->load->model("bank_model");
 			$this->load->library("MY_Email2");
 			
