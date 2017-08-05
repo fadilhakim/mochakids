@@ -198,6 +198,16 @@ class model_user extends CI_Model
 		return $f;
 	}
 	
+	function detail_address_book($user_add_id)
+	{
+		$str = "SELECT * FROM user_address_tbl WHERE user_add_id = '$user_add_id' ";	
+		$q = $this->db->query($str);
+		$f = $q->row_array();
+			
+		return $f;
+		
+	}
+	
 	function check_account($email,$password)
 	{
 		$password = md5($password);

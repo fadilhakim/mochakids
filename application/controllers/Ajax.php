@@ -16,6 +16,16 @@
 			
 		}
 		
+		function load_data_address()
+		{
+			$this->load->model("model_user");
+			$user_add_id = $this->input->post("user_add_id");
+				
+			$f = $this->model_user->detail_address_book($user_add_id); 
+			
+			echo json_encode($f);
+		}
+		
 		function load_shipping_data()
 		{
 			$this->load->library("cart");

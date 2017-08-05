@@ -50,6 +50,32 @@
 		
 	}
 	
+	function load_data_address(user_add_id)
+	{			
+		$.ajax({	
+			type:"POST",
+			url:"<?=base_url("ajax/load_data_address")?>",
+			data:"user_add_id="+user_add_id,
+			dataType:"JSON",
+			success: function(data)
+			{				
+				$("#contact_person").val(data.contact_person);
+				$("#no_hp").val(data.no_hp);
+				
+				$("#id_province option[value="+data.provinsi+"]").attr('selected','selected');
+				city_province(data.provinsi);
+				$("#id_city").val(data.kota);
+				
+				$("#kecamatan").val(data.kecamatan);
+				$("#kode_pos").val(data.kode_pos);
+				$("#shipping_address").val(data.shipping_address);
+				
+				$("#save_address_book").prop("disabled",true);
+		
+			}
+		});
+	}
+	
 	
 
 </script>
@@ -148,7 +174,7 @@
 <span class="clearfix"></span>
 <div class="checkbox">
     <label>
-      <input type="checkbox" name="save_address_book"> Save this Adress
+      <input type="checkbox" name="save_address_book" id="save_address_book"> Save this Adress
     </label>
     </div>
 <!-- </form> -->
@@ -202,6 +228,15 @@
 			dt_city(id_city);
 			detail_cost(origin,destination,weight,courier);
 			
+		
+		$("#address_book").change(function(){
+			
+			//alert("aaa");
+			
+			var address_book = $("#address_book").val();
+			
+			load_data_address(address_book);
+		});
 		
 		$("#id_province").change(function(){
 		

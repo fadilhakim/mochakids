@@ -121,7 +121,7 @@ if(!$this->cart->contents() || empty($email_user_sess)){ ?>
                                     <?php echo form_close(); // END FORM  ?> 
                                     <hr>
                                     <div class="spacer15"></div> 
-                                    
+                                    </form>
                                     <div class="row">
                                     <form method="post" action="<?=base_url("order/insert_order")?>">
                                         <div class="col-md-8">
@@ -221,6 +221,7 @@ if(!$this->cart->contents() || empty($email_user_sess)){ ?>
 											?>
                                             </div> -->
                                         </div><!-- End .col-md-4 -->
+                                    </form>
                                     </div><!-- End .row -->
                                 </div>
                             </div>
