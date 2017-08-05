@@ -102,9 +102,30 @@
 				
 				);
 				
-				$this->order_model->insert_payment_confirmation($arr);
+				$id_payment = $this->order_model->insert_payment_confirmation($arr);
 				
+				$payment_dt = $this->order_model-> order_payment_confirmation($id_payment);
+				$order_dt = $this->order_model->detail_order($id_order); 
 				//email
+				$dt = array("order"=>$order_dt,"payment"=>$payment_dt,"user_detail"=>$user_detail);
+				$user = "mochakids3";
+				//$message = $this->load->view("payment_conf/email_invoice", $data, true);
+				$message = $this->load->view("invoice/payment_email", $dt, true);
+				
+				$content = array(
+					
+					"subject" 		=> "Mochakids Invoice - $id_order",
+					"subject_title"  => WEBSITE,
+					"to" 			 => array($user_detail["email"],"mochakidshop@gmail.com"), 
+					"data"			=> array("hello"=>"world"),						
+					"message" 		=> $message,
+					"mv" 			 => FALSE,
+					"alt_message"  => "users/email/email-create-alt", // buat alt nya 
+					"amv" 		    => FALSE
+				
+				);
+				
+				$this->my_email2->send_email($user,$content);
 				
 				$suceess = success("You Successfully send a confirmation payment");
 				$this->session->set_flashdata("message",$suceess);

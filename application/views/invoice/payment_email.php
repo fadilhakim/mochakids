@@ -69,10 +69,6 @@
        
        <p>We have to check your payment confirmation. Thanks  </p>
         
-       <h4 style="font-size:16px;"> AMOUNT IN WORD  </h4>
-       <div style="text-transform:uppercase"><?php  $f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
-  echo $f->format($payment["jumlah_dana"]) ?> </div>
-        
      </div><!-- body --> 
        
      
