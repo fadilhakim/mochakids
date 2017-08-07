@@ -83,7 +83,7 @@
           <div class="product-filter">
             <div class="row">
               <div class="col-md-6 col-sm-6">
-                <h1 class="title" style="margin-bottom: 0px">Our Product ss</h1>
+                <h1 class="title" style="margin-bottom: 0px">Our Product</h1>
               </div>
               <div class="col-md-6 col-sm-6">
                 <div class="btn-group" style="float: right;">
