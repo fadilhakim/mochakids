@@ -181,6 +181,66 @@ class admin extends CI_Controller {
 
 	}
 
+	public function return_info($return_id = 1)
+
+	{
+		$return_id = $this->uri->segment(3);
+		$this->load->model('model_event');
+
+		$data['return'] = $this->model_event->return_list()->result();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_return',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
+	public function htb_info($htb_id = 1)
+
+	{
+		$htb_id = $this->uri->segment(3);
+		$this->load->model('model_event');
+
+		$data['htb'] = $this->model_event->htb_list()->result();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_htb',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
+	public function about_info($about_id = 1)
+
+	{
+		$about_id = $this->uri->segment(3);
+		$this->load->model('model_event');
+
+		$data['about'] = $this->model_event->about_list()->result();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_about',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
 	public function category_po()
 
 	{

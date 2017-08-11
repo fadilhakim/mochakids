@@ -26,7 +26,9 @@ class about extends CI_Controller {
 			$data['promo'] = $this->model_event->list_promo()->result();
 			$data['brand'] = $this->model_event->list_brand()->result();
 		    $this->load->view('templates/header',$data);
-		$this->load->view('about');
+
+		$data['about'] = $this->model_event->about_list()->result();
+		$this->load->view('about',$data);
 		$data['contact_header'] = $this->model_home->contact_header_1()->result();
 		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
 		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();

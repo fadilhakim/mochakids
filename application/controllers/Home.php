@@ -77,8 +77,8 @@ class home extends CI_Controller {
 		$data['promo'] = $this->model_event->list_promo()->result();
 		$data['brand'] = $this->model_event->list_brand()->result();
 		$this->load->view('templates/header',$data);
-
-		$this->load->view('htb');
+		$data['htb'] = $this->model_event->htb_list()->result();
+		$this->load->view('htb',$data);
 		$this->load->model('model_home');
 		$data['contact_header'] = $this->model_home->contact_header_1()->result();
 		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
@@ -98,8 +98,8 @@ class home extends CI_Controller {
 		$data['promo'] = $this->model_event->list_promo()->result();
 		$data['brand'] = $this->model_event->list_brand()->result();
 		$this->load->view('templates/header',$data);
-
-		$this->load->view('return');
+		$data['returns'] = $this->model_event->return_list()->result();
+		$this->load->view('return',$data);
 		$this->load->model('model_home');
 		$data['contact_header'] = $this->model_home->contact_header_1()->result();
 		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();

@@ -303,6 +303,57 @@ class update extends CI_Controller {
 
 	}
 
+	function return_info()
+	{
+
+		$promo_text = $this->input->post('return_info');
+
+		$data = array(
+
+			'return_desc' => $promo_text,
+
+		);
+
+		$this->model_update->return_info($data);
+
+		redirect('admin/return/1');
+
+	}
+
+	function htb_info()
+	{
+
+		$promo_text = $this->input->post('htb_info');
+
+		$data = array(
+
+			'htb_desc' => $promo_text,
+
+		);
+
+		$this->model_update->htb_info($data);
+
+		redirect('admin/htb/1');
+
+	}
+
+	function about_info()
+	{
+
+		$promo_text = $this->input->post('about_info');
+
+		$data = array(
+
+			'about_desc' => $promo_text,
+
+		);
+
+		$this->model_update->about_info($data);
+
+		redirect('admin/about/1');
+
+	}
+
 	function update_event() {
 
 		$event_id = $this->input->post('event_id');

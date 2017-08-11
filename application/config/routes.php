@@ -128,6 +128,9 @@ $route['admin/contact'] = 'admin/contact_admin';
 
 $route["admin/order"] = "admin/order";
 $route["admin/po_info/1"] = "admin/po_info/$1";
+$route["admin/return/1"] = "admin/return_info/$1";
+$route["admin/htb/1"] = "admin/htb_info/$1";
+$route["admin/about/1"] = "admin/about_info/$1";
 $route["admin/category_po"] = "admin/category_po";
 //$route["admin/order/test"] = "order/test";
 //$route["admin/order/insert"] = "order/insert_order";
@@ -177,7 +180,10 @@ $route['admin/edit/discount/(:num)'] = 'admin/edit_voucher/$1';
 $route['admin/edit/sparepart/(:num)'] = 'admin/edit_sparepart/$1';
 $route['admin/edit/admin/(:num)'] = 'admin/edit_admin/$1';
 $route['admin/edit/member/(:num)'] = 'admin/edit_member/$1';
-$route['admin/promo/1'] = 'admin/promo/$1';
+$route['admin/edit/promo/1'] = 'admin/promo/$1';
+$route['admin/edit/return/1'] = 'admin/return/$1';
+$route['admin/edit/about/1'] = 'admin/about/$1';
+$route['admin/edit/htb/1'] = 'admin/htb/$1';
 
 //edit function
 $route['admin/edit/slider_f'] = 'update/update_slider';
@@ -194,7 +200,9 @@ $route['admin/edit/member_f'] = 'update/update_member';
 $route['admin/edit/promo_f'] = 'update/update_promo_text';
 $route['admin/edit/po_info_f'] = 'update/update_po_info';
 $route['admin/edit/contact_f'] = 'update/update_contact';
-
+$route['admin/edit/return_f'] = 'update/return_info';
+$route['admin/edit/htb_f'] = 'update/htb_info';
+$route['admin/edit/about_f'] = 'update/about_info';
 
 //others 
 

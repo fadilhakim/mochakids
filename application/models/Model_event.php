@@ -39,6 +39,36 @@ class Model_event extends CI_Model {
 			return $event;
 		}
 
+		function return_list() {
+
+			$event = $this->db->get('return_tbl');
+			return $event;
+		}
+
+		function about_list() {
+
+			$event = $this->db->get('about_tbl');
+			return $event;
+		}
+
+		function htb_list() {
+
+			$event = $this->db->get('htb_tbl');
+			return $event;
+		}
+
+		function htb() {
+
+			$event = $this->db->get('htb_tbl');
+			return $event;
+		}
+
+		function about() {
+
+			$event = $this->db->get('about_tbl');
+			return $event;
+		}
+
 		function list_event_limit() {
 
 			$this->db->select('*');

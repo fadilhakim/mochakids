@@ -100,6 +100,26 @@ class Model_update extends CI_Model {
 		$this->db->update('promo_tbl', $data);
 	}
 
+	function return_info($data){
+
+		$this->db->where('return_id', '1');
+		$this->db->update('return_tbl', $data);
+	}
+
+	function htb_info($data){
+
+		$this->db->where('htb_id', '1');
+		$this->db->update('htb_tbl', $data);
+	}
+
+	function about_info($data){
+
+		$this->db->where('about_id', '1');
+		$this->db->update('about_tbl', $data);
+		// echo $this->db->last_query();
+		// die();
+	}
+
 	function update_po_info($data){
 
 		$this->db->where('information_id', '1');
