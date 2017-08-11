@@ -28,9 +28,16 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Close PO</label>
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Display PO</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control datepicker1" name="expired" required placeholder="Close PO" type="text">
+                                            <input class="form-control datepicker1" name="display_date" required placeholder="Close PO" type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Actual Close PO</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control datepicker2" name="expired" required placeholder="Close PO" type="text">
                                         </div>
                                     </div>
 
@@ -44,7 +51,7 @@
                         </div>
                     </div>
                     <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-12">
                     <?php if ($message != '') {?>
                     <div class="alert alert-danger fade in alert-dismissable">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
@@ -60,7 +67,8 @@
                                             <th>#</th>
                                             <th>Category PO Title</th>
                                             <th>Category PO Image</th>
-                                            <th>Close PO</th>
+                                            <th>Display Close PO</th>
+                                            <th>Actual Close PO</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -73,6 +81,11 @@
                                             <td>
                                 <img class="img-responsive" src="<?php echo base_url('assets/image/product/category_po/'.$c->category_po_image)?>">
                                             </td>
+
+                                            <td>
+                                               <?php echo $c->display_date; ?>
+                                            </td>
+
                                             <td>
                                                <?php echo $c->expired; ?>
                                             </td>
@@ -121,5 +134,13 @@
               dateFormat:"yy-mm-dd",
               minDate:0 
             });
+
+    $(".datepicker2").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              dateFormat:"yy-mm-dd",
+              minDate:0 
+            });
+
 
 </script>

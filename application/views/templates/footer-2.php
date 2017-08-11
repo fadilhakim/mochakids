@@ -6,19 +6,25 @@
           </div>
           <div class="col-lg-6">
             <div class="phone">
-              <a title="No. Phone :" data-toggle="popover" data-content="0812-9330-6052 " data-placement="bottom" >
+              <a title="No. Phone :" data-toggle="popover" data-content="<?php foreach ($contact_admin_1 as $ca1) { ?> 
+                  <?php echo $ca1->no_contact ?>
+                <?php } ?> " data-placement="bottom" >
                 <img width="80%" style="float:left" src="<?php echo base_url('assets/image/phone-icon-clip-art--royalty--7.png'); ?>" class="img-responsive">
               </a>
             </div>
 
             <div class="phone">
-              <a title="Whatsapp :" data-toggle="popover"  data-content="0812-9330-6052" data-placement="bottom">
+              <a title="Whatsapp :" data-toggle="popover"  data-content="<?php foreach ($contact_admin_1 as $ca1) { ?> 
+                  <?php echo $ca1->no_contact ?>
+                <?php } ?>" data-placement="bottom">
               <img width="80%" style="float:left" src="<?php echo base_url('assets/image/whatsapp-black-logo-icon--24.png'); ?>" class="img-responsive">
               </a>
             </div>
 
             <div class="phone">
-              <a title="PIN BBM :" data-toggle="popover" data-content="7D4380FC" data-placement="bottom">
+              <a title="PIN BBM :" data-toggle="popover" data-content="<?php foreach ($bbm as $bm) { ?> 
+                  <?php echo $bm->no_contact ?>
+                <?php } ?>" data-placement="bottom">
                 <img width="80%" style="float:left" src="<?php echo base_url('assets/image/bbm-icon-24.png'); ?>" class="img-responsive">
               </a>
             </div>
@@ -43,7 +49,10 @@
             <h5>Contact Details</h5>
             <ul>
               <li class="address"><i class="fa fa-map-marker"></i>Jakarta
-              <li class="mobile"><i class="fa fa-phone"></i>+62-21-4585-6666</li>
+              <li class="mobile"><i class="fa fa-phone"></i> 
+              <?php foreach ($contact_footer_1 as $cf1) { ?> 
+                  <?php echo $cf1->no_contact ?>
+                <?php } ?></li>
               <li class="email"><i class="fa fa-envelope"></i>Send email via our <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
             </ul>
           </div>
@@ -65,16 +74,27 @@
           <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
             <h5>Contact</h5>
             <ul>
-              <li><a href="<?php echo base_url(''); ?>">Anna 081293306052 </a></li>
-              <li><a href="<?php echo base_url(''); ?>">Yani 081282769610 </a></li>
-              <li><a href="<?php echo base_url(''); ?>">Yuli 081293500124 </a></li>
+              <li><a href="<?php echo base_url(''); ?>"> <?php foreach ($contact_admin_1 as $ca1) { ?> 
+                  <?php echo $ca1->no_contact ?>
+                <?php } ?></a>
+              </li>
+              <li><a href="<?php echo base_url(''); ?>"><?php foreach ($contact_admin_2 as $ca2) { ?> 
+                  <?php echo $ca2->no_contact ?>
+                <?php } ?> </a></li>
+              <li><a href="<?php echo base_url(''); ?>"><?php foreach ($contact_admin_3 as $ca3) { ?> 
+                  <?php echo $ca3->no_contact ?>
+                <?php } ?></a></li>
             </ul>
           </div>
           <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
             <h5>Saran dan Kritik</h5>
             <ul>
-              <li><a>Contact 1 : 0813 8008 8927</a></li>
-              <li><a>Contact 2 : 0812 8180 727</a></li>
+              <li><a><?php foreach ($contact_saran_1 as $cs1) { ?> 
+                  <?php echo $cs1->no_contact ?>
+                <?php } ?></a></li>
+              <li><a><a><?php foreach ($contact_saran_2 as $cs2) { ?> 
+                  <?php echo $cs2->no_contact ?>
+                <?php } ?></a></li>
             </ul>
           </div>
         </div>

@@ -136,7 +136,17 @@
                             </a>
                         </div>
                     
-
+                         <div class="col-lg-4">
+                            <a href="<?php echo base_url('admin/contact'); ?>">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h5>
+                                        Contact Admin
+                                    </h5>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
                     
                         <!-- <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/news'); ?>">

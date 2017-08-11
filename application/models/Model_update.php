@@ -32,6 +32,21 @@ class Model_update extends CI_Model {
 		return $getidslider;
 	}
 
+	function list_contact($id) {
+
+		
+		$getidslider = $this->db->get_where('contact_tbl',array('contact_id' => $id));
+
+		return $getidslider;
+	}
+
+	function update_contact($contact_id,$data) {
+
+		
+		$this->db->where('contact_id', $contact_id);
+		$this->db->update('contact_tbl', $data);
+	}
+
 	function update_slider($slider_id, $data){
 
 		$this->db->where('slider_id', $slider_id);

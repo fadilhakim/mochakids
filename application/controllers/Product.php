@@ -91,7 +91,14 @@ class product extends CI_Controller {
 		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
 
 		$this->load->view('product',$data);
-		$this->load->view('templates/footer-2');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 	}
 	public function po_category() {
 
@@ -106,7 +113,15 @@ class product extends CI_Controller {
 		$data['results'] = $getcate;
 
 		$this->load->view($page, $data);
-		$this->load->view('templates/footer-2');
+		$this->load->model('model_home');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 	}
 	public function product_list_po()
 	{
@@ -164,7 +179,15 @@ class product extends CI_Controller {
 		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
 
 		$this->load->view('product_list_po',$data);
-		$this->load->view('templates/footer-2');
+		$this->load->model('model_home');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 	}
 
 	public function view_ready_stock()
@@ -210,7 +233,15 @@ class product extends CI_Controller {
 		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
 
 		$this->load->view('product',$data);
-		$this->load->view('templates/footer-2');
+		$this->load->model('model_home');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 	}
 
 	public function detail($cat, $slug)
@@ -241,7 +272,15 @@ class product extends CI_Controller {
 		
 
 		$this->load->view($page, $data);
-		$this->load->view('templates/footer-2');
+		$this->load->model('model_home');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 	}
 
 	public function category($cat) {
@@ -285,7 +324,15 @@ class product extends CI_Controller {
 		$data['product'] = $getcate;
 
 		$this->load->view($page, $data);
-		$this->load->view('templates/footer-2');
+		$this->load->model('model_home');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 	}
 
 	public function manufacturer($manu) {
@@ -307,7 +354,15 @@ class product extends CI_Controller {
 		$data['manuname'] = $getmanuname;
 
 		$this->load->view($page, $data);
-		$this->load->view('templates/footer-2');
+		$this->load->model('model_home');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 	}
 
 	public function search(){
@@ -325,7 +380,15 @@ class product extends CI_Controller {
 		$keyword    =   $this->input->post('keyword');
         $data['results']    =   $this->model_product->searchProduct($keyword);
         $this->load->view('search_result',$data);
-        $this->load->view('templates/footer-2');
+        $this->load->model('model_home');
+        $data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
 
 
 	}

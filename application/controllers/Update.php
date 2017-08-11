@@ -133,6 +133,7 @@ class update extends CI_Controller {
             $category_title     = $this->input->post('category_po_title');
             $category_image_old = $this->input->post('category_po_image_old');
             $expired = $this->input->post('expired');
+            $display_date = $this->input->post('display_date');
             $category_image_new = $_FILES['category_image_new']['name'];
 
             if ($category_image_new == '') {
@@ -142,6 +143,7 @@ class update extends CI_Controller {
                   'category_po_title' => $category_title,
                   'category_po_image' => $category_image_old,
                   'expired' => $expired,
+                   'display_date' => $display_date,
 
 
                 );
@@ -264,6 +266,25 @@ class update extends CI_Controller {
 
 		redirect('admin/promo/1');
 	}
+
+	function update_contact()
+	{
+
+		$no_contact = $this->input->post('no_contact');
+		$contact_id = $this->input->post('contact_id');
+
+		$data = array(
+
+			'no_contact' => $no_contact,
+			'contact_id' => $contact_id,
+
+		);
+
+		$this->model_update->update_contact($contact_id,$data);
+
+		redirect('admin/contact');
+	}
+
 
 	function update_po_info()
 	{

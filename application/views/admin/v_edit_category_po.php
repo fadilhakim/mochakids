@@ -6,6 +6,7 @@
     $category_po_title=$row->category_po_title;
     $category_po_image=$row->category_po_image;
     $expired=$row->expired;
+    $display_date=$row->display_date;
     $status=$row->status;
 } ?>
 <div class="content-page">
@@ -27,9 +28,15 @@
                                         <div class="col-sm-9">
                                             <input class="form-control" value="<?php echo $category_po_id; ?>" name="category_po_id" type="hidden">
                                             <input class="form-control" value="<?php echo $category_po_title; ?>" name="category_po_title" required placeholder="Change Title " type="text">
-                                        </div>
+                                        </div> 
                                     </div>
 
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Close PO</label>
+                                        <div class="col-sm-9">
+                                            <input id="" class="form-control datepicker2" value="<?php echo $display_date; ?>" name="display_date" required placeholder="Change Title " type="text">
+                                        </div>
+                                    </div>
 
 
                                     <div class="form-group">
@@ -81,13 +88,20 @@
 
 </div>
 
-    <script>
+<script>
     
-                                        $(".datepicker1").datepicker({
-                                                  changeMonth: true,
-                                                  changeYear: true,
-                                                  dateFormat:"yy-mm-dd",
-                                                  minDate:0 
-                                                });
+    $(".datepicker1").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              dateFormat:"yy-mm-dd",
+              minDate:0 
+            });
 
-                                    </script>
+     $(".datepicker2").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              dateFormat:"yy-mm-dd",
+              minDate:0 
+            });
+
+</script>

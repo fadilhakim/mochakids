@@ -106,6 +106,7 @@ $route['payment/confirmation/page/(:any)'] = 'payment/page/$1';
 //admin route
 $route['admin'] = 'admin/index';
 $route['admin/slider'] = 'admin/slider';
+$route['admin/contact'] = 'admin/contact_admin';
 
 $route['admin/product'] = 'admin/product';
 $route['admin/product-list'] = 'admin/list_product';
@@ -123,7 +124,7 @@ $route['admin/susbscriber'] = 'admin/subscriber';
 $route['admin/discount'] = 'admin/discount';
 $route['admin/users_admin'] = 'admin/users_admin';
 $route['admin/members'] = 'admin/members';
-$route['admin/contact'] = 'admin/contact';
+$route['admin/contact'] = 'admin/contact_admin';
 
 $route["admin/order"] = "admin/order";
 $route["admin/po_info/1"] = "admin/po_info/$1";
@@ -164,6 +165,7 @@ $route['admin/delete/category_to_manu/(:num)/(:num)'] = 'delete/category_to_manu
 $route['admin/delete/member/(:num)'] = 'delete/delete_member';
 //edit view
 $route['admin/edit/slider/(:num)'] = 'admin/edit_slider/$1';
+$route['admin/edit/contact_admin/(:num)'] = 'admin/edit_contact_admin/$1';
 $route['admin/edit/category/(:num)'] = 'admin/edit_category/$1';
 $route['admin/edit/category_po/(:num)'] = 'admin/edit_category_po/$1';
 $route['admin/edit/brand/(:num)'] = 'admin/edit_brand/$1';
@@ -191,6 +193,7 @@ $route['admin/edit/admin_f'] = 'update/update_admin';
 $route['admin/edit/member_f'] = 'update/update_member';
 $route['admin/edit/promo_f'] = 'update/update_promo_text';
 $route['admin/edit/po_info_f'] = 'update/update_po_info';
+$route['admin/edit/contact_f'] = 'update/update_contact';
 
 
 //others 

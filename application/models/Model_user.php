@@ -156,6 +156,14 @@ class model_user extends CI_Model
 
 	}
 
+	function list_contact(){
+
+		$stock = $this->db->get('contact_tbl');
+
+		return $stock->result();
+
+	}
+
 	
 	
 	function list_user_member()

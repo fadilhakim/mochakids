@@ -11,8 +11,14 @@ class Model_home extends CI_Model {
 
 		function list_slider() {
 
-			$slider = $this->db->get('slider_tbl');
-			return $slider;
+			// $slider = $this->db->get('slider_tbl');
+			// return $slider;
+
+			$this->db->select("*");
+		    $this->db->from("slider_tbl");
+		    $this->db->order_by("slider_id", "desc");
+		    $query = $this->db->get();
+		    return $query;
 		}
 
 		function list_manufacturer() {
@@ -45,4 +51,53 @@ class Model_home extends CI_Model {
 
 			return $this->db->get('discount_tbl');
 		}
+
+		function contact_header_1() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'header_1'));
+			return $getcate;
+		}
+
+		function contact_footer_1() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'footer_1'));
+			return $getcate;
+		}
+
+		function contact_admin_1() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'admin_1'));
+			return $getcate;
+		}
+
+		function contact_admin_2() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'admin_2'));
+			return $getcate;
+		}
+
+		function contact_admin_3() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'admin_3'));
+			return $getcate;
+		}
+
+		function contact_saran_1() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'saran_1'));
+			return $getcate;
+		}
+
+		function contact_saran_2() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'saran_2'));
+			return $getcate;
+		}
+		function pin_bbm() {
+
+			$getcate = $this->db->get_where('contact_tbl',array('title_contact' => 'pin_bbm'));
+			return $getcate;
+		}
+
+
 }

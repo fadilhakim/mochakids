@@ -22,7 +22,7 @@
 			$data["dt_profile"] = $dt_profile;
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/profile";
- 			
+ 			$this->load->model('model_home');
 			$this->load->view("templates/template",$data);	
 		}
 		
@@ -38,7 +38,7 @@
 			
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/order_list";
-			
+			$this->load->model('model_home');
 			$this->load->view("templates/template",$data);
 			
 		}
@@ -83,6 +83,7 @@
 			//$this->load->view("profile/order_detail");
 
 			//$this->load->view('templates/footer-2');
+			$this->load->model('model_home');
 			$this->load->view("templates/template",$data);		
 		}
 		
@@ -94,7 +95,7 @@
 			$data["address_list"] = $address_list;
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/address_book";
-			
+			$this->load->model('model_home');
 			$this->load->view("templates/template",$data);	
 			
 			
@@ -113,7 +114,7 @@
 			$data["subcontent"] = "profile/add_address_book";
 			
 			
-			
+			$this->load->model('model_home');
 			$this->load->view("templates/template",$data);	
 			
 		}
@@ -127,13 +128,13 @@
 			$data["content"] = "profile/content";
 			$data["subcontent"] = "profile/account_setting";
 			
-			
+			$this->load->model('model_home');
 			$this->load->view("templates/template",$data);	
 		}
 		
 		function payment_confirmation($id_order)
 		{
-			
+			$this->load->model('model_home');
 			$this->load->view("templates/template",$data);	
 		}
 		

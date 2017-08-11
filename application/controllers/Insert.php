@@ -982,6 +982,7 @@ class insert extends CI_Controller {
 
 		$category_po_title = $this->input->post('category_po_title');
 		$close_po = $this->input->post('expired');
+		$display_date = $this->input->post('display_date');
 		$image = $_FILES['image']['name'];
 		$category_po_url = url_title($category_po_title);
 
@@ -992,7 +993,8 @@ class insert extends CI_Controller {
 			'expired' => $close_po,
 			'status' => 1,
 			'category_po_image' => $image,
-			'category_po_url' => $category_po_url
+			'category_po_url' => $category_po_url,
+			'display_date' => $display_date,
 
 		);
 

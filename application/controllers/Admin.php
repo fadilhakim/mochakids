@@ -121,6 +121,26 @@ class admin extends CI_Controller {
 
 	}
 
+	public function contact_admin()
+
+	{
+
+		$this->load->model('model_user');
+
+		$data['users'] = $this->model_user->list_contact();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_contact_admin',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
 	public function promo($promo_id = 1)
 
 	{
@@ -705,6 +725,30 @@ class admin extends CI_Controller {
 		$this->load->view('templates/leftsidemenu');
 
 		$this->load->view('admin/v_edit_slider',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
+	public function edit_contact_admin($id)
+
+	{
+
+		$id = $this->uri->segment(4);
+
+		$id=trim($id);
+
+		$this->load->model('model_update');
+
+		$data['contact'] = $this->model_update->list_contact($id);
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_edit_contact_admin',$data);
 
 		$this->load->view('templates/footer-admin');
 

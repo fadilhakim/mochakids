@@ -120,7 +120,7 @@
 
 
             <?php $date1 = str_replace('-', '',date('Y-m-d')) ?>
-            <?php $date2 = str_replace('-', '',$p->expired); ?>
+            <?php $date2 = str_replace('-', '',$p->display_date); ?>
             <?php if ($date1  <= $date2) { ?>
      
             
@@ -140,7 +140,7 @@
                 </style>
                   <div class="caption">
                     <a class="code-f" style="display:block " href="<?php  echo base_url('product/'.$p->category_po_id.'/'.$p->category_po_url.'/'.$p->category_po_url); ?>"><?php echo $p->category_po_title?></a>
-                    <a class="code-f" href="<?php  echo base_url('product/'.$p->category_po_id.'/'.$p->category_po_url.'/'.$p->category_po_url); ?>">Close PO : <?php echo $p->expired?></a>
+                    <a class="code-f" href="<?php  echo base_url('product/'.$p->category_po_id.'/'.$p->category_po_url.'/'.$p->category_po_url); ?>">Close PO : <?php echo $p->display_date?></a>
                    <!--  <div class="description"><?php echo $p->expired?></div> -->
                   </div>
                   <div class="button-group">
