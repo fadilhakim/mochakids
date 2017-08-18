@@ -206,6 +206,7 @@ class Model_product extends CI_Model {
         $this ->db-> from('product_tbl');
         if ($status) {
             $this ->db->where('product_availability', $status);
+            $this->db->order_by("product_id", "desc");
         }
 
         $this ->db->limit($limit, $start);
@@ -225,7 +226,7 @@ class Model_product extends CI_Model {
         if ($status) {
 
             $this ->db-> where('product_availability', $status);
-
+            $this->db->order_by("product_id", "desc");
         }
 
         //$this ->db-> limit($limit, $start);
@@ -245,6 +246,7 @@ class Model_product extends CI_Model {
         if ($category_po) {
 
             $this ->db-> where('category_po_url', $category_po);
+            $this->db->order_by("product_id", "desc");
 
         }
 

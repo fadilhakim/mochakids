@@ -89,14 +89,19 @@ foreach($product_cat->result() as $row){
                   <li><b>1 Pack isi :</b> <span itemprop="mpn"><?php echo $product_pack; ?></span></li>
                   <li><b>Berat </b> <span itemprop="mpn"><?php echo $product_weight ?> Gram</span></li>
                   <!-- <li><b>Brand</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li> -->
+                   <?php if( $product_availability !== 'ready_stock' && $product_availability !== 'sales_stock'){ ?>
                   <li><b>Deposit per seri :</b> <span itemprop="mpn"><?php echo $product_deposit; ?></span></li>
-                  <li><b>Detail :</b> <span itemprop="mpn"><?php echo $product_descrption; ?></span></li>
+                  <?php } ?>
+                  
+                  <?php if( $product_availability !== 'ready_stock' && $product_availability !== 'sales_stock'){ ?>
                   <li><b>ETA :</b> <span itemprop="mpn"><?php echo $product_eta; ?></span></li>
+                  <?php } ?>
                   <li><b>Size :</b> <span itemprop="mpn"><?php echo $product_size; ?></span></li>
                   <?php if($product_availability !==  'pre_order') { ?>
                   <li><b>Stock :</b> <span itemprop="mpn"><?php echo $product_stock; ?></span></li>
                   <?php } ?>
                   <li><b>Availability:</b> <span class="instock"><?php echo $product_availability; ?></span></li>
+                  <li><b>Detail :</b> <span itemprop="mpn"><?php echo $product_descrption; ?></span></li>
                   <li style="text-align: center; font-size: 22px; margin-top: 20px;"><b>Product Code:</b> <span itemprop="mpn"><?php echo $product_code; ?></span></li>
                   <li>
                     <?php foreach($this->cart->contents() as $items): ?>
