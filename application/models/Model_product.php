@@ -166,7 +166,7 @@ class Model_product extends CI_Model {
 
 		public function searchProduct($keyword){
 
-			$this->db->like('product_slug',$keyword);
+			$this->db->like('product_title',$keyword);
         	$query  =   $this->db->get('product_tbl');
         	return $query->result();
 
