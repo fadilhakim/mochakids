@@ -76,7 +76,8 @@
                 <div class="image"><a href="<?php  echo base_url('product'.'/'.$product_category_url.'/'.$product_slug); ?>"><img src="<?php echo base_url('assets/image/product').'/'.$product_image_1; ?>" alt="<?php echo $product_title; ?>" title="<?php echo $product_title; ?>" class="img-responsive" /></a></div>
                 <div>
                   <div class="caption">
-                    <h4><a href="<?php  echo base_url('product'.'/'.$product_category_url.'/'.$product_slug); ?>"><?php echo $product_title; ?></a></h4>
+                    <h3 ><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>"><?php echo $p->product_title?></a></h3>
+                    <h3><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>">Rp. <?php echo $p->price?></a></h3>
                     <p class="description"><?php echo $product_descrption ?></p>
                   </div>
                   <div class="button-group">

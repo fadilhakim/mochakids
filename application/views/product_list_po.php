@@ -60,9 +60,8 @@
                   <div class="image"><a href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>"><img src="<?php echo base_url('assets/image/product').'/'.$p->product_image_1; ?>" alt="<?php echo $p->product_title?>" title="<?php echo $p->product_title?>" class="img-responsive" /></a></div>
                   <div>
                     <div class="caption">
-                      <h4><a href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>"><?php echo $p->product_title?> <br> <span style="font-size: 13px;">Tutup PO Tanggal : <?php echo $p->ETA?></span></a>
-               
-                      </h4>
+                      <h3 ><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>"><?php echo $p->product_title?></a></h3>
+                       <h3><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>">Rp. <?php echo $p->price?></a></h3>
                       <div class="description"><?php echo $p->product_descrption?></div>
 
                     </div>

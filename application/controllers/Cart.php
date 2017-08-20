@@ -54,7 +54,6 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 				
 				$message = success("You Successfully Add Product to cart");
 				$this->session->set_flashdata("message",$message);
-  
 			}
 		  
 			else
@@ -65,10 +64,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			}
 			
 			redirect($this->agent->referrer());
-	        /* $i = 1;
-	         foreach($this->cart->contents() as $items);
-	        echo  $items['product_name'];
-	        die();*/
+
 
 	    } else{
 
