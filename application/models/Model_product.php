@@ -148,6 +148,14 @@ class Model_product extends CI_Model {
 			return $getcate;
 		}
 
+		public function getbrand_limit($cat,$start=0,$limit=10)
+		{
+			$getcate = $this->db->get_where('product_tbl',array('manu_id' => $cat),$limit,$start);
+			// echo $this->db->last_query();
+			// exit();
+			return $getcate;
+		}
+
 		public function getfeatured(){
 
 		$getfeatured = $this->db->get_where('product_tbl',array('featured' => '1'));

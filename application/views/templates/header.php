@@ -270,7 +270,7 @@
       <?php foreach ($brand as $br) { ?>
       
           <div class="product-thumb clearfix">
-            <div class="image"><a href="<?php  echo base_url('product_categories/'.$br->manu_slug); ?>"><img src="<?php echo base_url('assets/image/brand'.'/'.$br->manu_image) ?>" alt="<?php echo $br->manu_title?>" title="<?php echo $br->manu_title?>" class="img-responsive" /></a>
+            <div class="image"><a href="<?php  echo base_url('brand/'.$br->manu_id); ?>"><img src="<?php echo base_url('assets/image/brand'.'/'.$br->manu_image) ?>" alt="<?php echo $br->manu_title?>" title="<?php echo $br->manu_title?>" class="img-responsive" /></a>
             </div>
           </div>
 
@@ -285,7 +285,7 @@
         <?php
 		  $promo = $this->model_event->list_promo()->result();
           $url = $this->uri->segment(1);
-          if($url === 'home' || $url === 'product' || $url === 'contact' || $url === 'about' ){
+          if($url === 'home' || $url === 'product' || $url === 'contact' || $url === 'about' || $url === 'brand' || $url === 'product_categories' ){
             foreach ($promo as $p) {
            	 echo $p->promo_text;
             

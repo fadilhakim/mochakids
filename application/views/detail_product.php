@@ -82,7 +82,7 @@ foreach($product_cat->result() as $row){
                 <ul class="list-unstyled description">
                   <h2>Additional Information</h2>
                   <li><b>Price : </b><span itemprop="mpn">Rp. <?php echo $product_price; ?></span></li>
-                  <?php if($product_availability === 'sales_stock' ) {?>
+                  <?php if($product_availability === 'sales_stock' || $product_availability === 'ready_stock' ) {?>
                     <li><b>Old Price : </b><span itemprop="mpn"> <strike>Rp. <?php echo $product_old_price; ?></strike></span></li>
                   <?php } ?>
 

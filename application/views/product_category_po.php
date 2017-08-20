@@ -120,7 +120,7 @@
 
 
             <?php $date1 = str_replace('-', '',date('Y-m-d')) ?>
-            <?php $date2 = str_replace('-', '',$p->display_date); ?>
+            <?php $date2 = str_replace('-', '',$p->expired); ?>
             <?php if ($date1  <= $date2) { ?>
      
             

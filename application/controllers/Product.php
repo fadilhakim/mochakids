@@ -335,6 +335,58 @@ class product extends CI_Controller {
 		$this->load->view('templates/footer-2',$data);
 	}
 
+	public function brand_category($cat) {
+
+		$this->load->view('templates/meta');
+		//$this->load->model('model_event');
+		//$data['brand'] = $this->model_event->list_brand()->result();
+		//$data['promo'] = $this->model_event->list_promo()->result();
+		$this->load->view('templates/header',$data = array());
+
+
+		$cat=$this->uri->segment(2);
+		$page = 'product_category';
+		$cat=trim($cat);
+
+		$data['category'] = $this->model_product->list_category()->result();
+		
+		$all_getcate = $this->model_product->getcategory($cat);
+		$total_cat = $all_getcate->num_rows();
+		
+		$p   = $this->input->get("p") ;
+		$limit = 12;
+		
+		if(empty($p))
+		{
+			$start = 0;	
+		}
+		else if(!empty($p))
+		{
+			$start = ($p * $limit) - ($limit - 1) - 1 ;
+		}
+		
+		$getcate	 = $this->model_product->getbrand_limit($cat,$start,$limit);
+		
+		// var untuk paging
+		$arr["limit"] = $limit;
+		$arr["base_url"] = base_url("product_categories/$cat/?test");
+		$arr["total_rows"] = $total_cat;
+		
+		$data["page_num"] = paging($arr);
+		$data['product'] = $getcate;
+
+		$this->load->view($page, $data);
+		$this->load->model('model_home');
+		$data['contact_footer_1'] = $this->model_home->contact_footer_1()->result();
+		$data['contact_admin_1'] = $this->model_home->contact_admin_1()->result();
+		$data['contact_admin_2'] = $this->model_home->contact_admin_2()->result();
+		$data['contact_admin_3'] = $this->model_home->contact_admin_3()->result();
+		$data['contact_saran_1'] = $this->model_home->contact_saran_1()->result();
+		$data['contact_saran_2'] = $this->model_home->contact_saran_2()->result();
+		$data['bbm'] = $this->model_home->pin_bbm()->result();
+		$this->load->view('templates/footer-2',$data);
+	}
+
 	public function manufacturer($manu) {
 
 		$this->load->view('templates/meta');
