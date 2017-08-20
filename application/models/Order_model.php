@@ -133,7 +133,16 @@
 		
 		function update_stock($stock,$product_id)
 		{
-			$str = "UPDATE product_tbl SET stock = '$stock'  WHERE product_id = '$product_id' ";
+			if($stock == 0)
+			{
+				$pa = "pre_order";
+			}
+			else
+			{
+				$pa = "ready_stock";	
+			}
+			
+			$str = "UPDATE product_tbl SET stock = '$stock', product_availability = '$pa'  WHERE product_id = '$product_id' ";
 			$q = $this->db->query($str);	
 			
 		}
@@ -259,12 +268,10 @@
 				  $sub_total = $row["qty"] * $product["price"];
 				  $now = date("Y-m-d H:i:s");
 				  
-				  if($product["stock"] > 0)
-				  {
-				  	$sisa_stock = $product["stock"] - $row["qty"];
-				  	// update stock
-				  	$this->update_stock($sisa_stock,$row["id"]);
-				  }
+				  $sisa_stock = $product["stock"] - $row["qty"];
+				  // update stock
+				  $this->update_stock($sisa_stock,$row["id"]);
+				 
 				  
 				  $str2  = "INSERT INTO order_detail_tbl SET		 ";
 				  $str2 .= "id_order		= '$new_code'			,";
