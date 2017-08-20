@@ -29,7 +29,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	     	// $id_ajak = $this->input->post('ajax');
 			// Create an array with product information
 			
-		  if($qty <= $validate_cart["stock"])
+		  if(($qty <= $validate_cart["stock"]) || ($validate_cart["product_availability"] == "pre_order"))
 		  {
 				$data = array(
 	
