@@ -6,6 +6,7 @@
 
 		$this->load->view('templates/meta');
 		$this->load->view('templates/header');
+		$this->load->model('model_home');
 		$this->load->view($content);
 
 		$data['contact_header'] = $this->model_home->contact_header_1()->result();
