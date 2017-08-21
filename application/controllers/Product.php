@@ -69,7 +69,7 @@ class product extends CI_Controller {
 		$config['num_tag_open'] = '<li>';
 		$config['num_tag_close'] = '</li>';
 
-        $limit = $config["per_page"] = 20;
+        $limit = $config["per_page"] = 30;
         $config["uri_segment"] = 2;
 
         $this->pagination->initialize($config);
@@ -194,7 +194,7 @@ class product extends CI_Controller {
 	{
 
 		$p   = $this->input->get("p") ;
-		$limit = 12;
+		$limit = 30;
 		$status = $this->uri->segment(2);  
         $page = !empty($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
         
@@ -302,7 +302,7 @@ class product extends CI_Controller {
 		$total_cat = $all_getcate->num_rows();
 		
 		$p   = $this->input->get("p") ;
-		$limit = 12;
+		$limit = 30;
 		
 		if(empty($p))
 		{
@@ -354,7 +354,7 @@ class product extends CI_Controller {
 		$total_cat = $all_getcate->num_rows();
 		
 		$p   = $this->input->get("p") ;
-		$limit = 12;
+		$limit = 30;
 		
 		if(empty($p))
 		{
