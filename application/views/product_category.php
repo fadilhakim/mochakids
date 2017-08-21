@@ -78,7 +78,7 @@
                   <div class="caption">
                     <h3 ><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'. $product_category_url.'/'. $product_slug); ?>"><?php echo $product_category ?></a></h3>
                     <h3><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$product_category_url.'/'. $product_slug); ?>">Rp. <?php echo $price ?></a></h3>
-                    <p class="description"><?php echo $product_descrption ?></p>
+                   <!--  <p class="description"><?php echo $product_descrption ?></p> -->
                   </div>
                   <div class="button-group">
                     <a class="btn-primary" style="background-color:#0A098B;" href="<?php  echo base_url('product'.'/'.$product_category_url.'/'.$product_slug); ?>"><span>See Product</span></button></a>
