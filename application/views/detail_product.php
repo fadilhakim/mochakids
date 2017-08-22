@@ -93,7 +93,7 @@ foreach($product_cat->result() as $row){
                   <li><b>Deposit per seri :</b> <span itemprop="mpn"><?php echo $product_deposit; ?></span></li>
                   <?php } ?>
                   
-                  <?php if( $product_availability !== 'ready_stock' && $product_availability !== 'sales_stock'){ ?>
+                  <?php if( $product_availability == "pre_order"){ ?>
                   <li><b>ETA :</b> <span itemprop="mpn"><?php echo $product_eta; ?></span></li>
                   <?php } ?>
                   <li><b>Size :</b> <span itemprop="mpn"><?php echo $product_size; ?></span></li>

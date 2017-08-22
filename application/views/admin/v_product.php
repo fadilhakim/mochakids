@@ -214,13 +214,13 @@
                                             </div>
                                         
                                         </div>
-                                      	<!-- <div class="form-group hidden" id="eta_element">
+                                      	<div class="form-group hidden" id="eta_element">
                                         	<label class="control-label col-sm-5">ETA </label>
                                             <div class="col-sm-7">
                                             <input type="text" name="eta" id="eta" class="form-control datepicker1" disabled>
                                             </div>
                                          	
-                                        </div> -->
+                                        </div>
                                       	
                                        
                                         <div class="form-group">
