@@ -126,8 +126,14 @@ class Model_product extends CI_Model {
 
 		public function list_po_category_active() {
 
-			$event = $this->db->get_where('category_po_tbl',array('status' => '1'));
-			return $event;
+			//$event = $this->db->get_where('category_po_tbl',array('status' => '1'));
+	        $this ->db-> select('*');
+	        $this ->db-> from('category_po_tbl');
+	        $this->db->order_by("category_po_id", "desc");
+	        $query = $this->db->get();
+	        return $query ->result();
+
+			// return $event;
 		}
 
 

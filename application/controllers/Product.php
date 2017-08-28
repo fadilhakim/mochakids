@@ -109,7 +109,7 @@ class product extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$page = 'product_category_po';
 		$data["information"] = $this->model_product->info_po()->result();
-		$getcate = $this->model_product->list_po_category_active()->result();
+		$getcate = $this->model_product->list_po_category_active();
 		$data['results'] = $getcate;
 
 		$this->load->view($page, $data);
