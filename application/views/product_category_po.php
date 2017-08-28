@@ -139,8 +139,8 @@
                   }
                 </style>
                   <div class="caption">
-                    <a class="code-f" style="display:block " href="<?php  echo base_url('product/'.$p->category_po_id.'/'.$p->category_po_url.'/'.$p->category_po_url); ?>"><?php echo $p->category_po_title?></a>
-                    <a class="code-f" href="<?php  echo base_url('product/'.$p->category_po_id.'/'.$p->category_po_url.'/'.$p->category_po_url); ?>">Close PO : <?php echo $p->display_date?></a>
+                    <a class="code-f" style="display:block " href="<?php  echo base_url('product/po_list/'.$p->category_po_id.'/'.$p->category_po_url); ?>"><?php echo $p->category_po_title?></a>
+                    <a class="code-f" href="<?php  echo base_url('product/po_list/'.$p->category_po_id.'/'.$p->category_po_url); ?>">Close PO : <?php echo $p->display_date?></a>
                    <!--  <div class="description"><?php echo $p->expired?></div> -->
                   </div>
                   <div class="button-group">
