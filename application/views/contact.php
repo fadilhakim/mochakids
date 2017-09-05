@@ -42,7 +42,7 @@
                 <div class="contact-info-icon"><i class="fa fa-envelope"></i></div>
                 <div class="contact-detail">
                   <h4>Email</h4>
-                  info@mochakids.com
+                  mochakidshop@gmail.com
                 </div>
               </div>
             </div>
