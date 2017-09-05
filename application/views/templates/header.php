@@ -177,44 +177,11 @@
           <ul class="nav navbar-nav">
             <!-- <li><a class="home_link" title="Home" href="<?php echo base_url('home'); ?>"><span>Home</span></a></li> -->
             <li class="mega-menu dropdown"><a href="<?php echo base_url('home'); ?>">Home</a></li>
-            <li class="menu_brands dropdown"><a href="<?php echo base_url('about'); ?>">About</a>
-            </li>
-            <!-- <li class="custom-link"><a href="#">Custom Links</a></li> -->
-            <!-- <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a>Custom Block</a> -->
-              <!-- <div class="dropdown-menu custom_block">
-                <ul>
-                  <li>
-                    <table>
-                      <tbody>
-                        <tr>
-                          <td><img alt="" src="image/banner/cms-block.jpg"></td>
-                          <td><img alt="" src="image/banner/responsive.jpg"></td>
-                          <td><img alt="" src="image/banner/cms-block.jpg"></td>
-                        </tr>
-                        <tr>
-                          <td><h4>CMS Blocks</h4></td>
-                          <td><h4>Responsive Template</h4></td>
-                          <td><h4>Dedicated Support</h4></td>
-                        </tr>
-                        <tr>
-                          <td>This is a CMS block. You can insert any content (HTML, Text, Images) Here.</td>
-                          <td>This is a CMS block. You can insert any content (HTML, Text, Images) Here.</td>
-                          <td>This is a CMS block. You can insert any content (HTML, Text, Images) Here.</td>
-                        </tr>
-                        <tr>
-                          <td><strong><a class="btn btn-primary btn-sm" href="#">Read More</a></strong></td>
-                          <td><strong><a class="btn btn-primary btn-sm" href="#">Read More</a></strong></td>
-                          <td><strong><a class="btn btn-primary btn-sm" href="#">Read More</a></strong></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </li>
-                </ul>
-              </div> -->
-            </li>
+            <li class="menu_brands dropdown"><a href="<?php echo base_url('about'); ?>">About</a></li>
             <li class="dropdown"><a href="<?php echo base_url('product/ready_stock'); ?>">Ready Stock</a>
             <li class="dropdown"><a href="<?php echo base_url('product/po_category'); ?>">Pre-Order</a>
             <li class="dropdown"><a href="<?php echo base_url('product/sales_stock'); ?>">Sale Product</a>
+            <li class="dropdown"><a href="<?php echo base_url('howtobuy'); ?>">How to Buy</a>
               <!-- <div class="dropdown-menu">
                 <ul>
                   <li><a href="category.html">Category (Grid/List)</a></li>

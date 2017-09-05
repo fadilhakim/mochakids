@@ -103,6 +103,20 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Brand</label>
+                                        <div class="col-sm-9">
+   
+                                            <select class="form-control" name="manu">
+                                                <option value="<?php echo $product_brand; ?>"><?php echo $product_brand ?></option>
+                                                <?php foreach ($category_brand as $cb) { ?> 
+                                                    <option value="<?php echo $cb->manu_id; ?>"><?php echo $cb->manu_title; ?></option>
+                                                <?php } ?>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Code</label>
                                         <div class="col-sm-9">
                                             <?php
@@ -115,6 +129,8 @@
                                                 <?php } ?>
                                         </div>
                                     </div>
+
+
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Availability</label>

@@ -558,7 +558,7 @@ class update extends CI_Controller {
 		
 		$product_id 			= $this->input->post('product_id',true);
 		$product_title 			= $this->input->post('product_title',true);
-		// $product_brand 			= $this->input->post('manu_id',true);
+		$product_brand 			= $this->input->post('manu',true);
 		$product_category 		= $this->input->post('product_category',true);
 		$category_po 		    = $this->input->post('category_po',true);
 		$product_code 			= $this->input->post('product_code',true);
@@ -590,7 +590,7 @@ class update extends CI_Controller {
 		$data = array(
 			'product_id' => $product_id,
 			'product_title' => $product_title,
-			// 'manu_id' => $product_brand,
+			'manu_id' => $product_brand,
 			'product_category' => $product_category,
 
 			'product_code' => $product_code,

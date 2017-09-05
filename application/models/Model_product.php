@@ -36,6 +36,12 @@ class Model_product extends CI_Model {
 			return $category;
 		}
 
+		public function list_category_brand() {
+
+			$category = $this->db->get('manufacturer_tbl');
+			return $category;
+		}
+
 
 		public function list_category_po_by_id($id) {
 

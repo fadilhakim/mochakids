@@ -593,15 +593,9 @@ class admin extends CI_Controller {
 
 	{
 
-
-
-
-
 		$this->load->model('model_manufacturer');
 
 		$data['manu'] = $this->model_manufacturer->list_manufacturer()->result();
-
-
 
 		$this->load->model('model_product');
 
@@ -1094,6 +1088,7 @@ class admin extends CI_Controller {
 		$data['product_cat'] = $getcatproduct;
 
 		$data['category_po_url'] = $this->model_product->list_category_po()->result();
+		$data['category_brand'] = $this->model_product->list_category_brand()->result();
 
 
 		$this->load->model('model_update');

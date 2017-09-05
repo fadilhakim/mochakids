@@ -123,7 +123,7 @@ class insert extends CI_Controller {
 		$this->load->library("form_validation");
 		
 		$product_title = $this->input->post('product_title',TRUE);
-		// $manu_id = $this->input->post('manu',TRUE);
+		$manu_id = $this->input->post('manu',TRUE);
 		$product_category = $this->input->post('product_category',TRUE);
 		$category_po_url = $this->input->post('category_po',TRUE);
 		$product_code = $this->input->post('product_code',TRUE);
@@ -162,7 +162,7 @@ class insert extends CI_Controller {
 		
 		$data = array(
 			'product_title' 	=> $product_title,
-			// 'manu_id' 			=> $manu_id,
+			'manu_id' 			=> $manu_id,
 			'product_category'  => $product_category,
 
 			'product_code' 			=> $product_code,
