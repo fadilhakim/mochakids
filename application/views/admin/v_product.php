@@ -24,7 +24,7 @@
                         <?php } else {?>
                         <div class="col-lg-12">
                             <div class="card-box">
-                                <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/add/product'); ?>" method="post">
+                                <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/add/product'); ?>" method="post" novalidate>
                                     <div class="row">
                                         
                                         <h4 class="header-title m-t-0 m-b-30">Add New Product</h4>
