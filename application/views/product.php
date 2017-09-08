@@ -103,7 +103,7 @@
                 <div>
                   <div class="caption">
                     <h3 ><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>"><?php echo $p->product_title?></a></h3>
-                    <h3><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>">Rp. <?php echo $p->price?></a></h3>
+                    <h3><a style="color: #000; font-size: 18px;" href="<?php  echo base_url('product'.'/'.$p->category_url.'/'.$p->product_slug); ?>">Rp. <?php echo number_format($p->price)?></a></h3>
                     <div class="description"><?php echo $p->product_descrption?></div>
                   </div>
                   <div class="button-group">
