@@ -81,9 +81,9 @@ foreach($product_cat->result() as $row){
               <div class="col-sm-6">
                 <ul class="list-unstyled description">
                   <h2>Additional Information</h2>
-                  <li><b>Price : </b><span itemprop="mpn">Rp. <?php echo $product_price; ?></span></li>
+                  <li><b>Price : </b><span itemprop="mpn">Rp. <?php echo number_format($product_price) ?></span></li>
                   <?php if($product_availability === 'sales_stock' || $product_availability === 'ready_stock' ) {?>
-                    <li><b>Old Price : </b><span itemprop="mpn"> <strike>Rp. <?php echo $product_old_price; ?></strike></span></li>
+                    <li><b>Old Price : </b><span itemprop="mpn"> <strike>Rp. <?php echo number_format($product_old_price) ?></strike></span></li>
                   <?php } ?>
 
                   <li><b>1 Pack isi :</b> <span itemprop="mpn"><?php echo $product_pack; ?></span></li>
